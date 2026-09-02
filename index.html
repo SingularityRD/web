@@ -4,8 +4,8 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-<title>AutoSecOps — AI SOC, EDR, NDR, SIEM &amp; XDR in One Platform</title>
-<meta name="description" content="AutoSecOps unifies AI SOC, AIDR, EDR, NDR, SIEM, SOAR, XDR, MDM and CTI in one autonomous platform. Threat to action in under 100ms, from $8 per device." />
+<title>AutoSecOps — Autonomous Security Operations &amp; AI Agent Security</title>
+<meta name="description" content="AutoSecOps operates your security stack, protects AI agents while they run, and continuously tests your defenses — from one autonomous security platform." />
 <link rel="canonical" href="https://singularityrd.com/" />
 <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
 <meta name="author" content="Singularity Research and Development Inc." />
@@ -20,8 +20,8 @@
 <meta property="og:site_name" content="Singularity Research and Development Inc." />
 <meta property="og:locale" content="en_US" />
 <meta property="og:url" content="https://singularityrd.com/" />
-<meta property="og:title" content="AutoSecOps by Singularity — Security, on autopilot" />
-<meta property="og:description" content="One AI platform that unifies AI SOC, AIDR, EDR, NDR, SIEM, SOAR, XDR, MDM and CTI — detects, responds, and safely attacks you first. From $8 per device per month." />
+<meta property="og:title" content="AutoSecOps — Security operations and AI agent protection" />
+<meta property="og:description" content="One AI platform that operates your security stack, protects AI agents while they run, and continuously tests your defenses." />
 <meta property="og:image" content="https://singularityrd.com/assets/og-cover.png" />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
@@ -29,8 +29,8 @@
 
 <!-- X / Twitter -->
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="AutoSecOps by Singularity — Security, on autopilot" />
-<meta name="twitter:description" content="AI SOC, AIDR, EDR, NDR, SIEM, SOAR, XDR, MDM and CTI in one autonomous platform. Under 100ms from threat to action. From $8 per device per month." />
+<meta name="twitter:title" content="AutoSecOps — Security operations and AI agent protection" />
+<meta name="twitter:description" content="Operate your security stack, protect AI agents at runtime, and continuously test your defenses from one autonomous platform." />
 <meta name="twitter:image" content="https://singularityrd.com/assets/og-cover.png" />
 
 <link rel="icon" href="assets/mark.svg" type="image/svg+xml" />
@@ -56,8 +56,12 @@
       "url": "https://singularityrd.com/",
       "logo": "https://singularityrd.com/assets/logo.svg",
       "email": "anil@singularityrd.com",
-      "description": "Singularity Research and Development Inc. builds AutoSecOps, an autonomous security platform that unifies AI SOC, AIDR, EDR, NDR, SIEM, SOAR, XDR, MDM and CTI.",
+      "description": "Singularity Research and Development Inc. is a Delaware-incorporated cybersecurity company with offices in the United States and Türkiye. It builds AutoSecOps for autonomous security operations and AI-agent runtime protection.",
       "foundingDate": "2024",
+      "location": [
+        { "@type": "Place", "name": "United States office" },
+        { "@type": "Place", "name": "Türkiye office" }
+      ],
       "founder": {
         "@type": "Person",
         "name": "Muhammet Anıl Yağız",
@@ -140,26 +144,26 @@
       "mainEntity": [
         {
           "@type": "Question",
-          "name": "What is AutoSecOps?",
+          "name": "Does AutoSecOps work with existing security tools?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "AutoSecOps is the autonomous security platform built by Singularity Research and Development Inc. It replaces a stack of separate tools by combining AI SOC analysts, AIDR (AI Agent Detection and Response), EDR, NDR, SIEM, SOAR, XDR, MDM and CTI in one console. AutoSecOps observes telemetry, decides a verdict, acts to contain the threat and verifies the outcome in under 100 milliseconds, with every action written to an audit-ready evidence chain."
+            "text": "Yes. AutoSecOps connects to tools such as CrowdStrike, Splunk, Sentinel and Palo Alto. Organizations can also use AutoSecOps sensors."
           }
         },
         {
           "@type": "Question",
-          "name": "Which security modules are included in AutoSecOps?",
+          "name": "How are AI-agent actions controlled?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "AutoSecOps ships an agentic AI SOC, AIDR for protecting AI agents, EDR for endpoints, NDR for network traffic, SIEM for log correlation, SOAR for automated response playbooks, XDR for cross-surface detection, MDM for mobile fleets, CTI for threat intelligence enrichment, and BreachOps for continuous offensive testing. All modules share one data plane and one console."
+            "text": "AIDR checks prompts and tool calls before execution. Safe actions continue, while risky actions are blocked or sent for human approval."
           }
         },
         {
           "@type": "Question",
-          "name": "What is AIDR and why do AI agents need it?",
+          "name": "How long does deployment take?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "AIDR stands for AI Agent Detection and Response. It is Singularity's own module for securing autonomous AI agents, which are a new attack surface. AIDR screens every prompt, retrieved context, tool call and output an agent produces, blocking prompt injection, tool abuse and data exfiltration before the agent acts. Risky tool calls pause for human approval while everything else runs at machine speed."
+            "text": "Organizations can connect an existing stack or deploy AutoSecOps sensors in minutes. Timing varies with environment, scope and approval requirements."
           }
         },
         {
@@ -167,7 +171,7 @@
           "name": "How much does AutoSecOps cost?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "AutoSecOps starts at 8 US dollars per device per month on the Starter plan, with no minimums. The Growth plan is 12 dollars per device per month and adds IAM, patching, CTI feeds and vCISO. Scale is custom priced for defense, government and regulated industries. A comparable legacy stack of SIEM, SOAR, EDR, a five-analyst SOC team and compliance tooling costs over 1.2 million dollars per year."
+            "text": "Starter is 8 US dollars per device per month, Growth is 12 dollars, and Enterprise is custom priced for regulated or air-gapped environments."
           }
         },
         {
@@ -175,23 +179,7 @@
           "name": "Can AutoSecOps run air-gapped or on-premises?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Yes. AutoSecOps runs in the cloud, in your own datacenter, or fully air-gapped. Singularity's 1B-parameter Maximus models run entirely on your premises and score near frontier models a thousand times their size on Cybench, the public security reasoning benchmark. No data ever leaves your network."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "What is BreachOps?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "BreachOps is the offensive side of AutoSecOps. It runs autonomous red teams that map how a real adversary would chain your weaknesses, exploit them safely inside approved scope with a rollback path, and ship every finding with evidence and a remediation script. It runs continuously rather than once a year."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Does AutoSecOps replace or integrate with tools like CrowdStrike and Splunk?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Both. AutoSecOps has more than 300 integrations, including CrowdStrike, Splunk, SentinelOne, Microsoft Sentinel and Palo Alto, so it can act as the AI brain over the stack you already run. If you have no tooling yet, AutoSecOps ships its own EDR, NDR, SIEM and XDR built from zero, and one console replaces the whole alphabet."
+            "text": "Yes. AutoSecOps can run in the cloud, in an organization's datacenter, or fully air-gapped. Sensitive data can stay inside the organization's environment."
           }
         }
       ]
@@ -228,18 +216,16 @@
 
     <nav class="nav-primary" aria-label="Primary">
       <a class="nav-seg is-active" href="#autosecops">AutoSecOps <b>01</b></a>
-      <a class="nav-seg" href="#aidr">AIDR <b>02</b></a>
+      <a class="nav-seg" href="#aidr">AI Agent Security <b>02</b></a>
       <a class="nav-seg" href="#breachops">BreachOps <b>03</b></a>
       <a class="nav-seg" href="#research">Research <b>04</b></a>
     </nav>
 
     <nav class="nav-secondary" aria-label="Secondary">
       <a class="nav-link" href="#platform">Platform</a>
+      <a class="nav-link" href="#customer-success">Customer Success</a>
       <a class="nav-link" href="#faq">FAQ</a>
-      <a class="nav-link" href="#careers">Careers <span class="pill">7</span></a>
-      <a class="nav-link" href="#contact">Book a call</a>
-      <a class="btn btn-ghost" href="#contact">Login</a>
-      <a class="btn btn-solid" href="#pricing">Get protected <span class="chev">›</span></a>
+      <a class="btn btn-solid" href="https://calendly.com/anill-yagiz/singularity" target="_blank" rel="noopener">Book a demo <span class="chev">›</span></a>
     </nav>
 
     <button class="burger" type="button" aria-label="Open menu" aria-controls="mobile-nav" aria-expanded="false"><span></span><span></span></button>
@@ -248,14 +234,13 @@
   <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation" hidden>
     <div class="shell mobile-nav-grid">
       <a class="mobile-nav-link" href="#autosecops">AutoSecOps <span>01</span></a>
-      <a class="mobile-nav-link" href="#aidr">AIDR <span>02</span></a>
+      <a class="mobile-nav-link" href="#aidr">AI Agent Security <span>02</span></a>
       <a class="mobile-nav-link" href="#breachops">BreachOps <span>03</span></a>
       <a class="mobile-nav-link" href="#research">Research <span>04</span></a>
       <a class="mobile-nav-link" href="#platform">Platform</a>
+      <a class="mobile-nav-link" href="#customer-success">Customer Success</a>
       <a class="mobile-nav-link" href="#faq">FAQ</a>
-      <a class="mobile-nav-link" href="#careers">Careers <span class="pill">7</span></a>
-      <a class="mobile-nav-link" href="#contact">Book a call</a>
-      <a class="btn btn-solid btn-lg mobile-nav-cta" href="#pricing">Get protected <span class="chev">›</span></a>
+      <a class="btn btn-solid btn-lg mobile-nav-cta" href="https://calendly.com/anill-yagiz/singularity" target="_blank" rel="noopener">Book a demo <span class="chev">›</span></a>
     </div>
   </nav>
 </header>
@@ -269,14 +254,18 @@
 
   <div class="shell hero-inner">
     <div class="hero-copy">
-      <p class="eyebrow">AutoSecOps · the autonomous security platform</p>
-      <h1 class="hero-title">Security, on autopilot.</h1>
-      <p class="hero-lede">The attacker is an AI now. Your defense still waits on humans. <strong>AutoSecOps</strong> closes that gap — one brain that watches everything, decides in under <strong>100ms</strong>, and safely attacks you before criminals do. Ten tools' jobs, one platform, from <strong>$8 per device</strong>.</p>
+      <p class="eyebrow">Autonomous security operations · AI agent runtime security</p>
+      <h1 class="hero-title">Your security stack and AI agents, protected by one AI platform.</h1>
+      <p class="hero-lede"><strong>AutoSecOps</strong> connects the tools you already use, investigates threats, controls risky actions, and records the evidence. It also protects every AI agent while it runs — from the prompt it receives to the tools it calls.</p>
       <div class="hero-actions">
-        <a class="btn btn-solid btn-lg" href="#pricing">Get protected <span class="chev">›</span></a>
-        <a class="btn btn-ghost btn-lg" href="#contact">Book a call</a>
+        <a class="btn btn-solid btn-lg" href="#architecture">See how it works <span class="chev">›</span></a>
+        <a class="btn btn-ghost btn-lg" href="https://calendly.com/anill-yagiz/singularity" target="_blank" rel="noopener">Book a demo</a>
       </div>
-      <p class="install"><span class="dollar">$</span> <span data-type>autosecops deploy --fleet 500</span></p>
+      <ul class="hero-pillars" aria-label="AutoSecOps core capabilities">
+        <li>Operate your security stack</li>
+        <li>Protect AI agents at runtime</li>
+        <li>Test your defenses continuously</li>
+      </ul>
     </div>
 
     <div class="hero-backers">
@@ -291,9 +280,9 @@
 <!-- ── Logo wall ────────────────────────────────────────────────── -->
 <section class="shell" id="recognition" aria-label="Programs and institutions that have validated Singularity">
   <div class="logo-wall">
-    <a class="logo-cell" href="#"><span class="cell-tag">Inception program <em>↗</em></span><img class="logo-img" src="assets/logos/nvidia.svg" alt="NVIDIA" /></a>
-    <a class="logo-cell" href="#"><span class="cell-tag">Bio Bug Bounty <em>↗</em></span><img class="logo-img" src="assets/logos/openai.svg" alt="OpenAI" /></a>
-    <a class="logo-cell" href="#"><span class="cell-tag">Accepted research <em>↗</em></span><img class="logo-img" src="assets/logos/nasa.svg" alt="NASA" /></a>
+    <div class="logo-cell"><span class="cell-tag">Inception program</span><img class="logo-img" src="assets/logos/nvidia.svg" alt="NVIDIA" /></div>
+    <div class="logo-cell"><span class="cell-tag">Bio Bug Bounty</span><img class="logo-img" src="assets/logos/openai.svg" alt="OpenAI" /></div>
+    <div class="logo-cell"><span class="cell-tag">Accepted research</span><img class="logo-img" src="assets/logos/nasa.svg" alt="NASA" /></div>
     <div class="logo-cell"><span class="cell-tag">Accepted research</span><span class="logo-pair">
       <svg class="logo-svg" viewBox="0 0 242.9 243" aria-label="ESA"><g transform="translate(-284.34529,-310.87462)" fill="currentColor"><path d="M 441.27656,421.69091 L 489.06851,421.69091 C 489.06851,421.69091 490.95942,414.50647 482.448,403.73556 C 465.63578,386.36245 446.75096,397.88425 446.75096,397.88425 C 437.49097,402.79466 425.59827,423.19951 432.5752,452.48057 C 441.27656,481.76777 474.70802,487.79444 495.4807,480.9959 C 509.22935,476.49815 517.15628,466.58258 520.97082,460.36264 C 522.19749,455.33062 523.07302,450.29854 523.62479,445.29613 L 441.27656,445.29613 L 441.27656,421.69091 z"/><path d="M 399.50313,314.0484 C 349.07144,316.73088 304.07792,351.63361 291.01123,403.15996 C 274.92326,466.58228 313.28624,531.09154 376.70273,547.18248 C 421.76015,558.6123 467.44984,542.56008 495.83482,509.56183 C 483.35387,512.54546 468.74721,512.7444 452.89406,507.28179 C 399.80336,488.94941 390.0744,439.81917 403.30319,405.44 C 416.51453,371.05852 462.77423,355.03288 494.8848,378.07952 C 522.40658,397.81786 523.91846,432.98525 523.7653,442.68065 C 528.83009,385.78642 492.17885,331.97699 435.03374,317.46846 C 423.14324,314.45309 411.14124,313.42939 399.50313,314.0484 z M 341.74211,418.55023 C 350.16166,418.55023 356.94238,425.33635 356.94238,433.7505 C 356.94238,442.16992 350.16166,448.95076 341.74211,448.95076 C 333.32859,448.95076 326.35184,442.16992 326.35184,433.7505 C 326.35191,425.33635 333.32859,418.55023 341.74211,418.55023 z"/></g></svg>
       <span>esa</span></span></div>
@@ -313,16 +302,20 @@
   </div>
 </section>
 
-<!-- ── The problem ──────────────────────────────────────────────── -->
+<!-- ── Before and after ─────────────────────────────────────────── -->
 <section class="shell band" id="problem" aria-labelledby="problem-h">
-  <div class="panel statband">
-    <p class="stat-lede" id="problem-h">Attacks now run at machine speed. Defense still runs on humans. The scoreboard so far:</p>
-    <div class="stats">
-      <div class="stat"><b data-cnt="241">241</b><span>days — average time to spot a breach</span></div>
-      <div class="stat"><b data-cnt="10.2" data-pre="$" data-suf="M">$10.2M</b><span>average cost of one US breach</span></div>
-      <div class="stat"><b data-cnt="4.8" data-suf="M">4.8M</b><span>unfilled security jobs worldwide</span></div>
+  <div class="panel before-after">
+    <div class="before-after-head">
+      <p class="eyebrow">Before → AutoSecOps</p>
+      <h2 id="problem-h">Weeks of work. Minutes with AutoSecOps.</h2>
     </div>
-    <p class="stat-src">IBM Cost of a Data Breach 2025 · ISC2 Cybersecurity Workforce Study 2025</p>
+    <div class="speed-grid" role="list">
+      <article role="listitem"><p>Deploy</p><div><s>12 months</s><i>→</i><strong>Minutes</strong></div></article>
+      <article role="listitem"><p>Investigate</p><div><s>Hours</s><i>→</i><strong>&lt;100ms</strong></div></article>
+      <article role="listitem"><p>Protect AI agents</p><div><s>Manual</s><i>→</i><strong>Inline</strong></div></article>
+      <article role="listitem"><p>Collect evidence</p><div><s>Days</s><i>→</i><strong>Real time</strong></div></article>
+      <article role="listitem"><p>Test defenses</p><div><s>Weeks</s><i>→</i><strong>Minutes</strong></div></article>
+    </div>
   </div>
 </section>
 
@@ -331,83 +324,81 @@
   <div class="panel">
     <div class="define">
       <h2 class="define-h" id="platform-h">What is AutoSecOps?</h2>
-      <p class="define-lede"><strong>AutoSecOps</strong> is the autonomous security platform built by <strong>Singularity Research and Development Inc.</strong> It replaces a stack of separate tools with one console where an AI brain observes your telemetry, decides a verdict, acts to contain the threat, and verifies the outcome — in under 100 milliseconds, with every action written to an audit-ready evidence chain.</p>
-      <p class="define-sub">Ten modules. One data plane. One console. One price.</p>
+      <p class="define-lede"><strong>AutoSecOps runs your security operations from one place.</strong> It connects your tools, investigates threats, protects AI agents, and responds under your rules.</p>
     </div>
 
-    <ul class="modules">
+    <ul class="outcomes">
       <li class="module">
         <p class="m-num">01</p>
-        <h3 class="module-h">Agentic SOC</h3>
-        <p class="module-full">AI-run security operations centre</p>
-      </li>
-      <li class="module is-own" id="aidr">
-        <p class="m-num">02</p>
-        <h3 class="module-h">AIDR</h3>
-        <p class="module-full">AI Agent Detection &amp; Response</p>
-        <p class="module-p">Guards your AI agents — prompt injection, tool abuse and exfiltration die at the gate.</p>
-      </li>
-      <li class="module">
-        <p class="m-num">03</p>
-        <h3 class="module-h">EDR</h3>
-        <p class="module-full">Endpoint Detection &amp; Response</p>
-      </li>
-      <li class="module">
-        <p class="m-num">04</p>
-        <h3 class="module-h">NDR</h3>
-        <p class="module-full">Network Detection &amp; Response</p>
-      </li>
-      <li class="module">
-        <p class="m-num">05</p>
-        <h3 class="module-h">SIEM</h3>
-        <p class="module-full">Security Information &amp; Event Management</p>
-      </li>
-      <li class="module">
-        <p class="m-num">06</p>
-        <h3 class="module-h">SOAR</h3>
-        <p class="module-full">Security Orchestration, Automation &amp; Response</p>
-      </li>
-      <li class="module">
-        <p class="m-num">07</p>
-        <h3 class="module-h">XDR</h3>
-        <p class="module-full">Extended Detection &amp; Response</p>
-      </li>
-      <li class="module">
-        <p class="m-num">08</p>
-        <h3 class="module-h">MDM</h3>
-        <p class="module-full">Mobile Device Management</p>
-      </li>
-      <li class="module">
-        <p class="m-num">09</p>
-        <h3 class="module-h">CTI</h3>
-        <p class="module-full">Cyber Threat Intelligence</p>
+        <h3 class="module-h">Run security</h3>
+        <p class="module-p">Investigate and respond automatically.</p>
       </li>
       <li class="module is-own">
-        <p class="m-num">10</p>
-        <h3 class="module-h">BreachOps</h3>
-        <p class="module-full">Continuous Offensive Testing</p>
-        <p class="module-p">Autonomous red teams attack you first, safely — every finding ships with a fix.</p>
+        <p class="m-num">02</p>
+        <h3 class="module-h">Protect AI agents</h3>
+        <p class="module-p">Check every prompt and action in real time.</p>
+      </li>
+      <li class="module is-own">
+        <p class="m-num">03</p>
+        <h3 class="module-h">Test defenses</h3>
+        <p class="module-p">Find weaknesses before attackers do.</p>
       </li>
     </ul>
   </div>
 </section>
 
+<!-- ── How it works ─────────────────────────────────────────────── -->
+<section class="shell band" id="architecture" aria-labelledby="architecture-h">
+  <div class="panel simple-how">
+    <div class="simple-head">
+      <p class="eyebrow">How it works</p>
+      <h2 id="architecture-h">From signal to safe action.</h2>
+    </div>
+    <ol class="simple-flow">
+      <li><span>01</span><h3>Connect</h3><p>Use your tools or ours.</p></li>
+      <li><span>02</span><h3>Investigate</h3><p>AI finds what matters.</p></li>
+      <li><span>03</span><h3>Act</h3><p>Your policies stay in control.</p></li>
+      <li><span>04</span><h3>Prove</h3><p>Every result is recorded.</p></li>
+    </ol>
+  </div>
+</section>
+
+<!-- ── AI agent runtime security ────────────────────────────────── -->
+<section class="shell band" id="aidr" aria-labelledby="aidr-h">
+  <div class="panel aidr-panel">
+    <div class="aidr-intro">
+      <div>
+        <p class="eyebrow">AIDR · AI Agent Detection &amp; Response</p>
+        <h2 id="aidr-h">Protect AI agents before they act.</h2>
+      </div>
+      <p>Every prompt and tool call is checked in real time. Safe actions continue. Risky actions are blocked or sent for approval.</p>
+    </div>
+
+    <div class="runtime-flow" aria-label="AI agent runtime protected by AIDR">
+      <div class="runtime-step"><span>01</span><b>Prompt</b><small>Agent receives a request</small></div>
+      <i aria-hidden="true">›</i>
+      <div class="runtime-step is-guard"><span>AIDR</span><b>Check</b><small>Allow · Block · Approve</small></div>
+      <i aria-hidden="true">›</i>
+      <div class="runtime-step"><span>02</span><b>Act</b><small>Only safe actions continue</small></div>
+    </div>
+  </div>
+</section>
+
 <!-- ── AutoSecOps in action ─────────────────────────────────────── -->
-<section class="shell lab" id="autosecops" aria-labelledby="autosecops-h">
+<section class="shell lab" id="autosecops-preview" aria-labelledby="autosecops-h" hidden>
   <div class="panel">
 
     <div class="panel-hero">
       <canvas class="matrix" data-matrix aria-hidden="true"></canvas>
       <div class="panel-head">
-        <h2 class="panel-title" id="autosecops-h"><em>AutoSecOps.</em> Plug in your stack — AI takes over.</h2>
+        <h2 class="panel-title" id="autosecops-h"><em>See AutoSecOps work.</em> AI handles the queue. Your team keeps control.</h2>
         <div class="panel-actions">
-          <a class="btn btn-solid btn-lg" href="https://calendly.com/anill-yagiz/singularity" target="_blank" rel="noopener">Start free <span class="chev">›</span></a>
-          <a class="btn btn-ghost btn-lg" href="https://calendly.com/anill-yagiz/singularity" target="_blank" rel="noopener">Book a demo</a>
+          <a class="btn btn-solid btn-lg" href="https://calendly.com/anill-yagiz/singularity" target="_blank" rel="noopener">Book a demo <span class="chev">›</span></a>
         </div>
       </div>
     </div>
 
-    <div class="lab-grid">
+    <div class="lab-grid is-single">
 
       <!-- 01 ───────────────────────────────────────────────────── -->
       <article class="lab-block">
@@ -442,21 +433,20 @@
 
         <div class="lab-copy">
           <div class="lab-lede">
-            <h3 class="lab-title"><span class="lab-num">01</span> AI SOC Analysts</h3>
-            <p>AI analysts that triage, investigate and respond — end to end, in under 100ms.</p>
+            <h3 class="lab-title"><span class="lab-num">01</span> Investigate and respond</h3>
+            <p>AutoSecOps handles the alert from first signal to verified outcome.</p>
           </div>
           <ol class="lab-list">
-            <li>Observe → decide → act → verify, fully autonomous</li>
-            <li>100% of alerts investigated — no queues, no burnout</li>
-            <li>You approve the risky calls; AI never leaves its rails</li>
+            <li>Every alert gets investigated</li>
+            <li>Safe actions run automatically</li>
+            <li>Risky actions wait for approval</li>
           </ol>
         </div>
 
-        <div class="lab-cta"><a class="btn btn-solid btn-lg" href="https://calendly.com/anill-yagiz/singularity" target="_blank" rel="noopener">See it triage <span class="chev">›</span></a></div>
       </article>
 
       <!-- 02 ───────────────────────────────────────────────────── -->
-      <article class="lab-block">
+      <article class="lab-block" hidden>
         <figure class="fig">
           <div class="fig-art evals">
             <table class="score-table">
@@ -511,7 +501,7 @@
       </article>
 
       <!-- 03 ───────────────────────────────────────────────────── -->
-      <article class="lab-block">
+      <article class="lab-block" hidden>
         <figure class="fig">
           <div class="fig-art train">
             <div class="train-chart">
@@ -558,11 +548,11 @@
           </ol>
         </div>
 
-        <div class="lab-cta"><a class="btn btn-solid btn-lg" href="https://calendly.com/anill-yagiz/singularity" target="_blank" rel="noopener">Start free <span class="chev">›</span></a></div>
+        <div class="lab-cta"><a class="btn btn-solid btn-lg" href="https://calendly.com/anill-yagiz/singularity" target="_blank" rel="noopener">Book a demo <span class="chev">›</span></a></div>
       </article>
 
       <!-- 04 ───────────────────────────────────────────────────── -->
-      <article class="lab-block">
+      <article class="lab-block" hidden>
         <figure class="fig">
           <div class="fig-art deploy">
             <div class="deploy-tabs">
@@ -621,8 +611,8 @@
   </div>
 </section>
 
-<!-- ── Quotes ───────────────────────────────────────────────────── -->
-<section class="shell quotes">
+<!-- ── Testimonials and perspectives ───────────────────────────── -->
+<section class="shell quotes" aria-label="Testimonials and perspectives">
   <blockquote class="quote quote-accent">
     <svg class="quote-deco" viewBox="0 0 320 240" aria-hidden="true">
       <path d="M-20 240 Q140 150 340 6"/>
@@ -645,18 +635,48 @@
   </blockquote>
 </section>
 
+<!-- ── Customer success ─────────────────────────────────────────── -->
+<section class="shell band stories" id="customer-success" aria-labelledby="customer-success-h">
+  <div class="panel">
+    <div class="plain-head">
+      <h2 class="plain-title" id="customer-success-h">Customer Success</h2>
+      <a class="btn btn-ghost btn-lg" href="customer-success.html">Read the case studies <span class="chev">›</span></a>
+    </div>
+    <div class="story-row">
+      <a class="story" href="customer-success.html#defense-prime">
+        <canvas class="matrix" data-matrix="ember" aria-hidden="true"></canvas>
+        <span class="story-logo">◈ Defense prime</span>
+        <span class="story-foot">
+          <span class="tag">PILOT</span>
+          <span class="story-title">How a defense prime moved its SOC from alert triage to threat hunting</span>
+        </span>
+      </a>
+      <a class="story" href="customer-success.html#fintech-scaleup">
+        <span class="story-logo">Fintech scale-up <i>↗</i></span>
+        <span class="story-foot">
+          <span class="tag">PILOT</span>
+          <span class="story-title">How a 500-device fintech got audit-ready in one week</span>
+        </span>
+      </a>
+    </div>
+  </div>
+</section>
+
 <!-- ── Environment Hub ──────────────────────────────────────────── -->
 <section class="shell hub">
   <div class="panel">
-    <div class="hub-main">
+    <div class="hub-main is-simple">
 
       <div class="hub-intro">
-        <h2 class="hub-title" id="integrations-h">Integration Hub</h2>
-        <p class="hub-lede">Plug the tools you already run into AutoSecOps — 300+ integrations feed one AI brain. No tools yet? AutoSecOps ships its own EDR, NDR, SIEM and XDR, built from zero.</p>
-        <a class="btn btn-solid btn-lg" href="https://calendly.com/anill-yagiz/singularity" target="_blank" rel="noopener">Browse integrations <span class="chev">›</span></a>
+        <p class="eyebrow">Integrations</p>
+        <h2 class="hub-title" id="integrations-h">Keep the tools you trust.</h2>
+        <p class="hub-lede">AutoSecOps connects to your existing stack. No tools yet? Use our own sensors.</p>
+        <div class="integration-logos" aria-label="Example integrations">
+          <span>CrowdStrike</span><span>Splunk</span><span>Sentinel</span><span>Palo Alto</span><span>+300</span>
+        </div>
       </div>
 
-      <div class="hub-app">
+      <div class="hub-app" hidden>
         <div class="hub-tabs">
           <span class="hub-tab is-active">◍ Explore</span>
           <span class="hub-tab">⚑ Installed</span>
@@ -664,7 +684,7 @@
         </div>
 
         <div class="hub-body">
-          <div class="hub-head"><b>Featured</b><span class="pill">9</span><a href="#">Show All</a></div>
+          <div class="hub-head"><b>Featured</b><span class="pill">9</span></div>
           <div class="hub-cards">
             <article class="env">
               <p class="env-top"><span>⌁ connect</span><b>EDR</b></p>
@@ -717,7 +737,7 @@
       </div>
     </div>
 
-    <div class="hub-links">
+    <div class="hub-links" hidden>
       <article class="hub-link">
         <a class="hub-link-title" href="#platform">AutoSecOps EDR &amp; NDR <span class="chev">›</span></a>
         <div class="code-card">
@@ -767,17 +787,16 @@
   </div>
 </section>
 
-<!-- ── AIDR ─────────────────────────────────────────────────────── -->
-<section class="shell band" id="architecture" aria-labelledby="architecture-h">
+<!-- ── Inside AutoSecOps scrollytelling ────────────────────────── -->
+<section class="shell band" id="autosecops" aria-labelledby="architecture-detail-h">
   <div class="panel">
 
     <div class="panel-hero">
       <canvas class="matrix" data-matrix="stream" aria-hidden="true"></canvas>
       <div class="panel-head">
-        <h2 class="panel-title" id="architecture-h"><em>How it works.</em> One platform, told in four moves.</h2>
+        <h2 class="panel-title" id="architecture-detail-h"><em>Inside AutoSecOps.</em> Scroll through the full loop.</h2>
         <div class="panel-actions">
-          <a class="btn btn-solid btn-lg" href="#contact">Book a call <span class="chev">›</span></a>
-          <a class="btn btn-ghost btn-lg" href="#platform">See the modules</a>
+          <a class="btn btn-solid btn-lg" href="https://calendly.com/anill-yagiz/singularity" target="_blank" rel="noopener">Book a demo <span class="chev">›</span></a>
         </div>
       </div>
     </div>
@@ -791,18 +810,18 @@
       </article>
       <article class="step" data-step="2">
         <p class="step-k">02</p>
-        <h3>It all becomes AI analysts.</h3>
-        <p class="step-p">All ten modules written from scratch — zero acquisitions, one data plane. Every alert answered by machines, end to end, in under 100ms.</p>
+        <h3>AI investigates the signal.</h3>
+        <p class="step-p">Alerts are correlated, enriched, and prioritized in one workflow — including activity from AI agents at runtime.</p>
       </article>
       <article class="step" data-step="3">
         <p class="step-k">03</p>
-        <h3>Your team gets 5× its time back.</h3>
-        <p class="step-p">Triage eats 80% of an analyst's day. AutoSecOps takes it all — your people hunt and decide, the machine does the rest.</p>
+        <h3>Policy decides what happens next.</h3>
+        <p class="step-p">Safe actions run automatically. Risky endpoint changes or AI-agent tool calls pause for human approval.</p>
       </article>
       <article class="step" data-step="4">
         <p class="step-k">04</p>
-        <h3>Then we attack you.</h3>
-        <p class="step-p">BreachOps hits your estate first, safely. Every finding ships with a fix — and retrains the defense.</p>
+        <h3>Every outcome is proven.</h3>
+        <p class="step-p">The result is verified, the evidence is recorded, and BreachOps continuously tests whether the defense holds.</p>
       </article>
       </div>
       <div class="scrolly-stage">
@@ -819,7 +838,7 @@
   </div>
 </section>
 
-<!-- ── BreachOps + pricing ──────────────────────────────────────── -->
+<!-- ── BreachOps + sovereign deployment ────────────────────────── -->
 <section class="shell band" id="breachops" aria-labelledby="breachops-h">
   <div class="panel">
 
@@ -834,7 +853,7 @@
       </div>
     </div>
 
-    <div class="split">
+    <div class="split split-copy-only">
       <div class="split-copy">
         <h3 class="split-title sm">Continuous offense</h3>
         <p class="split-desc lg">Autonomous red teams that never sleep.<br/>Weaknesses proven &amp; fixed before criminals find them.</p>
@@ -843,10 +862,9 @@
           <li><p class="step-head">Safe exploitation, with rails</p><p class="step-desc">Exploits run in guarded mode inside approved scope. Nothing executes without a rollback path.</p></li>
           <li><p class="step-head">Proof, then the fix</p><p class="step-desc">Every finding ships with evidence and a remediation script — proven, patched, verified.</p></li>
         </ol>
-        <a class="btn btn-solid btn-lg" href="https://calendly.com/anill-yagiz/singularity" target="_blank" rel="noopener">Run a breach test <span class="chev">›</span></a>
       </div>
 
-      <div class="split-fig fig" id="pricing">
+      <div class="split-fig fig" hidden>
         <div class="gpu-mock">
           <div class="gpu-toggle"><span class="is-active">◈ Cloud</span><span>◈ Air-gapped</span></div>
           <div class="gpu-cols">
@@ -860,7 +878,7 @@
               <div class="gpu"><p class="gpu-top"><b>◉ STARTER</b><em>$8/device/mo</em></p><p class="gpu-avail">Available now <i>no minimums</i></p><p class="gpu-spec"><b>MDR · EDR</b> · MALWARE · SOC2 · API</p></div>
               <div class="gpu"><p class="gpu-top"><b>◉ GROWTH</b><em>$12/device/mo</em></p><p class="gpu-avail">Available now <i>no minimums</i></p><p class="gpu-spec"><b>+ IAM</b> · PATCHING · CTI FEEDS · vCISO</p></div>
               <div class="gpu"><p class="gpu-top"><b>◉ SCALE</b><em>Custom</em></p><p class="gpu-avail">Talk to us <i>defense &amp; regulated</i></p><p class="gpu-spec"><b>+ PREDICTIVE AI</b> · FULL vCISO · 24/7</p></div>
-              <div class="gpu"><p class="gpu-top"><b>◉ LAND &amp; EXPAND</b><em>$8 → $20+</em></p><p class="gpu-avail">Everything included <i>live in minutes</i><em class="spot">90%+ gross margin</em></p><p class="gpu-spec"><b>MODULES SWITCH ON</b> AS YOU GROW</p></div>
+              <div class="gpu"><p class="gpu-top"><b>◉ ENTERPRISE</b><em>Custom</em></p><p class="gpu-avail">Air-gapped <i>regulated environments</i></p><p class="gpu-spec"><b>DEPLOYMENT THAT FITS YOUR POLICIES</b></p></div>
             </div>
             <div class="gpu-col is-side">
               <div class="gpu"><p class="gpu-top"><b>EDR</b></p><p class="gpu-avail">$50–180 / device</p><p class="gpu-spec">THE OLD WAY</p></div>
@@ -873,8 +891,8 @@
       </div>
     </div>
 
-    <div class="split split-flip">
-      <div class="split-fig fig">
+    <div class="split split-flip split-copy-only">
+      <div class="split-fig fig" hidden>
         <div class="quote-calc" data-calc>
           <label class="calc-search">
             <span class="calc-ico" aria-hidden="true">⌕</span>
@@ -905,7 +923,7 @@
             <dl class="calc-rows">
               <div><dt>Legacy stack (<b data-yrs>3</b> yrs)</dt><dd data-legacy>$3,420,000</dd></div>
               <div><dt>Singularity (<b data-yrs>3</b> yrs)</dt><dd data-sing>$144,000</dd></div>
-              <div><dt>Analysts you must hire</dt><dd>0</dd></div>
+              <div><dt>Manual triage workload</dt><dd>Reduced</dd></div>
               <div><dt>Rollout time</dt><dd>minutes</dd></div>
             </dl>
             <p class="calc-profit"><span data-saved-label>Saved over 3 years</span><b data-saved>+$3,276,000</b></p>
@@ -916,19 +934,33 @@
 
       <div class="split-copy" id="contact">
         <h3 class="split-title sm">Enterprise &amp; sovereign</h3>
-        <p class="split-desc lg">Defense, government and regulated industries.<br/>Your cloud, your datacenter, or fully air-gapped.</p>
+        <p class="split-desc lg">Run in your cloud, your datacenter, or fully air-gapped.</p>
         <ol class="step-list">
-          <li><p class="step-head">Live in minutes, not months</p><p class="step-desc">No 12-month rollout. Plug in your stack — or ours — and the AI takes over the same day.</p></li>
-          <li><p class="step-head">Sovereign by design</p><p class="step-desc">1B-parameter models run entirely on your premises. No data ever leaves your network.</p></li>
-          <li><p class="step-head">A team that broke in for a living</p><p class="step-desc">Direct assistance from the researchers whose vulnerability work is credited by AWS, Google, Oracle and Intel.</p></li>
+          <li><p class="step-head">Live in minutes</p><p class="step-desc">Connect your stack or deploy our sensors.</p></li>
+          <li><p class="step-head">Keep data inside</p><p class="step-desc">Run Maximus models entirely in your environment.</p></li>
+          <li><p class="step-head">Keep the same control</p><p class="step-desc">Your policies and approval rules work in every deployment.</p></li>
         </ol>
-        <div class="panel-actions">
-          <a class="btn btn-solid btn-lg" href="https://calendly.com/anill-yagiz/singularity" target="_blank" rel="noopener">Get a quote <span class="chev">›</span></a>
-          <a class="btn btn-ghost btn-lg" href="https://calendly.com/anill-yagiz/singularity" target="_blank" rel="noopener">Book a call</a>
-        </div>
       </div>
     </div>
 
+  </div>
+</section>
+
+<!-- ── Pricing ──────────────────────────────────────────────────── -->
+<section class="shell band" id="pricing" aria-labelledby="pricing-h">
+  <div class="panel pricing-simple">
+    <div class="plain-head">
+      <div>
+        <p class="eyebrow">Simple pricing</p>
+        <h2 class="plain-title" id="pricing-h">Start small. Add what you need.</h2>
+      </div>
+      <a class="btn btn-solid btn-lg" href="https://calendly.com/anill-yagiz/singularity" target="_blank" rel="noopener">Book a demo <span class="chev">›</span></a>
+    </div>
+    <div class="price-grid">
+      <article><p>Starter</p><h3>$8 <small>/ device / month</small></h3><span>Core protection and response.</span></article>
+      <article><p>Growth</p><h3>$12 <small>/ device / month</small></h3><span>More automation and intelligence.</span></article>
+      <article><p>Enterprise</p><h3>Custom</h3><span>Air-gapped and regulated environments.</span></article>
+    </div>
   </div>
 </section>
 
@@ -936,8 +968,11 @@
 <section class="shell band" id="research" aria-labelledby="research-h">
   <div class="panel">
     <div class="plain-head">
-      <h2 class="panel-title" id="research-h"><em>Research.</em> Built by attackers. Proven on benchmarks.</h2>
-      <a class="btn btn-solid btn-lg" href="https://calendly.com/anill-yagiz/singularity" target="_blank" rel="noopener">Read the research <span class="chev">›</span></a>
+      <div class="research-heading">
+        <p class="eyebrow">Research &amp; validation</p>
+        <h2 class="panel-title" id="research-h"><em>Built by security researchers.</em> Tested in public.</h2>
+      </div>
+      <a class="btn btn-solid btn-lg" href="https://calendly.com/anill-yagiz/singularity" target="_blank" rel="noopener">Book a technical review <span class="chev">›</span></a>
     </div>
 
     <div class="research">
@@ -947,88 +982,29 @@
           <span class="tag">RESEARCH</span>
         </div>
         <div class="paper-copy">
-          <h3 class="paper-title">Singularity Maximus: frontier-grade security reasoning at 1B parameters</h3>
-          <p class="paper-desc">Air-gapped, on-premises models that score near frontier systems 1,000× their size on Cybench, the public security-reasoning benchmark.</p>
-          <button class="cmd" type="button" data-copy="singularity benchmark run cybench --model maximus">
-            <code>singularity benchmark run cybench --model maximus</code>
-            <span class="cmd-copy" aria-hidden="true">
-              <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.2">
-                <rect x="5.5" y="5.5" width="8" height="8" rx="1.2"/>
-                <path d="M10.5 3.2V3a1.5 1.5 0 0 0-1.5-1.5H3A1.5 1.5 0 0 0 1.5 3v6A1.5 1.5 0 0 0 3 10.5h.3"/>
-              </svg>
-            </span>
-            <span class="cmd-toast">Copied</span>
-          </button>
-          <a class="btn btn-ghost btn-lg" href="#">Read more <span class="chev">›</span></a>
+          <h3 class="paper-title">Security reasoning that can run on infrastructure you control.</h3>
+          <p class="paper-desc">Maximus is a compact, 1B-parameter model designed for on-premises and air-gapped deployment. Its performance is measured on Cybench, a public security-reasoning benchmark.</p>
+          <p class="research-note">The point is practical: strong security reasoning without sending sensitive telemetry outside your environment.</p>
         </div>
       </article>
 
       <div class="paper-list">
-        <a class="paper-item" href="#">
-          <h4>BreachOps Maximus: 95% on Cybench <span class="out">↗</span></h4>
+        <div class="paper-item">
+          <p class="m-num">PUBLIC BENCHMARK</p>
+          <h4>95% on Cybench</h4>
           <p>Within one point of frontier models on public security reasoning.</p>
-        </a>
-        <a class="paper-item" href="#">
-          <h4>Vulnerabilities affecting 1B+ users <span class="out">↗</span></h4>
-          <p>CVE research credited by AWS, Google, Oracle, Intel &amp; NASA.</p>
-        </a>
-        <a class="paper-item" href="#">
-          <h4>70+ peer-reviewed papers <span class="out">↗</span></h4>
-          <p>NeurIPS · ICML · ICLR · ICCV · CCS.</p>
-        </a>
-        <a class="paper-more" href="#">View the <b>◍ Cybench leaderboard</b> <span class="chev">›</span></a>
+        </div>
+        <div class="paper-item">
+          <p class="m-num">SOVEREIGN DEPLOYMENT</p>
+          <h4>Maximus 1B</h4>
+          <p>Designed to run on-premises or fully air-gapped, with no sensitive data leaving your network.</p>
+        </div>
+        <div class="paper-item">
+          <p class="m-num">RESEARCH RECORD</p>
+          <h4>70+ peer-reviewed papers</h4>
+          <p>Research and vulnerability work recognized by AWS, Google, Oracle, Intel &amp; NASA.</p>
+        </div>
       </div>
-    </div>
-  </div>
-</section>
-
-<!-- ── Latest research ──────────────────────────────────────────── -->
-<section class="shell band">
-  <div class="panel">
-    <div class="plain-head">
-      <h2 class="plain-title">Latest Research.</h2>
-      <a class="btn btn-ghost btn-lg" href="#">See all <span class="chev">›</span></a>
-    </div>
-    <div class="posts">
-      <a class="post" href="#">
-        <div class="post-art art-plot"></div>
-        <p class="post-meta"><span class="tag">RESEARCH</span><time>AUG 14TH, 2026</time></p>
-        <h3 class="post-title">Cybench deep dive: how we score 95% at 1B parameters</h3>
-      </a>
-      <a class="post" href="#">
-        <div class="post-art art-glitch"><span>MAXIMUS 1B</span></div>
-        <p class="post-meta"><span class="tag">RESEARCH</span><time>AUG 13TH, 2026</time></p>
-        <h3 class="post-title">Maximus 1B — near-frontier reasoning, fully air-gapped</h3>
-      </a>
-      <a class="post" href="#">
-        <div class="post-art art-wave"><span>BREACHOPS</span></div>
-        <p class="post-meta"><span class="tag">RESEARCH</span><time>AUG 07TH, 2026</time></p>
-        <h3 class="post-title">Multi-agent attack simulation inside BreachOps</h3>
-      </a>
-    </div>
-  </div>
-</section>
-
-<!-- ── Customer stories ─────────────────────────────────────────── -->
-<section class="shell band stories">
-  <div class="panel">
-    <div class="plain-head"><h2 class="plain-title">Customer Stories</h2></div>
-    <div class="story-row">
-      <a class="story" href="#">
-        <canvas class="matrix" data-matrix="ember" aria-hidden="true"></canvas>
-        <span class="story-logo">◈ Defense prime</span>
-        <span class="story-foot">
-          <span class="tag">PILOT</span>
-          <span class="story-title">How a defense prime moved its SOC from alert triage to threat hunting</span>
-        </span>
-      </a>
-      <a class="story" href="#">
-        <span class="story-logo">Fintech scale-up <i>↗</i></span>
-        <span class="story-foot">
-          <span class="tag">PILOT</span>
-          <span class="story-title">How a 500-device fintech got audit-ready in one week</span>
-        </span>
-      </a>
     </div>
   </div>
 </section>
@@ -1041,34 +1017,34 @@
     </div>
     <div class="faq">
       <details class="faq-item" open>
-        <summary><h3>What is AutoSecOps?</h3><span class="faq-mark" aria-hidden="true"></span></summary>
-        <p>AutoSecOps is the autonomous security platform built by Singularity Research and Development Inc. It replaces a stack of separate tools by combining AI SOC analysts, AIDR (AI Agent Detection &amp; Response), EDR, NDR, SIEM, SOAR, XDR, MDM and CTI in one console. AutoSecOps observes telemetry, decides a verdict, acts to contain the threat and verifies the outcome in under 100 milliseconds, with every action written to an audit-ready evidence chain.</p>
+        <summary><h3>Does AutoSecOps work with our existing tools?</h3><span class="faq-mark" aria-hidden="true"></span></summary>
+        <p>Yes. AutoSecOps connects to tools such as CrowdStrike, Splunk, Sentinel and Palo Alto. If you need them, you can also use our own sensors.</p>
       </details>
       <details class="faq-item">
-        <summary><h3>Which security modules are included in AutoSecOps?</h3><span class="faq-mark" aria-hidden="true"></span></summary>
-        <p>Ten of them, sharing one data plane: an agentic AI SOC; AIDR for protecting AI agents; EDR for endpoints; NDR for network traffic; SIEM for log correlation; SOAR for automated response playbooks; XDR for cross-surface detection; MDM for mobile fleets; CTI for threat intelligence enrichment; and BreachOps for continuous offensive testing. You do not integrate them — they were built together.</p>
+        <summary><h3>How are AI-agent actions controlled?</h3><span class="faq-mark" aria-hidden="true"></span></summary>
+        <p>AIDR checks prompts and tool calls before execution. Safe actions continue. Risky actions are blocked or sent to a person for approval.</p>
       </details>
       <details class="faq-item">
-        <summary><h3>What is AIDR, and why do AI agents need it?</h3><span class="faq-mark" aria-hidden="true"></span></summary>
-        <p>AIDR stands for AI Agent Detection and Response. It is Singularity's own module for securing autonomous AI agents, which are a new and largely undefended attack surface. AIDR screens every prompt, retrieved context, tool call and output an agent produces — blocking prompt injection, tool abuse and data exfiltration before the agent acts. Risky tool calls pause for human approval; everything else runs at machine speed.</p>
+        <summary><h3>How long does deployment take?</h3><span class="faq-mark" aria-hidden="true"></span></summary>
+        <p>You can connect an existing stack or deploy our sensors in minutes. Timing varies with environment, scope and approval requirements.</p>
       </details>
       <details class="faq-item">
         <summary><h3>How much does AutoSecOps cost?</h3><span class="faq-mark" aria-hidden="true"></span></summary>
-        <p>Starter is $8 per device per month with no minimums. Growth is $12 and adds IAM, patching, CTI feeds and vCISO. Scale is custom priced for defense, government and regulated industries. For comparison, a legacy stack of SIEM ($250K/yr), SOAR ($150K/yr), a five-analyst SOC team ($600K/yr), compliance tooling ($80K/yr) and EDR seats runs past $1.2M a year.</p>
+        <p>Starter is $8 per device per month, Growth is $12, and Enterprise is custom priced for regulated or air-gapped environments.</p>
       </details>
       <details class="faq-item">
         <summary><h3>Can AutoSecOps run air-gapped or on-premises?</h3><span class="faq-mark" aria-hidden="true"></span></summary>
-        <p>Yes — cloud, your own datacenter, or fully air-gapped, with no change in capability. Our 1B-parameter Maximus models run entirely on your premises and score near frontier models a thousand times their size on Cybench, the public security reasoning benchmark. No data ever leaves your network.</p>
+        <p>Yes. AutoSecOps can run in the cloud, in your datacenter, or fully air-gapped. Sensitive data can stay inside your environment.</p>
       </details>
-      <details class="faq-item">
+      <details class="faq-item" hidden>
         <summary><h3>What is BreachOps?</h3><span class="faq-mark" aria-hidden="true"></span></summary>
         <p>BreachOps is the offensive half of AutoSecOps. It runs autonomous red teams that map how a real adversary would chain your weaknesses, exploit them safely inside approved scope with a rollback path, and ship every finding with evidence and a remediation script — continuously, rather than once a year at audit time.</p>
       </details>
-      <details class="faq-item">
+      <details class="faq-item" hidden>
         <summary><h3>Does AutoSecOps replace CrowdStrike and Splunk, or work with them?</h3><span class="faq-mark" aria-hidden="true"></span></summary>
         <p>Either way. AutoSecOps has 300+ integrations — CrowdStrike, Splunk, SentinelOne, Microsoft Sentinel, Palo Alto and more — so it can act as the AI brain over the stack you already own. If you have no tooling yet, it ships its own EDR, NDR, SIEM and XDR built from zero, and one console replaces the whole alphabet.</p>
       </details>
-      <details class="faq-item">
+      <details class="faq-item" hidden>
         <summary><h3>Who builds AutoSecOps?</h3><span class="faq-mark" aria-hidden="true"></span></summary>
         <p>Singularity Research and Development Inc., founded by Muhammet Anıl Yağız. The team are offensive security researchers whose vulnerability work is credited by AWS, Google, Oracle, Intel and NASA and has affected more than a billion users, with 70+ papers at NeurIPS, ICML, ICLR, ICCV and CCS. We built the attacker's tools first, which is why our models know what the defender needs to see.</p>
       </details>
@@ -1076,62 +1052,32 @@
   </div>
 </section>
 
-<!-- ── Hiring ───────────────────────────────────────────────────── -->
-<section class="shell band" id="careers" aria-labelledby="careers-h">
-  <div class="panel hiring">
-    <div class="hiring-copy">
-      <p class="eyebrow">We're hiring</p>
-      <h2 class="hiring-title" id="careers-h">We broke into these systems for a living. Now we defend them.</h2>
-      <p class="hiring-desc">We are seeking the most ambitious engineers and security researchers to join us — in Istanbul or remotely. Show us your exceptional work.</p>
-      <a class="btn btn-solid btn-lg" href="https://calendly.com/anill-yagiz/singularity" target="_blank" rel="noopener">Join us <span class="chev">›</span></a>
-    </div>
-
-    <div class="crew" aria-hidden="true">
-      <span class="crew-add" style="grid-area:2/1">+</span>
-      <i style="grid-area:1/2;--h:210"></i><i style="grid-area:2/2;--h:8"></i><i style="grid-area:3/2;--h:42"></i><i style="grid-area:5/2;--h:180"></i>
-      <i style="grid-area:2/3;--h:96"></i><i style="grid-area:3/3;--h:340"></i><i style="grid-area:4/3;--h:28"></i><i style="grid-area:5/3;--h:262"></i>
-      <i style="grid-area:1/4;--h:12"></i><i style="grid-area:2/4;--h:0"></i><i style="grid-area:4/4;--h:148"></i>
-      <i style="grid-area:1/5;--h:228"></i><i style="grid-area:3/5;--h:318"></i><i style="grid-area:5/5;--h:200"></i>
-      <i style="grid-area:2/6;--h:36"></i><i style="grid-area:3/6;--h:190"></i><i style="grid-area:4/6;--h:56"></i><i style="grid-area:5/6;--h:14"></i>
-      <i style="grid-area:1/7;--h:284"></i><i style="grid-area:2/7;--h:220"></i><i style="grid-area:3/7;--h:104"></i><i style="grid-area:5/7;--h:340"></i>
-      <i style="grid-area:1/8;--h:64"></i><i style="grid-area:2/8;--h:132"></i>
-      <i style="grid-area:2/9;--h:88"></i><i style="grid-area:3/9;--h:246"></i><i style="grid-area:4/9;--h:300"></i><i style="grid-area:5/9;--h:20"></i>
-      <i style="grid-area:1/10;--h:170"></i><i style="grid-area:3/10;--h:74"></i><i style="grid-area:4/10;--h:118"></i>
-      <i style="grid-area:2/11;--h:50"></i><i style="grid-area:4/11;--h:264"></i>
-    </div>
-  </div>
-</section>
-
 <!-- ── Footer ───────────────────────────────────────────────────── -->
 <footer class="site-footer">
   <div class="shell footer-inner">
-    <a class="brand" href="#" aria-label="Singularity — home">
+    <a class="brand" href="#top" aria-label="Singularity — home">
       <img class="brand-logo" src="assets/logo.svg" alt="Singularity" width="1409" height="306" />
     </a>
 
     <nav class="footer-cols">
       <div>
         <p class="footer-head">Platform</p>
-        <a href="#autosecops">AutoSecOps</a><a href="#aidr">AIDR — AI Agent Detection &amp; Response</a><a href="#platform">EDR, NDR &amp; XDR</a><a href="#platform">SIEM, SOAR &amp; CTI</a><a href="#breachops">BreachOps</a><a href="#pricing">Pricing</a>
+        <a href="#autosecops">AutoSecOps</a><a href="#aidr">AI Agent Security — AIDR</a><a href="#platform">Security Operations</a><a href="#breachops">BreachOps</a><a href="#pricing">Pricing</a>
       </div>
       <div>
         <p class="footer-head">Company</p>
-        <a href="#research">Research</a><a href="#careers">Careers</a><a href="#faq">FAQ</a><a href="#recognition">Recognition</a><a href="mailto:anil@singularityrd.com">Contact</a>
-      </div>
-      <div>
-        <p class="footer-head">Community</p>
-        <a href="#">Docs</a><a href="#">Discord</a><a href="#">GitHub</a><a href="#">Status</a>
+        <a href="#research">Research</a><a href="#customer-success">Customer Success</a><a href="#faq">FAQ</a><a href="#recognition">Recognition</a><a href="mailto:anil@singularityrd.com">Contact</a>
       </div>
     </nav>
   </div>
 
   <div class="shell footer-legal">
-    <p><strong>Singularity Research and Development Inc.</strong> builds <strong>AutoSecOps</strong>, an autonomous security platform combining an agentic AI SOC, AIDR (AI Agent Detection &amp; Response), EDR, NDR, SIEM, SOAR, XDR, MDM, CTI and BreachOps in a single console — deployable in the cloud, on-premises or fully air-gapped.</p>
+    <p><strong>Singularity Research and Development Inc.</strong> is incorporated in Delaware, with offices in the <strong>United States</strong> and <strong>Türkiye</strong>. We build <strong>AutoSecOps</strong> to run security operations, protect AI agents, and continuously test defenses from one platform.</p>
   </div>
 
   <div class="shell footer-bar">
     <p>© 2026 Singularity Research and Development Inc.</p>
-    <p><a href="mailto:anil@singularityrd.com">anil@singularityrd.com</a><a href="#">Privacy</a><a href="#">Terms</a></p>
+    <p><a href="mailto:anil@singularityrd.com">anil@singularityrd.com</a></p>
   </div>
 </footer>
 
@@ -1192,6 +1138,12 @@
    * morphs to that state (CSS transitions do the motion). Steps are also
    * clickable, and a #s1..#s4 hash preselects a state for deep links. */
   (function () {
+    var detail = document.getElementById('autosecops');
+    var customer = document.getElementById('customer-success');
+    var testimonials = document.querySelector('.quotes');
+    if (detail && customer) customer.parentNode.insertBefore(detail, customer);
+    if (testimonials && customer) customer.parentNode.insertBefore(testimonials, customer);
+
     var story = document.querySelector('[data-story]');
     if (!story) return;
     var steps = [].slice.call(story.querySelectorAll('.step'));
@@ -1607,7 +1559,7 @@
     if ('IntersectionObserver' in window && !reduced) {
       var sels = ['.statband', '.define', '.module', '.lab-block', '.hub-intro',
                   '.hub-app', '.hub-link', '.quote', '.post', '.paper',
-                  '.paper-item', '.story', '.faq-item', '.hiring-copy', '.crew',
+                  '.paper-item', '.story', '.faq-item',
                   '.gpu-mock', '.quote-calc'];
       var els = [];
       sels.forEach(function (s) {

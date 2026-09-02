@@ -200,7 +200,7 @@
 }
 </script>
 </head>
-<body>
+<body id="top">
 
 <!-- ── Announcement bar ─────────────────────────────────────────── -->
 <div class="announce">
@@ -219,39 +219,53 @@
   </div>
 </div>
 
-<!-- ── Hero (header sits on top of it) ──────────────────────────── -->
+<header class="site-header">
+  <div class="shell header-inner">
+
+    <a class="brand" href="#top" aria-label="Singularity — home">
+      <img class="brand-logo" src="assets/logo.svg" alt="Singularity" width="1409" height="306" />
+    </a>
+
+    <nav class="nav-primary" aria-label="Primary">
+      <a class="nav-seg is-active" href="#autosecops">AutoSecOps <b>01</b></a>
+      <a class="nav-seg" href="#aidr">AIDR <b>02</b></a>
+      <a class="nav-seg" href="#breachops">BreachOps <b>03</b></a>
+      <a class="nav-seg" href="#research">Research <b>04</b></a>
+    </nav>
+
+    <nav class="nav-secondary" aria-label="Secondary">
+      <a class="nav-link" href="#platform">Platform</a>
+      <a class="nav-link" href="#faq">FAQ</a>
+      <a class="nav-link" href="#careers">Careers <span class="pill">7</span></a>
+      <a class="nav-link" href="#contact">Book a call</a>
+      <a class="btn btn-ghost" href="#contact">Login</a>
+      <a class="btn btn-solid" href="#pricing">Get protected <span class="chev">›</span></a>
+    </nav>
+
+    <button class="burger" type="button" aria-label="Open menu" aria-controls="mobile-nav" aria-expanded="false"><span></span><span></span></button>
+  </div>
+
+  <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation" hidden>
+    <div class="shell mobile-nav-grid">
+      <a class="mobile-nav-link" href="#autosecops">AutoSecOps <span>01</span></a>
+      <a class="mobile-nav-link" href="#aidr">AIDR <span>02</span></a>
+      <a class="mobile-nav-link" href="#breachops">BreachOps <span>03</span></a>
+      <a class="mobile-nav-link" href="#research">Research <span>04</span></a>
+      <a class="mobile-nav-link" href="#platform">Platform</a>
+      <a class="mobile-nav-link" href="#faq">FAQ</a>
+      <a class="mobile-nav-link" href="#careers">Careers <span class="pill">7</span></a>
+      <a class="mobile-nav-link" href="#contact">Book a call</a>
+      <a class="btn btn-solid btn-lg mobile-nav-cta" href="#pricing">Get protected <span class="chev">›</span></a>
+    </div>
+  </nav>
+</header>
+
+<!-- ── Hero ────────────────────────────────────────────────────── -->
 <section class="hero">
   <div class="hero-media">
     <img src="assets/hero.png" alt="" />
     <div class="hero-scrim"></div>
   </div>
-
-  <header class="site-header">
-    <div class="shell header-inner">
-
-      <a class="brand" href="#" aria-label="Singularity — home">
-        <img class="brand-logo" src="assets/logo.svg" alt="Singularity" width="1409" height="306" />
-      </a>
-
-      <nav class="nav-primary" aria-label="Primary">
-        <a class="nav-seg is-active" href="#autosecops">AutoSecOps <b>01</b></a>
-        <a class="nav-seg" href="#aidr">AIDR <b>02</b></a>
-        <a class="nav-seg" href="#breachops">BreachOps <b>03</b></a>
-        <a class="nav-seg" href="#research">Research <b>04</b></a>
-      </nav>
-
-      <nav class="nav-secondary" aria-label="Secondary">
-        <a class="nav-link" href="#platform">Platform</a>
-        <a class="nav-link" href="#faq">FAQ</a>
-        <a class="nav-link" href="#careers">Careers <span class="pill">7</span></a>
-        <a class="nav-link" href="#contact">Book a call</a>
-        <a class="btn btn-ghost" href="#">Login</a>
-        <a class="btn btn-solid" href="#pricing">Get protected <span class="chev">›</span></a>
-      </nav>
-
-      <button class="burger" type="button" aria-label="Menu"><span></span><span></span></button>
-    </div>
-  </header>
 
   <div class="shell hero-inner">
     <div class="hero-copy">
@@ -1122,6 +1136,47 @@
 </footer>
 
 <script>
+  /* Sticky header + compact mobile navigation -------------------------- */
+  (function () {
+    var header = document.querySelector('.site-header');
+    var burger = document.querySelector('.burger');
+    var mobileNav = document.getElementById('mobile-nav');
+    if (!header) return;
+
+    function syncHeader() {
+      header.classList.toggle('is-scrolled', window.scrollY > 12);
+    }
+    syncHeader();
+    window.addEventListener('scroll', syncHeader, { passive: true });
+
+    if (!burger || !mobileNav) return;
+
+    function closeMenu() {
+      header.classList.remove('menu-open');
+      burger.setAttribute('aria-expanded', 'false');
+      burger.setAttribute('aria-label', 'Open menu');
+      mobileNav.hidden = true;
+    }
+
+    burger.addEventListener('click', function () {
+      var open = burger.getAttribute('aria-expanded') !== 'true';
+      header.classList.toggle('menu-open', open);
+      burger.setAttribute('aria-expanded', String(open));
+      burger.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+      mobileNav.hidden = !open;
+    });
+
+    mobileNav.querySelectorAll('a').forEach(function (link) {
+      link.addEventListener('click', closeMenu);
+    });
+    document.addEventListener('keydown', function (event) {
+      if (event.key === 'Escape') closeMenu();
+    });
+    window.addEventListener('resize', function () {
+      if (window.innerWidth > 980) closeMenu();
+    });
+  })();
+
   /* Copy-to-clipboard on the announcement snippet ----------------------- */
   document.querySelectorAll('[data-copy]').forEach(function (el) {
     el.addEventListener('click', function () {

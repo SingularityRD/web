@@ -24,6 +24,8 @@
 
 * { box-sizing: border-box; }
 
+[hidden] { display: none !important; }
+
 html { -webkit-text-size-adjust: 100%; }
 
 body {
@@ -170,9 +172,21 @@ img { display: block; max-width: 100%; }
 
 /* ── Header ──────────────────────────────────────────────────────────────── */
 .site-header {
-  position: relative;
-  z-index: 20;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  height: var(--header-h);
+  margin-bottom: calc(-1 * var(--header-h));
   flex: none;
+  background: transparent;
+  border-bottom: 1px solid transparent;
+  transition: background 0.2s ease, border-color 0.2s ease, backdrop-filter 0.2s ease;
+}
+.site-header.is-scrolled {
+  background: rgba(7, 7, 7, 0.88);
+  border-bottom-color: var(--line);
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
 }
 
 .header-inner {
@@ -300,7 +314,17 @@ img { display: block; max-width: 100%; }
   border-radius: 2px;
   cursor: pointer;
 }
-.burger span { display: block; height: 1px; background: var(--text); }
+.burger span {
+  display: block;
+  height: 1px;
+  background: var(--text);
+  transition: transform 0.18s ease;
+}
+.site-header.menu-open .burger span:first-child { transform: translateY(3px) rotate(45deg); }
+.site-header.menu-open .burger span:last-child { transform: translateY(-3px) rotate(-45deg); }
+
+.mobile-nav { display: none; }
+.mobile-nav-grid { display: grid; }
 
 /* ── Hero content ────────────────────────────────────────────────────────── */
 .hero-inner {
@@ -2292,6 +2316,40 @@ a.logo-cell:hover .logo-pair { color: var(--text); }
   .nav-primary,
   .nav-secondary { display: none; }
   .burger { display: flex; }
+  .mobile-nav {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    background: rgba(7, 7, 7, 0.97);
+    box-shadow: 0 14px 30px rgba(0, 0, 0, 0.28);
+  }
+  .mobile-nav:not([hidden]) { display: block; }
+  .mobile-nav-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+    padding-top: 14px;
+    padding-bottom: 18px;
+  }
+  .mobile-nav-link {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 38px;
+    padding: 0 11px;
+    border: 1px solid var(--line);
+    color: var(--text-muted);
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+  }
+  .mobile-nav-link:hover,
+  .mobile-nav-link:focus-visible { color: var(--text); background: rgba(255, 255, 255, 0.06); }
+  .mobile-nav-link > span:not(.pill) { color: var(--text-faint); }
+  .mobile-nav-cta { grid-column: 1 / -1; width: 100%; margin-top: 4px; }
   .logo-wall { grid-template-columns: repeat(3, 1fr); }
   .logo-cell:nth-child(5n) { border-right: 1px solid var(--line); }
   .logo-cell:nth-child(3n) { border-right: 0; }
@@ -2309,6 +2367,7 @@ a.logo-cell:hover .logo-pair { color: var(--text); }
   :root { --gutter: 18px; }
   .hero { height: auto; min-height: 0; max-height: none; }
   .hero-inner { padding-block: 90px 40px; }
+  .mobile-nav-grid { grid-template-columns: 1fr; }
   .hero-media img { object-position: 65% 40%; }
   .logo-wall { grid-template-columns: repeat(2, 1fr); }
   .logo-cell { min-height: 86px; }
@@ -2431,7 +2490,7 @@ a.logo-cell:hover .logo-pair { color: var(--text); }
 }
 
 /* ══ Polish layer: entrances, micro-interactions, idle life ══════════════ */
-html { scroll-behavior: smooth; scroll-padding-top: 18px; }
+html { scroll-behavior: smooth; scroll-padding-top: calc(var(--header-h) + 18px); }
 
 /* Scroll-reveal: .rv is only ever added by JS, so no-JS keeps everything
    visible. Stagger comes per-element through --rvd. */

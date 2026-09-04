@@ -630,7 +630,7 @@ a.logo-cell:hover .logo-pair { color: var(--text); }
 }
 .simple-flow {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   margin: 0;
   padding: 0;
   border-top: 1px solid var(--line);
@@ -2616,10 +2616,7 @@ a.logo-cell:hover .logo-pair { color: var(--text); }
 @media (max-width: 900px) {
   .lab, .band, .hub { margin-top: 56px; }
   .define { padding: 32px 24px 26px; }
-  .simple-flow { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .simple-flow li { border-bottom: 1px solid var(--line); }
-  .simple-flow li:nth-child(2n) { border-right: 0; }
-  .simple-flow li:nth-last-child(-n + 2) { border-bottom: 0; }
+  .simple-flow { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .lab-grid { grid-template-columns: 1fr; }
   .lab-block { border-right: 0 !important; }
   .fig { min-height: 320px; }
@@ -2726,7 +2723,7 @@ a.logo-cell:hover .logo-pair { color: var(--text); }
 }
 .speed-grid {
   display: grid;
-  grid-template-columns: repeat(5, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   border-top: 1px solid var(--line);
 }
 .speed-grid article {
@@ -2776,7 +2773,7 @@ a.logo-cell:hover .logo-pair { color: var(--text); }
   .speed-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .speed-grid article { border-bottom: 1px solid var(--line); }
   .speed-grid article:nth-child(2n) { border-right: 0; }
-  .speed-grid article:last-child { grid-column: 1 / -1; border-bottom: 0; }
+  .speed-grid article:last-child { grid-column: 1 / -1; border-right: 0; border-bottom: 0; }
   .aidr-intro { grid-template-columns: 1fr; gap: 22px; }
   .runtime-flow { grid-template-columns: 1fr; }
   .runtime-flow > i { display: none; }

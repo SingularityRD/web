@@ -304,82 +304,41 @@
   </div>
 </section>
 
-<!-- ── Before and after ─────────────────────────────────────────── -->
-<section class="shell band" id="problem" aria-labelledby="problem-h">
-  <div class="panel before-after">
-    <div class="before-after-head">
-      <p class="eyebrow">The AutoSecOps difference</p>
-      <h2 id="problem-h">Less waiting. Faster security.</h2>
-    </div>
-    <div class="speed-grid" role="list">
-      <article role="listitem"><p>Deploy</p><div><s>12 months</s><i>→</i><strong>Minutes</strong></div></article>
-      <article role="listitem"><p>Investigate</p><div><s>Hours</s><i>→</i><strong>&lt;100ms</strong></div></article>
-      <article role="listitem"><p>Test defenses</p><div><s>Weeks</s><i>→</i><strong>Minutes</strong></div></article>
-    </div>
-  </div>
-</section>
-
-<!-- ── What AutoSecOps is ───────────────────────────────────────── -->
+<!-- ── AutoSecOps in 15 seconds ────────────────────────────────── -->
 <section class="shell band" id="platform" aria-labelledby="platform-h">
-  <div class="panel">
-    <div class="define">
-      <p class="eyebrow">What is AutoSecOps?</p>
-      <h2 class="define-h" id="platform-h">One place to run security.</h2>
-      <p class="define-lede">AutoSecOps connects your tools, investigates threats, protects AI agents, and acts under your rules.</p>
-    </div>
+  <div class="panel autosecops-story">
+    <header class="story-intro" id="problem">
+      <p class="eyebrow">AutoSecOps in 15 seconds</p>
+      <h2 id="platform-h">From signal to safe action, in one system.</h2>
+      <p>AutoSecOps connects your tools, investigates what happened, and responds under your rules. When an AI agent wants to act, AIDR checks it first.</p>
+    </header>
 
-    <ul class="outcomes">
-      <li class="module">
-        <p class="m-num">01</p>
-        <h3 class="module-h">Detect and respond</h3>
-        <p class="module-p">Resolve threats automatically.</p>
+    <ol class="story-flow" id="architecture" aria-label="How AutoSecOps works">
+      <li>
+        <span class="story-num">01 · See</span>
+        <h3>A signal arrives.</h3>
+        <p>From your security stack or an AI agent.</p>
       </li>
-      <li class="module is-own">
-        <p class="m-num">02</p>
-        <h3 class="module-h">Guard AI agents</h3>
-        <p class="module-p">Check every action before it runs.</p>
+      <li class="is-decision">
+        <span class="story-num">02 · Decide</span>
+        <h3>AI understands it.</h3>
+        <p>Context, risk, and policy become one decision.</p>
+        <div class="story-guard" id="aidr">
+          <b>AIDR checks AI agents</b>
+          <span>Allow · Block · Approve</span>
+        </div>
       </li>
-      <li class="module is-own">
-        <p class="m-num">03</p>
-        <h3 class="module-h">Test defenses</h3>
-        <p class="module-p">Find gaps before attackers do.</p>
+      <li>
+        <span class="story-num">03 · Act</span>
+        <h3>The safe action runs.</h3>
+        <p>AutoSecOps responds and records the proof.</p>
       </li>
-    </ul>
-  </div>
-</section>
-
-<!-- ── How it works ─────────────────────────────────────────────── -->
-<section class="shell band" id="architecture" aria-labelledby="architecture-h">
-  <div class="panel simple-how">
-    <div class="simple-head">
-      <p class="eyebrow">How it works</p>
-      <h2 id="architecture-h">See. Decide. Act.</h2>
-    </div>
-    <ol class="simple-flow">
-      <li><span>01</span><h3>See</h3><p>Connect every signal.</p></li>
-      <li><span>02</span><h3>Decide</h3><p>AI finds what matters.</p></li>
-      <li><span>03</span><h3>Act</h3><p>Respond and record the proof.</p></li>
     </ol>
-  </div>
-</section>
 
-<!-- ── AI agent runtime security ────────────────────────────────── -->
-<section class="shell band" id="aidr" aria-labelledby="aidr-h">
-  <div class="panel aidr-panel">
-    <div class="aidr-intro">
-      <div>
-        <p class="eyebrow">AIDR · AI Agent Security</p>
-        <h2 id="aidr-h">Every action is checked first.</h2>
-      </div>
-      <p>Safe actions continue. Risky actions stop or wait for approval.</p>
-    </div>
-
-    <div class="runtime-flow" aria-label="AI agent runtime protected by AIDR">
-      <div class="runtime-step"><span>01</span><b>Request</b><small>An AI agent wants to act</small></div>
-      <i aria-hidden="true">›</i>
-      <div class="runtime-step is-guard"><span>AIDR</span><b>Check</b><small>Allow · Block · Approve</small></div>
-      <i aria-hidden="true">›</i>
-      <div class="runtime-step"><span>02</span><b>Outcome</b><small>Continue or stop</small></div>
+    <div class="story-results" role="list" aria-label="AutoSecOps speed">
+      <p role="listitem"><span>Deploy</span><strong>Minutes</strong></p>
+      <p role="listitem"><span>Investigate</span><strong>&lt;100ms</strong></p>
+      <p role="listitem"><span>Test defenses</span><strong>Minutes</strong></p>
     </div>
   </div>
 </section>

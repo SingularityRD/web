@@ -747,6 +747,11 @@ a.logo-cell:hover .logo-pair { color: var(--text); }
 }
 .panel-head { position: relative; }
 
+.panel-copy {
+  max-width: 800px;
+  margin-bottom: 24px;
+}
+
 .panel-title {
   margin: 0 0 22px;
   max-width: 800px;
@@ -756,6 +761,15 @@ a.logo-cell:hover .logo-pair { color: var(--text); }
   color: rgba(242, 242, 240, 0.55);
 }
 .panel-title em { font-style: normal; color: var(--text); }
+.panel-copy .panel-title { margin: 0; }
+
+.panel-summary {
+  max-width: 720px;
+  margin: 14px 0 0;
+  font-size: clamp(16px, 1.35vw, 18px);
+  line-height: 1.6;
+  color: rgba(242, 242, 240, 0.72);
+}
 
 .panel-actions { display: flex; flex-wrap: wrap; gap: 10px; }
 

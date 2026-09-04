@@ -1,0 +1,519 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Cybench Results: Small Security Models | Singularity</title>
+<meta name="description" content="Explore a 25-model Cybench evaluation featuring Singularity's compact security models, GPT-5.6 Sol and GLM-5.3, with transparent methodology." />
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+<meta name="author" content="Singularity Research and Development Inc." />
+<meta name="keywords" content="Cybench benchmark, cybersecurity language model, small language model security, on-premises AI security, air-gapped AI, File F1 benchmark" />
+<link rel="canonical" href="https://singularityrd.com/blog-cybench.html" />
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="Singularity Research and Development Inc." />
+<meta property="og:locale" content="en_US" />
+<meta property="og:title" content="Small security models reach the Cybench frontier" />
+<meta property="og:description" content="An interactive, 25-model evaluation of security reasoning, model size and deployment control." />
+<meta property="og:url" content="https://singularityrd.com/blog-cybench.html" />
+<meta property="article:published_time" content="2026-09-04" />
+<meta property="article:modified_time" content="2026-09-04" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="Small security models reach the Cybench frontier" />
+<meta name="twitter:description" content="Compare Singularity, GPT-5.6 Sol, GLM-5.3 and other models with methodology and limitations in view." />
+<meta name="theme-color" content="#070707" />
+<meta name="color-scheme" content="dark" />
+<link rel="icon" href="assets/mark.svg" type="image/svg+xml" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "@id": "https://singularityrd.com/blog-cybench.html#article",
+      "headline": "Small security models reach the Cybench frontier",
+      "alternativeHeadline": "Singularity's 1B and 3B foundation models challenge systems hundreds of times larger in an internal Cybench evaluation",
+      "description": "An interactive, 25-model Cybench evaluation of security reasoning, model size and deployment control.",
+      "datePublished": "2026-09-04",
+      "dateModified": "2026-09-04",
+      "inLanguage": "en-US",
+      "articleSection": "Security AI Research",
+      "keywords": ["Cybench", "cybersecurity language model", "small language model", "on-premises AI", "air-gapped AI", "File F1"],
+      "author": { "@id": "https://singularityrd.com/#organization" },
+      "publisher": { "@id": "https://singularityrd.com/#organization" },
+      "mainEntityOfPage": { "@type": "WebPage", "@id": "https://singularityrd.com/blog-cybench.html" },
+      "about": { "@id": "https://singularityrd.com/blog-cybench.html#dataset" },
+      "isBasedOn": "https://cybench.github.io/"
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://singularityrd.com/#organization",
+      "name": "Singularity Research and Development Inc.",
+      "url": "https://singularityrd.com/",
+      "logo": "https://singularityrd.com/assets/logo.svg"
+    },
+    {
+      "@type": "Dataset",
+      "@id": "https://singularityrd.com/blog-cybench.html#dataset",
+      "name": "Singularity Cybench File F1 evaluation",
+      "description": "File-level F1 results for 25 open, closed and preview security models evaluated with one internal harness on the Cybench public task split.",
+      "creator": { "@id": "https://singularityrd.com/#organization" },
+      "datePublished": "2026-09-04",
+      "inLanguage": "en-US",
+      "isBasedOn": "https://cybench.github.io/",
+      "measurementTechnique": "File-level F1, rescaled to 0 to 100, using one internal evaluation harness",
+      "variableMeasured": ["File F1", "model parameter count", "model access type"]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://singularityrd.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Insights", "item": "https://singularityrd.com/blog.html" },
+        { "@type": "ListItem", "position": 3, "name": "Cybench results", "item": "https://singularityrd.com/blog-cybench.html" }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://singularityrd.com/blog-cybench.html#faq-schema",
+      "mainEntity": [
+        { "@type": "Question", "name": "What is Cybench?", "acceptedAnswer": { "@type": "Answer", "text": "Cybench is a public framework for evaluating the cybersecurity capabilities and risks of language-model agents. It contains 40 professional capture-the-flag tasks from four competitions across six security categories." } },
+        { "@type": "Question", "name": "How did Singularity models perform in this evaluation?", "acceptedAnswer": { "@type": "Answer", "text": "In Singularity's internal evaluation, Singularity-1B scored 64.0 and Singularity-3B scored 72.0 on the normalized File F1 scale. GLM-5.3 scored 78.0 at 744B parameters, while GPT-5.6 Sol with xhigh reasoning scored 84.0." } },
+        { "@type": "Question", "name": "Is File F1 the official Cybench leaderboard metric?", "acceptedAnswer": { "@type": "Answer", "text": "No. File F1 is Singularity's internal reporting metric for this evaluation. The same harness and normalization were applied across the models shown, and the results should be read within that scope." } },
+        { "@type": "Question", "name": "Why compare parameter count?", "acceptedAnswer": { "@type": "Answer", "text": "Parameter count is an imperfect but useful indicator of model scale. It does not directly measure latency, memory use or serving cost, so this page presents it as context rather than a complete efficiency measure." } },
+        { "@type": "Question", "name": "Can Singularity Foundation Models run in an air-gapped environment?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. The Singularity Foundation Models in this evaluation are designed for on-premises and fully air-gapped deployment, so prompts, telemetry and model weights can remain inside the operator's environment." } }
+      ]
+    }
+  ]
+}
+</script>
+<style>
+  .cybench-article{--paper:#f4f1e9;--ink:#11120f;--mint:#6ee7a8;--cyan:#7fd7e8}
+  .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+  .cybench-article main{padding-top:var(--header-h)}
+  .cyb-shell{max-width:1180px;margin:0 auto;padding:0 24px 112px}
+  .cyb-hero{padding:72px 0 58px;border-bottom:1px solid var(--line)}
+  .crumbs{display:flex;flex-wrap:wrap;gap:9px;align-items:center;margin:0 0 28px;font-family:var(--mono);font-size:11px;letter-spacing:.11em;text-transform:uppercase;color:rgba(242,242,240,.42)}
+  .crumbs a:hover{color:var(--text)}
+  .cyb-kicker{margin:0 0 16px;font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--mint)}
+  .cyb-title{max-width:1000px;margin:0 0 28px;font-family:"Instrument Serif",serif;font-size:clamp(52px,7.7vw,98px);font-weight:400;line-height:.91;letter-spacing:-.045em}
+  .cyb-title em{font-weight:400;color:var(--mint)}
+  .cyb-dek{max-width:790px;margin:0 0 32px;font-size:clamp(19px,2vw,25px);line-height:1.45;color:rgba(242,242,240,.7)}
+  .cyb-meta{display:flex;flex-wrap:wrap;gap:10px 22px;margin:0;font-family:var(--mono);font-size:11px;letter-spacing:.06em;color:rgba(242,242,240,.45)}
+  .cyb-meta b{color:var(--text);font-weight:500}
+  .answer-box{display:grid;grid-template-columns:minmax(0,1.65fr) minmax(280px,.75fr);border-bottom:1px solid var(--line)}
+  .answer-copy{padding:48px 48px 50px 0}
+  .answer-copy h2{max-width:720px;margin:0 0 18px;font-family:"Instrument Serif",serif;font-size:clamp(34px,4vw,52px);font-weight:400;line-height:1.05}
+  .answer-copy p{max-width:720px;margin:0;font-size:18px;line-height:1.68;color:rgba(242,242,240,.7)}
+  .answer-copy strong{color:var(--text);font-weight:500}
+  .answer-stats{display:grid;align-content:center;border-left:1px solid var(--line)}
+  .answer-stat{padding:22px 0 22px 34px;border-bottom:1px solid var(--line)}
+  .answer-stat:last-child{border-bottom:0}
+  .answer-stat b{display:block;margin-bottom:5px;font-family:var(--mono);font-size:28px;font-weight:500;color:var(--mint)}
+  .answer-stat span{font-size:13px;line-height:1.5;color:rgba(242,242,240,.5)}
+  .section-head{display:grid;grid-template-columns:180px minmax(0,1fr);gap:44px;padding:74px 0 30px}
+  .section-head .label,.eyebrow-label{margin:7px 0 0;font-family:var(--mono);font-size:10.5px;letter-spacing:.13em;text-transform:uppercase;color:rgba(242,242,240,.42)}
+  .section-head h2{max-width:760px;margin:0;font-family:"Instrument Serif",serif;font-size:clamp(36px,4.4vw,58px);font-weight:400;line-height:1.02;letter-spacing:-.02em}
+  .section-head p:last-child{max-width:760px;margin:14px 0 0;font-size:17px;line-height:1.65;color:rgba(242,242,240,.62)}
+  .chart-panel{overflow:hidden;background:#fff;color:#1a1a1a;border:1px solid rgba(255,255,255,.2);border-radius:3px;box-shadow:0 32px 80px rgba(0,0,0,.28)}
+  .chart-top{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between;padding:16px 18px;border-bottom:1px solid #e9e9e9}
+  .legend{display:flex;flex-wrap:wrap;gap:8px 14px;font-size:12.5px;color:#333}
+  .legend button{display:inline-flex;align-items:center;gap:7px;border:1px solid #e4e4e4;background:#fff;border-radius:20px;padding:5px 11px 5px 7px;font-size:12px;cursor:pointer;color:#222;transition:border-color .15s,opacity .15s}
+  .legend button:hover,.legend button:focus-visible{border-color:#777;outline:none}
+  .legend button.off{opacity:.35;filter:grayscale(1)}
+  .legend .dot{width:20px;height:20px;border-radius:5px;display:inline-flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;color:#fff;flex:none}
+  .chart-tools{display:flex;gap:8px;flex-wrap:wrap}
+  .chart-tools button{border:1px solid #d8d8d8;background:#fafafa;border-radius:6px;padding:8px 11px;font-family:var(--mono);font-size:11px;cursor:pointer;color:#333}
+  .chart-tools button.on{background:#111;color:#fff;border-color:#111}
+  .chart-tools button:focus-visible{outline:2px solid #2f8f9d;outline-offset:2px}
+  .chart-wrap{position:relative;background:#fff}
+  .chart-wrap svg{display:block;width:100%;height:auto}
+  .tip{position:absolute;pointer-events:none;min-width:210px;max-width:270px;background:#111;color:#f2f2f0;border-radius:10px;padding:12px 13px;font-size:12.5px;line-height:1.45;box-shadow:0 12px 32px rgba(0,0,0,.28);opacity:0;transform:translate(-50%,calc(-100% - 14px));transition:opacity .12s;z-index:5}
+  .tip.show{opacity:1}
+  .tip h4{margin:0 0 4px;font-size:13.5px}
+  .tip .row{display:flex;justify-content:space-between;gap:12px;color:rgba(242,242,240,.75);font-family:var(--mono);font-size:11px;margin-top:4px}
+  .tip .row b{color:#fff}
+  .tip .pill2{display:inline-block;font-family:var(--mono);font-size:10px;letter-spacing:.06em;padding:2px 7px;border-radius:20px;background:rgba(255,255,255,.14);margin-bottom:6px}
+  .pt{cursor:pointer}
+  .pt .halo{opacity:0;transition:opacity .15s}
+  .pt:hover .halo,.pt.hot .halo{opacity:1}
+  .pt text{font-family:Inter,sans-serif}
+  .pt.dim{opacity:.08;pointer-events:none}
+  .chart-caption{display:flex;flex-wrap:wrap;gap:8px 22px;padding:13px 18px;border-top:1px solid #e5e5e5;font-size:12px;line-height:1.5;color:#555}
+  .chart-caption .chart-note{flex-basis:100%;font-size:11.5px;color:#777}
+  .chart-caption #countLabel{margin-left:auto;font-family:var(--mono);font-size:11px}
+  .find-grid{display:grid;grid-template-columns:repeat(3,1fr);margin-top:24px;border:1px solid var(--line)}
+  .find{padding:28px;border-right:1px solid var(--line)}
+  .find:last-child{border-right:0}
+  .find b{display:block;margin-bottom:10px;font-family:var(--mono);font-size:26px;font-weight:500;color:var(--mint)}
+  .find p{margin:0;font-size:14px;line-height:1.6;color:rgba(242,242,240,.62)}
+  .find strong{color:#fff;font-weight:500}
+  .story{margin-top:82px;padding:58px;background:var(--paper);color:var(--ink);border-radius:3px;box-shadow:0 26px 70px rgba(0,0,0,.24)}
+  .story>.eyebrow-label{color:rgba(17,18,15,.52)}
+  .story-body{font-family:Inter,sans-serif;color:rgba(17,18,15,.78)}
+  .story-body h2{max-width:720px;margin:10px 0 18px;font-family:"Instrument Serif",serif;font-size:clamp(38px,4.4vw,56px);font-weight:400;line-height:1.02;letter-spacing:-.02em;color:var(--ink)}
+  .story-intro{max-width:720px;margin:0;font-size:18px;line-height:1.65}
+  .impact-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:34px}
+  .impact-card{padding:24px;background:#fff;border:1px solid rgba(17,18,15,.12);border-radius:2px}
+  .impact-card b{display:block;margin-bottom:10px;color:#116447;font-size:16px;font-weight:600}
+  .impact-card p{margin:0;font-size:15px;line-height:1.58;color:rgba(17,18,15,.7)}
+  .story-scope{margin:28px 0 0;padding-top:22px;border-top:1px solid rgba(17,18,15,.14);font-size:14px;line-height:1.55;color:rgba(17,18,15,.58)}
+  .data-block{margin-top:64px;border:1px solid var(--line)}
+  .data-head{display:flex;flex-wrap:wrap;gap:14px;align-items:center;justify-content:space-between;padding:22px 24px}
+  .data-head h2{margin:0;font-size:22px;font-weight:400}
+  .data-search{min-width:260px;border:1px solid var(--line);background:#0b0b0b;color:var(--text);border-radius:2px;padding:10px 12px;font-size:14px;outline:none}
+  .data-search:focus{border-color:var(--mint)}
+  .dtable{width:100%;border-collapse:collapse;font-size:13px}
+  .dtable caption{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+  .dtable th{font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:rgba(242,242,240,.4);text-align:left;padding:12px 24px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);cursor:pointer;white-space:nowrap;user-select:none}
+  .dtable td{padding:11px 24px;border-bottom:1px solid rgba(255,255,255,.06);color:rgba(242,242,240,.8)}
+  .dtable tr:hover td{background:rgba(255,255,255,.025)}
+  .dtable tr.hl td{background:rgba(110,231,168,.07)}
+  .method-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1px;margin-top:64px;background:var(--line);border:1px solid var(--line)}
+  .method-card{padding:34px;background:#080909}
+  .method-card h2{margin:0 0 16px;font-family:"Instrument Serif",serif;font-size:34px;font-weight:400}
+  .method-card p,.method-card li{font-size:15px;line-height:1.72;color:rgba(242,242,240,.64)}
+  .method-card ul{margin:0;padding-left:20px}
+  .method-card code{font-family:var(--mono);font-size:12px;background:rgba(255,255,255,.07);padding:2px 6px;border-radius:4px;color:var(--text)}
+  .method-card a,.source-list a{color:var(--mint);text-decoration:underline;text-underline-offset:3px}
+  .scope-note{margin:24px 0 0;padding:19px 20px;border-left:2px solid var(--cyan);background:rgba(127,215,232,.055);font-size:13px;line-height:1.6;color:rgba(242,242,240,.58)}
+  .source-list{margin:0;padding-left:20px}
+  .source-list li{margin-bottom:12px}
+  .article-faq{max-width:860px;margin:86px auto 0;padding-top:0}
+  .article-faq h2{margin:0 0 24px;font-family:"Instrument Serif",serif;font-size:clamp(38px,4vw,54px);font-weight:400}
+  .article-faq details{border-top:1px solid var(--line)}
+  .article-faq details:last-child{border-bottom:1px solid var(--line)}
+  .article-faq summary{position:relative;padding:21px 42px 21px 0;cursor:pointer;list-style:none;color:var(--text);font-size:18px}
+  .article-faq summary::-webkit-details-marker{display:none}
+  .article-faq summary::after{content:'+';position:absolute;right:2px;top:17px;font:22px var(--mono);color:var(--mint)}
+  .article-faq details[open] summary::after{content:'−'}
+  .article-faq details p{max-width:720px;margin:0;padding:0 36px 22px 0;font-size:16px;line-height:1.65;color:rgba(242,242,240,.62)}
+  .closing-cta{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between;margin-top:78px;padding:38px 0;border-top:1px solid var(--line)}
+  .closing-cta p{max-width:640px;margin:0;font-family:"Instrument Serif",serif;font-size:clamp(28px,3vw,40px);line-height:1.12}
+  @media(max-width:980px){.cybench-article .burger{display:flex}.answer-box,.section-head{grid-template-columns:1fr}.answer-copy{padding-right:0}.answer-stats{grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line);border-left:0}.answer-stat{padding:20px;border-right:1px solid var(--line)}.answer-stat:last-child{border-right:0}.section-head{gap:18px}.impact-grid{grid-template-columns:1fr}.method-grid{grid-template-columns:1fr}}
+  @media(max-width:720px){.cyb-shell{padding:0 18px 72px}.cyb-hero{padding:50px 0 42px}.cyb-title{font-size:clamp(46px,15vw,68px)}.answer-copy{padding:36px 0}.answer-stats{grid-template-columns:1fr}.answer-stat{padding:18px 0;border-right:0}.section-head{padding-top:54px}.chart-top{align-items:flex-start}.chart-wrap{overflow-x:auto}.chart-wrap svg{min-width:760px}.find-grid{grid-template-columns:1fr}.find{border-right:0;border-bottom:1px solid var(--line)}.find:last-child{border-bottom:0}.story{margin-top:58px;padding:34px 26px}.story-intro{font-size:17px}.impact-card{padding:20px}.data-search{width:100%;min-width:0}.dtable th,.dtable td{padding:11px 14px}.method-card{padding:26px 22px}.closing-cta{align-items:flex-start}}
+</style>
+</head>
+<body id="top" class="article-page cybench-article">
+<header class="site-header">
+  <div class="shell header-inner">
+    <a class="brand" href="index.html#top" aria-label="Singularity home"><img class="brand-logo" src="assets/logo.svg" alt="Singularity" width="1409" height="306" /></a>
+    <nav class="nav-primary" aria-label="Primary"><a class="nav-seg" href="index.html#autosecops">AutoSecOps <b>01</b></a><a class="nav-seg" href="index.html#aidr">AI Agent Security <b>02</b></a><a class="nav-seg" href="index.html#breachops">BreachOps <b>03</b></a><a class="nav-seg is-active" href="index.html#research">Research <b>04</b></a></nav>
+    <nav class="nav-secondary" aria-label="Secondary"><a class="nav-link" href="index.html#platform">Platform</a><a class="nav-link" href="customer-success.html">Customer Success</a><a class="nav-link" href="blog.html">Insights</a><a class="nav-link" href="index.html#faq">FAQ</a><a class="btn btn-solid" href="index.html#contact">Book a demo <span class="chev">›</span></a></nav>
+    <button class="burger" type="button" aria-label="Open menu" aria-controls="mobile-nav" aria-expanded="false"><span></span><span></span></button>
+  </div>
+  <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation" hidden><div class="shell mobile-nav-grid"><a class="mobile-nav-link" href="index.html#autosecops">AutoSecOps <span>01</span></a><a class="mobile-nav-link" href="index.html#aidr">AI Agent Security <span>02</span></a><a class="mobile-nav-link" href="index.html#breachops">BreachOps <span>03</span></a><a class="mobile-nav-link" href="index.html#research">Research <span>04</span></a><a class="mobile-nav-link" href="index.html#platform">Platform</a><a class="mobile-nav-link" href="customer-success.html">Customer Success</a><a class="mobile-nav-link" href="blog.html">Insights</a><a class="mobile-nav-link" href="index.html#faq">FAQ</a><a class="btn btn-solid btn-lg mobile-nav-cta" href="index.html#contact">Book a demo <span class="chev">›</span></a></div></nav>
+</header>
+
+<main>
+<article class="cyb-shell" aria-labelledby="article-title">
+  <header class="cyb-hero">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="index.html">Home</a><span>/</span><a href="blog.html">Insights</a><span>/</span><span aria-current="page">Cybench results</span></nav>
+    <p class="cyb-kicker">Foundation Models / Cybench Evaluation</p>
+    <h1 class="cyb-title" id="article-title">Small security models reach the <em>Cybench frontier.</em></h1>
+    <p class="cyb-dek">In Singularity's 25-model Cybench evaluation, the 1B and 3B models challenged systems hundreds of times larger. GPT-5.6 Sol leads the comparison, while GLM-5.3 raises the open-model ceiling. The consequential result is capable security reasoning that can stay inside the network it is meant to defend.</p>
+    <p class="cyb-meta"><span><b>Singularity Research Team</b></span><span>September 4, 2026</span><span>8 min read</span><span>25 models</span></p>
+  </header>
+
+  <section class="answer-box" aria-labelledby="short-answer-title">
+    <div class="answer-copy">
+      <p class="eyebrow-label">The short answer</p>
+      <h2 id="short-answer-title">What do the Cybench results show?</h2>
+      <p><strong>GPT-5.6 Sol with xhigh reasoning scored 84.0, while the open-weight GLM-5.3 scored 78.0.</strong> Singularity-3B reached 72.0 with 248 times fewer parameters than GLM-5.3, and Singularity-1B scored 64.0. Within this evaluation, compact models did not merely trade size for performance. They redrew the efficiency frontier.</p>
+    </div>
+    <div class="answer-stats" aria-label="Key results">
+      <div class="answer-stat"><b>84.0</b><span>GPT-5.6 Sol, xhigh reasoning</span></div>
+      <div class="answer-stat"><b>78.0</b><span>GLM-5.3, 744B total parameters</span></div>
+      <div class="answer-stat"><b>72.0</b><span>Singularity-3B, 3B parameters</span></div>
+    </div>
+  </section>
+
+  <section aria-labelledby="chart-title">
+    <div class="section-head">
+      <p class="label">Figure 1 / Interactive</p>
+      <div><h2 id="chart-title">Model size tells only part of the story.</h2><p>Move up for a higher score and left for a smaller model. Use the controls to isolate vendors, labels and the measured frontier.</p></div>
+    </div>
+    <div class="chart-panel" id="chartPanel">
+      <div class="chart-top">
+        <div class="legend" id="legend" aria-label="Filter models by vendor"></div>
+        <div class="chart-tools" aria-label="Chart display controls">
+          <button id="btnLabels" class="on" type="button" aria-pressed="true">Labels</button>
+          <button id="btnFrontier" class="on" type="button" aria-pressed="true">Frontier</button>
+          <button id="btnClosed" class="on" type="button" aria-pressed="true">Closed-model zone</button>
+        </div>
+      </div>
+      <div class="chart-wrap" id="chartWrap">
+        <svg id="chart" viewBox="0 0 1000 560" role="img" aria-labelledby="chart-title chart-description"></svg>
+        <div class="tip" id="tip"></div>
+      </div>
+      <div class="chart-caption" id="chart-description">
+        <span><b>X:</b> parameters in billions, logarithmic scale, for open models</span><span><b>Y:</b> normalized File F1 score from 0 to 100</span>
+        <span class="chart-note">Closed-model parameter counts are undisclosed. Their horizontal positions are score-only layout slots, not parameter estimates. Open-model sizes are drawn from model cards.</span>
+        <span id="countLabel"></span>
+      </div>
+    </div>
+
+    <div class="find-grid" aria-label="Three findings">
+      <div class="find"><b>248× smaller</b><p><strong>Singularity-3B scored 72.0</strong>, six points behind GLM-5.3 at 78.0 and 744B parameters. The ratio describes parameter count, not measured latency or total serving cost.</p></div>
+      <div class="find"><b>84.0 at GPT-5.6</b><p><strong>GPT-5.6 Sol with xhigh reasoning leads</strong> the 25-model comparison. OpenAI does not disclose its parameter count, so it appears in the score-only field.</p></div>
+      <div class="find"><b>64.0 at 1B</b><p><strong>Singularity-1B outscored every open comparison model except GLM-5.3</strong>, including GLM-5.2 at 744B parameters.</p></div>
+    </div>
+  </section>
+
+  <section class="story" aria-labelledby="meaning-title">
+    <p class="eyebrow-label">Why it matters</p>
+    <div class="story-body">
+      <h2 id="meaning-title">Why small security models matter</h2>
+      <p class="story-intro">Security teams work with highly sensitive data. A compact model can bring capable reasoning inside the network, close to the evidence, without requiring that telemetry travel to an outside cloud.</p>
+      <div class="impact-grid">
+        <div class="impact-card"><b>Keep security data inside</b><p>Prompts, telemetry and model weights can remain on-premises or in a fully air-gapped environment.</p></div>
+        <div class="impact-card"><b>Reason next to the evidence</b><p>The model can work beside sensors, tools and investigation data instead of receiving a distant copy.</p></div>
+        <div class="impact-card"><b>Use a smaller footprint</b><p>Fewer parameters can make private deployment more practical without giving up useful benchmark performance.</p></div>
+      </div>
+      <p class="story-scope"><strong>What the result means:</strong> model size still matters, but it did not determine performance by itself in this evaluation.</p>
+    </div>
+  </section>
+
+  <section class="data-block" aria-labelledby="results-table-title">
+    <div class="data-head">
+      <h2 id="results-table-title">Results for all 25 models</h2>
+      <input class="data-search" id="q" type="search" aria-label="Filter benchmark results by model or vendor" placeholder="Filter by model or vendor" />
+    </div>
+    <div style="overflow-x:auto">
+      <table class="dtable" id="dtable">
+        <caption>Cybench File F1 results by model, vendor, parameter count and access type</caption>
+        <thead><tr><th data-k="name" scope="col">Model ⇅</th><th data-k="vendor" scope="col">Vendor ⇅</th><th data-k="params" scope="col">Params (B) ⇅</th><th data-k="score" scope="col">File F1 (/100) ⇅</th><th data-k="access" scope="col">Access ⇅</th></tr></thead>
+        <tbody id="tbody"></tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="method-grid" aria-label="Methodology and sources">
+    <div class="method-card">
+      <h2>How to read the result</h2>
+      <ul>
+        <li>Higher File F1 is better. Smaller parameter counts appear farther left.</li>
+        <li>The mint field marks the compact Singularity models in this comparison.</li>
+        <li>The dashed curve connects Singularity-350M, Singularity-1B and Singularity-3B.</li>
+        <li>Closed models appear in a separate score-only field because their parameter counts are not public.</li>
+      </ul>
+      <p class="scope-note"><strong>Important scope:</strong> File F1 is Singularity's internal reporting metric, not the official Cybench leaderboard metric. These results use one internal harness on the public task split and should be interpreted within that setup.</p>
+    </div>
+    <div class="method-card">
+      <h2>Methodology</h2>
+      <p>Raw File F1 is rescaled to 0 through 100, with 0.30 raw F1 represented as 100. The same harness and scoring method were applied to all models shown. Open-model parameter counts come from published model cards. Closed models are compared by score only, with parameter count intentionally omitted.</p>
+      <p>The public Cybench framework contains 40 professional capture-the-flag tasks from four competitions across cryptography, web security, reverse engineering, forensics, miscellaneous challenges and exploitation.</p>
+      <p><strong>Evaluation date:</strong> August 2026<br /><strong>Published:</strong> September 4, 2026<br /><strong>Models shown:</strong> 25, including one preview model</p>
+      <h2>Primary sources</h2>
+      <ul class="source-list">
+        <li><a href="https://cybench.github.io/" rel="external">Cybench project and public benchmark</a></li>
+        <li><a href="https://openreview.net/forum?id=tc90LV0yRL" rel="external">Cybench paper, ICLR 2025</a></li>
+        <li><a href="https://github.com/andyzorigin/cybench" rel="external">Cybench evaluation code and task repository</a></li>
+        <li><a href="https://developers.openai.com/api/docs/models/gpt-5.6-sol" rel="external">OpenAI documentation for GPT-5.6 Sol</a></li>
+        <li><a href="https://huggingface.co/zai-org/GLM-5.3" rel="external">Official Z.ai model card for GLM-5.3</a></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="article-faq" id="faq" aria-labelledby="faq-title">
+    <p class="eyebrow-label">Direct answers</p>
+    <h2 id="faq-title">Questions about the evaluation</h2>
+    <details open><summary>What is Cybench?</summary><p>Cybench is a public framework for evaluating the cybersecurity capabilities and risks of language-model agents. It includes 40 professional capture-the-flag tasks from four competitions, organized across six security categories.</p></details>
+    <details><summary>How did Singularity models perform in this evaluation?</summary><p>Singularity-1B scored 64.0 and Singularity-3B scored 72.0 on the normalized File F1 scale. GLM-5.3 scored 78.0 at 744B parameters, while GPT-5.6 Sol with xhigh reasoning scored 84.0.</p></details>
+    <details><summary>Is File F1 the official Cybench leaderboard metric?</summary><p>No. File F1 is Singularity's internal reporting metric for this evaluation. One harness and one normalization method were applied across the models shown, and the results should be read within that scope.</p></details>
+    <details><summary>Why compare parameter count?</summary><p>Parameter count is an imperfect but useful indicator of model scale. It does not directly measure latency, memory use or serving cost, so this page presents it as context rather than a complete efficiency measure.</p></details>
+    <details><summary>Can Singularity Foundation Models run in an air-gapped environment?</summary><p>Yes. The models in this evaluation are designed for on-premises and fully air-gapped deployment, allowing prompts, telemetry and model weights to remain inside the operator's environment.</p></details>
+  </section>
+
+  <div class="closing-cta">
+    <p>Bring security reasoning to the data, without sending the data away.</p>
+    <div><a class="btn btn-solid btn-lg" href="index.html#contact">Request a technical review <span class="chev">›</span></a> <a class="btn btn-ghost btn-lg" href="blog.html">More insights</a></div>
+  </div>
+</article>
+</main>
+
+<footer class="site-footer"><div class="shell footer-inner"><a class="brand" href="index.html#top" aria-label="Singularity home"><img class="brand-logo" src="assets/logo.svg" alt="Singularity" width="1409" height="306" /></a><nav class="footer-cols" aria-label="Footer"><div><p class="footer-head">Platform</p><a href="index.html#autosecops">AutoSecOps</a><a href="index.html#aidr">AI Agent Security</a><a href="index.html#breachops">BreachOps</a></div><div><p class="footer-head">Company</p><a href="index.html#research">Research</a><a href="customer-success.html">Customer Success</a><a href="blog.html">Insights</a><a href="mailto:anil@singularityrd.com">Contact</a></div></nav></div><div class="shell footer-legal"><p><strong>Singularity Research and Development Inc.</strong> is incorporated in Delaware, with offices in the <strong>United States</strong> and <strong>Türkiye</strong>.</p></div><div class="shell footer-bar"><p>© 2026 Singularity Research and Development Inc.</p><p><a href="mailto:anil@singularityrd.com">anil@singularityrd.com</a></p></div></footer>
+
+<script>
+(function(){
+var MODELS=[
+ {id:"sing-350m", name:"Singularity-350M", vendor:"Singularity", params:0.35, score:43.3, raw:0.130, access:"Open", note:"350M · frontier efficiency"},
+ {id:"sing-1b", name:"Singularity-1B", vendor:"Singularity", params:1.0, score:64.0, raw:0.192, access:"Open", note:"1B · beats all ≤122B open"},
+ {id:"sing-3b", name:"Singularity-3B", vendor:"Singularity", params:3.0, score:72.0, raw:0.216, access:"Open", note:"3B · matches GPT-5.5"},
+ {id:"sing-8b", name:"SFM-8B", vendor:"Singularity", params:8.0, score:95.0, raw:0.285, access:"Preview", wip:true, note:"8B · work in progress · preview score"},
+ {id:"gemma-e2b", name:"Gemma-4-E2B", vendor:"Google", params:2.0, score:13.0, raw:0.039, access:"Open", note:"2B efficient"},
+ {id:"gemma-e4b", name:"Gemma-4-E4B", vendor:"Google", params:4.0, score:11.0, raw:0.033, access:"Open", note:"4B efficient"},
+ {id:"qwen-9b", name:"Qwen3.5-9B", vendor:"Alibaba", params:9.0, score:14.7, raw:0.044, access:"Open", note:"9B dense"},
+ {id:"gptoss-20b", name:"GPT-OSS-20B", vendor:"OpenAI", params:21, score:24.0, raw:0.072, access:"Open", note:"21B total · 3.6B active"},
+ {id:"gemma-31b", name:"Gemma-4-31B", vendor:"Google", params:31, score:33.3, raw:0.100, access:"Open", note:"31B · best 20–50B open"},
+ {id:"qwen-35b", name:"Qwen3.5-35B-A3B", vendor:"Alibaba", params:35, score:30.0, raw:0.090, access:"Open", note:"35B MoE · 3B active"},
+ {id:"qwen38-27b", name:"Qwen3.8-27B", vendor:"Alibaba", params:27, score:28.5, raw:0.085, access:"Open", note:"27B dense · close to 35B"},
+ {id:"llama-70b", name:"Llama-3.3-70B", vendor:"Meta", params:70, score:5.3, raw:0.016, access:"Open", note:"70B instruct"},
+ {id:"gptoss-120b", name:"GPT-OSS-120B", vendor:"OpenAI", params:117, score:26.3, raw:0.079, access:"Open", note:"117B total · 5.1B active"},
+ {id:"qwen-122b", name:"Qwen3.5-122B-A10B", vendor:"Alibaba", params:122, score:31.0, raw:0.093, access:"Open", note:"122B MoE · 10B active"},
+ {id:"minimax", name:"MiniMax-M2.7", vendor:"Minimax", params:230, score:17.7, raw:0.053, access:"Open", note:"230B total · 10B active"},
+ {id:"minimax-m3", name:"MiniMax-M3", vendor:"Minimax", params:427, score:26.0, raw:0.078, access:"Open", note:"~428B total (427B safetensors) · ~23B active · 1M ctx · multimodal"},
+ {id:"glm", name:"GLM-5.2", vendor:"Z.ai", params:744, score:57.3, raw:0.172, access:"Open", note:"744B total · 40B active · MIT"},
+ {id:"glm53", name:"GLM-5.3", vendor:"Z.ai", params:744, score:78.0, raw:0.234, access:"Open", note:"744B total · 40B active · same base as GLM-5.2"},
+ {id:"gpt56-xh", name:"GPT-5.6 Sol (xhigh)", vendor:"OpenAI", params:null, xSlot:0.85, score:84.0, raw:0.252, access:"Closed", est:true, note:"xhigh reasoning · params undisclosed"},
+ {id:"gpt55-xh", name:"GPT-5.5 (xhigh)", vendor:"OpenAI", params:null, xSlot:0.88, score:75.7, raw:0.227, access:"Closed", est:true, note:"xhigh reasoning · params undisclosed"},
+ {id:"opus5-xh", name:"Opus 5 (xhigh)", vendor:"Anthropic", params:null, xSlot:0.905, score:74.3, raw:0.223, access:"Closed", est:true, note:"xhigh reasoning · new · params undisclosed"},
+ {id:"gpt55", name:"GPT-5.5", vendor:"OpenAI", params:null, xSlot:0.93, score:72.7, raw:0.218, access:"Closed", est:true, note:"default reasoning · params undisclosed"},
+ {id:"opus5", name:"Opus 5", vendor:"Anthropic", params:null, xSlot:0.95, score:71.3, raw:0.214, access:"Closed", est:true, note:"default reasoning · new · params undisclosed"},
+ {id:"gemini38", name:"Gemini 3.8 Flash", vendor:"Google", params:null, xSlot:0.97, score:70.5, raw:0.211, access:"Closed", est:true, note:"flash · GPT-5.5 score band · params undisclosed"},
+ {id:"gemini3", name:"Gemini 3 Pro", vendor:"Google", params:null, xSlot:0.99, score:49.7, raw:0.149, access:"Closed", est:true, note:"closed API · params undisclosed"}
+];
+var VENDOR_STYLE={
+ "Singularity":{c:"#e5486f", glyph:"S", grad:true},
+ "OpenAI":{c:"#111111", glyph:"✿"},
+ "Google":{c:"#2b7fff", glyph:"✦"},
+ "Alibaba":{c:"#6a4df4", glyph:"◈"},
+ "Meta":{c:"#1a73e8", glyph:"∞"},
+ "Z.ai":{c:"#111111", glyph:"Z", box:true},
+ "Minimax":{c:"#f2557a", glyph:"≋"},
+ "Anthropic":{c:"#d97706", glyph:"✳"}
+};
+var W=1000,H=560,ML=64,MR=30,MT=44,MB=58;
+var X0=Math.log10(0.3), X1=Math.log10(2000), YMAX=100;
+function X(p){return ML+(Math.log10(p)-X0)/(X1-X0)*(W-ML-MR);}
+function Y(s){return MT+(1-s/YMAX)*(H-MT-MB);}
+var svg=document.getElementById("chart"), tip=document.getElementById("tip"), wrap=document.getElementById("chartWrap");
+var NS="http://www.w3.org/2000/svg";
+function el(n,a){var e=document.createElementNS(NS,n);for(var k in a)e.setAttribute(k,a[k]);return e;}
+/* defs */
+var defs=el("defs",{});
+defs.innerHTML='<linearGradient id="singZone" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#b8f1d4" stop-opacity=".95"/><stop offset=".45" stop-color="#c4e9f7" stop-opacity=".55"/><stop offset="1" stop-color="#e6f4ff" stop-opacity="0"/></linearGradient>'
++'<linearGradient id="singBox" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ff3b30"/><stop offset=".55" stop-color="#e5486f"/><stop offset="1" stop-color="#ff8a3d"/></linearGradient>'
++'<linearGradient id="paretoGrad" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#10b981"/><stop offset=".5" stop-color="#0ea5e9"/><stop offset="1" stop-color="#6366f1"/></linearGradient>'
++'<linearGradient id="closedZone" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#cfe8dd" stop-opacity="0"/><stop offset=".45" stop-color="#bfe0ea" stop-opacity=".55"/><stop offset="1" stop-color="#a9cfe8" stop-opacity=".8"/></linearGradient>'
++'<filter id="softGlow" x="-40%" y="-40%" width="180%" height="180%"><feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>';
+svg.appendChild(defs);
+/* closed zone */
+var closedG=el("g",{id:"closedG"});svg.appendChild(closedG);
+var closedPoly=el("path",{d:"M "+X(280)+" "+MT+" L "+(W-MR)+" "+MT+" L "+(W-MR)+" "+(H-MB+18)+" L "+X(1150)+" "+Y(22.7)+" Z",fill:"url(#closedZone)",stroke:"#6fa8a0","stroke-width":1,"stroke-dasharray":"2 5",opacity:.9});
+closedG.appendChild(closedPoly);
+var closedEdge=el("path",{d:"M "+X(280)+" "+MT+" L "+X(1150)+" "+Y(22.7),fill:"none",stroke:"#2f8f9d","stroke-width":1.2,"stroke-dasharray":"6 5",opacity:.7});
+closedG.appendChild(closedEdge);
+var closedLbl=el("text",{x:W-MR-8,y:MT+20,"text-anchor":"end","font-size":17,"font-weight":600,fill:"#166b62"});closedLbl.textContent="Closed-Source";closedG.appendChild(closedLbl);
+var closedLbl2=el("text",{x:W-MR-8,y:MT+42,"text-anchor":"end","font-size":17,"font-weight":600,fill:"#166b62"});closedLbl2.textContent="LLMs";closedG.appendChild(closedLbl2);
+/* singularity zone */
+var frontG=el("g",{id:"frontG"});svg.appendChild(frontG);
+var zw=X(3.6)-X(0.28);
+var zone=el("rect",{x:X(0.28),y:Y(72.7),width:zw,height:Y(0)-Y(72.7),rx:10,fill:"url(#singZone)",stroke:"#5ec9a7","stroke-width":1,"stroke-dasharray":"3 5",opacity:.95});
+frontG.appendChild(zone);
+var zoneTop=el("line",{x1:X(0.28),y1:Y(72.7),x2:X(0.28)+zw,y2:Y(72.7),stroke:"#10b981","stroke-width":1,opacity:.35});
+frontG.appendChild(zoneTop);
+/* grid */
+var xticks=[1,2,4,8,16,32,64,128,250,1024];
+var yticks=[0,20,40,60,80,100];
+yticks.forEach(function(t){
+ svg.appendChild(el("line",{x1:ML,y1:Y(t),x2:W-MR,y2:Y(t),stroke:t===0?"#333":"#ececec","stroke-width":1}));
+ var tx=el("text",{x:ML-10,y:Y(t)+4,"text-anchor":"end","font-size":12,fill:"#666"});tx.textContent=String(t);svg.appendChild(tx);
+});
+xticks.forEach(function(t){
+ svg.appendChild(el("line",{x1:X(t),y1:MT,x2:X(t),y2:H-MB,stroke:"#f0f0f0","stroke-width":1}));
+ var tx=el("text",{x:X(t),y:H-MB+20,"text-anchor":"middle","font-size":12,fill:"#666"});tx.textContent=(t>=1000?(t/1024).toFixed(0)+"024B":t+"B");svg.appendChild(tx);
+});
+var xl=el("text",{x:(ML+W-MR)/2,y:H-8,"text-anchor":"middle","font-size":15,fill:"#222"});xl.textContent="Parameters (B, log). Closed models use score-only slots";svg.appendChild(xl);
+var yl=el("text",{x:18,y:(MT+H-MB)/2,"text-anchor":"middle","font-size":15,fill:"#222",transform:"rotate(-90 18,"+((MT+H-MB)/2)+")"});yl.textContent="File F1 Score (0–100)";svg.appendChild(yl);
+/* pareto dashed */
+var paretoGlow=el("path",{d:"M "+X(0.35)+" "+Y(43.3)+" C "+X(0.6)+" "+Y(61.7)+", "+X(1.2)+" "+Y(69.3)+", "+X(3.0)+" "+Y(72.0),fill:"none",stroke:"#10b981","stroke-width":5,"stroke-linecap":"round",opacity:.16,filter:"url(#softGlow)"});
+frontG.appendChild(paretoGlow);
+var pareto=el("path",{id:"pareto",d:"M "+X(0.35)+" "+Y(43.3)+" C "+X(0.6)+" "+Y(61.7)+", "+X(1.2)+" "+Y(69.3)+", "+X(3.0)+" "+Y(72.0),fill:"none",stroke:"url(#paretoGrad)","stroke-width":2.2,"stroke-linecap":"round","stroke-dasharray":"8 6",opacity:1});
+frontG.appendChild(pareto);
+/* points */
+var gPts=el("g",{});svg.appendChild(gPts);
+var labelDx={"Singularity-350M":[0,34],"Singularity-1B":[0,-22],"Singularity-3B":[0,-22],"SFM-8B":[0,-24],"Gemma-4-E2B":[-6,-20],"Gemma-4-E4B":[-8,30],"Qwen3.5-9B":[-8,30],"GPT-OSS-20B":[-4,-20],"Gemma-4-31B":[0,-22],"Qwen3.8-27B":[0,-22],"Qwen3.5-35B-A3B":[8,32],"Llama-3.3-70B":[0,30],"GPT-OSS-120B":[0,30],"Qwen3.5-122B-A10B":[0,-22],"MiniMax-M2.7":[0,34],"MiniMax-M3":[0,-22],"GLM-5.2":[-52,-8],"GLM-5.3":[-48,-24],"GPT-5.6 Sol (xhigh)":[0,-24],"GPT-5.5 (xhigh)":[0,-24],"Opus 5 (xhigh)":[0,30],"GPT-5.5":[0,28],"Opus 5":[0,30],"Gemini 3 Pro":[0,30],"Gemini 3.8 Flash":[0,28]};
+function drawPts(){
+ gPts.innerHTML="";
+ MODELS.forEach(function(m){
+  if(hidden[m.vendor])return;
+  var g=el("g",{"class":"pt","data-id":m.id});
+  var cx=m.est?(ML+m.xSlot*(W-ML-MR)):X(m.params),cy=Y(m.score);
+  g.appendChild(el("circle",{cx:cx,cy:cy,r:16,fill:"transparent","class":"halo",stroke:"#111","stroke-width":1.2,"stroke-dasharray":"3 3"}));
+  var st=VENDOR_STYLE[m.vendor]||{c:"#333",glyph:"●"};
+  if(m.vendor==="Singularity"){
+   g.appendChild(el("rect",{x:cx-12,y:cy-12,width:24,height:24,rx:6,fill:"#111",stroke:"#fff","stroke-width":1.5}));
+   var logo=el("image",{x:cx-9,y:cy-7,width:18,height:12});logo.setAttribute("href","assets/mark.svg");logo.setAttributeNS("http://www.w3.org/1999/xlink","xlink:href","assets/mark.svg");g.appendChild(logo);
+  }else if(st.box){
+   g.appendChild(el("rect",{x:cx-10,y:cy-10,width:20,height:20,rx:4,fill:"#111"}));
+   var tb=el("text",{x:cx,y:cy+5,"text-anchor":"middle","font-size":12,"font-weight":800,fill:"#fff"});tb.textContent="Z";g.appendChild(tb);
+  }else{
+   var tg=el("text",{x:cx,y:cy+8,"text-anchor":"middle","font-size":m.vendor==="Meta"?20:22,"font-weight":800,fill:st.c,stroke:"#fff","stroke-width":3,"paint-order":"stroke"});tg.textContent=st.glyph;g.appendChild(tg);
+  }
+  if(m.est){
+   g.appendChild(el("circle",{cx:cx,cy:cy,r:14,fill:"none",stroke:"#999","stroke-width":1.2,"stroke-dasharray":"4 3",opacity:.8}));
+  }
+  if(m.wip){
+   g.appendChild(el("circle",{cx:cx,cy:cy,r:17,fill:"none",stroke:"#d97706","stroke-width":1.6,"stroke-dasharray":"5 4",opacity:.95}));
+  }
+  var off=labelDx[m.name]||[0,-20];
+  var bold=m.vendor==="Singularity";
+  var lt=el("text",{x:cx+off[0],y:cy+off[1],"text-anchor":"middle","font-size":bold?15:12.5,"font-weight":bold?800:500,fill:bold?"#1a1a1a":"#222","class":"lbl"});lt.textContent=m.name+(m.est?" *":"")+(m.wip?" · WIP":"");g.appendChild(lt);
+  g.addEventListener("mouseenter",function(e){showTip(m,cx,cy);g.classList.add("hot");hlRow(m.id,true);});
+  g.addEventListener("mouseleave",function(){hideTip();g.classList.remove("hot");hlRow(m.id,false);});
+  g.addEventListener("click",function(){showTip(m,cx,cy);});
+  gPts.appendChild(g);
+ });
+ document.getElementById("countLabel").textContent=MODELS.filter(function(m){return !hidden[m.vendor];}).length+" / "+MODELS.length+" MODELS SHOWN";
+ var show=document.getElementById("btnLabels").classList.contains("on");
+ gPts.querySelectorAll(".lbl").forEach(function(t){t.style.display=show?"":"none";});
+}
+function showTip(m,cx,cy){
+ var st=VENDOR_STYLE[m.vendor];
+ var eff=(m.vendor==="Singularity")?"<div class='row'><span>vs GLM-5.2</span><b>"+Math.round(744/m.params)+"× smaller</b></div>":"";
+ var pLabel=m.est?"Undisclosed":(m.params+"B");
+ var pWarn=m.est?"<div class='row'><span>Position</span><b>illustrative only (no X)</b></div>":"";
+ var eff2=m.est?"":eff;
+  var pill=m.wip?"SINGULARITY · PREVIEW · WORK IN PROGRESS":(m.vendor.toUpperCase()+" · "+m.access.toUpperCase());
+  tip.innerHTML="<span class='pill2'>"+pill+"</span><h4>"+m.name+"</h4><div style='opacity:.75'>"+m.note+"</div><div class='row'><span>Params</span><b>"+pLabel+"</b></div><div class='row'><span>File F1</span><b>"+m.score.toFixed(1)+" / 100"+(m.wip?" (preview)":"")+"</b></div>"+pWarn+eff2;
+ var r=wrap.getBoundingClientRect(),sx=cx/1000*r.width,sy=cy/560*(r.width*0.56);
+ tip.style.left=sx+"px";tip.style.top=sy+"px";tip.classList.add("show");
+}
+function hideTip(){tip.classList.remove("show");}
+/* legend */
+var hidden={};
+var vendors=["Singularity","OpenAI","Anthropic","Google","Alibaba","Meta","Z.ai","Minimax"];
+var leg=document.getElementById("legend");
+vendors.forEach(function(v){
+ var st=VENDOR_STYLE[v];
+ var b=document.createElement("button");b.type="button";b.dataset.v=v;
+ b.setAttribute("aria-pressed","true");
+ var dotBg=st.grad?"#111":st.c;
+ var dotInner=v==="Singularity"?"<img src='assets/mark.svg' alt='' style='width:15px;height:10px;display:block'>":st.glyph;
+ b.innerHTML="<span class='dot' style='background:"+dotBg+";overflow:hidden'>"+dotInner+"</span>"+(v==="Singularity"?"Singularity FM":v);
+ b.addEventListener("click",function(){hidden[v]=!hidden[v];b.classList.toggle("off",!!hidden[v]);b.setAttribute("aria-pressed",hidden[v]?"false":"true");drawPts();renderTable();});
+ leg.appendChild(b);
+});
+document.getElementById("btnLabels").addEventListener("click",function(){this.classList.toggle("on");this.setAttribute("aria-pressed",this.classList.contains("on")?"true":"false");drawPts();});
+document.getElementById("btnFrontier").addEventListener("click",function(){this.classList.toggle("on");this.setAttribute("aria-pressed",this.classList.contains("on")?"true":"false");frontG.style.display=this.classList.contains("on")?"":"none";});
+document.getElementById("btnClosed").addEventListener("click",function(){this.classList.toggle("on");this.setAttribute("aria-pressed",this.classList.contains("on")?"true":"false");closedG.style.display=this.classList.contains("on")?"":"none";});
+/* table */
+var sortK="params",sortDir=1;
+function fmtP(p,est){if(est||p==null)return "Undisclosed";var s=p<1?(p*1000).toFixed(0)+"M":p+"B";return s;}
+function renderTable(){
+ var q=(document.getElementById("q").value||"").toLowerCase();
+ var rows=MODELS.filter(function(m){return !hidden[m.vendor]&&(!q||m.name.toLowerCase().includes(q)||m.vendor.toLowerCase().includes(q));});
+ rows.sort(function(a,b){var x=a[sortK],y=b[sortK];if(x==null)return 1;if(y==null)return -1;if(typeof x==="string"){return x.localeCompare(y)*sortDir;}return (x-y)*sortDir;});
+ var tb=document.getElementById("tbody");tb.innerHTML="";
+ rows.forEach(function(m){
+  var tr=document.createElement("tr");tr.dataset.id=m.id;
+   tr.innerHTML="<td><b>"+m.name+"</b>"+(m.vendor==="Singularity"?" <span style='font-family:var(--mono);font-size:10px;background:rgba(110,231,168,.15);color:#6ee7a8;padding:2px 6px;border-radius:4px'>SINGULARITY</span>":"")+(m.vendor==="Anthropic"?" <span style='font-family:var(--mono);font-size:10px;background:rgba(217,119,6,.18);color:#f0a832;padding:2px 6px;border-radius:4px'>NEW</span>":"")+(m.wip?" <span style='font-family:var(--mono);font-size:10px;background:rgba(217,119,6,.20);color:#f0a832;padding:2px 6px;border-radius:4px'>WIP</span>":"")+"</td><td>"+m.vendor+"</td><td style='font-family:var(--mono)' title='"+(m.est?"Size undisclosed - illustrative position":"Verified / name-matched size")+"'>"+fmtP(m.params,m.est)+"</td><td style='font-family:var(--mono)'><b>"+m.score.toFixed(1)+"</b></td><td>"+m.access+"</td>";
+  tr.addEventListener("mouseenter",function(){hlRow(m.id,true);var g=gPts.querySelector('[data-id="'+m.id+'"]');if(g)g.classList.add("hot");});
+  tr.addEventListener("mouseleave",function(){hlRow(m.id,false);var g=gPts.querySelector('[data-id="'+m.id+'"]');if(g)g.classList.remove("hot");});
+  tb.appendChild(tr);
+ });
+}
+function hlRow(id,on){document.querySelectorAll("#tbody tr").forEach(function(r){if(r.dataset.id===id)r.classList.toggle("hl",on);});}
+document.querySelectorAll(".dtable th").forEach(function(th){
+ th.addEventListener("click",function(){var k=th.dataset.k;if(sortK===k)sortDir*=-1;else{sortK=k;sortDir=1;}renderTable();});
+});
+document.getElementById("q").addEventListener("input",renderTable);
+drawPts();renderTable();
+})();
+</script>
+<script>(function(){var h=document.querySelector('.site-header'),b=document.querySelector('.burger'),m=document.getElementById('mobile-nav');function s(){h.classList.toggle('is-scrolled',scrollY>12)}s();addEventListener('scroll',s,{passive:true});b.addEventListener('click',function(){var o=b.getAttribute('aria-expanded')!=='true';h.classList.toggle('menu-open',o);b.setAttribute('aria-expanded',o);b.setAttribute('aria-label',o?'Close menu':'Open menu');m.hidden=!o});m.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){h.classList.remove('menu-open');b.setAttribute('aria-expanded','false');m.hidden=true})})})();</script>
+</body>
+</html>

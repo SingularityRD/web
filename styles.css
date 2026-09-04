@@ -2948,6 +2948,8 @@ a.logo-cell:hover .logo-pair { color: var(--text); }
 
 /* ══ Polish layer: entrances, micro-interactions, idle life ══════════════ */
 html { scroll-behavior: smooth; scroll-padding-top: calc(var(--header-h) + 18px); }
+.section-aliases { position: relative; height: 0; visibility: hidden; }
+.section-aliases span { position: absolute; inset: 0; }
 
 /* Scroll-reveal: .rv is only ever added by JS, so no-JS keeps everything
    visible. Stagger comes per-element through --rvd. */

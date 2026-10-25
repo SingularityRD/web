@@ -16,21 +16,12 @@
       <img class="brand-logo" src="assets/logo.svg" alt="Singularity" width="1409" height="306" />
     </a>
 
-    <nav class="nav-primary" aria-label="Primary">
-      <a class="nav-seg" href="index.html#ai-soc">AI SOC <b>01</b></a>
-      <a class="nav-seg" href="index.html#soar">AI SOAR <b>02</b></a>
-      <a class="nav-seg" href="index.html#aidr">AIDR <b>03</b></a>
-      <a class="nav-seg" href="index.html#research">Research <b>04</b></a>
-    </nav>
-
-    <nav class="nav-secondary" aria-label="Secondary">
-      <a class="nav-link" href="index.html#platform">Platform</a>
-      <a class="nav-link" href="customer-success.html#top">Customer Success</a>
+    <nav class="nav-secondary home-nav" aria-label="Primary">
+      <a class="nav-link nav-prod" href="index.html#autosecops"><i class="dot-a"></i>AutoSecOps</a>
+      <a class="nav-link nav-prod" href="index.html#aidr"><i class="dot-b"></i>AIDR</a>
       <a class="nav-link" href="index.html#research">Research</a>
-      <a class="nav-link" href="index.html#faq">FAQ</a>
-      <a class="nav-link" href="index.html#contact">Book a call</a>
-      <a class="btn btn-ghost" href="index.html#contact">Login</a>
-      <a class="btn btn-solid" href="index.html#pricing">Get protected <span class="chev">›</span></a>
+      <a class="nav-link" href="index.html#pricing">Pricing</a>
+      <a class="btn btn-solid" href="https://calendly.com/anill-yagiz/singularity" target="_blank" rel="noopener">Book a demo <span class="chev">›</span></a>
     </nav>
 
     <button class="burger" type="button" aria-label="Open menu" aria-controls="mobile-nav" aria-expanded="false"><span></span><span></span></button>
@@ -38,16 +29,13 @@
 
   <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation" hidden>
     <div class="shell mobile-nav-grid">
-      <a class="mobile-nav-link" href="index.html#ai-soc">AI SOC <span>01</span></a>
-      <a class="mobile-nav-link" href="index.html#soar">AI SOAR <span>02</span></a>
-      <a class="mobile-nav-link" href="index.html#aidr">AIDR <span>03</span></a>
-      <a class="mobile-nav-link" href="index.html#research">Research <span>04</span></a>
-      <a class="mobile-nav-link" href="index.html#platform">Platform</a>
-      <a class="mobile-nav-link" href="customer-success.html#top">Customer Success</a>
+      <a class="mobile-nav-link" href="index.html#autosecops">AutoSecOps</a>
+      <a class="mobile-nav-link" href="index.html#aidr">AIDR</a>
       <a class="mobile-nav-link" href="index.html#research">Research</a>
+      <a class="mobile-nav-link" href="index.html#pricing">Pricing</a>
+      <a class="mobile-nav-link" href="customer-success.html">Customer stories</a>
       <a class="mobile-nav-link" href="index.html#faq">FAQ</a>
-      <a class="mobile-nav-link" href="index.html#contact">Book a call</a>
-      <a class="btn btn-solid btn-lg mobile-nav-cta" href="index.html#pricing">Get protected <span class="chev">›</span></a>
+      <a class="btn btn-solid btn-lg mobile-nav-cta" href="https://calendly.com/anill-yagiz/singularity" target="_blank" rel="noopener">Book a demo <span class="chev">›</span></a>
     </div>
   </nav>
 </header>
@@ -166,17 +154,17 @@
     </a>
     <nav class="footer-cols" aria-label="Footer">
       <div>
-        <p class="footer-head">Platform</p>
-        <a href="index.html#ai-soc">AI SOC</a><a href="index.html#soar">AI SOAR</a><a href="index.html#aidr">AIDR</a><a href="index.html#pricing">Pricing</a>
+        <p class="footer-head">Products</p>
+        <a href="index.html#autosecops">AutoSecOps</a><a href="index.html#aidr">AIDR</a><a href="index.html#workflows">Workflows</a><a href="index.html#cases">Cases</a><a href="index.html#pricing">Pricing</a>
       </div>
       <div>
         <p class="footer-head">Company</p>
-        <a href="index.html#research">Research</a><a href="customer-success.html#top">Customer Success</a><a href="index.html#faq">FAQ</a><a href="index.html#recognition">Recognition</a><a href="mailto:anil@singularityrd.com">Contact</a>
+        <a href="index.html#research">Research</a><a href="customer-success.html">Customer Success</a><a href="index.html#compare">Compare</a><a href="index.html#faq">FAQ</a><a href="mailto:anil@singularityrd.com">Contact</a>
       </div>
     </nav>
   </div>
   <div class="shell footer-legal">
-    <p><strong>Singularity Research and Development Inc.</strong> is incorporated in Delaware, with offices in the <strong>United States</strong> and <strong>Türkiye</strong>.</p>
+    <p><strong>Singularity Research and Development Inc.</strong> is incorporated in Delaware, with offices in the <strong>United States</strong> and <strong>Türkiye</strong>. We are a frontier AI security lab building <strong>AutoSecOps</strong> and <strong>AIDR</strong>.</p>
   </div>
   <div class="shell footer-bar">
     <p>© 2026 Singularity Research and Development Inc.</p>
@@ -184,45 +172,6 @@
   </div>
 </footer>
 
-<script>
-  (function () {
-    var header = document.querySelector('.site-header');
-    var burger = document.querySelector('.burger');
-    var mobileNav = document.getElementById('mobile-nav');
-    if (!header) return;
-
-    function syncHeader() {
-      header.classList.toggle('is-scrolled', window.scrollY > 12);
-    }
-    syncHeader();
-    window.addEventListener('scroll', syncHeader, { passive: true });
-
-    if (!burger || !mobileNav) return;
-
-    function closeMenu() {
-      header.classList.remove('menu-open');
-      burger.setAttribute('aria-expanded', 'false');
-      burger.setAttribute('aria-label', 'Open menu');
-      mobileNav.hidden = true;
-    }
-
-    burger.addEventListener('click', function () {
-      var open = burger.getAttribute('aria-expanded') !== 'true';
-      header.classList.toggle('menu-open', open);
-      burger.setAttribute('aria-expanded', String(open));
-      burger.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
-      mobileNav.hidden = !open;
-    });
-    mobileNav.querySelectorAll('a').forEach(function (link) {
-      link.addEventListener('click', closeMenu);
-    });
-    document.addEventListener('keydown', function (event) {
-      if (event.key === 'Escape') closeMenu();
-    });
-    window.addEventListener('resize', function () {
-      if (window.innerWidth > 980) closeMenu();
-    });
-  })();
-</script>
+<script src="site.js" defer></script>
 </body>
 </html>

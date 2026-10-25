@@ -151,7 +151,7 @@
 
   /* Reveal on scroll, with a small stagger between siblings ------------- */
   (function () {
-    var els = $$('.sec-title, .sec-sub, .app, .marquee, .uc, .card, .term, .aidr-points li, .mini > div, .canvas, .case-ui, .agents > div, .ready li, .cmp, .stat, .prices article, .faq-item, .cta');
+    var els = $$('.prod, .chooser, .band-head > *, .how3 li, .layers, .works, .together, .price-b, .sec-title, .sec-sub, .app, .marquee, .uc, .card, .term, .aidr-points li, .mini > div, .canvas, .case-ui, .agents > div, .ready li, .cmp, .stat, .prices article, .faq-item, .cta');
     els.forEach(function (el) {
       var i = 0, s = el;
       while ((s = s.previousElementSibling)) if (s.__rv) i++;

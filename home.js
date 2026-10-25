@@ -151,7 +151,7 @@
 
   /* Reveal on scroll, with a small stagger between siblings ------------- */
   (function () {
-    var els = $$('.ind, .q, .prod, .chooser, .band-head > *, .how3 li, .layers, .works, .together, .price-b, .sec-title, .sec-sub, .app, .marquee, .uc, .card, .term, .aidr-points li, .mini > div, .canvas, .case-ui, .agents > div, .ready li, .cmp, .stat, .prices article, .faq-item, .cta');
+    var els = $$('.proof li, .pn, .bench, .post-c, .ind, .q, .prod, .chooser, .band-head > *, .how3 li, .layers, .works, .together, .price-b, .sec-title, .sec-sub, .app, .marquee, .uc, .card, .term, .aidr-points li, .mini > div, .canvas, .case-ui, .agents > div, .ready li, .cmp, .stat, .prices article, .faq-item, .cta');
     els.forEach(function (el) {
       var i = 0, s = el;
       while ((s = s.previousElementSibling)) if (s.__rv) i++;
@@ -174,6 +174,12 @@
     }
     window.addEventListener('scroll', function () { setTimeout(sweep, 200); }, { passive: true });
     setTimeout(sweep, 1500);
+  })();
+
+  /* Benchmark bars grow from zero when the chart scrolls into view. */
+  (function () {
+    var bench = $('[data-bench]');
+    if (bench) bench.classList.add('play');
   })();
 
   /* Logo marquee: duplicate the list so the loop is seamless ------------ */

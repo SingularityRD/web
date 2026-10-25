@@ -239,7 +239,7 @@
 <!-- ── Hero ────────────────────────────────────────────────────── -->
 <section class="hero">
   <div class="hero-media">
-    <img src="assets/hero.png" alt="" />
+    <picture><source srcset="assets/hero.webp" type="image/webp" /><img src="assets/hero.png" alt="" fetchpriority="high" /></picture>
     <div class="hero-scrim"></div>
   </div>
 
@@ -294,6 +294,11 @@
     <p><i class="dot-b"></i>You use AI agents → <a href="#aidr">AIDR</a></p>
     <p><i class="dot-ab"></i>Both → they work together</p>
   </div>
+  <ul class="proof">
+    <li><b>Our own security models</b><span>72 on Cybench with 3B parameters — 248× smaller than the best open model.</span></li>
+    <li><b>Kernel-level AI agent security</b><span>AIDR sees what AI agents actually do, not just what they say.</span></li>
+    <li><b>Credited research</b><span>Vulnerabilities credited by AWS, Google, Oracle, Intel and NASA.</span></li>
+  </ul>
   <div class="marquee" id="recognition" aria-label="Programs and institutions that have recognized Singularity's research">
     <p class="marquee-k">Research and programs that recognized our work</p>
     <div class="mq-track">
@@ -377,6 +382,15 @@
   <h2 class="bh-title" id="autosecops-h">AutoSecOps</h2>
   <p class="bh-one">An AI security team that investigates and stops attacks for you, around the clock.</p>
   <p class="bh-chips"><span>AI SOC</span><span>AI SOAR</span><span>Cases</span><span>EDR · NDR · SIEM</span></p>
+  <div class="pipe pipe-a" aria-label="How AutoSecOps works: your tools send alarms, AI analysts investigate them, your rules decide, and the result is done with proof">
+    <div class="pn"><span class="pn-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="6" rx="1.5"/><rect x="3" y="14" width="18" height="6" rx="1.5"/><path d="M7 7h.01M7 17h.01"/></svg></span><b>Your tools</b><small>CrowdStrike, Okta, M365 + 300</small></div>
+    <div class="pc" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><em>12,480 alarms</em></div>
+    <div class="pn is-core"><span class="pn-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a4 4 0 0 0-4 4v1a4 4 0 0 0-3 6.5A4 4 0 0 0 9 21h0a3 3 0 0 0 3-3 3 3 0 0 0 3 3h0a4 4 0 0 0 4-6.5A4 4 0 0 0 16 8V7a4 4 0 0 0-4-4Z"/><path d="M12 7v11"/></svg></span><b>AI analysts</b><small>investigate every alarm</small></div>
+    <div class="pc" aria-hidden="true"><i class="w"></i><i class="r"></i><em>3 real threats</em></div>
+    <div class="pn"><span class="pn-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h10M4 12h16M4 18h7"/><circle cx="17" cy="6" r="2"/><circle cx="14" cy="18" r="2"/></svg></span><b>Your rules</b><small>small fixes run · big ones ask</small></div>
+    <div class="pc" aria-hidden="true"><i class="g"></i><i class="g"></i><em>contained</em></div>
+    <div class="pn"><span class="pn-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3h7l5 5v13H7z"/><path d="m10 14 2 2 4-4"/></svg></span><b>Done, with proof</b><small>action + full report</small></div>
+  </div>
 </section>
 
 
@@ -606,11 +620,11 @@
   <h2 class="sec-title" id="mcp-h">Drive AutoSecOps from your coding agent.</h2>
   <p class="sec-sub">Describe a playbook in plain English. Your coding agent builds and runs it through AutoSecOps MCP.</p>
   <div class="agents">
-    <div><span class="ag-ico" aria-hidden="true">✳</span>Claude Code</div>
-    <div><span class="ag-ico" aria-hidden="true">◆</span>Microsoft Copilot</div>
-    <div><span class="ag-ico" aria-hidden="true">&gt;_</span>Codex</div>
+    <div><span class="ag-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v18M4.2 7.5l15.6 9M4.2 16.5l15.6-9"/></svg></span>Claude Code</div>
+    <div><span class="ag-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l8 9-8 9-8-9z"/></svg></span>Microsoft Copilot</div>
+    <div><span class="ag-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 8 4 4-4 4M12 16h7"/></svg></span>Codex</div>
     <span class="ag-plus" aria-hidden="true">+</span>
-    <div class="is-us"><span class="ag-ico" aria-hidden="true">◈</span>AutoSecOps MCP</div>
+    <div class="is-us"><span class="ag-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 7V3M15 7V3"/><rect x="6" y="7" width="12" height="7" rx="2"/><path d="M12 14v3a4 4 0 0 1-4 4"/></svg></span>AutoSecOps MCP</div>
   </div>
 </section>
 
@@ -620,6 +634,13 @@
   <h2 class="bh-title" id="aidr-h">AIDR</h2>
   <p class="bh-one">Security for AI agents. It stops them from being tricked into doing harm — enforced in the operating-system kernel.</p>
   <p class="bh-chips"><span>AI agents</span><span>MCP servers</span><span>Coding agents</span><span>No code changes</span></p>
+  <div class="pipe pipe-b" aria-label="How AIDR works: every action an AI agent tries passes through AIDR in the kernel; safe actions reach your systems and harmful ones are blocked">
+    <div class="pn"><span class="pn-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="8" width="14" height="10" rx="2"/><path d="M12 4v4M9 13h.01M15 13h.01"/></svg></span><b>AI agent</b><small>support bot, coding agent, MCP</small></div>
+    <div class="pc pc-in" aria-hidden="true"><i class="g"></i><i class="r"></i><i class="g"></i><i class="r"></i><i class="g"></i><em>every action</em></div>
+    <div class="pn is-core is-shield"><span class="pn-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 4 6v6c0 4.5 3.4 8.3 8 9 4.6-.7 8-4.5 8-9V6l-8-3Z"/><path d="m9 12 2 2 4-4"/></svg></span><b>AIDR, in the kernel</b><small>checks it before it runs</small></div>
+    <div class="pc pc-out" aria-hidden="true"><i class="g"></i><i class="g"></i><i class="g"></i><em>only safe actions</em></div>
+    <div class="pn"><span class="pn-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><ellipse cx="12" cy="6" rx="7" ry="3"/><path d="M5 6v12c0 1.7 3.1 3 7 3s7-1.3 7-3V6M5 12c0 1.7 3.1 3 7 3s7-1.3 7-3"/></svg></span><b>Your systems</b><small>files · network · programs</small></div>
+  </div>
 </section>
 
 <section class="wrap sec sec-tight is-b" aria-labelledby="aidr-why-h">
@@ -665,11 +686,37 @@
   <span class="anchor" id="lab"></span>
   <p class="sec-tag">The lab</p>
   <h2 class="sec-title" id="research-h">A frontier AI security lab.</h2>
-  <p class="sec-sub">We research how AI attacks and defends, then ship it as product. Our team’s vulnerability work is credited by AWS, Google, Oracle, Intel and NASA.</p>
+  <p class="sec-sub">We train our own security models, publish how they perform, and ship them inside our products — small enough to run in your own building.</p>
+
+  <div class="bench" data-bench>
+    <div class="bench-head">
+      <div>
+        <p class="bench-k">Cybench · 40 professional hacking challenges</p>
+        <h3>Our 3B model scores 72. The best open model needs 744B parameters to score 78.</h3>
+      </div>
+      <p class="bench-big"><b data-count="248" data-suf="×">248×</b><span>smaller than the best open model</span></p>
+    </div>
+    <ul class="bars">
+      <li><span class="b-name">GPT-5.6 Sol<small>closed · size not public</small></span><span class="b-track"><i style="--w:84%"></i></span><b>84.0</b></li>
+      <li><span class="b-name">GLM-5.3<small>open · 744B parameters</small></span><span class="b-track"><i style="--w:78%"></i></span><b>78.0</b></li>
+      <li class="is-us"><span class="b-name">Singularity-3B<small>ours · 3B parameters</small></span><span class="b-track"><i style="--w:72%"></i></span><b>72.0</b></li>
+      <li class="is-us"><span class="b-name">Singularity-1B<small>ours · 1B parameters</small></span><span class="b-track"><i style="--w:64%"></i></span><b>64.0</b></li>
+    </ul>
+    <p class="bench-foot">Normalized File F1 (0–100) from our internal harness on the public Cybench task split, August 2026. <a href="blog-cybench.html">See all 25 models and the method →</a></p>
+  </div>
+
   <div class="stats">
-    <a class="stat" href="blog-cybench.html"><b data-count="95" data-suf="%">95%</b><span>on Cybench with Maximus, our 1B model — within one point of frontier models a thousand times larger.</span><em>Read the results →</em></a>
     <div class="stat"><b data-count="70" data-suf="+">70+</b><span>peer-reviewed papers at venues like NeurIPS, ICML, ICLR and CCS.</span></div>
+    <div class="stat"><b>1B+</b><span>people used software with vulnerabilities our team found and helped fix.</span></div>
     <a class="stat" href="blog-edr-telemetry-benchmark.html"><b>#1</b><span>in our Linux and Windows EDR telemetry evaluation.</span><em>See the benchmark →</em></a>
+  </div>
+
+  <div class="posts">
+    <p class="posts-k">From the lab</p>
+    <a class="post-c" href="blog-cybench.html"><small>Models · 8 min</small><b>Small security models reach the Cybench frontier</b></a>
+    <a class="post-c" href="blog-edr-telemetry-benchmark.html"><small>Benchmark</small><b>How our EDR ranked #1 on Linux and Windows telemetry</b></a>
+    <a class="post-c" href="blog-runtime-security.html"><small>AI agent security · 8 min</small><b>AI agents need security controls while they run</b></a>
+    <a class="post-c" href="blog-security-operations.html"><small>Security operations · 6 min</small><b>From alert queues to one operating rhythm</b></a>
   </div>
 </section>
 
@@ -678,12 +725,12 @@
   <h2 class="sec-title" id="ready-h">Ready for the most demanding teams.</h2>
   <p class="sec-sub">Built for defense, government and regulated companies from day one.</p>
   <ul class="ready">
-    <li><span class="r-ico" aria-hidden="true">⌂</span>Self-host anywhere</li>
-    <li><span class="r-ico" aria-hidden="true">◎</span>Fully air-gapped</li>
-    <li><span class="r-ico" aria-hidden="true">◈</span>On-prem Maximus 1B model</li>
-    <li><span class="r-ico" aria-hidden="true">✓</span>Approval policies</li>
-    <li><span class="r-ico" aria-hidden="true">≡</span>Full audit log</li>
-    <li><span class="r-ico" aria-hidden="true">⛓</span>Evidence on every case</li>
+    <li><span class="r-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11 12 4l9 7"/><path d="M5 10v10h14V10"/></svg></span>Self-host anywhere</li>
+    <li><span class="r-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="m4 4 16 16"/></svg></span>Fully air-gapped</li>
+    <li><span class="r-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="7" y="7" width="10" height="10" rx="1.5"/><path d="M10 3v4M14 3v4M10 17v4M14 17v4M3 10h4M3 14h4M17 10h4M17 14h4"/></svg></span>Our own models, on your hardware</li>
+    <li><span class="r-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 4 6v6c0 4.5 3.4 8.3 8 9 4.6-.7 8-4.5 8-9V6l-8-3Z"/><path d="m9 12 2 2 4-4"/></svg></span>Approval policies</li>
+    <li><span class="r-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 6h12M8 12h12M8 18h12M4 6h.01M4 12h.01M4 18h.01"/></svg></span>Full audit log</li>
+    <li><span class="r-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1"/><path d="M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"/></svg></span>Evidence on every case</li>
   </ul>
 </section>
 

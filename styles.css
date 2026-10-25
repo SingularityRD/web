@@ -2603,7 +2603,8 @@ a.logo-cell:hover .logo-pair { color: var(--text); }
   .blog-card-featured { grid-template-columns: 1fr; }
   .blog-card-featured .blog-card-art { border-right: 0; border-bottom: 1px solid var(--line); }
   .article-layout { grid-template-columns: 1fr; gap: 18px; }
-  .article-layout aside { max-width: 420px; padding-bottom: 8px; }
+  .article-layout aside { max-width: min(420px, 100%); padding-bottom: 8px; }
+  .article-layout > * { min-width: 0; }
 }
 @media (max-width: 980px) {
   .article-page.edr-article .burger { display: flex; }
@@ -3268,4 +3269,19 @@ html { scroll-behavior: smooth; scroll-padding-top: calc(var(--header-h) + 18px)
   .case-index { font-size: 30px; }
   .case-summary { font-size: 16px; }
   .case-cta { padding-top: 46px; padding-bottom: 64px; }
+}
+
+/* ══ Site navigation (shared by every page) ══════════════════════════════
+   Two products, two colours: AutoSecOps is green, AIDR is violet. */
+:root { --a: #6ee7a8; --b: #b69cff; }
+.home-nav { gap: 6px; }
+.home-nav .nav-link { font-size: 11.5px; padding: 0 10px; }
+.home-nav .btn { margin-left: 10px; }
+.nav-prod { gap: 7px; }
+.nav-prod i { display: inline-block; width: 6px; height: 6px; border-radius: 50%; }
+.nav-prod .dot-a { background: var(--a); }
+.nav-prod .dot-b { background: var(--b); }
+@media (max-width: 980px) {
+  .site-header.menu-open { background: #070707; border-bottom-color: var(--line); }
+  .site-header.menu-open .mobile-nav { background: #070707; }
 }

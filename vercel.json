@@ -1,0 +1,5 @@
+{
+  "redirects": [
+    { "source": "/blog-continuous-testing.html", "destination": "/#research", "permanent": true }
+  ]
+}

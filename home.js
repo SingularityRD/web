@@ -147,11 +147,30 @@
     if (animate) whenSeen(uc, function () { show(0); schedule(); }, 0.4);
   })();
 
+  /* Cards catch a soft light under the cursor (mouse only) -------------- */
+  (function () {
+    if (!window.matchMedia('(hover: hover) and (pointer: fine)').matches) return;
+    $$('.prod, .mp, .core, .bench, .ind, .card, .team').forEach(function (el) {
+      el.classList.add('spot');
+      el.addEventListener('pointermove', function (e) {
+        var r = el.getBoundingClientRect();
+        el.style.setProperty('--mx', (e.clientX - r.left) + 'px');
+        el.style.setProperty('--my', (e.clientY - r.top) + 'px');
+      });
+    });
+  })();
+
   if (!animate) return;
 
   /* Reveal on scroll, with a small stagger between siblings ------------- */
   (function () {
-    var els = $$('.proof li, .pn, .bench, .post-c, .ind, .q, .prod, .chooser, .band-head > *, .how3 li, .layers, .works, .together, .price-b, .sec-title, .sec-sub, .app, .marquee, .uc, .card, .term, .aidr-points li, .mini > div, .canvas, .case-ui, .agents > div, .ready li, .cmp, .stat, .prices article, .faq-item, .cta');
+    var els = $$('.creds, .doctrine li, .core, .small-model, .lineup-k, .mp, .team, .pn, .bench, .post-c, .ind, .q, .prod, .band-head > *, .how3 li, .layers, .works, .together, .sec-title, .sec-sub, .app, .uc, .card, .term, .mini > div, .canvas, .case-ui, .agents > div, .ready li, .cmp, .faq-item, .cta');
+    /* Once shown, drop .rv so the element's own transitions and hover lift apply. */
+    function show(el) {
+      if (el.classList.contains('in')) return;
+      el.classList.add('in');
+      setTimeout(function () { el.classList.remove('rv'); }, 1700);
+    }
     els.forEach(function (el) {
       var i = 0, s = el;
       while ((s = s.previousElementSibling)) if (s.__rv) i++;
@@ -160,7 +179,7 @@
       el.classList.add('rv');
     });
     var io = new IntersectionObserver(function (entries) {
-      entries.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+      entries.forEach(function (e) { if (e.isIntersecting) { show(e.target); io.unobserve(e.target); } });
     }, { threshold: 0.1, rootMargin: '0px 0px -8% 0px' });
     els.forEach(function (el) { io.observe(el); });
     // Safety net for webviews where IO is unreliable.
@@ -169,17 +188,40 @@
       els.forEach(function (el) {
         if (el.classList.contains('in')) return;
         var r = el.getBoundingClientRect();
-        if (r.top < vh * 0.95 && r.bottom > 0) el.classList.add('in');
+        if (r.top < vh * 0.95 && r.bottom > 0) show(el);
       });
     }
     window.addEventListener('scroll', function () { setTimeout(sweep, 200); }, { passive: true });
     setTimeout(sweep, 1500);
   })();
 
+  /* Hero: an authorized engagement replays, from scope to secured ------- */
+  (function () {
+    var term = $('[data-engage]');
+    if (!term) return;
+    var list = $('.ht-lines', term), rows = [].slice.call(list.children);
+    list.classList.add('play');
+    whenSeen(term, async function () {
+      for (;;) {
+        await untilVisible(term);
+        rows.forEach(function (r) { r.classList.remove('shown', 'stamped'); });
+        term.classList.remove('is-secured');
+        await sleep(900);
+        for (var i = 0; i < rows.length; i++) {
+          rows[i].classList.add('shown');
+          await sleep(480);
+          rows[i].classList.add('stamped');
+          await sleep(420);
+        }
+        term.classList.add('is-secured');
+        await sleep(7000);
+      }
+    }, 0.3);
+  })();
+
   /* Benchmark bars grow from zero when the chart scrolls into view. */
   (function () {
-    var bench = $('[data-bench]');
-    if (bench) bench.classList.add('play');
+    $$('[data-bench]').forEach(function (bench) { bench.classList.add('play'); });
   })();
 
   /* Logo marquee: duplicate the list so the loop is seamless ------------ */

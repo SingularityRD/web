@@ -1,8 +1,13 @@
+# robots.txt for https://singularityrd.com/
+# Every page is open to every crawler.
 User-agent: *
 Allow: /
 
-# Answer engines and AI crawlers are welcome — the product pages are the
-# canonical description of AutoSecOps and we want them cited correctly.
+# Answer engines and AI crawlers are welcome. The homepage is the canonical
+# description of Singularity, its model and its seven products, and we want
+# them cited correctly.
+# LLM-friendly summary of this site: https://singularityrd.com/llms.txt
+
 User-agent: GPTBot
 Allow: /
 
@@ -13,6 +18,12 @@ User-agent: ChatGPT-User
 Allow: /
 
 User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-SearchBot
+Allow: /
+
+User-agent: Claude-User
 Allow: /
 
 User-agent: Claude-Web
@@ -28,6 +39,9 @@ User-agent: Perplexity-User
 Allow: /
 
 User-agent: Google-Extended
+Allow: /
+
+User-agent: Applebot
 Allow: /
 
 User-agent: Applebot-Extended

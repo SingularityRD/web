@@ -33,11 +33,11 @@ The model:
 ## Products
 
 - [Singularity Foundation Models](https://www.singularityrd.com/foundation-models.html): AI models trained from scratch by Singularity. They run on-premises and fully air-gapped, and power the AI products.
-- [AutoSecOps](https://www.singularityrd.com/autosecops.html): An AI security team. AI SOC analysts triage and investigate every alert, cases are written automatically, and AI SOAR workflows act with human approval. 300+ integrations and an MCP server. It also automates workflows for IT, finance, RevOps and other teams.
+- [AutoSecOps](https://www.singularityrd.com/autosecops.html): An AI security team. AI SOC analysts triage and investigate every alert, cases are written automatically, and AI SOAR workflows act with human approval. 2,000+ integrations and an MCP server. It also automates workflows for IT, finance, RevOps and other teams.
 - [AIDR](https://www.singularityrd.com/aidr.html): Security for AI agents. It watches what agents do at the operating-system kernel and blocks prompt injection, tool abuse and data theft. No code changes.
 - [IT Ops](https://www.singularityrd.com/it-ops.html): An AI on-call engineer. It groups alerts into one incident, finds the cause, proposes a fix, applies it with approval and records every step.
 - [Breakpoint](https://www.singularityrd.com/breakpoint.html): An AI pentester. It attacks code, web apps, APIs and AI apps every day, proves each finding with a reproduced exploit and delivers a fix.
-- [Fennec](https://www.singularityrd.com/fennec.html): A fast code security scanner. It finds vulnerabilities, leaked secrets, risky dependencies and quantum-weak crypto in seconds. 14 languages. Code never leaves.
+- [Fennec](https://www.singularityrd.com/fennec.html): A fast code security scanner. It finds vulnerabilities, leaked secrets, risky dependencies and quantum-weak crypto in seconds. Code never leaves.
 - [Sonar](https://www.singularityrd.com/sonar.html): Factory and OT network security. It shows what is happening on a plant network without stopping production.
 - [RoboDR](https://www.singularityrd.com/robodr.html): Security for robots. It sees an attack, stops the robot safely and proves what happened. It supports ROS 2 robots.
 

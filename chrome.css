@@ -1,0 +1,50 @@
+/* ==========================================================================
+   Shared site chrome for the inner pages (blog posts, customer stories).
+   The homepage and the product pages get the same floating header, links and
+   buttons from home.css; this file gives them to pages that only load
+   styles.css, so the whole site has one header.
+   ========================================================================== */
+
+/* ── Buttons ────────────────────────────────────────────────────────────── */
+.btn { height: 38px; padding: 0 16px; border-radius: 10px; font-family: var(--sans); font-size: 14px; font-weight: 500; letter-spacing: -0.005em; text-transform: none; }
+.btn-lg { height: 46px; padding: 0 20px; border-radius: 12px; font-size: 15px; }
+.btn .chev { font-size: 15px; }
+.btn-ghost { border-color: rgba(255, 255, 255, 0.16); background: rgba(255, 255, 255, 0.06); -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px); }
+.btn-ghost:hover { border-color: rgba(255, 255, 255, 0.3); background: rgba(255, 255, 255, 0.12); }
+.btn-solid { box-shadow: inset 0 -2px 0 rgba(0, 0, 0, 0.08), 0 12px 32px -14px rgba(255, 255, 255, 0.55); }
+
+/* ── Floating header ────────────────────────────────────────────────────── */
+.site-header,
+.site-header.is-scrolled,
+.site-header.menu-open { height: 68px; margin-bottom: -68px; padding-top: 8px; border-bottom: 0; background: none; -webkit-backdrop-filter: none; backdrop-filter: none; }
+.header-inner {
+  width: auto;
+  max-width: none;
+  height: 52px;
+  margin-inline: max(10px, calc((100% - var(--shell)) / 2 + 10px));
+  padding-inline: 14px 8px;
+  border: 1px solid transparent;
+  border-radius: 16px;
+  transition: background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+.site-header.is-scrolled .header-inner,
+.site-header.menu-open .header-inner {
+  border-color: rgba(255, 255, 255, 0.1);
+  background: rgba(11, 11, 11, 0.72);
+  -webkit-backdrop-filter: blur(20px) saturate(1.4);
+  backdrop-filter: blur(20px) saturate(1.4);
+  box-shadow: 0 16px 40px -18px rgba(0, 0, 0, 0.8);
+}
+.site-header .brand-logo { height: 28px; }
+.home-nav { gap: 2px; }
+.home-nav .nav-link { height: 36px; padding: 0 12px; border-radius: 9px; font-family: var(--sans); font-size: 14px; font-weight: 500; letter-spacing: -0.005em; text-transform: none; color: rgba(242, 242, 240, 0.72); transition: color 0.18s ease, background 0.18s ease; }
+.home-nav .nav-link:hover { color: #fff; background: rgba(255, 255, 255, 0.07); }
+.home-nav .btn { margin-left: 8px; }
+.burger { width: 38px; height: 36px; border-color: rgba(255, 255, 255, 0.14); border-radius: 10px; }
+
+@media (max-width: 980px) {
+  .home-nav { display: none; }
+  .mobile-nav,
+  .site-header.menu-open .mobile-nav { top: calc(100% + 6px); left: 10px; right: 10px; overflow: hidden; border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 16px; background: rgba(11, 11, 11, 0.97); }
+  .mobile-nav-link { min-height: 44px; border: 0; border-radius: 10px; background: rgba(255, 255, 255, 0.045); font-family: var(--sans); font-size: 15px; letter-spacing: 0; text-transform: none; color: var(--text); }
+}

@@ -164,7 +164,7 @@
 
   /* Reveal on scroll, with a small stagger between siblings ------------- */
   (function () {
-    var els = $$('.creds li, .off-art, .doctrine, .core, .lineup-k, .mp, .team, .pn, .bench, .post-c, .ind, .q, .prod, .band-head > *, .how3 li, .layers, .works, .together, .sec-title, .sec-sub, .app, .uc, .card, .term, .mini > div, .canvas, .case-ui, .agents > div, .ready li, .cmp, .faq-item, .cta, .p-stat, .p-card, .p-steps li, .p-feats, .p-fit > div, .p-cta, .p-more a');
+    var els = $$('.creds li, .off-art, .core, .lineup-k, .mp, .team, .pn, .bench, .post-c, .ind, .q, .prod, .how3 li, .layers, .works, .together, .sec-title, .sec-sub, .app, .uc, .card, .term, .mini > div, .canvas, .case-ui, .agents > div, .ready li, .cmp, .faq-item, .cta, .p-stat, .p-card, .p-steps li, .p-feats, .p-fit > div, .p-cta, .p-more a');
     /* Once shown, drop .rv so the element's own transitions and hover lift apply. */
     function show(el) {
       if (el.classList.contains('in')) return;
@@ -230,52 +230,6 @@
     setTimeout(function () { requestAnimationFrame(frame); }, 420);
     /* If frames never come (a background tab, a renderer without them), show the words. */
     setTimeout(finish, 420 + DUR + 700);
-  })();
-
-  /* Hero: an authorized engagement replays, from scope to secured ------- */
-  (function () {
-    var term = $('[data-engage]');
-    if (!term) return;
-    var list = $('.ht-lines', term), rows = [].slice.call(list.children);
-    var cmd = $('[data-cmd]', term), cmdText = cmd ? cmd.textContent : '';
-    list.classList.add('play');
-    whenSeen(term, async function () {
-      for (;;) {
-        await untilVisible(term);
-        rows.forEach(function (r) { r.classList.remove('on', 'done'); });
-        term.classList.remove('is-breached', 'is-secured');
-        term.style.setProperty('--p', '0%');
-        if (cmd) { cmd.textContent = ''; await sleep(500); await type(cmd, cmdText, 24); }
-        await sleep(300);
-        for (var i = 0; i < rows.length; i++) {
-          rows[i].classList.add('on');
-          await sleep(640);
-          rows[i].classList.remove('on');
-          rows[i].classList.add('done');
-          term.style.setProperty('--p', ((i + 1) / rows.length * 100) + '%');
-          /* The card goes red at the breach and stays red until the fix lands. */
-          if (rows[i].classList.contains('t-bad')) term.classList.add('is-breached');
-          if (i === rows.length - 2) term.classList.remove('is-breached');
-          await sleep(260);
-        }
-        term.classList.add('is-secured');
-        await sleep(7000);
-      }
-    }, 0.3);
-
-    /* The card leans a little toward the cursor (mouse only). */
-    var hero = $('.hero'), raf = 0;
-    if (!hero || !window.matchMedia('(hover: hover) and (pointer: fine)').matches) return;
-    hero.addEventListener('pointermove', function (e) {
-      if (raf) return;
-      raf = requestAnimationFrame(function () {
-        raf = 0;
-        var r = term.getBoundingClientRect();
-        var dx = (e.clientX - (r.left + r.width / 2)) / window.innerWidth, dy = (e.clientY - (r.top + r.height / 2)) / window.innerHeight;
-        term.style.transform = 'perspective(1100px) rotateY(' + (dx * 7).toFixed(2) + 'deg) rotateX(' + (-dy * 7).toFixed(2) + 'deg)';
-      });
-    });
-    hero.addEventListener('pointerleave', function () { term.style.transform = ''; });
   })();
 
   /* Benchmark bars grow from zero when the chart scrolls into view. */

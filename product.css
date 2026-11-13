@@ -10,6 +10,7 @@
 .product-page { --pa: var(--a); }
 .product-page .sec { padding-top: 120px; }
 .product-page .sec-tag { color: var(--pa); }
+.product-page .sec-title { max-width: 1040px; }
 
 /* ── Hero ───────────────────────────────────────────────────────────────── */
 .p-hero { position: relative; display: flex; align-items: flex-end; min-height: min(80svh, 740px); padding: 150px 0 64px; overflow: hidden; }
@@ -20,6 +21,7 @@
   position: absolute;
   inset: 0;
   background:
+    linear-gradient(90deg, var(--bg) var(--shift, 0%), rgba(7, 7, 7, 0) calc(var(--shift, 0%) + 16%)),
     linear-gradient(90deg, rgba(5, 5, 7, 0.95) 0%, rgba(5, 5, 7, 0.8) 34%, rgba(5, 5, 7, 0.24) 68%, rgba(5, 5, 7, 0.34) 100%),
     linear-gradient(0deg, var(--bg) 0%, rgba(7, 7, 7, 0.5) 22%, rgba(7, 7, 7, 0) 50%),
     linear-gradient(180deg, rgba(5, 5, 7, 0.72) 0%, rgba(5, 5, 7, 0) 26%);
@@ -41,6 +43,7 @@
 .crumbs span { color: var(--text); }
 .p-kicker { display: inline-flex; align-items: center; gap: 9px; margin: 0 0 18px; font-family: var(--mono); font-size: 11.5px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--pa); }
 .p-kicker i { width: 7px; height: 7px; border-radius: 50%; background: var(--pa); box-shadow: 0 0 12px var(--pa); }
+.p-title .s, .product-page .sec-title .s, .p-cta .cta-title .s { display: inline-block; }
 .p-title { max-width: 840px; margin: 0 0 20px; font-family: var(--display); font-size: clamp(38px, 5vw, 72px); font-weight: 600; line-height: 1; letter-spacing: -0.042em; text-wrap: balance; }
 .p-lede { max-width: 610px; margin: 0 0 30px; font-size: 19px; line-height: 1.5; color: rgba(242, 242, 240, 0.84); text-wrap: pretty; }
 .p-hero .hero-actions { margin-bottom: 0; }
@@ -49,7 +52,7 @@
 .p-statw { padding-top: 56px; }
 .p-stat { display: grid; grid-template-columns: auto minmax(0, 1fr); align-items: center; gap: 36px; padding: 28px 32px; border: 1px solid var(--edge); border-radius: 18px; background: var(--card); }
 .p-stat-v { margin: 0; font-family: var(--display); font-size: clamp(38px, 4.4vw, 62px); font-weight: 600; line-height: 1; letter-spacing: -0.045em; white-space: nowrap; background: linear-gradient(95deg, var(--a), var(--b)); -webkit-background-clip: text; background-clip: text; color: transparent; }
-.p-stat-l { max-width: 640px; margin: 0; font-size: 17px; line-height: 1.5; color: rgba(242, 242, 240, 0.86); }
+.p-stat-l { max-width: 800px; text-wrap: balance; margin: 0; font-size: 17px; line-height: 1.5; color: rgba(242, 242, 240, 0.86); }
 .p-stat-l small { display: block; margin-top: 6px; font-size: 12.5px; color: var(--text-faint); }
 
 /* ── Cards: the problem, and control ────────────────────────────────────── */
@@ -89,15 +92,16 @@
 .p-chips li { padding: 7px 14px; border: 1px solid var(--edge-2); border-radius: 999px; font-size: 14px; color: rgba(242, 242, 240, 0.88); }
 
 /* ── A way in, and the rest of the portfolio ────────────────────────────── */
-.product-page #contact { padding-bottom: 110px; }
+.product-page #contact { padding-bottom: 0; }
 .p-cta { position: relative; overflow: hidden; padding: 56px 48px 50px; border: 1px solid var(--edge); border-radius: 22px; background: radial-gradient(90% 130% at 100% 0%, rgba(182, 156, 255, 0.13), transparent 60%), radial-gradient(80% 130% at 0% 100%, rgba(110, 231, 168, 0.1), transparent 60%), var(--card); }
-.p-cta .cta-title { max-width: 720px; }
+.p-cta .cta-title { max-width: 920px; text-wrap: balance; }
 .p-cta > p { max-width: 540px; margin: 0 0 28px; font-size: 17px; line-height: 1.55; color: var(--text-muted); }
 .p-cta .hero-actions { margin-bottom: 0; }
 .p-cta > .p-nda { max-width: none; margin: 24px 0 0; font-size: 13px; color: var(--text-faint); }
 .p-more { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; margin-top: 14px; }
 .p-more p { grid-column: 1 / -1; margin: 34px 0 4px; font-family: var(--mono); font-size: 11.5px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-faint); }
 .p-more a { display: flex; flex-direction: column; gap: 4px; padding: 16px 18px; border: 1px solid var(--edge); border-radius: 14px; background: var(--card); transition: border-color 0.25s ease, transform 0.4s var(--ease); }
+.p-more a:first-of-type { grid-column: span 2; }
 .p-more a:hover { border-color: var(--edge-2); transform: translateY(-2px); }
 .p-more b { font-weight: 500; font-size: 15.5px; }
 .p-more span { font-size: 13px; color: var(--text-faint); }
@@ -117,6 +121,10 @@
   .product-page .sec { padding-top: 88px; }
   .p-hero { min-height: 0; padding: 124px 0 44px; }
   .p-hero-art::after { background: linear-gradient(180deg, rgba(5, 5, 7, 0.78) 0%, rgba(5, 5, 7, 0.7) 50%, var(--bg) 100%); }
+  .p-hero-art.paint canvas, .p-hero-art.paint canvas.is-painted { transform: scaleX(var(--flip, 1)); }
+  .crumbs a:first-child, .crumbs a:first-child + i { display: none; }
+  .p-kicker { align-items: flex-start; }
+  .p-kicker i { flex: none; margin-top: 4px; }
   .p-lede { font-size: 17px; }
   .p-hero .hero-actions .btn { flex: 1 1 auto; }
   .p-stat { grid-template-columns: minmax(0, 1fr); gap: 12px; padding: 24px 22px; }

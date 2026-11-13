@@ -150,7 +150,7 @@
   /* Cards catch a soft light under the cursor (mouse only) -------------- */
   (function () {
     if (!window.matchMedia('(hover: hover) and (pointer: fine)').matches) return;
-    $$('.prod, .mp, .core, .bench, .ind, .card, .team').forEach(function (el) {
+    $$('.prod, .mp, .core, .bench, .ind, .card, .team, .p-card, .p-feat').forEach(function (el) {
       el.classList.add('spot');
       el.addEventListener('pointermove', function (e) {
         var r = el.getBoundingClientRect();
@@ -164,7 +164,7 @@
 
   /* Reveal on scroll, with a small stagger between siblings ------------- */
   (function () {
-    var els = $$('.creds, .doctrine li, .core, .small-model, .lineup-k, .mp, .team, .pn, .bench, .post-c, .ind, .q, .prod, .band-head > *, .how3 li, .layers, .works, .together, .sec-title, .sec-sub, .app, .uc, .card, .term, .mini > div, .canvas, .case-ui, .agents > div, .ready li, .cmp, .faq-item, .cta');
+    var els = $$('.creds li, .off-art, .core, .lineup-k, .mp, .team, .pn, .bench, .post-c, .ind, .q, .prod, .how3 li, .layers, .works, .together, .sec-title, .sec-sub, .app, .uc, .card, .term, .mini > div, .canvas, .case-ui, .agents > div, .ready li, .cmp, .faq-item, .cta, .p-stat, .p-card, .p-steps li, .p-feats, .p-fit > div, .p-cta, .p-more a, .p-cap, .p-specs');
     /* Once shown, drop .rv so the element's own transitions and hover lift apply. */
     function show(el) {
       if (el.classList.contains('in')) return;
@@ -195,28 +195,41 @@
     setTimeout(sweep, 1500);
   })();
 
-  /* Hero: an authorized engagement replays, from scope to secured ------- */
+  /* Hero headline: the second line decrypts into place -----------------
+     The real words stay in the DOM the whole time (for readers, crawlers and
+     screen readers). The scramble is drawn over them from a data attribute,
+     and each letter is swapped for one of the same width class, so the line
+     keeps its length. */
   (function () {
-    var term = $('[data-engage]');
-    if (!term) return;
-    var list = $('.ht-lines', term), rows = [].slice.call(list.children);
-    list.classList.add('play');
-    whenSeen(term, async function () {
-      for (;;) {
-        await untilVisible(term);
-        rows.forEach(function (r) { r.classList.remove('shown', 'stamped'); });
-        term.classList.remove('is-secured');
-        await sleep(900);
-        for (var i = 0; i < rows.length; i++) {
-          rows[i].classList.add('shown');
-          await sleep(480);
-          rows[i].classList.add('stamped');
-          await sleep(420);
-        }
-        term.classList.add('is-secured');
-        await sleep(7000);
-      }
-    }, 0.3);
+    var el = $('[data-decrypt]');
+    if (!el) return;
+    var text = el.textContent, start = 0, last = 0, done = false, DUR = 1150;
+    var POOLS = [[/[iltjfr]/, 'iltjfr'], [/[mw]/, 'mw'], [/[A-Z]/, 'ABDEGHKNOPRSUVXYZ'], [/[0-9]/, '0123456789'], [/[a-z]/, 'abcdeghknopqsuvxyz']];
+    function swap(ch) {
+      for (var i = 0; i < POOLS.length; i++) if (POOLS[i][0].test(ch)) return POOLS[i][1][(Math.random() * POOLS[i][1].length) | 0];
+      return ch;
+    }
+    function finish() {
+      if (done) return;
+      done = true;
+      el.classList.remove('scr');
+      el.removeAttribute('data-s');
+    }
+    function frame(now) {
+      if (done) return;
+      if (!start) start = now;
+      var k = Math.min(1, (now - start) / DUR);
+      if (k < 1 && now - last < 38) { requestAnimationFrame(frame); return; }
+      last = now;
+      var solved = Math.floor(k * text.length), out = '';
+      for (var i = 0; i < text.length; i++) out += i < solved ? text[i] : swap(text[i]);
+      el.setAttribute('data-s', out);
+      el.classList.add('scr');
+      if (k < 1) requestAnimationFrame(frame); else finish();
+    }
+    setTimeout(function () { requestAnimationFrame(frame); }, 420);
+    /* If frames never come (a background tab, a renderer without them), show the words. */
+    setTimeout(finish, 420 + DUR + 700);
   })();
 
   /* Benchmark bars grow from zero when the chart scrolls into view. */

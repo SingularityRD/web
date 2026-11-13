@@ -1,0 +1,408 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<title>RoboDR: security layer for robots | Singularity</title>
+<meta name="description" content="RoboDR is a security layer for robots. It sees an attack, brings the robot to a safe stop and proves what happened. People approve the actions that matter." />
+<link rel="canonical" href="https://www.singularityrd.com/robodr.html" />
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+<meta name="author" content="Singularity Research and Development Inc." />
+<meta name="theme-color" content="#070707" />
+<meta name="color-scheme" content="dark" />
+
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Singularity" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:url" content="https://www.singularityrd.com/robodr.html" />
+<meta property="og:title" content="RoboDR — Robot security" />
+<meta property="og:description" content="RoboDR is a security layer for robots. It sees an attack, brings the robot to a safe stop and proves what happened. People approve the actions that matter." />
+<meta property="og:image" content="https://www.singularityrd.com/assets/og-cover.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="RoboDR — Robot security" />
+<meta name="twitter:description" content="RoboDR is a security layer for robots. It sees an attack, brings the robot to a safe stop and proves what happened. People approve the actions that matter." />
+<meta name="twitter:image" content="https://www.singularityrd.com/assets/og-cover.png" />
+
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+<link rel="apple-touch-icon" href="assets/mark.svg" />
+<link rel="sitemap" type="application/xml" href="/sitemap.xml" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Inter+Tight:wght@500;600&family=JetBrains+Mono:wght@400;500;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+<link rel="stylesheet" href="home.css" />
+<link rel="stylesheet" href="product.css" />
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://www.singularityrd.com/robodr.html#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Singularity",
+          "item": "https://www.singularityrd.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Products",
+          "item": "https://www.singularityrd.com/#products"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "RoboDR",
+          "item": "https://www.singularityrd.com/robodr.html"
+        }
+      ]
+    },
+    {
+      "@type": "SoftwareApplication",
+      "@id": "https://www.singularityrd.com/robodr.html#product",
+      "name": "RoboDR",
+      "description": "RoboDR is a security layer for robots. It watches for attacks around the clock, brings the robot to a safe stop without a fall or collision, and keeps a tamper-proof record.",
+      "url": "https://www.singularityrd.com/robodr.html",
+      "applicationCategory": "SecurityApplication",
+      "featureList": [
+        "Decodes Unitree and ROS 2 motion, arm and hand commands",
+        "Flags unknown senders on the robot’s network, even under new identities",
+        "Spoofed, replayed or out-of-limit speed, joint and torque commands",
+        "Compares what the robot was told with what it did",
+        "Faked or frozen telemetry and disagreeing navigation sensors",
+        "Links events into attacks such as key theft or motion hijacking",
+        "Never reports “all clear” when its own inputs go silent",
+        "New processes and outbound connections on the robot",
+        "Package installs and changes to ROS 2 and robot apps",
+        "Bluetooth and Wi-Fi setup tools and wireless setting changes",
+        "Reverse tunnels, VPNs, code injection and fileless execution",
+        "Reads of the robot’s private keys and unexpected kernel modules",
+        "Attempts to change or stop RoboDR itself",
+        "Published robot attacks, including UniPwn (CVE-2025-35027)",
+        "Escalates in stages: alert, restrict, slow down, pause, safe state",
+        "Isolates the robot from the network or quarantines a rogue sender",
+        "Every motion command passed, limited or rejected",
+        "Slows the robot without changing its direction; stops never delayed",
+        "Never cuts motor power or resets the emergency stop",
+        "Each finding opens a case in AutoSecOps automatically",
+        "AI agent triages each finding and recommends a response",
+        "The AI can never delete cases, run scripts or go online",
+        "Attacker text from the robot flagged, never taken as instructions",
+        "Forged, stale or unsigned findings rejected and logged",
+        "Findings in open OCSF format for any compatible SIEM",
+        "Black box records survive power loss; any deletion shows",
+        "Auditors can verify records but cannot forge them",
+        "Every finding signed, mapped to MITRE ATT&CK and tied to evidence",
+        "Pull evidence by finding or time range into the case",
+        "Whole fleet on one screen, with each robot’s cases and evidence",
+        "Unitree quadrupeds: Go2 (all editions), Go2-W, B2, B2-W, A2, AS2, Go1",
+        "Unitree humanoids: G1, H1, H1-2, H2, R1",
+        "ROS 2 mobile robots and collaborative arms, like MiR or Universal Robots",
+        "Add-on: signed, staged rollout of your robot apps, AI models and settings",
+        "Add-on: encrypted storage, boot integrity checks, erasure if compromised",
+        "Add-on: safe pause for Nav2, ros2_control and PX4 robots",
+        "Learns each robot’s normal, then locks it with human sign-off",
+        "Ready-made Unitree profiles; profiles pushed from the SOC need two approvers",
+        "Keys created on the robot; rotate or revoke them from the SOC",
+        "RoboDR’s own updates: signed, staged, never below your security baseline",
+        "Signed, reproducible releases with a software bill of materials (SBOM)",
+        "Starts monitor-only; protection switched on when you are ready",
+        "Two people approve safe pause, safe state and rollback",
+        "The approver is always someone other than the requester",
+        "Approval cannot be switched off and can cover every block",
+        "Every action time-limited and reversible; emergency off any time",
+        "Asks a person whenever the robot’s state is unknown"
+      ],
+      "publisher": {
+        "@type": "Organization",
+        "@id": "https://www.singularityrd.com/#organization",
+        "name": "Singularity Research and Development Inc.",
+        "url": "https://www.singularityrd.com/"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://www.singularityrd.com/robodr.html#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is RoboDR?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "RoboDR is a security layer for robots from Singularity. It sees an attack on a robot as it begins, brings the robot to a safe stop without a fall or collision, and keeps a tamper-proof record of what happened."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Who is RoboDR for, and which robots does it support?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "RoboDR is for sectors where a robot cannot afford to fail: defense, energy, manufacturing, logistics, public safety and robot manufacturers. It supports Unitree quadruped and humanoid robots, and any robot running ROS 2, the open-source robot software, out of the box."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How is RoboDR different from traditional security software?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Traditional security software protects the computer. RoboDR protects the robot. It reads the commands sent to the motors and keeps humanoid and four-legged robots balanced during a safe stop. RoboDR is not a safety-rated component; it complements the robot’s own safety system."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can RoboDR run on-premises or at air-gapped sites?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. RoboDR runs on your own servers or in your cloud. It also works at air-gapped sites, meaning sites with no internet connection, and no component ever calls out."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do people stay in control of RoboDR?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "RoboDR starts in monitor-only mode, and protection is switched on only when you are ready. Your rules limit dangerous commands, and pausing the robot or putting it in a safe state needs two people’s approval. Each incident and approval is kept in one signed record."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body id="top" class="home product-page">
+
+<header class="site-header">
+  <div class="shell header-inner">
+    <a class="brand" href="index.html" aria-label="Singularity — home">
+      <img class="brand-logo" src="assets/logo.svg" alt="Singularity" width="1409" height="306" />
+    </a>
+
+    <nav class="nav-secondary home-nav" aria-label="Primary">
+      <a class="nav-link" href="index.html#products">Products</a>
+      <a class="nav-link" href="foundation-models.html">Model</a>
+      <a class="nav-link" href="index.html#industries">Industries</a>
+      <a class="nav-link" href="index.html#pricing">Pricing</a>
+      <a class="btn btn-solid" href="https://calendly.com/anill-yagiz/singularity" target="_blank" rel="noopener">Book a demo <span class="chev">›</span></a>
+    </nav>
+
+    <button class="burger" type="button" aria-label="Open menu" aria-controls="mobile-nav" aria-expanded="false"><span></span><span></span></button>
+  </div>
+
+  <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation" hidden>
+    <div class="shell mobile-nav-grid">
+      <a class="mobile-nav-link" href="index.html#products">Products</a>
+      <a class="mobile-nav-link" href="foundation-models.html">Model</a>
+      <a class="mobile-nav-link" href="index.html#industries">Industries</a>
+      <a class="mobile-nav-link" href="index.html#pricing">Pricing</a>
+      <a class="btn btn-solid btn-lg mobile-nav-cta" href="https://calendly.com/anill-yagiz/singularity" target="_blank" rel="noopener">Book a demo <span class="chev">›</span></a>
+    </div>
+  </nav>
+</header>
+
+<main>
+
+<!-- ── Hero ────────────────────────────────────────────────────── -->
+<section class="p-hero">
+  <div class="p-hero-art paint" style="--shift: 23%"><canvas data-art="robodr" width="1600" height="760" aria-hidden="true"></canvas></div>
+  <div class="shell p-hero-inner">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="index.html">Singularity</a><i aria-hidden="true">/</i><a href="index.html#products">Products</a><i aria-hidden="true">/</i><span aria-current="page">RoboDR</span></nav>
+    <p class="p-kicker"><i></i>RoboDR · Robot security</p>
+    <h1 class="p-title"><span class="s">Stop a hijacked robot safely.</span> <span class="s">Prove what happened.</span></h1>
+    <p class="p-lede">RoboDR is a security layer for robots. It watches for attacks around the clock, brings the robot to a safe stop without a fall or collision, and keeps a tamper-proof record.</p>
+    <div class="hero-actions">
+      <a class="btn btn-solid btn-lg" href="https://calendly.com/anill-yagiz/singularity" target="_blank" rel="noopener">Book a demo <span class="chev">›</span></a>
+      <a class="btn btn-ghost btn-lg" href="mailto:anil@singularityrd.com?subject=RoboDR%20technical%20brief">Request the technical brief</a>
+    </div>
+  </div>
+</section>
+
+<section class="wrap p-statw" aria-label="Key fact">
+  <div class="p-stat">
+    <p class="p-stat-v">January 2027</p>
+    <p class="p-stat-l">Protection against malicious tampering becomes mandatory for machinery under the EU Machinery Regulation.<small>EU Machinery Regulation (EU) 2023/1230. Not legal advice.</small></p>
+  </div>
+</section>
+
+<!-- ── The problem ──────────────────────────────────────────────── -->
+<section class="wrap sec" aria-labelledby="problem-h">
+  <p class="sec-tag">The problem</p>
+  <h2 class="sec-title" id="problem-h">A robot is a computer with motors</h2>
+  <div class="p-cards">
+    <article class="p-card"><p class="p-n">01</p><h3>Attacks become physical harm</h3><p>A compromised laptop loses data. A hijacked robot can strike a person, a machine or the facility itself.</p></article>
+    <article class="p-card"><p class="p-n">02</p><h3>Most robots are unprotected</h3><p>A vulnerability published in 2025 let attackers take control of widely used robots over Bluetooth alone. A single incident can halt a whole fleet.</p></article>
+    <article class="p-card"><p class="p-n">03</p><h3>You must show evidence</h3><p>After an incident you must answer what happened and who intervened, with evidence. Regulators now want proof of cybersecurity in robots.</p></article>
+  </div>
+</section>
+
+<!-- ── How it works ─────────────────────────────────────────────── -->
+<section class="wrap sec" aria-labelledby="how-h">
+  <p class="sec-tag">How it works</p>
+  <h2 class="sec-title" id="how-h">Three jobs: see, stop, prove</h2>
+  <ol class="p-steps" style="--n: 3">
+    <li><b>1</b><h3>See</h3><p>RoboDR watches the robot’s network, every command sent to its motors and its onboard computer, around the clock, and catches abnormal behavior.</p></li>
+    <li><b>2</b><h3>Stop</h3><p>It cuts off dangerous commands before they reach the robot and brings it to a safe stop, without a fall or collision.</p></li>
+    <li><b>3</b><h3>Prove</h3><p>Every incident is written to a tamper-proof black box, like a flight recorder, and your security team is alerted at once.</p></li>
+  </ol>
+</section>
+
+<!-- ── What you get ─────────────────────────────────────────────── -->
+<section class="wrap sec" aria-labelledby="feat-h">
+  <p class="sec-tag">What you get</p>
+  <h2 class="sec-title" id="feat-h">Protects the robot, not just the computer</h2>
+  <div class="p-feats">
+    <article class="p-feat"><h3>Speaks the robot’s language</h3><p>RoboDR reads the commands sent to the robot’s motors, so it can tell “walk” from “run”.</p></article>
+    <article class="p-feat"><h3>Keeps the robot standing</h3><p>RoboDR keeps humanoid and four-legged robots balanced, so a safe stop does not become a fall.</p></article>
+    <article class="p-feat"><h3>Tamper-proof black box</h3><p>Like a flight recorder: what happened, who approved it and what was done, all in one signed record.</p></article>
+    <article class="p-feat"><h3>Lands with your security team</h3><p>Robot incidents appear beside your team’s other alerts. With AutoSecOps, Singularity’s AI security operations product, each becomes a tracked case.</p></article>
+    <article class="p-feat"><h3>On the robot or alongside</h3><p>RoboDR can sit on the robot or beside it. We agree the setup with your team.</p></article>
+    <article class="p-feat"><h3>Starts in monitor-only mode</h3><p>RoboDR starts by only watching, so operations keep running. Protection is switched on only when you are ready.</p></article>
+  </div>
+</section>
+
+<!-- ── Everything in the product ────────────────────────────────── -->
+<section class="wrap sec" id="features" aria-labelledby="caps-h">
+  <p class="sec-tag">Features</p>
+  <h2 class="sec-title" id="caps-h">Everything in RoboDR</h2>
+  <p class="sec-sub">Every capability, from reading motor commands to signed evidence, with people approving the actions that matter.</p>
+  <div class="p-caps">
+    <article class="p-cap"><h3>Motion and network</h3><ul><li>Decodes Unitree and ROS 2 motion, arm and hand commands</li><li>Flags unknown senders on the robot’s network, even under new identities</li><li>Spoofed, replayed or out-of-limit speed, joint and torque commands</li><li>Compares what the robot was told with what it did</li><li>Faked or frozen telemetry and disagreeing navigation sensors</li><li>Links events into attacks such as key theft or motion hijacking</li><li>Never reports “all clear” when its own inputs go silent</li></ul></article>
+    <article class="p-cap"><h3>On the robot’s computer</h3><ul><li>New processes and outbound connections on the robot</li><li>Package installs and changes to ROS 2 and robot apps</li><li>Bluetooth and Wi-Fi setup tools and wireless setting changes</li><li>Reverse tunnels, VPNs, code injection and fileless execution</li><li>Reads of the robot’s private keys and unexpected kernel modules</li><li>Attempts to change or stop RoboDR itself</li><li>Published robot attacks, including UniPwn (CVE-2025-35027)</li></ul></article>
+    <article class="p-cap"><h3>Safe response</h3><ul><li>Escalates in stages: alert, restrict, slow down, pause, safe state</li><li>Isolates the robot from the network or quarantines a rogue sender</li><li>Every motion command passed, limited or rejected</li><li>Slows the robot without changing its direction; stops never delayed</li><li>Never cuts motor power or resets the emergency stop</li></ul></article>
+    <article class="p-cap"><h3>Your SOC, with AI</h3><ul><li>Each finding opens a case in AutoSecOps automatically</li><li>AI agent triages each finding and recommends a response</li><li>The AI can never delete cases, run scripts or go online</li><li>Attacker text from the robot flagged, never taken as instructions</li><li>Forged, stale or unsigned findings rejected and logged</li><li>Findings in open OCSF format for any compatible SIEM</li></ul></article>
+    <article class="p-cap"><h3>Signed evidence</h3><ul><li>Black box records survive power loss; any deletion shows</li><li>Auditors can verify records but cannot forge them</li><li>Every finding signed, mapped to MITRE ATT&amp;CK and tied to evidence</li><li>Pull evidence by finding or time range into the case</li><li>Whole fleet on one screen, with each robot’s cases and evidence</li></ul></article>
+    <article class="p-cap"><h3>Robots and add-ons</h3><ul><li>Unitree quadrupeds: Go2 (all editions), Go2-W, B2, B2-W, A2, AS2, Go1</li><li>Unitree humanoids: G1, H1, H1-2, H2, R1</li><li>ROS 2 mobile robots and collaborative arms, like MiR or Universal Robots</li><li>Add-on: signed, staged rollout of your robot apps, AI models and settings</li><li>Add-on: encrypted storage, boot integrity checks, erasure if compromised</li><li>Add-on: safe pause for Nav2, ros2_control and PX4 robots</li></ul></article>
+    <article class="p-cap"><h3>Fleet and updates</h3><ul><li>Learns each robot’s normal, then locks it with human sign-off</li><li>Ready-made Unitree profiles; profiles pushed from the SOC need two approvers</li><li>Keys created on the robot; rotate or revoke them from the SOC</li><li>RoboDR’s own updates: signed, staged, never below your security baseline</li><li>Signed, reproducible releases with a software bill of materials (SBOM)</li></ul></article>
+    <article class="p-cap"><h3>People decide</h3><ul><li>Starts monitor-only; protection switched on when you are ready</li><li>Two people approve safe pause, safe state and rollback</li><li>The approver is always someone other than the requester</li><li>Approval cannot be switched off and can cover every block</li><li>Every action time-limited and reversible; emergency off any time</li><li>Asks a person whenever the robot’s state is unknown</li></ul></article>
+  </div>
+  <dl class="p-specs">
+    <div><dt>Robots</dt><dd>Unitree quadrupeds and humanoids, ROS 2 mobile robots and collaborative arms</dd></div>
+    <div><dt>Platforms</dt><dd>Ubuntu 20.04, 22.04 and 24.04; JetPack 5 and 6; amd64 and arm64</dd></div>
+    <div><dt>Deployment</dt><dd>On the robot, beside it, or both; security center on your servers or cloud</dd></div>
+    <div><dt>Works with</dt><dd>AutoSecOps and any OCSF-compatible SIEM, over HTTPS or Kafka</dd></div>
+    <div><dt>Evidence for</dt><dd>EU Machinery Regulation, Cyber Resilience Act, IEC 62443-4-1 and 4-2 (self-assessed)</dd></div>
+    <div><dt>Data</dt><dd>Stays on your infrastructure; works air-gapped; no component calls out</dd></div>
+  </dl>
+</section>
+
+<!-- ── Who it is for ────────────────────────────────────────────── -->
+<section class="wrap sec" aria-labelledby="fit-h">
+  <p class="sec-tag">Who it is for</p>
+  <h2 class="sec-title" id="fit-h">For sectors where a robot can’t fail</h2>
+  <div class="p-fit">
+    <div><p class="p-fit-k">Built for</p><ul class="p-chips"><li>Defense</li><li>Energy and critical infrastructure</li><li>Manufacturing</li><li>Logistics</li><li>Public safety</li><li>Robot manufacturers</li></ul></div>
+    <div><p class="p-fit-k">Works with</p><ul class="p-chips"><li>ROS 2</li><li>Unitree quadruped robots</li><li>Unitree humanoid robots</li><li>AutoSecOps</li></ul></div>
+  </div>
+</section>
+
+<!-- ── Control ──────────────────────────────────────────────────── -->
+<section class="wrap sec" aria-labelledby="ctl-h">
+  <p class="sec-tag">Control</p>
+  <h2 class="sec-title" id="ctl-h">People have the final say</h2>
+  <div class="p-cards">
+    <article class="p-card"><span class="p-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3 4 6v6c0 4.5 3.4 8.3 8 9 4.6-.7 8-4.5 8-9V6l-8-3Z"/><path d="m9 12 2 2 4-4"/></svg></span><h3>People approve the big steps</h3><p>Your rules limit dangerous commands. Pausing the robot, a safe state or a rollback needs two people’s approval.</p></article>
+    <article class="p-card"><span class="p-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg></span><h3>Your data stays with you</h3><p>RoboDR runs on your servers or in your cloud. It works at sites with no internet, and no component calls out.</p></article>
+    <article class="p-card"><span class="p-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 3h7l5 5v13H7z"/><path d="M10 13h6M10 17h6"/></svg></span><h3>A full record of decisions</h3><p>What happened, who approved it and what was done are kept in one signed record you can show an auditor.</p></article>
+  </div>
+</section>
+
+<!-- ── FAQ ──────────────────────────────────────────────────────── -->
+<section class="wrap sec" id="faq" aria-labelledby="faq-h">
+  <h2 class="sec-title" id="faq-h">Questions about RoboDR</h2>
+  <div class="faq">
+    <details class="faq-item" open>
+      <summary><h3>What is RoboDR?</h3><span class="faq-mark" aria-hidden="true"></span></summary>
+      <p>RoboDR is a security layer for robots from Singularity. It sees an attack on a robot as it begins, brings the robot to a safe stop without a fall or collision, and keeps a tamper-proof record of what happened.</p>
+    </details>
+    <details class="faq-item">
+      <summary><h3>Who is RoboDR for, and which robots does it support?</h3><span class="faq-mark" aria-hidden="true"></span></summary>
+      <p>RoboDR is for sectors where a robot cannot afford to fail: defense, energy, manufacturing, logistics, public safety and robot manufacturers. It supports Unitree quadruped and humanoid robots, and any robot running ROS 2, the open-source robot software, out of the box.</p>
+    </details>
+    <details class="faq-item">
+      <summary><h3>How is RoboDR different from traditional security software?</h3><span class="faq-mark" aria-hidden="true"></span></summary>
+      <p>Traditional security software protects the computer. RoboDR protects the robot. It reads the commands sent to the motors and keeps humanoid and four-legged robots balanced during a safe stop. RoboDR is not a safety-rated component; it complements the robot’s own safety system.</p>
+    </details>
+    <details class="faq-item">
+      <summary><h3>Can RoboDR run on-premises or at air‑gapped sites?</h3><span class="faq-mark" aria-hidden="true"></span></summary>
+      <p>Yes. RoboDR runs on your own servers or in your cloud. It also works at air-gapped sites, meaning sites with no internet connection, and no component ever calls out.</p>
+    </details>
+    <details class="faq-item">
+      <summary><h3>How do people stay in control of RoboDR?</h3><span class="faq-mark" aria-hidden="true"></span></summary>
+      <p>RoboDR starts in monitor-only mode, and protection is switched on only when you are ready. Your rules limit dangerous commands, and pausing the robot or putting it in a safe state needs two people’s approval. Each incident and approval is kept in one signed record.</p>
+    </details>
+  </div>
+</section>
+
+<!-- ── Contact ──────────────────────────────────────────────────── -->
+<section class="wrap sec" id="contact" aria-labelledby="contact-h">
+  <div class="p-cta">
+    <p class="sec-tag">Book a demo</p>
+    <h2 class="cta-title" id="contact-h">See RoboDR on one of your robots</h2>
+    <p>A pilot needs one robot, a test area and a timeline. We handle the setup. Book a demo or request the technical brief.</p>
+    <div class="hero-actions">
+      <a class="btn btn-solid btn-lg" href="https://calendly.com/anill-yagiz/singularity" target="_blank" rel="noopener">Book a demo <span class="chev">›</span></a>
+      <a class="btn btn-ghost btn-lg" href="mailto:anil@singularityrd.com?subject=RoboDR%20technical%20brief">Request the technical brief</a>
+    </div>
+    <p class="p-nda">Architecture, deployment and integration details are shared under NDA.</p>
+  </div>
+  <nav class="p-more" aria-label="More from Singularity">
+    <p>More from Singularity</p>
+    <a href="foundation-models.html"><b>Singularity Foundation Models</b><span>Our own AI models</span></a>
+    <a href="autosecops.html"><b>AutoSecOps</b><span>AI security operations</span></a>
+    <a href="aidr.html"><b>AIDR</b><span>AI agent security</span></a>
+    <a href="it-ops.html"><b>IT Ops</b><span>AI on-call engineer</span></a>
+    <a href="breakpoint.html"><b>Breakpoint</b><span>AI pentester</span></a>
+    <a href="fennec.html"><b>Fennec</b><span>Code security scanner</span></a>
+    <a href="sonar.html"><b>Sonar</b><span>Factory network security</span></a>
+  </nav>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="shell footer-inner">
+    <div class="footer-brand">
+      <a class="brand" href="index.html" aria-label="Singularity — home">
+        <img class="brand-logo" src="assets/logo.svg" alt="Singularity" width="1409" height="306" />
+      </a>
+      <p>We hack governments. Then we secure them, with our own frontier model.</p>
+      <a class="btn btn-ghost" href="https://calendly.com/anill-yagiz/singularity" target="_blank" rel="noopener">Book a demo <span class="chev">›</span></a>
+    </div>
+    <nav class="footer-cols" aria-label="Footer">
+      <div>
+        <p class="footer-head">Products</p>
+        <a href="autosecops.html">AutoSecOps</a><a href="aidr.html">AIDR</a><a href="it-ops.html">IT Ops</a><a href="breakpoint.html">Breakpoint</a><a href="fennec.html">Fennec</a><a href="sonar.html">Sonar</a><a href="robodr.html">RoboDR</a><a href="foundation-models.html">Foundation Models</a>
+      </div>
+      <div>
+        <p class="footer-head">Company</p>
+        <a href="index.html#industries">Industries</a><a href="index.html#pricing">Pricing</a><a href="index.html#lab">Research</a><a href="customer-success.html">Customer Success</a><a href="index.html#compare">Compare</a><a href="index.html#faq">FAQ</a><a href="mailto:anil@singularityrd.com">Contact</a>
+      </div>
+      <div class="footer-ents">
+        <p class="footer-head">Companies</p>
+        <p><b>United States</b>Singularity Research and Development Inc.</p>
+        <p><b>Türkiye</b>Singularity Arge Siber Güvenlik ve Yapay Zeka Teknoloji A.Ş.</p>
+        <p><b>South Korea</b>Singularity Korea</p>
+      </div>
+    </nav>
+  </div>
+  <div class="shell">
+    <p class="footer-tag" aria-hidden="true">Offense-proven. <span>Defense-grade.</span></p>
+  </div>
+  <div class="shell footer-bar">
+    <p>© 2026 Singularity Research and Development Inc.</p>
+    <p><a href="mailto:anil@singularityrd.com">anil@singularityrd.com</a></p>
+  </div>
+</footer>
+
+<script src="art.js" defer></script>
+<script src="home.js" defer></script>
+</body>
+</html>

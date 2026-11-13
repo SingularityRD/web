@@ -1,10 +1,15 @@
 /* Generative paintings for the homepage.
  *
- * Every <canvas data-art="name"> is painted once, in the browser, from a fixed
- * seed: a few thousand short pastel strokes laid down the way a painter would,
- * sky first, then clouds, then land, then the one object that tells the
- * product's story. There are no image files to download, and a canvas is only
- * painted when it is about to scroll into view. */
+ * Every <canvas data-art="name"> is painted in the browser from a fixed seed:
+ * a few thousand short pastel strokes laid down the way a painter would, sky
+ * first, then clouds, then land, then the one object that tells the product's
+ * story. There are no image files to download.
+ *
+ * The strokes are recorded first and replayed over a few seconds when the
+ * canvas scrolls into view, so each picture is painted in front of the viewer.
+ * After that a second, transparent canvas keeps its lights alive: a glow that
+ * breathes, stars that twinkle, rings that spread. With reduced motion the
+ * picture simply appears, finished and still. */
 (function () {
   'use strict';
   var list = [].slice.call(document.querySelectorAll('canvas[data-art]'));
@@ -24,9 +29,25 @@
     return C(stops[stops.length - 1][1]);
   }
 
+  /* Stands in for a 2D context: it notes every drawing call instead of making
+     it. Gradients and patterns are real, since creating one draws nothing. */
+  function recorder(real) {
+    var ops = [], rec = { ops: ops };
+    ['save', 'restore', 'beginPath', 'closePath', 'moveTo', 'lineTo', 'quadraticCurveTo', 'arc', 'fill', 'stroke', 'clip', 'fillRect', 'setLineDash'].forEach(function (m) {
+      rec[m] = function () { ops.push([m, [].slice.call(arguments)]); };
+    });
+    ['strokeStyle', 'fillStyle', 'lineWidth', 'lineCap', 'globalCompositeOperation'].forEach(function (p) {
+      Object.defineProperty(rec, p, { set: function (v) { ops.push([p, v]); } });
+    });
+    rec.createLinearGradient = function (x0, y0, x1, y1) { return real.createLinearGradient(x0, y0, x1, y1); };
+    rec.createRadialGradient = function (x0, y0, r0, x1, y1, r1) { return real.createRadialGradient(x0, y0, r0, x1, y1, r1); };
+    rec.createPattern = function (img, rep) { return real.createPattern(img, rep); };
+    return rec;
+  }
+
   /* ── The painter: one canvas, one seeded hand ─────────────────────────── */
   function painter(cv, seed) {
-    var ctx = cv.getContext('2d'), W = cv.width, H = cv.height, u = Math.min(W, H) / 460, s = seed >>> 0;
+    var real = cv.getContext('2d'), ctx = recorder(real), W = cv.width, H = cv.height, u = Math.min(W, H) / 460, s = seed >>> 0, effects = [];
     function R() { s = s + 0x6D2B79F5 | 0; var t = Math.imul(s ^ s >>> 15, 1 | s); t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t; return ((t ^ t >>> 14) >>> 0) / 4294967296; }
     function rr(a, b) { return a + (b - a) * R(); }
     var tab = [], i;
@@ -356,6 +377,55 @@
         }
       });
     }
+    /* A keyhole of light in the wall: the way in, opened from the inside. */
+    function keyhole(cx, cy, r, hot, halo) {
+      hot = C(hot);
+      var k, ang, d, t, half;
+      glow(cx, cy + r, r * 6, halo, 0.5);
+      glow(cx, cy + r * 0.6, r * 2.6, hot, 0.5);
+      /* The shape itself, solid, so its edge stays crisp under the strokes. */
+      ctx.fillStyle = css(mix(hot, halo, 0.25), 0.96);
+      ctx.beginPath();
+      ctx.arc(cx, cy, r, 0, TAU);
+      ctx.fill();
+      ctx.beginPath();
+      ctx.moveTo(cx - r * 0.42, cy + r * 0.5);
+      ctx.lineTo(cx + r * 0.42, cy + r * 0.5);
+      ctx.lineTo(cx + r * 0.86, cy + r * 2.9);
+      ctx.lineTo(cx - r * 0.86, cy + r * 2.9);
+      ctx.closePath();
+      ctx.fill();
+      light(function () {
+        for (k = 0; k < 280; k++) {
+          ang = R() * TAU; d = Math.sqrt(R()) * r * 0.9;
+          dab(cx + Math.cos(ang) * d, cy + Math.sin(ang) * d, rr(0.2, 0.45) * r, HALF + rr(-0.3, 0.3), rr(1.5, 4) * u, vary(hot, 14), rr(0.5, 0.95), false);
+        }
+        for (k = 0; k < 440; k++) {
+          t = R(); half = lerp(r * 0.36, r * 0.76, t);
+          dab(cx + (R() * 2 - 1) * half, cy + r * 0.6 + t * r * 2.15, rr(0.2, 0.45) * r, HALF + rr(-0.2, 0.2), rr(1.5, 4) * u, vary(hot, 14), rr(0.5, 0.95), false);
+        }
+      });
+    }
+    /* Light from the opening, pooled on the ground. */
+    function spill(cx, y, w, depth, c) {
+      c = C(c);
+      light(function () {
+        for (var k = 0; k < 380; k++) {
+          var t = Math.pow(R(), 0.8), half = w * (0.3 + t * 1.6);
+          dab(cx + (R() * 2 - 1) * half, y + t * depth, rr(14, 60) * u * (0.6 + t), rr(-0.04, 0.04), rr(1.5, 4) * u, vary(c, 16), rr(0.08, 0.36) * (1 - t * 0.7), true);
+        }
+      });
+    }
+    /* A small figure, for scale. */
+    function person(x, y, k, dark, rimc) {
+      var body = place([[-7, 0], [-9, -30], [-7, -52], [-3, -58], [3, -58], [7, -52], [9, -30], [7, 0], [2, 0], [0, -24], [-2, 0]], x, y, k);
+      fillPoly(body, dark, mix(dark, rimc, 0.14), { den: 16, len: 0.3, hatch: HALF });
+      ctx.fillStyle = css(C(dark), 1);
+      ctx.beginPath();
+      ctx.arc(x, y - 66 * k, 6.5 * k, 0, TAU);
+      ctx.fill();
+      rim(body, [4, 5, 6], rimc, 0.8);
+    }
     function fox(x, y, k, dark, lightc) {
       var tail = place([[-24, 0], [-44, -1], [-66, -8], [-84, -24], [-84, -42], [-70, -40], [-52, -24], [-34, -12]], x, y, k);
       var body = place([[-26, 0], [-35, -14], [-37, -34], [-31, -54], [-21, -70], [-11, -80], [-13, -92], [-9, -104], [-15, -118], [-21, -152], [-2, -122], [4, -115], [8, -125], [23, -158], [27, -119], [31, -109], [45, -99], [47, -93], [35, -89], [27, -86], [21, -78], [23, -60], [25, -30], [27, -6], [31, 0], [13, 0], [11, -22], [5, -8], [1, 0]], x, y, k);
@@ -442,6 +512,168 @@
       glow(x + hw * 0.45, base - hh * 0.5, 120 * k, win, 0.18);
     }
 
+    /* ── Built things, for the industry cards ── */
+    /* A straight, solid stroke: masts, struts, columns. */
+    function seg(x0, y0, x1, y1, w, c, al) {
+      ctx.setLineDash([]);
+      ctx.lineCap = 'round';
+      ctx.lineWidth = w;
+      ctx.strokeStyle = css(C(c), al == null ? 1 : al);
+      ctx.beginPath();
+      ctx.moveTo(x0, y0);
+      ctx.lineTo(x1, y1);
+      ctx.stroke();
+    }
+    /* A cable hanging between two points. */
+    function wire(x0, y0, x1, y1, drop, w, c, al) {
+      ctx.setLineDash([]);
+      ctx.lineCap = 'round';
+      ctx.lineWidth = w;
+      ctx.strokeStyle = css(C(c), al == null ? 1 : al);
+      ctx.beginPath();
+      ctx.moveTo(x0, y0);
+      ctx.quadraticCurveTo((x0 + x1) / 2, Math.max(y0, y1) + drop, x1, y1);
+      ctx.stroke();
+    }
+    function block(x, y, w, h, dark, lite, o) {
+      var pts = [[x, y + h], [x, y], [x + w, y], [x + w, y + h]];
+      fillPoly(pts, dark, lite, o || { den: 40, len: 0.6, hatch: HALF, grad: 'x', fall: 1.2 });
+      return pts;
+    }
+    /* A grid of windows: some lit, the rest dark glass. */
+    function windows(x, y, w, h, cols, rows, pLit, win, glass) {
+      var cw = w / cols, rh = h / rows, cI, rI, wx, wy;
+      for (cI = 0; cI < cols; cI++) {
+        for (rI = 0; rI < rows; rI++) {
+          wx = x + (cI + 0.5) * cw; wy = y + (rI + 0.5) * rh;
+          if (R() < pLit) dab(wx, wy, cw * 0.26, rr(-0.06, 0.06), rh * 0.4, vary(C(win), 26), rr(0.72, 1), false);
+          else dab(wx, wy, cw * 0.26, rr(-0.04, 0.04), rh * 0.38, vary(C(glass), 8), rr(0.4, 0.7), true);
+        }
+      }
+    }
+    /* A lattice power pylon. Returns the tips of its arms, for the cables. */
+    function pylon(x, base, h, c) {
+      var top = base - h, w0 = h * 0.17, w1 = h * 0.035, lw = Math.max(1, h / 150), lv = [0, 0.16, 0.31, 0.44, 0.56, 0.66, 0.75, 0.83, 0.9, 0.96, 1], tips = [], k;
+      function lp(t) { return [x - lerp(w0, w1, t), lerp(base, top, t)]; }
+      function rp(t) { return [x + lerp(w0, w1, t), lerp(base, top, t)]; }
+      seg(x - w0, base, x - w1, top, lw * 2, c);
+      seg(x + w0, base, x + w1, top, lw * 2, c);
+      for (k = 1; k < lv.length; k++) {
+        var a = lp(lv[k - 1]), b = rp(lv[k - 1]), d = lp(lv[k]), e = rp(lv[k]);
+        seg(a[0], a[1], e[0], e[1], lw, c);
+        seg(b[0], b[1], d[0], d[1], lw, c);
+        seg(d[0], d[1], e[0], e[1], lw, c);
+      }
+      [[0.66, 0.5], [0.83, 0.38]].forEach(function (q) {
+        var y = lerp(base, top, q[0]), half = h * q[1] * 0.5, ul = lp(q[0] + 0.07), ur = rp(q[0] + 0.07);
+        seg(x - half, y, x + half, y, lw * 1.6, c);
+        seg(x - half, y, ul[0], ul[1], lw, c);
+        seg(x + half, y, ur[0], ur[1], lw, c);
+        seg(x - half, y, x - half, y + h * 0.035, lw * 1.4, c);
+        seg(x + half, y, x + half, y + h * 0.035, lw * 1.4, c);
+        tips.push([x - half, y + h * 0.035], [x + half, y + h * 0.035]);
+      });
+      seg(x - w1, top, x, top - h * 0.06, lw, c);
+      seg(x + w1, top, x, top - h * 0.06, lw, c);
+      return tips;
+    }
+    /* A columned hall, lit from inside. */
+    function bank(cx, base, w, h, dark, lite, warm, rimc) {
+      var x0 = cx - w / 2, sh = h * 0.035, floor = base - sh * 3, colTop = base - h * 0.62, beam = h * 0.085, n = 6, cw = w * 0.055, k;
+      block(x0 + w * 0.05, colTop, w * 0.9, floor - colTop, mix(warm, '#2a1408', 0.55), mix(warm, '#ffffff', 0.25), { den: 30, len: 0.6, hatch: HALF, fall: 0.7 });
+      glow(cx, floor - (floor - colTop) * 0.3, w * 0.55, warm, 0.55);
+      block(cx - w * 0.05, floor - (floor - colTop) * 0.55, w * 0.1, (floor - colTop) * 0.55, '#fff0c8', '#fffaf0', { den: 10, len: 0.3, hatch: HALF, fall: 0.3 });
+      for (k = 0; k < 3; k++) {
+        var sw = w * (1.08 - k * 0.03);
+        block(cx - sw / 2, base - sh * (k + 1), sw, sh, dark, lite, { den: 24, len: 0.6, hatch: 0.02, fall: 1.1 });
+      }
+      for (k = 0; k < n; k++) {
+        var col = block(x0 + w * 0.05 + k * ((w * 0.9 - cw) / (n - 1)), colTop, cw, floor - colTop, dark, lite, { den: 14, len: 0.35, hatch: HALF, grad: 'x', fall: 1.4 });
+        rim(col, [0], rimc, 0.7);
+      }
+      block(x0 - w * 0.02, colTop - beam, w * 1.04, beam, dark, lite, { den: 20, len: 0.6, hatch: 0.02, fall: 1.1 });
+      var ped = [[x0 - w * 0.04, colTop - beam], [cx, colTop - beam - h * 0.24], [x0 + w * 1.04, colTop - beam]];
+      fillPoly(ped, dark, lite, { den: 24, len: 0.6, hatch: 0.02, fall: 1.2 });
+      rim(ped, [0, 1], rimc, 0.9);
+    }
+    /* An industrial robot arm with lit joints. Returns the joints and the tip. */
+    function arm(bx, base, k, dark, steel, rimc, eye) {
+      var sh = [bx, base - 62 * k], el = [bx + 62 * k, base - 178 * k], wr = [bx + 178 * k, base - 160 * k], tip = [bx + 200 * k, base - 112 * k];
+      fillPoly(place([[-46, 0], [-38, -20], [38, -20], [46, 0]], bx, base, k), dark, steel, { den: 20, len: 0.5, hatch: 0.03, grad: 'x' });
+      fillPoly(place([[-24, -18], [-20, -60], [20, -60], [24, -18]], bx, base, k), dark, steel, { den: 16, len: 0.4, hatch: HALF, grad: 'x' });
+      function limb(a, b, w) {
+        var ang = Math.atan2(b[1] - a[1], b[0] - a[0]), nx = Math.sin(ang), ny = -Math.cos(ang), t, q;
+        seg(a[0], a[1], b[0], b[1], w, dark);
+        for (q = 0; q < 46; q++) {
+          t = R();
+          dab(lerp(a[0], b[0], t) + nx * rr(-0.3, 0.3) * w, lerp(a[1], b[1], t) + ny * rr(-0.3, 0.3) * w, rr(8, 22) * u, ang + rr(-0.08, 0.08), rr(1.5, 3.5) * u, vary(mix(dark, steel, rr(0.15, 0.6)), 10), rr(0.3, 0.7), true);
+        }
+        for (q = 0; q < 34; q++) {
+          t = R();
+          dab(lerp(a[0], b[0], t) + nx * w * 0.4, lerp(a[1], b[1], t) + ny * w * 0.4, rr(6, 16) * u, ang + rr(-0.05, 0.05), rr(1, 2.2) * u, vary(C(rimc), 14), rr(0.35, 0.8), false);
+        }
+      }
+      limb(sh, el, 30 * k);
+      limb(el, wr, 22 * k);
+      limb(wr, tip, 15 * k);
+      var ga = Math.atan2(tip[1] - wr[1], tip[0] - wr[0]);
+      [-0.55, 0.55].forEach(function (o) { seg(tip[0], tip[1], tip[0] + Math.cos(ga + o) * 24 * k, tip[1] + Math.sin(ga + o) * 24 * k, 5 * k, dark); });
+      [sh, el, wr].forEach(function (q, n) {
+        var r = [19, 15, 11][n] * k;
+        ctx.fillStyle = css(C(dark), 1);
+        ctx.beginPath();
+        ctx.arc(q[0], q[1], r, 0, TAU);
+        ctx.fill();
+        glow(q[0], q[1], r * 2.4, eye, 0.75);
+        light(function () {
+          for (var j = 0; j < 40; j++) { var a = R() * TAU; dab(q[0] + Math.cos(a) * r * 0.55, q[1] + Math.sin(a) * r * 0.55, r * 0.5, a + HALF, 1.4 * u, vary(C(eye), 14), rr(0.4, 0.9), false); }
+        });
+      });
+      return [sh, el, wr, tip];
+    }
+    /* A hospital with a lit cross on its face. Returns the cross. */
+    function hospital(x, base, w, h, dark, lite, win, cross) {
+      var glass = mix(dark, lite, 0.45), cx = x + w * 0.5, cy = base - h * 0.82, s = h * 0.08;
+      block(x - w * 0.46, base - h * 0.4, w * 0.5, h * 0.4, dark, lite);
+      windows(x - w * 0.42, base - h * 0.35, w * 0.4, h * 0.26, 6, 4, 0.3, win, glass);
+      block(x, base - h, w, h, dark, lite);
+      windows(x + w * 0.07, base - h * 0.64, w * 0.86, h * 0.5, 7, 8, 0.3, win, glass);
+      rim([[x, base - h], [x + w, base - h]], [0], mix(lite, '#ffffff', 0.4), 0.8);
+      block(x + w * 0.38, base - h * 0.1, w * 0.24, h * 0.1, mix(win, '#000000', 0.2), '#fff6e0', { den: 10, len: 0.3, hatch: HALF, fall: 0.4 });
+      glow(x + w * 0.5, base - h * 0.04, w * 0.45, win, 0.35);
+      glow(cx, cy, s * 6, cross, 0.5);
+      ctx.fillStyle = css(mix(cross, '#ffffff', 0.35), 0.97);
+      ctx.fillRect(cx - s * 0.34, cy - s, s * 0.68, s * 2);
+      ctx.fillRect(cx - s, cy - s * 0.34, s * 2, s * 0.68);
+      return [cx, cy, s];
+    }
+    /* A domed hall of government. Returns the dome's middle and the spire tip. */
+    function capitol(cx, base, w, h, dark, lite, rimc, win) {
+      var glass = mix(dark, lite, 0.4), wingH = h * 0.24, pw = w * 0.3, ph = h * 0.36, px = cx - pw / 2, pt = base - ph;
+      var dw = w * 0.2, dt = pt - h * 0.2, rx = dw * 0.56, ry = h * 0.2, top = dt - ry, k, dome = [];
+      block(cx - w / 2, base - wingH, w, wingH, dark, lite);
+      windows(cx - w * 0.47, base - wingH * 0.84, w * 0.94, wingH * 0.6, 24, 2, 0.28, win, glass);
+      block(cx - dw / 2, dt, dw, pt - dt + h * 0.04, dark, lite);
+      for (k = 0; k < 9; k++) {
+        var dx = cx - dw / 2 + dw * (0.06 + k * 0.88 / 8);
+        seg(dx, dt + h * 0.02, dx, pt, Math.max(1.2, dw * 0.018), mix(lite, rimc, 0.3), 0.75);
+      }
+      for (k = 0; k <= 28; k++) { var a = Math.PI + k / 28 * Math.PI; dome.push([cx + Math.cos(a) * rx, dt + Math.sin(a) * ry]); }
+      fillPoly(dome, dark, lite, { den: 20, len: 0.5, hatch: 0.6, grad: 'x', fall: 1.3 });
+      rim(dome, [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12], rimc, 0.9);
+      block(cx - dw * 0.07, top - h * 0.06, dw * 0.14, h * 0.065, dark, lite, { den: 10, len: 0.3, hatch: HALF });
+      seg(cx, top - h * 0.06, cx, top - h * 0.13, Math.max(1.2, u * 1.4), dark);
+      block(px, pt, pw, ph, dark, lite);
+      for (k = 0; k < 8; k++) {
+        var colx = px + pw * (0.08 + k * 0.84 / 7);
+        seg(colx, pt + ph * 0.14, colx, base - h * 0.03, Math.max(1.4, pw * 0.022), mix(lite, rimc, 0.35), 0.8);
+      }
+      var ped = [[px - pw * 0.05, pt], [cx, pt - h * 0.09], [px + pw * 1.05, pt]];
+      fillPoly(ped, dark, lite, { den: 20, len: 0.5, hatch: 0.02, fall: 1.1 });
+      rim(ped, [0, 1], rimc, 0.9);
+      return [cx, dt - ry * 0.4, top - h * 0.13];
+    }
+
     /* Paper tooth, a soft vignette and fine grain to finish. */
     function finish() {
       var k;
@@ -470,15 +702,61 @@
       ctx.fillRect(0, 0, W, H);
     }
 
+    /* A light to keep alive once the picture is done (see FX below). */
+    function fx() { effects.push([].slice.call(arguments)); }
+    /* Replays the recorded strokes over ms milliseconds, quickly at first and
+       slowly at the end, so the subject arrives last and can be watched. */
+    function play(ms, done) {
+      var ops = ctx.ops, n = ops.length, i = 0, start = 0, ended = false;
+      function run(to) {
+        for (; i < to; i++) {
+          var o = ops[i];
+          if (typeof real[o[0]] === 'function') real[o[0]].apply(real, o[1]); else real[o[0]] = o[1];
+        }
+      }
+      function end() {
+        if (ended) return;
+        ended = true;
+        run(n);
+        ctx.ops.length = 0;
+        if (done) done();
+      }
+      if (!ms) { end(); return; }
+      function frame(now) {
+        if (ended) return;
+        if (!start) start = now;
+        var t = Math.min(1, (now - start) / ms);
+        run(Math.ceil(n * (1 - Math.pow(1 - t, 2.4))));
+        if (t < 1) requestAnimationFrame(frame); else end();
+      }
+      requestAnimationFrame(frame);
+      /* If frames never come (a background tab), finish the picture anyway. */
+      setTimeout(end, ms + 1500);
+    }
+
     return {
+      play: play, fx: fx, effects: effects,
       W: W, H: H, u: u, fbm: fbm, sky: sky, stars: stars, bands: bands, cloud: cloud, water: water, ridge: ridge, groundAt: groundAt,
       skyline: skyline, moon: moon, sun: sun, eclipse: eclipse, beam: beam, lighthouse: lighthouse, dome: dome, strike: strike,
-      tower: tower, wall: wall, crack: crack, fox: fox, robot: robot, shield: shield, rings: rings, factory: factory, finish: finish
+      tower: tower, wall: wall, crack: crack, keyhole: keyhole, spill: spill, person: person, fox: fox, robot: robot, shield: shield, rings: rings, factory: factory, finish: finish,
+      glow: glow, rim: rim, seg: seg, wire: wire, block: block, windows: windows, pylon: pylon, bank: bank, arm: arm, hospital: hospital, capitol: capitol
     };
   }
 
   /* ── The paintings ────────────────────────────────────────────────────── */
   var SCENES = {
+    /* Offense-proven: the wall, and the way in that was opened for us. */
+    gate: function (p, W, H, u) {
+      p.sky([[0, '#05081c'], [0.55, '#14204e'], [1, '#2d4f7a']], H * 0.36);
+      p.stars(130, H * 0.3);
+      p.wall(-20, W + 20, H * 0.31, H * 0.85, '#090c1d', '#222b52', '#8fa6d8');
+      p.keyhole(W * 0.56, H * 0.47, 33 * u, '#ffe9b0', '#ff9a4a');
+      p.ridge(H * 0.85, H * 0.015, 2, 3.7, '#06080f', '#181f3c', { rim: '#c98f5a' });
+      p.spill(W * 0.56, H * 0.855, 38 * u, H * 0.14, '#ffd89a');
+      p.person(W * 0.46, H * 0.885, 1.5 * u, '#02030a', '#ffd89a');
+      p.fx('twinkle', 26, H * 0.3, 11);
+      p.fx('pulse', W * 0.56, H * 0.47 + 40 * u, 190 * u, [255, 176, 96], 1.6, 0.08, 0.26);
+    },
     /* The model: a singularity rising over the range. */
     model: function (p, W, H, u) {
       p.sky([[0, '#05071a'], [0.42, '#16184a'], [0.7, '#4a2f78'], [0.88, '#c9736f'], [1, '#f7c796']], H * 0.76);
@@ -489,6 +767,8 @@
       p.ridge(H * 0.76, H * 0.2, 2.1, 3.1, '#1b1640', '#4e3b82', { rim: '#f5b48e' });
       p.ridge(H * 0.87, H * 0.14, 3.0, 9.4, '#0d0b22', '#2c2456', { rim: '#b77e92' });
       p.ridge(H * 1.0, H * 0.11, 4.2, 21.7, '#05050f', '#16122c');
+      p.fx('twinkle', 40, H * 0.5, 12);
+      p.fx('pulse', W * 0.5, H * 0.36, 310 * u, [242, 163, 124], 1.1, 0.06, 0.24);
     },
     /* AutoSecOps: the lighthouse that watches a sleeping city. */
     autosecops: function (p, W, H, u) {
@@ -503,6 +783,8 @@
       var lamp = p.lighthouse(W * 0.81, p.groundAt(g, W * 0.81) + 4 * u, H * 0.36, '#e6efe2', '#c5584a', '#0a1a1e');
       p.beam(lamp[0], lamp[1], Math.PI + 0.1, W * 0.8, 0.075, '#fff4c8');
       p.beam(lamp[0], lamp[1], -0.32, W * 0.32, 0.09, '#fff4c8');
+      p.fx('twinkle', 26, H * 0.4, 13);
+      p.fx('pulse', lamp[0], lamp[1], 96 * u, [255, 244, 200], 2.6, 0.08, 0.6);
     },
     /* AIDR: a town under glass. What comes for it stops at the shield. */
     aidr: function (p, W, H) {
@@ -517,6 +799,10 @@
       p.strike(W * 0.14, H * 0.1, cx + Math.cos(-2.4) * r, base + Math.sin(-2.4) * r, '#ff6b5a');
       p.strike(W * 0.9, H * 0.2, cx + Math.cos(-0.62) * r, base + Math.sin(-0.62) * r, '#ff8a4a');
       p.ridge(H * 0.97, H * 0.1, 3, 12.5, '#06041a', '#1d1444');
+      p.fx('twinkle', 30, H * 0.5, 14);
+      p.fx('pulse', cx, base - r * 0.4, r * 1.5, [143, 242, 196], 1.4, 0.04, 0.2);
+      p.fx('pulse', cx + Math.cos(-2.4) * r, base + Math.sin(-2.4) * r, 40 * p.u, [255, 107, 90], 5.2, 0.05, 0.55);
+      p.fx('pulse', cx + Math.cos(-0.62) * r, base + Math.sin(-0.62) * r, 40 * p.u, [255, 138, 74], 6.7, 0.05, 0.55);
     },
     /* IT Ops: three in the morning, one window still lit. */
     itops: function (p, W, H, u) {
@@ -527,6 +813,9 @@
       p.skyline(0, W, H * 0.9, H * 0.08, H * 0.34, '#060a1b', '#ffd07c', 0.035);
       p.tower(W * 0.4, H * 0.99, W * 0.24, H * 0.7, '#070b1d', '#1b2a55', 5, 11, [[3, 4]], '#ffcf7a');
       p.ridge(H * 1.01, H * 0.05, 3, 6, '#02030a', '#0a1024');
+      p.fx('twinkle', 40, H * 0.6, 15);
+      p.fx('pulse', W * 0.568, H * 0.586, 74 * u, [255, 207, 122], 2, 0.12, 0.42);
+      p.fx('pulse', W * 0.52, H * 0.206, 18 * u, [255, 90, 74], 3.2, 0, 0.9);
     },
     /* Breakpoint: the wall everyone trusted, and the light through it. */
     breakpoint: function (p, W, H) {
@@ -538,6 +827,8 @@
       p.wall(W * 0.06, W * 0.94, H * 0.46, H * 0.93, '#14080f', '#4a1c22', '#ffb574');
       p.crack(W * 0.53, H * 0.43, H * 0.92, '#fff0c0', '#ff7a3a');
       p.ridge(H * 1.0, H * 0.07, 3, 11, '#070308', '#1f0b12');
+      p.fx('pulse', W * 0.53, H * 0.47, 150 * p.u, [255, 122, 58], 3.1, 0.06, 0.3);
+      p.fx('pulse', W * 0.53, H * 0.7, 110 * p.u, [255, 170, 90], 4.3, 0.04, 0.2);
     },
     /* Fennec: small, fast, hears everything. */
     fennec: function (p, W, H, u) {
@@ -549,6 +840,8 @@
       p.ridge(H * 0.8, H * 0.13, 1.0, 8.6, '#4c2c3e', '#ad6641', { rim: '#f5b477', hatch: 0.2 });
       var g = p.ridge(H * 0.97, H * 0.16, 0.8, 15.3, '#1b1124', '#5c3542', { rim: '#e99c68', hatch: 0.26 });
       p.fox(W * 0.32, p.groundAt(g, W * 0.32) + 3 * u, 1.05 * u, '#0f0a16', '#f3a672');
+      p.fx('twinkle', 14, H * 0.3, 16);
+      p.fx('pulse', W * 0.7, H * 0.6, 220 * u, [255, 154, 88], 0.9, 0.06, 0.22);
     },
     /* Sonar: the plant, and everything it is quietly saying. */
     sonar: function (p, W, H, u) {
@@ -558,6 +851,8 @@
       p.ridge(H * 0.76, H * 0.07, 2, 5.5, '#0a2a33', '#2a6f6a', { rim: '#bbe8c4' });
       p.factory(W * 0.14, H * 0.86, u, '#04121a', '#12333c', '#ffd58c');
       p.ridge(H * 1.0, H * 0.08, 3, 14, '#020a0f', '#0c2229');
+      p.fx('twinkle', 22, H * 0.4, 17);
+      p.fx('rings', W * 0.46, H * 0.78, 330 * u, [166, 247, 210], 3.4, 0.86);
     },
     /* RoboDR: the robot stays on its feet, inside its shield. */
     robodr: function (p, W, H, u) {
@@ -570,6 +865,9 @@
       var gx = W * 0.54, gy = p.groundAt(g, gx);
       p.shield(gx, gy - 34 * u, 104 * u, '#8ff2c4');
       p.robot(gx, gy + 2 * u, 1.25 * u, '#04060e', '#8ff2c4');
+      p.fx('twinkle', 30, H * 0.45, 18);
+      p.fx('pulse', gx + 77 * u, gy - 72 * u, 30 * u, [143, 242, 196], 2.4, 0.15, 0.9);
+      p.fx('pulse', gx, gy - 34 * u, 150 * u, [143, 242, 196], 1.3, 0.02, 0.12);
     },
     /* Contact: first light over the range. */
     dawn: function (p, W, H) {
@@ -582,10 +880,167 @@
       p.ridge(H * 0.72, H * 0.17, 1.7, 2.4, '#2c2b5c', '#6c5c98', { rim: '#f7ba8a' });
       p.water(H * 0.75, H, [[0, '#eaa98c'], [0.3, '#5b4b88'], [1, '#0b0d22']], '#fff0d0', W * 0.62);
       p.ridge(H * 0.93, H * 0.12, 2.6, 11.2, '#090a1b', '#272b57', { rim: '#b98ba2' });
+      p.fx('twinkle', 20, H * 0.28, 19);
+      p.fx('pulse', W * 0.62, H * 0.72, 280 * p.u, [255, 217, 160], 0.8, 0.03, 0.14);
+    },
+
+    /* ── Industries: one small picture per sector ── */
+    /* Factories and energy: the plant, and the line that feeds it. */
+    'ind-ot': function (p, W, H, u) {
+      p.sky([[0, '#06121c'], [0.45, '#123b48'], [0.8, '#4f8a7c'], [1, '#f2c48a']], H * 0.72);
+      p.stars(50, H * 0.34);
+      p.bands(H * 0.6, 14 * u, 24, '#f5c890', 0.4);
+      p.ridge(H * 0.72, H * 0.06, 2, 4.1, '#123039', '#3f7570', { rim: '#f2c48a' });
+      var far = p.pylon(W * 0.68, H * 0.73, H * 0.28, '#0f2c35');
+      far.forEach(function (q) { p.wire(q[0], q[1], -20, q[1] + H * 0.05, H * 0.03, 0.9 * u, '#0f2c35', 0.8); });
+      var k = 0.92 * u, x0 = W * 0.04, base = H * 0.8;
+      p.factory(x0, base, k, '#04121a', '#163b44', '#ffd58c');
+      p.ridge(H * 0.84, H * 0.035, 3, 7.3, '#030c12', '#0f2a31');
+      var px = W * 0.86, pb = H * 0.88, ph = H * 0.7, near = p.pylon(px, pb, ph, '#03090f');
+      near.forEach(function (q, j) {
+        p.wire(q[0], q[1], far[j][0], far[j][1], H * 0.04, 1.1 * u, '#03090f', 0.9);
+        p.wire(q[0], q[1], W + 30, q[1] + H * 0.03, H * 0.02, 1.1 * u, '#03090f', 0.9);
+      });
+      p.fx('twinkle', 16, H * 0.34, 21);
+      p.fx('pulse', x0 + 230 * k * 0.45, base - 32 * k, 120 * k, [255, 213, 140], 1.3, 0.05, 0.22);
+      p.fx('pulse', px, pb - ph * 1.06, 9 * u, [255, 90, 74], 2.8, 0, 0.9);
+    },
+    /* Banks and finance: the hall, lit late. */
+    'ind-finance': function (p, W, H) {
+      p.sky([[0, '#0a0b22'], [0.5, '#1f2458'], [0.84, '#5a4a86'], [1, '#c58e8a']], H * 0.8);
+      p.stars(80, H * 0.45);
+      p.skyline(-10, W + 10, H * 0.8, H * 0.08, H * 0.38, '#0d0e2a', '#ffd58c', 0.07);
+      var cx = W * 0.5, base = H * 0.86, h = H * 0.64;
+      p.bank(cx, base, W * 0.5, h, '#0b0a1c', '#3a3566', '#ffc98a', '#f3d2a6');
+      p.ridge(H * 1.02, H * 0.05, 3, 8, '#05050f', '#16122c');
+      p.fx('twinkle', 24, H * 0.45, 22);
+      p.fx('pulse', cx, base - h * 0.3, W * 0.3, [255, 201, 138], 1.1, 0.06, 0.24);
+    },
+    /* Robotics: the arm keeps working, inside its shield. */
+    'ind-robotics': function (p, W, H, u) {
+      p.sky([[0, '#060b1b'], [0.5, '#162a4c'], [0.85, '#4c5e88'], [1, '#c9b2bc']], H * 0.78);
+      p.stars(70, H * 0.42);
+      p.ridge(H * 0.78, H * 0.06, 2, 5, '#111c36', '#36466e', { rim: '#d9c2c6' });
+      p.ridge(H * 0.86, H * 0.008, 4, 2, '#070b16', '#1c2744');
+      var bx = W * 0.36, base = H * 0.86, k = 1.12 * u, belt = base - 44 * k;
+      p.shield(W * 0.5, base, H * 0.66, '#8ff2c4');
+      p.block(W * 0.58, belt, W * 0.5, 9 * k, '#05070f', '#2a3658', { den: 12, len: 0.6, hatch: 0.02, fall: 1.1 });
+      [0.62, 0.8, 0.96].forEach(function (f) { p.seg(W * f, belt + 9 * k, W * f, base, 3 * k, '#05070f'); });
+      var j = p.arm(bx, base, k, '#04060e', '#3e4f78', '#cfe0ff', '#8ff2c4');
+      [[j[3][0], 40], [W * 0.86, 34]].forEach(function (c) {
+        p.block(c[0] - c[1] * 0.5 * k, belt - c[1] * 0.9 * k, c[1] * k, c[1] * 0.9 * k, '#2c1a10', '#c08a52', { den: 12, len: 0.4, hatch: HALF, grad: 'x', fall: 1.3 });
+      });
+      p.fx('twinkle', 20, H * 0.42, 23);
+      j.slice(0, 3).forEach(function (q, n) { p.fx('pulse', q[0], q[1], [44, 36, 28][n] * k, [143, 242, 196], 2 + n * 0.7, 0.1, 0.7); });
+      p.fx('pulse', W * 0.5, base - H * 0.3, H * 0.5, [143, 242, 196], 1.2, 0.02, 0.1);
+    },
+    /* Hospitals: the lights stay on. */
+    'ind-health': function (p, W, H, u) {
+      p.sky([[0, '#04101a'], [0.5, '#0d2c3c'], [0.85, '#2f6a74'], [1, '#9fd2c2']], H * 0.8);
+      p.stars(90, H * 0.45);
+      p.moon(W * 0.14, H * 0.2, 15 * u, '#f3f0dc');
+      p.bands(H * 0.56, 22 * u, 30, '#5c9a98', 0.4);
+      p.skyline(-10, W + 10, H * 0.82, H * 0.05, H * 0.22, '#061722', '#ffd58c', 0.06);
+      var c = p.hospital(W * 0.42, H * 0.86, W * 0.3, H * 0.66, '#06121c', '#1f4a58', '#ffe1a6', '#8ff2c4');
+      p.ridge(H * 1.02, H * 0.05, 3, 9, '#020a0f', '#0c2229');
+      p.fx('twinkle', 24, H * 0.45, 24);
+      p.fx('pulse', c[0], c[1], c[2] * 7, [143, 242, 196], 1.6, 0.08, 0.42);
+    },
+    /* Defense and government: the dome at first light. */
+    'ind-gov': function (p, W, H, u) {
+      p.sky([[0, '#0d0a2a'], [0.42, '#2d2468'], [0.75, '#8a5a96'], [0.92, '#f0a28e'], [1, '#ffd2a0']], H * 0.8);
+      p.stars(70, H * 0.4);
+      p.bands(H * 0.66, 14 * u, 24, '#f6b494', 0.45);
+      var t = p.capitol(W * 0.5, H * 0.86, W * 0.8, H * 0.74, '#0d0a20', '#3a2e66', '#ffcf9e', '#ffd58c');
+      p.ridge(H * 1.02, H * 0.05, 3, 6, '#05040f', '#1a1236');
+      p.fx('twinkle', 20, H * 0.4, 25);
+      p.fx('pulse', t[0], t[1], W * 0.2, [255, 207, 158], 0.9, 0.05, 0.2);
+      p.fx('pulse', t[0], t[2], 8 * u, [255, 240, 210], 2.2, 0.1, 0.9);
+    },
+    /* Enterprise IT: the whole company, still at work. */
+    'ind-it': function (p, W, H, u) {
+      p.sky([[0, '#050818'], [0.55, '#111d48'], [0.88, '#2c3f78'], [1, '#6a6aa8']], H * 0.74);
+      p.stars(90, H * 0.42);
+      p.skyline(-10, W + 10, H * 0.74, H * 0.1, H * 0.3, '#0c1334', '#bcc8ff', 0.08);
+      p.skyline(-10, W + 10, H * 0.81, H * 0.1, H * 0.4, '#070b20', '#ffd58c', 0.24);
+      var tx = W * 0.43, tw = W * 0.13, tb = H * 0.82, th = H * 0.68, mast = tb - th - H * 0.08;
+      p.rim(p.block(tx, tb - th, tw, th, '#060a1d', '#22336a'), [0, 1], '#9fb2ff', 0.8);
+      p.windows(tx + tw * 0.08, tb - th * 0.93, tw * 0.84, th * 0.88, 5, 16, 0.42, '#ffd58c', '#141f44');
+      p.seg(tx + tw * 0.5, tb - th, tx + tw * 0.5, mast, 1.6 * u, '#060a1d');
+      p.glow(tx + tw * 0.5, mast, 10 * u, '#ff5a4a', 0.95);
+      p.water(H * 0.81, H, [[0, '#33427a'], [0.3, '#121c42'], [1, '#03050f']], '#ffd58c', tx + tw * 0.5);
+      p.fx('twinkle', 26, H * 0.4, 26);
+      p.fx('pulse', tx + tw * 0.5, mast, 16 * u, [255, 90, 74], 3, 0, 0.9);
+      p.fx('pulse', tx + tw * 0.5, tb - th * 0.5, th * 0.6, [255, 213, 140], 0.9, 0.02, 0.1);
     }
   };
-  var SEEDS = { model: 88, autosecops: 101, aidr: 202, itops: 303, breakpoint: 404, fennec: 505, sonar: 606, robodr: 707, dawn: 808 };
+  var SEEDS = { gate: 909, model: 88, autosecops: 101, aidr: 202, itops: 303, breakpoint: 404, fennec: 505, sonar: 606, robodr: 707, dawn: 808, 'ind-ot': 1101, 'ind-finance': 1202, 'ind-robotics': 1303, 'ind-health': 1404, 'ind-gov': 1505, 'ind-it': 1606 };
 
+  /* ── Lights that stay alive after the painting is done ────────────────── */
+  function rgba(c, al) { return 'rgba(' + c[0] + ',' + c[1] + ',' + c[2] + ',' + Math.max(0, al).toFixed(3) + ')'; }
+  var FX = {
+    /* ['pulse', x, y, radius, [r,g,b], speed, min, max]: a glow that breathes. */
+    pulse: function (g, t, e) {
+      var al = e[6] + (e[7] - e[6]) * (0.5 + 0.5 * Math.sin(t * e[5] + e[1] * 0.01)), gr = g.createRadialGradient(e[1], e[2], 0, e[1], e[2], e[3]);
+      gr.addColorStop(0, rgba(e[4], al));
+      gr.addColorStop(1, rgba(e[4], 0));
+      g.fillStyle = gr;
+      g.fillRect(e[1] - e[3], e[2] - e[3], e[3] * 2, e[3] * 2);
+    },
+    /* ['twinkle', count, skyBottom, seed]: stars that brighten and fade. */
+    twinkle: function (g, t, e, W, u) {
+      if (!e.pts) {
+        var s = e[3] * 9973, k;
+        e.pts = [];
+        for (k = 0; k < e[1]; k++) { s = (s * 16807 + 11) % 2147483647; var x = s / 2147483647; s = (s * 16807 + 11) % 2147483647; var y = s / 2147483647; e.pts.push([x * W, Math.pow(y, 1.5) * e[2], x * 40, 0.7 + y * 1.8]); }
+      }
+      e.pts.forEach(function (q) {
+        var al = Math.pow(0.5 + 0.5 * Math.sin(t * q[3] + q[2]), 4);
+        g.fillStyle = rgba([255, 244, 222], al * 0.9);
+        g.beginPath();
+        g.arc(q[0], q[1], (0.9 + al) * u, 0, TAU);
+        g.fill();
+      });
+    },
+    /* ['rings', x, y, maxRadius, [r,g,b], period, squash]: arcs that spread and fade. */
+    rings: function (g, t, e, W, u) {
+      g.lineWidth = 2 * u;
+      for (var k = 0; k < 3; k++) {
+        var ph = (t / e[5] + k / 3) % 1;
+        g.strokeStyle = rgba(e[4], (1 - ph) * 0.55);
+        g.beginPath();
+        g.ellipse(e[1], e[2], e[3] * ph, e[3] * ph * e[6], 0, Math.PI, TAU);
+        g.stroke();
+      }
+    }
+  };
+  function life(cv, effects, W, H, u) {
+    if (!effects.length || !cv.parentNode) return;
+    var layer = document.createElement('canvas'), g, seen = false, raf = 0, last = 0;
+    layer.width = W;
+    layer.height = H;
+    layer.className = 'fx is-painted';
+    layer.setAttribute('aria-hidden', 'true');
+    cv.parentNode.insertBefore(layer, cv.nextSibling);
+    g = layer.getContext('2d');
+    function draw(now) {
+      raf = 0;
+      if (!seen) return;
+      if (now - last > 33) {
+        last = now;
+        g.clearRect(0, 0, W, H);
+        for (var k = 0; k < effects.length; k++) FX[effects[k][0]](g, now / 1000, effects[k], W, u);
+      }
+      raf = requestAnimationFrame(draw);
+    }
+    /* Only the pictures on screen keep moving. */
+    new IntersectionObserver(function (entries) {
+      seen = entries[entries.length - 1].isIntersecting;
+      if (seen && !raf) raf = requestAnimationFrame(draw);
+    }, { threshold: 0.05 }).observe(layer);
+  }
+
+  var still = window.matchMedia('(prefers-reduced-motion: reduce)').matches || !('IntersectionObserver' in window);
   function paint(cv) {
     if (cv.__painted) return;
     cv.__painted = true;
@@ -596,12 +1051,16 @@
       scene(p, p.W, p.H, p.u);
       p.finish();
       cv.classList.add('is-painted');
+      /* Bigger pictures take a little longer to paint. */
+      p.play(still ? 0 : Math.round(2400 + Math.min(1400, p.W * p.H / 900)), function () {
+        if (!still) life(cv, p.effects, p.W, p.H, p.u);
+      });
     } catch (err) {
       if (window.console) console.error('art: ' + name, err);
     }
   }
 
-  /* Paint one canvas at a time so the page never stalls. */
+  /* Start the pictures a moment apart, so several can paint side by side. */
   var queue = [], busy = false;
   function pump() {
     if (busy) return;
@@ -610,7 +1069,7 @@
       var cv = queue.shift();
       if (!cv) { busy = false; return; }
       paint(cv);
-      setTimeout(next, 30);
+      setTimeout(next, 140);
     })();
   }
   function enqueue(cv) {
@@ -619,14 +1078,15 @@
     queue.push(cv);
     pump();
   }
-  /* Anything within a screen and a half of the viewport gets painted. The
-     observer does the work; the sweep covers webviews where it stays silent. */
+  /* A picture starts when it is on screen (or, with reduced motion, shortly
+     before). The observer does the work; the sweep covers webviews where it
+     stays silent. */
   function sweep() {
     var vh = window.innerHeight || 800;
     list.forEach(function (cv) {
       if (cv.__queued) return;
       var r = cv.getBoundingClientRect();
-      if (r.width && r.top < vh * 1.8 && r.bottom > -vh * 0.8) enqueue(cv);
+      if (r.width && r.top < vh * (still ? 1.8 : 0.92) && r.bottom > vh * (still ? -0.8 : 0.08)) enqueue(cv);
     });
   }
   if ('IntersectionObserver' in window) {
@@ -636,7 +1096,7 @@
         io.unobserve(e.target);
         enqueue(e.target);
       });
-    }, { rootMargin: '700px 0px' });
+    }, still ? { rootMargin: '700px 0px' } : { threshold: 0.12 });
     list.forEach(function (cv) { io.observe(cv); });
   }
   var ticking = false;

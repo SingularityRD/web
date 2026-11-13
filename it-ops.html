@@ -1,0 +1,403 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<title>IT Ops: AI on-call engineer for IT incidents | Singularity</title>
+<meta name="description" content="IT Ops is an AI on-call engineer. It groups alerts into one incident, finds the cause, applies the fix with your approval and records every step." />
+<link rel="canonical" href="https://www.singularityrd.com/it-ops.html" />
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+<meta name="author" content="Singularity Research and Development Inc." />
+<meta name="theme-color" content="#070707" />
+<meta name="color-scheme" content="dark" />
+
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Singularity" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:url" content="https://www.singularityrd.com/it-ops.html" />
+<meta property="og:title" content="IT Ops — AI on-call engineer" />
+<meta property="og:description" content="IT Ops is an AI on-call engineer. It groups alerts into one incident, finds the cause, applies the fix with your approval and records every step." />
+<meta property="og:image" content="https://www.singularityrd.com/assets/og-cover.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="IT Ops — AI on-call engineer" />
+<meta name="twitter:description" content="IT Ops is an AI on-call engineer. It groups alerts into one incident, finds the cause, applies the fix with your approval and records every step." />
+<meta name="twitter:image" content="https://www.singularityrd.com/assets/og-cover.png" />
+
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+<link rel="apple-touch-icon" href="assets/mark.svg" />
+<link rel="sitemap" type="application/xml" href="/sitemap.xml" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Inter+Tight:wght@500;600&family=JetBrains+Mono:wght@400;500;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+<link rel="stylesheet" href="home.css" />
+<link rel="stylesheet" href="product.css" />
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://www.singularityrd.com/it-ops.html#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Singularity",
+          "item": "https://www.singularityrd.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Products",
+          "item": "https://www.singularityrd.com/#products"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "IT Ops",
+          "item": "https://www.singularityrd.com/it-ops.html"
+        }
+      ]
+    },
+    {
+      "@type": "SoftwareApplication",
+      "@id": "https://www.singularityrd.com/it-ops.html#product",
+      "name": "IT Ops",
+      "description": "IT Ops is an AI on-call engineer. It groups scattered alerts into one incident, finds the cause with evidence, proposes a fix, applies it with your approval and records every step.",
+      "url": "https://www.singularityrd.com/it-ops.html",
+      "applicationCategory": "SecurityApplication",
+      "featureList": [
+        "Merges duplicate alerts from many tools into one incident",
+        "Service, environment and owner taken from your service catalog",
+        "Covers service outages, resource exhaustion and bad deployments",
+        "Optional monitoring of metrics, logs, traces, deployments and databases",
+        "Monitoring agents for Linux, Windows and Kubernetes, no code changes",
+        "Service map, service level objectives (SLOs) and charts on each incident",
+        "Finds the root cause and ties every claim to evidence",
+        "Flags unsupported claims and names data sources it could not reach",
+        "The AI investigator has read-only access to your systems",
+        "Recalls past incidents and only the fixes confirmed to work",
+        "Instructions hidden in logs or alerts are treated as data, never obeyed",
+        "Team ratings of each investigation guide when to expand automation",
+        "Fixes come only from an approved catalog, never free-form commands",
+        "Linux: service restart, process stop, log and temp file cleanup",
+        "Windows and IIS: service restart, process stop, app pool recycle, cleanup",
+        "Kubernetes: change report, pod and rollout restarts, rollout undo, scale-up",
+        "Argo CD and Helm rollback to a previous release; Docker container restart",
+        "PostgreSQL and MySQL: connection pool check, stop long-running queries",
+        "Disk, port, health, DNS, connectivity and certificate expiry checks",
+        "Risk levels from look-only to forbidden; policy can only raise them",
+        "Caps on targets per action; systems not on your list are refused",
+        "Approval required during change freeze windows",
+        "Four-eyes rule: nobody can approve their own request",
+        "Approval cards show evidence, dry-run result and rollback plan",
+        "Approvals expire and are void if target or parameters change",
+        "Staged rollout: observe, suggest, act in test, then in production",
+        "Dry run before every change",
+        "Success measured by metrics and health checks, not the AI's opinion",
+        "Automatic rollback and handover to a person if checks fail",
+        "Temporary changes revert on their own when their time runs out",
+        "One emergency stop halts every automated change, even rollback",
+        "Append-only, tamper-evident audit log of every step",
+        "Any later edit is caught against an external copy of the log",
+        "Audit records flow to your security monitoring system (SIEM)",
+        "Value report on screen and as PDF: incidents, actions, rollbacks",
+        "Your name and logo on tickets, chat cards and PDFs",
+        "Monitoring: Prometheus Alertmanager, Grafana, Zabbix and Datadog",
+        "Logs and cloud: Splunk, Azure Monitor and AWS CloudWatch",
+        "Webhook, email or API intake for SolarWinds, PRTG, Nagios and more",
+        "Tickets in Jira or ServiceNow; approvals in Microsoft Teams or Slack",
+        "AI provider: Anthropic, Azure OpenAI, Amazon Bedrock or OpenAI-compatible",
+        "Documented REST API with OpenAPI, plus CSV and NDJSON export",
+        "Sign-in via Entra ID, Okta, AD FS, Active Directory or OpenLDAP",
+        "Viewer, operator and admin roles; unmapped users cannot sign in",
+        "Local emergency admin account if your identity provider is down",
+        "One Linux server with Docker Compose, or Kubernetes with Helm",
+        "Air-gapped install from one offline bundle with a local AI model",
+        "Secrets and personal data masked before any text reaches the AI"
+      ],
+      "publisher": {
+        "@type": "Organization",
+        "@id": "https://www.singularityrd.com/#organization",
+        "name": "Singularity Research and Development Inc.",
+        "url": "https://www.singularityrd.com/"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://www.singularityrd.com/it-ops.html#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is Singularity IT Ops?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "IT Ops is an AI on-call engineer from Singularity. It groups alerts from your monitoring tools into one incident, finds the cause with evidence, proposes a fix, applies it with your approval, checks the result and records every step."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Who is IT Ops for?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "IT Ops is for companies whose IT teams are on call for outages. IT managers get a less exhausted team, security and compliance teams get every step logged, and executives get shorter outages with AI kept under control."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How is IT Ops different from a monitoring tool?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A monitoring tool tells you something is wrong. IT Ops reads the alerts from the tools you already have, finds the cause, proposes a fix, applies it with approval and keeps the record. Your existing tools stay in place."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can IT Ops run on-premises or air-gapped?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. IT Ops is installed in your own environment and works in air-gapped networks, which have no internet connection. You choose the AI provider, and it can run on the Singularity Foundation Models on your own hardware."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do people stay in control of IT Ops?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "IT Ops cannot write its own commands. It picks fixes from a list you approved, on systems you listed. High-impact fixes always wait for a person’s approval, nobody can approve their own request, and one button stops every automated action."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body id="top" class="home product-page">
+
+<header class="site-header">
+  <div class="shell header-inner">
+    <a class="brand" href="index.html" aria-label="Singularity — home">
+      <img class="brand-logo" src="assets/logo.svg" alt="Singularity" width="1409" height="306" />
+    </a>
+
+    <nav class="nav-secondary home-nav" aria-label="Primary">
+      <a class="nav-link" href="index.html#products">Products</a>
+      <a class="nav-link" href="foundation-models.html">Model</a>
+      <a class="nav-link" href="index.html#industries">Industries</a>
+      <a class="nav-link" href="index.html#pricing">Pricing</a>
+      <a class="btn btn-solid" href="https://calendly.com/anill-yagiz/singularity" target="_blank" rel="noopener">Book a demo <span class="chev">›</span></a>
+    </nav>
+
+    <button class="burger" type="button" aria-label="Open menu" aria-controls="mobile-nav" aria-expanded="false"><span></span><span></span></button>
+  </div>
+
+  <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation" hidden>
+    <div class="shell mobile-nav-grid">
+      <a class="mobile-nav-link" href="index.html#products">Products</a>
+      <a class="mobile-nav-link" href="foundation-models.html">Model</a>
+      <a class="mobile-nav-link" href="index.html#industries">Industries</a>
+      <a class="mobile-nav-link" href="index.html#pricing">Pricing</a>
+      <a class="btn btn-solid btn-lg mobile-nav-cta" href="https://calendly.com/anill-yagiz/singularity" target="_blank" rel="noopener">Book a demo <span class="chev">›</span></a>
+    </div>
+  </nav>
+</header>
+
+<main>
+
+<!-- ── Hero ────────────────────────────────────────────────────── -->
+<section class="p-hero">
+  <div class="p-hero-art paint" style="--shift: 14%"><canvas data-art="itops" width="1600" height="760" aria-hidden="true"></canvas></div>
+  <div class="shell p-hero-inner">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="index.html">Singularity</a><i aria-hidden="true">/</i><a href="index.html#products">Products</a><i aria-hidden="true">/</i><span aria-current="page">IT Ops</span></nav>
+    <p class="p-kicker"><i></i>IT Ops · AI on-call engineer</p>
+    <h1 class="p-title">IT failures resolved faster, safely and on the record.</h1>
+    <p class="p-lede">IT Ops is an AI on-call engineer. It groups scattered alerts into one incident, finds the cause with evidence, proposes a fix, applies it with your approval and records every step.</p>
+    <div class="hero-actions">
+      <a class="btn btn-solid btn-lg" href="https://calendly.com/anill-yagiz/singularity" target="_blank" rel="noopener">Book a demo <span class="chev">›</span></a>
+      <a class="btn btn-ghost btn-lg" href="mailto:anil@singularityrd.com?subject=IT%20Ops%20technical%20brief">Request the technical brief</a>
+    </div>
+  </div>
+</section>
+
+<!-- ── The problem ──────────────────────────────────────────────── -->
+<section class="wrap sec" aria-labelledby="problem-h">
+  <p class="sec-tag">The problem</p>
+  <h2 class="sec-title" id="problem-h"><span class="s">Failures are inevitable.</span> <span class="s">Chaos isn’t.</span></h2>
+  <div class="p-cards">
+    <article class="p-card"><p class="p-n">01</p><h3>Finding the cause is slow</h3><p>Finding the cause often takes longer than fixing it. At 3 a.m. the on-call engineer chases it across several screens.</p></article>
+    <article class="p-card"><p class="p-n">02</p><h3>Knowledge sits with a few</h3><p>The fix lives in the heads of a few experienced staff. What happens when they are on leave?</p></article>
+    <article class="p-card"><p class="p-n">03</p><h3>Nobody wrote it down</h3><p>Who did what, and why? Often it is recorded nowhere, so management and auditors get no clear answer.</p></article>
+  </div>
+</section>
+
+<!-- ── How it works ─────────────────────────────────────────────── -->
+<section class="wrap sec" aria-labelledby="how-h">
+  <p class="sec-tag">How it works</p>
+  <h2 class="sec-title" id="how-h"><span class="s">Four steps.</span> <span class="s">The same routine every time.</span></h2>
+  <ol class="p-steps" style="--n: 4">
+    <li><b>1</b><h3>Detects</h3><p>Groups scattered alerts from your monitoring tools into one incident, so it is clear which service is hit and who owns it.</p></li>
+    <li><b>2</b><h3>Investigates</h3><p>Finds the cause and shows the evidence. It also says plainly when it is not sure.</p></li>
+    <li><b>3</b><h3>Asks</h3><p>Proposes a fix from a list you approved and, when needed, sends it to the owner for approval.</p></li>
+    <li><b>4</b><h3>Resolves and verifies</h3><p>Applies the fix and measures the result. If it does not work, it undoes the change and alerts a person.</p></li>
+  </ol>
+</section>
+
+<!-- ── What you get ─────────────────────────────────────────────── -->
+<section class="wrap sec" aria-labelledby="feat-h">
+  <p class="sec-tag">What you get</p>
+  <h2 class="sec-title" id="feat-h"><span class="s">Shorter outages.</span> <span class="s">A calmer team.</span></h2>
+  <div class="p-feats">
+    <article class="p-feat"><h3>Faster resolution</h3><p>Your team starts from a recommendation backed by evidence instead of hunting for the cause.</p></article>
+    <article class="p-feat"><h3>A calmer on-call team</h3><p>One decision card at night instead of many screens. It arrives on the web, in Microsoft Teams or in Slack.</p></article>
+    <article class="p-feat"><h3>Knowledge stays in the company</h3><p>Every fix that worked is remembered, so new hires follow the same playbook.</p></article>
+    <article class="p-feat"><h3>An audit-ready record</h3><p>Who did what, and why, is always on record, and later changes are detected. Management gets a PDF report.</p></article>
+    <article class="p-feat"><h3>Your tools stay in place</h3><p>IT Ops reads the tools you already run. Your team keeps working in the screens it knows.</p></article>
+    <article class="p-feat"><h3>Trust in stages</h3><p>It starts by only watching. You decide when it may recommend, fix in test and fix in production.</p></article>
+  </div>
+</section>
+
+<!-- ── Everything in the product ────────────────────────────────── -->
+<section class="wrap sec" id="features" aria-labelledby="caps-h">
+  <p class="sec-tag">Features</p>
+  <h2 class="sec-title" id="caps-h">Everything in IT Ops</h2>
+  <p class="sec-sub">What IT Ops does from the first alert to a verified fix, and what keeps it under your control.</p>
+  <div class="p-caps">
+    <article class="p-cap"><h3>Alerts and monitoring</h3><ul><li>Merges duplicate alerts from many tools into one incident</li><li>Service, environment and owner taken from your service catalog</li><li>Covers service outages, resource exhaustion and bad deployments</li><li>Optional monitoring of metrics, logs, traces, deployments and databases</li><li>Monitoring agents for Linux, Windows and Kubernetes, no code changes</li><li>Service map, service level objectives (SLOs) and charts on each incident</li></ul></article>
+    <article class="p-cap"><h3>AI investigation</h3><ul><li>Finds the root cause and ties every claim to evidence</li><li>Flags unsupported claims and names data sources it could not reach</li><li>The AI investigator has read-only access to your systems</li><li>Recalls past incidents and only the fixes confirmed to work</li><li>Instructions hidden in logs or alerts are treated as data, never obeyed</li><li>Team ratings of each investigation guide when to expand automation</li></ul></article>
+    <article class="p-cap"><h3>Approved fixes</h3><ul><li>Fixes come only from an approved catalog, never free-form commands</li><li>Linux: service restart, process stop, log and temp file cleanup</li><li>Windows and IIS: service restart, process stop, app pool recycle, cleanup</li><li>Kubernetes: change report, pod and rollout restarts, rollout undo, scale-up</li><li>Argo CD and Helm rollback to a previous release; Docker container restart</li><li>PostgreSQL and MySQL: connection pool check, stop long-running queries</li><li>Disk, port, health, DNS, connectivity and certificate expiry checks</li></ul></article>
+    <article class="p-cap"><h3>Approval and policy</h3><ul><li>Risk levels from look-only to forbidden; policy can only raise them</li><li>Caps on targets per action; systems not on your list are refused</li><li>Approval required during change freeze windows</li><li>Four-eyes rule: nobody can approve their own request</li><li>Approval cards show evidence, dry-run result and rollback plan</li><li>Approvals expire and are void if target or parameters change</li><li>Staged rollout: observe, suggest, act in test, then in production</li></ul></article>
+    <article class="p-cap"><h3>Verify, roll back, stop</h3><ul><li>Dry run before every change</li><li>Success measured by metrics and health checks, not the AI's opinion</li><li>Automatic rollback and handover to a person if checks fail</li><li>Temporary changes revert on their own when their time runs out</li><li>One emergency stop halts every automated change, even rollback</li></ul></article>
+    <article class="p-cap"><h3>Records and reports</h3><ul><li>Append-only, tamper-evident audit log of every step</li><li>Any later edit is caught against an external copy of the log</li><li>Audit records flow to your security monitoring system (SIEM)</li><li>Value report on screen and as PDF: incidents, actions, rollbacks</li><li>Your name and logo on tickets, chat cards and PDFs</li></ul></article>
+    <article class="p-cap"><h3>Integrations</h3><ul><li>Monitoring: Prometheus Alertmanager, Grafana, Zabbix and Datadog</li><li>Logs and cloud: Splunk, Azure Monitor and AWS CloudWatch</li><li>Webhook, email or API intake for SolarWinds, PRTG, Nagios and more</li><li>Tickets in Jira or ServiceNow; approvals in Microsoft Teams or Slack</li><li>AI provider: Anthropic, Azure OpenAI, Amazon Bedrock or OpenAI-compatible</li><li>Documented REST API with OpenAPI, plus CSV and NDJSON export</li></ul></article>
+    <article class="p-cap"><h3>Access and deployment</h3><ul><li>Sign-in via Entra ID, Okta, AD FS, Active Directory or OpenLDAP</li><li>Viewer, operator and admin roles; unmapped users cannot sign in</li><li>Local emergency admin account if your identity provider is down</li><li>One Linux server with Docker Compose, or Kubernetes with Helm</li><li>Air-gapped install from one offline bundle with a local AI model</li><li>Secrets and personal data masked before any text reaches the AI</li></ul></article>
+  </div>
+  <dl class="p-specs">
+    <div><dt>Deployment</dt><dd>In your environment: one Linux server, Kubernetes, private cloud or fully air-gapped</dd></div>
+    <div><dt>Platforms</dt><dd>Linux, Windows and IIS, Kubernetes, Docker, Argo CD, Helm, PostgreSQL and MySQL</dd></div>
+    <div><dt>Works with</dt><dd>Zabbix, Datadog, Grafana, Prometheus, Splunk, CloudWatch, Azure Monitor, Jira, ServiceNow, Teams, Slack</dd></div>
+    <div><dt>Access control</dt><dd>SSO via OIDC or SAML 2.0, AD and LDAP; viewer, operator and admin roles</dd></div>
+    <div><dt>Data</dt><dd>Single-tenant; sensitive text masked before the AI; KVKK (Türkiye's data protection law) erasure requests honored</dd></div>
+    <div><dt>Languages</dt><dd>Interface and documentation in Turkish and English</dd></div>
+  </dl>
+</section>
+
+<!-- ── Who it is for ────────────────────────────────────────────── -->
+<section class="wrap sec" aria-labelledby="fit-h">
+  <p class="sec-tag">Who it is for</p>
+  <h2 class="sec-title" id="fit-h"><span class="s">Not another tool.</span> <span class="s">A bridge between yours.</span></h2>
+  <div class="p-fit">
+    <div><p class="p-fit-k">Built for</p><ul class="p-chips"><li>IT managers</li><li>On-call engineers</li><li>Security and compliance teams</li><li>Executive leadership</li><li>Finance leaders</li></ul></div>
+    <div><p class="p-fit-k">Works with</p><ul class="p-chips"><li>Zabbix</li><li>Datadog</li><li>Grafana</li><li>Splunk</li><li>Jira</li><li>ServiceNow</li><li>Microsoft Teams</li><li>Slack</li></ul></div>
+  </div>
+</section>
+
+<!-- ── Control ──────────────────────────────────────────────────── -->
+<section class="wrap sec" aria-labelledby="ctl-h">
+  <p class="sec-tag">Control</p>
+  <h2 class="sec-title" id="ctl-h">As risk grows, a person steps in</h2>
+  <div class="p-cards">
+    <article class="p-card"><span class="p-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3 4 6v6c0 4.5 3.4 8.3 8 9 4.6-.7 8-4.5 8-9V6l-8-3Z"/><path d="m9 12 2 2 4-4"/></svg></span><h3>An approved list only</h3><p>IT Ops cannot write its own commands. It picks from a list of fixes you approved, on systems you listed.</p></article>
+    <article class="p-card"><span class="p-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg></span><h3>Approval grows with risk</h3><p>Checks run on their own. High-impact fixes always need a person. One button halts every automated action on your systems.</p></article>
+    <article class="p-card"><span class="p-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 3h7l5 5v13H7z"/><path d="M10 13h6M10 17h6"/></svg></span><h3>Your data stays in-house</h3><p>IT Ops is installed in your environment. Passwords, names and addresses are masked in any text sent to the AI.</p></article>
+  </div>
+</section>
+
+<!-- ── FAQ ──────────────────────────────────────────────────────── -->
+<section class="wrap sec" id="faq" aria-labelledby="faq-h">
+  <h2 class="sec-title" id="faq-h">Questions about IT Ops</h2>
+  <div class="faq">
+    <details class="faq-item" open>
+      <summary><h3>What is Singularity IT Ops?</h3><span class="faq-mark" aria-hidden="true"></span></summary>
+      <p>IT Ops is an AI on-call engineer from Singularity. It groups alerts from your monitoring tools into one incident, finds the cause with evidence, proposes a fix, applies it with your approval, checks the result and records every step.</p>
+    </details>
+    <details class="faq-item">
+      <summary><h3>Who is IT Ops for?</h3><span class="faq-mark" aria-hidden="true"></span></summary>
+      <p>IT Ops is for companies whose IT teams are on call for outages. IT managers get a less exhausted team, security and compliance teams get every step logged, and executives get shorter outages with AI kept under control.</p>
+    </details>
+    <details class="faq-item">
+      <summary><h3>How is IT Ops different from a monitoring tool?</h3><span class="faq-mark" aria-hidden="true"></span></summary>
+      <p>A monitoring tool tells you something is wrong. IT Ops reads the alerts from the tools you already have, finds the cause, proposes a fix, applies it with approval and keeps the record. Your existing tools stay in place.</p>
+    </details>
+    <details class="faq-item">
+      <summary><h3>Can IT Ops run on-premises or air‑gapped?</h3><span class="faq-mark" aria-hidden="true"></span></summary>
+      <p>Yes. IT Ops is installed in your own environment and works in air-gapped networks, which have no internet connection. You choose the AI provider, and it can run on the Singularity Foundation Models on your own hardware.</p>
+    </details>
+    <details class="faq-item">
+      <summary><h3>How do people stay in control of IT Ops?</h3><span class="faq-mark" aria-hidden="true"></span></summary>
+      <p>IT Ops cannot write its own commands. It picks fixes from a list you approved, on systems you listed. High-impact fixes always wait for a person’s approval, nobody can approve their own request, and one button stops every automated action.</p>
+    </details>
+  </div>
+</section>
+
+<!-- ── Contact ──────────────────────────────────────────────────── -->
+<section class="wrap sec" id="contact" aria-labelledby="contact-h">
+  <div class="p-cta">
+    <p class="sec-tag">Book a demo</p>
+    <h2 class="cta-title" id="contact-h">See IT Ops on your own incidents</h2>
+    <p>We handle the setup. IT Ops starts by only watching and recommending, and you decide when it may act.</p>
+    <div class="hero-actions">
+      <a class="btn btn-solid btn-lg" href="https://calendly.com/anill-yagiz/singularity" target="_blank" rel="noopener">Book a demo <span class="chev">›</span></a>
+      <a class="btn btn-ghost btn-lg" href="mailto:anil@singularityrd.com?subject=IT%20Ops%20technical%20brief">Request the technical brief</a>
+    </div>
+    <p class="p-nda">Architecture, deployment and integration details are shared under NDA.</p>
+  </div>
+  <nav class="p-more" aria-label="More from Singularity">
+    <p>More from Singularity</p>
+    <a href="foundation-models.html"><b>Singularity Foundation Models</b><span>Our own AI models</span></a>
+    <a href="autosecops.html"><b>AutoSecOps</b><span>AI security operations</span></a>
+    <a href="aidr.html"><b>AIDR</b><span>AI agent security</span></a>
+    <a href="breakpoint.html"><b>Breakpoint</b><span>AI pentester</span></a>
+    <a href="fennec.html"><b>Fennec</b><span>Code security scanner</span></a>
+    <a href="sonar.html"><b>Sonar</b><span>Factory network security</span></a>
+    <a href="robodr.html"><b>RoboDR</b><span>Robot security</span></a>
+  </nav>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="shell footer-inner">
+    <div class="footer-brand">
+      <a class="brand" href="index.html" aria-label="Singularity — home">
+        <img class="brand-logo" src="assets/logo.svg" alt="Singularity" width="1409" height="306" />
+      </a>
+      <p>We hack governments. Then we secure them, with our own frontier model.</p>
+      <a class="btn btn-ghost" href="https://calendly.com/anill-yagiz/singularity" target="_blank" rel="noopener">Book a demo <span class="chev">›</span></a>
+    </div>
+    <nav class="footer-cols" aria-label="Footer">
+      <div>
+        <p class="footer-head">Products</p>
+        <a href="autosecops.html">AutoSecOps</a><a href="aidr.html">AIDR</a><a href="it-ops.html">IT Ops</a><a href="breakpoint.html">Breakpoint</a><a href="fennec.html">Fennec</a><a href="sonar.html">Sonar</a><a href="robodr.html">RoboDR</a><a href="foundation-models.html">Foundation Models</a>
+      </div>
+      <div>
+        <p class="footer-head">Company</p>
+        <a href="index.html#industries">Industries</a><a href="index.html#pricing">Pricing</a><a href="index.html#lab">Research</a><a href="customer-success.html">Customer Success</a><a href="index.html#compare">Compare</a><a href="index.html#faq">FAQ</a><a href="mailto:anil@singularityrd.com">Contact</a>
+      </div>
+      <div class="footer-ents">
+        <p class="footer-head">Companies</p>
+        <p><b>United States</b>Singularity Research and Development Inc.</p>
+        <p><b>Türkiye</b>Singularity Arge Siber Güvenlik ve Yapay Zeka Teknoloji A.Ş.</p>
+        <p><b>South Korea</b>Singularity Korea</p>
+      </div>
+    </nav>
+  </div>
+  <div class="shell">
+    <p class="footer-tag" aria-hidden="true">Offense-proven. <span>Defense-grade.</span></p>
+  </div>
+  <div class="shell footer-bar">
+    <p>© 2026 Singularity Research and Development Inc.</p>
+    <p><a href="mailto:anil@singularityrd.com">anil@singularityrd.com</a></p>
+  </div>
+</footer>
+
+<script src="art.js" defer></script>
+<script src="home.js" defer></script>
+</body>
+</html>

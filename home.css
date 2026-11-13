@@ -985,8 +985,6 @@
 .benches .bench-big { text-align: right; }
 .benches .bench-big span { display: block; margin-top: 2px; font-size: 13px; color: var(--text-muted); }
 .bench-foot a { color: var(--a); white-space: nowrap; }
-.benches .bench-wide { grid-column: 1 / -1; }
-.bench-wide .bars { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); grid-template-rows: repeat(6, auto); grid-auto-flow: column; column-gap: 44px; }
 
 /* ── Products: two flagships with a painting each, five more below ──────── */
 .home .prod { padding-top: 0; scroll-margin-top: 110px; }
@@ -1111,7 +1109,6 @@
 }
 @media (max-width: 900px) {
   .core, .benches { grid-template-columns: minmax(0, 1fr); }
-  .bench-wide .bars { display: block; }
   .core-art { order: -1; min-height: 300px; }
   .core-art::after { background: linear-gradient(0deg, var(--card) 0%, rgba(13, 13, 13, 0) 30%); }
   .core-copy { padding: 30px 26px 30px; }
@@ -1196,3 +1193,12 @@
   .creds b { font-size: 40px; }
   .off-art { min-height: 320px; }
 }
+
+/* ── Headline features on the product cards ─────────────────────────────── */
+.prod-feats, .mp-feats { margin: 0; padding: 0; list-style: none; }
+.prod-feats { display: grid; gap: 2px; margin: -4px 0 20px; }
+.mp-feats { margin: -6px 18px 18px; }
+.prod-feats li, .mp-feats li { position: relative; padding: 4px 0 4px 19px; font-size: 13.5px; line-height: 1.4; color: rgba(242, 242, 240, 0.82); }
+.mp-feats li { font-size: 13px; }
+.prod-feats li::before, .mp-feats li::before { content: ""; position: absolute; left: 1px; top: 10px; width: 7px; height: 3.5px; border-left: 1.5px solid var(--a); border-bottom: 1.5px solid var(--a); transform: rotate(-45deg); }
+.prod.is-b .prod-feats li::before { border-color: var(--b); }

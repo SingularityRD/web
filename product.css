@@ -83,6 +83,22 @@
 .p-feat h3::before { content: ""; position: absolute; left: 2px; top: 7px; width: 9px; height: 5px; border-left: 1.6px solid var(--pa); border-bottom: 1.6px solid var(--pa); transform: rotate(-45deg); }
 .p-feat p { margin: 0; padding-left: 24px; font-size: 14.5px; line-height: 1.55; color: var(--text-muted); }
 
+/* ── Everything in the product: grouped lists that pack like a masonry ──── */
+.p-caps { columns: 3 300px; column-gap: 14px; }
+.p-cap { break-inside: avoid; margin: 0 0 14px; padding: 22px 24px 14px; border: 1px solid var(--edge); border-radius: 18px; background: var(--card); transition: border-color 0.3s ease; }
+.p-cap:hover { border-color: var(--edge-2); }
+.p-cap h3 { display: flex; align-items: center; gap: 10px; margin: 0 0 10px; font-family: var(--display); font-size: 18px; font-weight: 500; letter-spacing: -0.015em; }
+.p-cap h3::before { content: ""; flex: none; width: 7px; height: 7px; border-radius: 50%; background: var(--pa); box-shadow: 0 0 10px var(--pa); }
+.p-cap ul { margin: 0; padding: 0; list-style: none; }
+.p-cap li { position: relative; padding: 8px 0 8px 22px; border-top: 1px solid var(--edge); font-size: 14.5px; line-height: 1.45; color: rgba(242, 242, 240, 0.84); }
+.p-cap li:first-child { border-top: 0; }
+.p-cap li::before { content: ""; position: absolute; left: 2px; top: 14px; width: 8px; height: 4px; border-left: 1.5px solid var(--pa); border-bottom: 1.5px solid var(--pa); transform: rotate(-45deg); }
+.p-specs { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1px; margin: 0; overflow: hidden; border: 1px solid var(--edge); border-radius: 18px; background: var(--edge); }
+.p-specs > div { display: grid; grid-template-columns: 140px minmax(0, 1fr); gap: 16px; align-items: baseline; padding: 16px 24px; background: var(--card); }
+.p-specs > div:last-child:nth-child(odd) { grid-column: 1 / -1; }
+.p-specs dt { font-family: var(--mono); font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-faint); }
+.p-specs dd { margin: 0; font-size: 14.5px; line-height: 1.5; color: rgba(242, 242, 240, 0.88); }
+
 /* ── Who it is for ──────────────────────────────────────────────────────── */
 .p-fit { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
 .p-fit.is-one { grid-template-columns: minmax(0, 1fr); }
@@ -135,6 +151,9 @@
   .p-feat:nth-last-child(-n+2) { border-bottom: 1px solid var(--edge); }
   .p-feat:last-child { border-bottom: 0; }
   .p-cta { padding: 34px 24px 32px; }
+  .p-cap { padding: 20px 20px 12px; }
+  .p-specs { grid-template-columns: minmax(0, 1fr); }
+  .p-specs > div { grid-template-columns: minmax(0, 1fr); gap: 4px; padding: 14px 20px; }
 }
 @media (prefers-reduced-motion: reduce) {
   .p-hero-inner > * { animation: none; }

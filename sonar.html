@@ -72,6 +72,56 @@
       "description": "Sonar is a security camera for your plant’s network. It listens to how machines talk, alerts you to anything suspicious and keeps the evidence. It never touches production.",
       "url": "https://www.singularityrd.com/sonar.html",
       "applicationCategory": "SecurityApplication",
+      "featureList": [
+        "Devices found from traffic alone, with no active scanning",
+        "IP, MAC address, vendor and running services for each device",
+        "Each device mapped to its site, role and segment",
+        "See who talks to whom across the site",
+        "Unlisted devices and services shown in their own table",
+        "Import your existing list, or add devices manually or by CSV",
+        "Commands recorded down to function and target address",
+        "Energy and grid: DNP3, IEC 60870-5-104, IEEE C37.118, ANSI C12.22",
+        "Manufacturing and process: Modbus, S7comm, EtherNet/IP (CIP), PROFINET, OPC UA",
+        "Also EtherCAT, Omron FINS, GE SRTP and HART-IP",
+        "Oil, gas, water, building and rail: BSAP, ROC Plus, BACnet, GENISYS",
+        "Remote screen sessions (VNC) decoded and recorded",
+        "Other protocols listed separately, with a best-guess identification",
+        "Program downloads to controllers (PLCs), with who sent them and from where",
+        "Traffic crossing from the office network or internet into the site",
+        "Cleartext passwords and old, insecure protocols",
+        "Services on non-standard ports, VPNs and tunnels",
+        "Connections to sensitive countries and random-looking domain names",
+        "Large transfers and unusually long connections",
+        "Threat intelligence matches, such as Tor exit nodes",
+        "Files crossing the network extracted and scanned automatically",
+        "Every incident scored for severity from 0 to 100",
+        "Scoring and sensitive-country list tuned to your site",
+        "Learns your site’s normal in a few weeks; no labeled data needed",
+        "Protocols never seen on site before",
+        "Unusual commands, results or user names",
+        "File types that should not move across the site",
+        "Sudden traffic spikes or silence, such as a stopped device",
+        "Every session stored with its raw packets",
+        "Search back in time across all captured traffic",
+        "One incident view from entry to impact, with raw packets",
+        "Incidents classified with MITRE ATT&CK for ICS",
+        "Incident chain, packets and files exported together; PCAP for Wireshark",
+        "Dashboards as PDF and scheduled reports",
+        "Management report with risks ranked by priority",
+        "Sends incidents to your SIEM and SOC",
+        "Incidents become tracked cases in AutoSecOps",
+        "Threat intelligence from MISP and STIX/TAXII feeds",
+        "REST API for your own tools",
+        "Add your own detection rules and scripts",
+        "Upload saved traffic captures (PCAP) for analysis",
+        "Sensor listens on a mirror (SPAN) port or network TAP",
+        "Sensors from a small industrial PC to a rack server",
+        "Central hub on-premises: Docker, Kubernetes or installation image (ISO)",
+        "Sensors across multiple sites report to one hub",
+        "Air-gapped: intelligence and rules loaded from offline files",
+        "Encrypted console and sensor-to-hub traffic",
+        "Local accounts, LDAP or single sign-on (SSO)"
+      ],
       "publisher": {
         "@type": "Organization",
         "@id": "https://www.singularityrd.com/#organization",
@@ -218,6 +268,30 @@
     <article class="p-feat"><h3>Files checked in transit</h3><p>Files moving across the plant network are scanned automatically. Suspicious ones raise an alert.</p></article>
     <article class="p-feat"><h3>Evidence on record</h3><p>Every incident is kept with its evidence, ready for reporting, audits and insurance.</p></article>
   </div>
+</section>
+
+<!-- ── Everything in the product ────────────────────────────────── -->
+<section class="wrap sec" id="features" aria-labelledby="caps-h">
+  <p class="sec-tag">Features</p>
+  <h2 class="sec-title" id="caps-h">Everything in Sonar</h2>
+  <p class="sec-sub">Every capability, from device discovery to packet-level evidence, without sending a single packet to your machines.</p>
+  <div class="p-caps">
+    <article class="p-cap"><h3>Asset inventory</h3><ul><li>Devices found from traffic alone, with no active scanning</li><li>IP, MAC address, vendor and running services for each device</li><li>Each device mapped to its site, role and segment</li><li>See who talks to whom across the site</li><li>Unlisted devices and services shown in their own table</li><li>Import your existing list, or add devices manually or by CSV</li></ul></article>
+    <article class="p-cap"><h3>Industrial protocols decoded</h3><ul><li>Commands recorded down to function and target address</li><li>Energy and grid: DNP3, IEC 60870-5-104, IEEE C37.118, ANSI C12.22</li><li>Manufacturing and process: Modbus, S7comm, EtherNet/IP (CIP), PROFINET, OPC UA</li><li>Also EtherCAT, Omron FINS, GE SRTP and HART-IP</li><li>Oil, gas, water, building and rail: BSAP, ROC Plus, BACnet, GENISYS</li><li>Remote screen sessions (VNC) decoded and recorded</li><li>Other protocols listed separately, with a best-guess identification</li></ul></article>
+    <article class="p-cap"><h3>Threat detection</h3><ul><li>Program downloads to controllers (PLCs), with who sent them and from where</li><li>Traffic crossing from the office network or internet into the site</li><li>Cleartext passwords and old, insecure protocols</li><li>Services on non-standard ports, VPNs and tunnels</li><li>Connections to sensitive countries and random-looking domain names</li><li>Large transfers and unusually long connections</li><li>Threat intelligence matches, such as Tor exit nodes</li><li>Files crossing the network extracted and scanned automatically</li></ul></article>
+    <article class="p-cap"><h3>Scoring and machine learning</h3><ul><li>Every incident scored for severity from 0 to 100</li><li>Scoring and sensitive-country list tuned to your site</li><li>Learns your site’s normal in a few weeks; no labeled data needed</li><li>Protocols never seen on site before</li><li>Unusual commands, results or user names</li><li>File types that should not move across the site</li><li>Sudden traffic spikes or silence, such as a stopped device</li></ul></article>
+    <article class="p-cap"><h3>Evidence and reporting</h3><ul><li>Every session stored with its raw packets</li><li>Search back in time across all captured traffic</li><li>One incident view from entry to impact, with raw packets</li><li>Incidents classified with MITRE ATT&amp;CK for ICS</li><li>Incident chain, packets and files exported together; PCAP for Wireshark</li><li>Dashboards as PDF and scheduled reports</li><li>Management report with risks ranked by priority</li></ul></article>
+    <article class="p-cap"><h3>Integrations</h3><ul><li>Sends incidents to your SIEM and SOC</li><li>Incidents become tracked cases in AutoSecOps</li><li>Threat intelligence from MISP and STIX/TAXII feeds</li><li>REST API for your own tools</li><li>Add your own detection rules and scripts</li><li>Upload saved traffic captures (PCAP) for analysis</li></ul></article>
+    <article class="p-cap"><h3>Deployment and access</h3><ul><li>Sensor listens on a mirror (SPAN) port or network TAP</li><li>Sensors from a small industrial PC to a rack server</li><li>Central hub on-premises: Docker, Kubernetes or installation image (ISO)</li><li>Sensors across multiple sites report to one hub</li><li>Air-gapped: intelligence and rules loaded from offline files</li><li>Encrypted console and sensor-to-hub traffic</li><li>Local accounts, LDAP or single sign-on (SSO)</li></ul></article>
+  </div>
+  <dl class="p-specs">
+    <div><dt>Deployment</dt><dd>Passive site sensors, on-premises hub, air-gapped option</dd></div>
+    <div><dt>Hardware</dt><dd>Sensor from 4 cores, 8 GB RAM; hub from 8 cores, 24 GB RAM</dd></div>
+    <div><dt>Works with</dt><dd>SIEM and SOC tools, AutoSecOps, MISP, STIX/TAXII, REST API</dd></div>
+    <div><dt>Evidence for</dt><dd>Incident reporting under Türkiye’s Law No. 7545, audits and insurers</dd></div>
+    <div><dt>Access control</dt><dd>Local accounts, LDAP or SSO; encrypted console and sensor traffic</dd></div>
+    <div><dt>Data</dt><dd>Packets and files stay on the sensor; nothing flows outward</dd></div>
+  </dl>
 </section>
 
 <!-- ── Who it is for ────────────────────────────────────────────── -->

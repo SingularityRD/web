@@ -146,7 +146,7 @@
         "Singularity Cyber: finds weaknesses in your own network (internal pentest, vulnerability discovery, SOC triage)",
         "Singularity General: an in-house assistant for documents, analysis and code",
         "Frontier Cyber: offense-grade, sold only to approved government and defense institutions",
-        "Singularity-3B: a small model that scores 72 on Cybench (internal measurement)"
+        "General intelligence: internal estimate of 44 on the Artificial Analysis Intelligence Index scale, above Claude Haiku 5.5 (36)"
       ],
       "publisher": {
         "@id": "https://www.singularityrd.com/#organization"
@@ -185,11 +185,11 @@
       "applicationCategory": "SecurityApplication",
       "applicationSubCategory": "AI agent security",
       "url": "https://www.singularityrd.com/aidr.html",
-      "description": "AIDR is security for AI agents. It watches what agents do at the operating-system kernel and blocks prompt injection, tool abuse and data theft. It needs no code changes.",
+      "description": "AIDR is security for AI agents. It checks every action an agent takes before it runs and blocks prompt injection, tool abuse and data theft. It works with Claude Code, Codex, OpenCode, OpenClaw and MCP tools.",
       "featureList": [
-        "Watches what AI agents do at the operating-system kernel",
+        "Checks every agent action before it runs",
         "Blocks prompt injection, tool abuse and data theft",
-        "No code changes"
+        "Kernel-level enforcement on Linux (preview)"
       ],
       "isBasedOn": {
         "@id": "https://www.singularityrd.com/#singularity-foundation-models"
@@ -347,7 +347,7 @@
           "name": "What makes AIDR different from a prompt firewall?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "A prompt firewall only reads text. AIDR also watches what the agent does at the operating-system kernel: the programs it starts, the files it touches and the connections it opens. An agent can be tricked into hiding its intent in words; it can’t hide a system call."
+            "text": "A prompt firewall only reads text. AIDR also checks what the agent does before it runs: the programs it starts, the files it touches and the connections it opens. An agent can be tricked into hiding its intent in words, not in its actions. On Linux, kernel-level enforcement is available as a preview."
           }
         },
         {
@@ -584,42 +584,21 @@
     <div class="bench" data-bench>
       <div class="bench-head">
         <div>
-          <p class="bench-k">Cybench · 40 professional hacking challenges</p>
-          <h3>Our 3B model scores 72. The best open model needs 744B parameters to score 78.</h3>
-        </div>
-        <p class="bench-big"><b data-count="248" data-suf="×">248×</b><span>smaller</span></p>
-      </div>
-      <ul class="bars">
-        <li><span class="b-name">GPT-5.6 Sol<small>closed · size not public</small></span><span class="b-track"><i style="--w:84%"></i></span><b>84.0</b></li>
-        <li><span class="b-name">GLM-5.3<small>open · 744B parameters</small></span><span class="b-track"><i style="--w:78%"></i></span><b>78.0</b></li>
-        <li class="is-us"><span class="b-name">Singularity-3B<small>ours · 3B parameters</small></span><span class="b-track"><i style="--w:72%"></i></span><b>72.0</b></li>
-        <li class="is-us"><span class="b-name">Singularity-1B<small>ours · 1B parameters</small></span><span class="b-track"><i style="--w:64%"></i></span><b>64.0</b></li>
-      </ul>
-      <p class="bench-foot">Normalized File F1 (0–100) from our internal harness on the public Cybench task split, August 2026. <a href="blog-cybench.html">See all 25 models and the method →</a></p>
-    </div>
-    <div class="bench bench-wide" data-bench>
-      <div class="bench-head">
-        <div>
           <p class="bench-k">Artificial Analysis Intelligence Index · general intelligence</p>
-          <h3>Closing in on the largest labs on general intelligence.</h3>
+          <h3>Within reach of the paid frontier models on general intelligence.</h3>
         </div>
         <p class="bench-big"><b>44</b></p>
       </div>
       <ul class="bars">
-      <li><span class="b-name">Claude Fable 5.2<small>Anthropic</small></span><span class="b-track"><i style="--w:92.9%"></i></span><b>65</b></li>
-      <li><span class="b-name">Gemini 4 Carbon<small>Google</small></span><span class="b-track"><i style="--w:85.7%"></i></span><b>60</b></li>
-      <li><span class="b-name">GPT-6 Astra<small>OpenAI</small></span><span class="b-track"><i style="--w:81.4%"></i></span><b>57</b></li>
-      <li><span class="b-name">Muse Wonder Full<small>Meta</small></span><span class="b-track"><i style="--w:71.4%"></i></span><b>50</b></li>
-      <li class="is-us"><span class="b-name">Singularity<small>ours · runs air-gapped</small></span><span class="b-track"><i style="--w:62.9%"></i></span><b>44</b></li>
-      <li><span class="b-name">Grok 4.7<small>SpaceXAI</small></span><span class="b-track"><i style="--w:50.0%"></i></span><b>35</b></li>
-      <li><span class="b-name">Tencent Hy4<small>Tencent</small></span><span class="b-track"><i style="--w:50.0%"></i></span><b>35</b></li>
-      <li><span class="b-name">Qwen3.8 Max<small>Alibaba</small></span><span class="b-track"><i style="--w:48.6%"></i></span><b>34</b></li>
-      <li><span class="b-name">DeepSeek V4.1 Flash<small>DeepSeek</small></span><span class="b-track"><i style="--w:47.1%"></i></span><b>33</b></li>
-      <li><span class="b-name">GLM-5.3<small>Z AI</small></span><span class="b-track"><i style="--w:45.7%"></i></span><b>32</b></li>
-      <li><span class="b-name">Inkling 2 Small<small>Thinking Machines</small></span><span class="b-track"><i style="--w:44.3%"></i></span><b>31</b></li>
-      <li><span class="b-name">Mistral Large 4<small>Mistral</small></span><span class="b-track"><i style="--w:37.1%"></i></span><b>26</b></li>
+        <li><span class="b-name">Claude Opus 5.5<small>Anthropic · paid</small></span><span class="b-track"><i style="--w:84.3%"></i></span><b>59</b></li>
+        <li><span class="b-name">GPT-6 Astra<small>OpenAI · paid</small></span><span class="b-track"><i style="--w:81.4%"></i></span><b>57</b></li>
+        <li><span class="b-name">GPT-6.1 Sol<small>OpenAI · paid</small></span><span class="b-track"><i style="--w:78.6%"></i></span><b>55</b></li>
+        <li><span class="b-name">Claude Sonnet 5.5<small>Anthropic · paid</small></span><span class="b-track"><i style="--w:78.6%"></i></span><b>55</b></li>
+        <li><span class="b-name">GPT-6.1 Terra<small>OpenAI · paid</small></span><span class="b-track"><i style="--w:72.9%"></i></span><b>51</b></li>
+        <li class="is-us"><span class="b-name">Singularity<small>ours · runs air-gapped</small></span><span class="b-track"><i style="--w:62.9%"></i></span><b>44</b></li>
+        <li><span class="b-name">Claude Haiku 5.5<small>Anthropic · paid</small></span><span class="b-track"><i style="--w:51.4%"></i></span><b>36</b></li>
       </ul>
-      <p class="bench-foot">The top model from a selection of labs, each in its best configuration. Others: Artificial Analysis Intelligence Index, November 2026. Singularity: our internal estimate on the same scale; Artificial Analysis has not listed it.</p>
+      <p class="bench-foot">Paid closed models, each in its best configuration: Artificial Analysis Intelligence Index v5, November 2026. Singularity: our internal estimate on the same scale; Artificial Analysis has not listed it.</p>
     </div>
   </div>
 
@@ -638,6 +617,7 @@
       <h3>AutoSecOps</h3>
       <p class="prod-one">An AI security team that never sleeps.</p>
       <p class="prod-p">It checks every alarm, stops real attacks in seconds and asks your team before anything big.</p>
+      <ul class="prod-feats"><li>AI analysts investigate every alert</li><li>Critical actions wait for your approval</li><li>2,000+ integrations with your tools</li></ul>
       <span class="prod-go">Explore AutoSecOps <em>→</em></span>
       <div class="prod-art" aria-hidden="true"><span class="pa-row"><i class="bad"></i>Ransomware on FS-02</span><span class="pa-row"><i class="ok"></i>Laptop isolated · 62 ms</span><span class="pa-row"><i class="ok"></i>Case closed with report</span></div>
     </a>
@@ -647,6 +627,7 @@
       <h3>AIDR</h3>
       <p class="prod-one">Security for your AI agents.</p>
       <p class="prod-p">It watches what AI agents actually do and blocks them the moment they’re tricked into doing harm.</p>
+      <ul class="prod-feats"><li>Blocks harmful actions before they run</li><li>Keeps customer data out of ChatGPT</li><li>Signed, audit-ready log of every decision</li></ul>
       <span class="prod-go">Explore AIDR <em>→</em></span>
       <div class="prod-art" aria-hidden="true"><span class="pa-row"><i class="warn"></i>support-bot: hidden instruction</span><span class="pa-row"><i class="bad"></i>curl … | sh — blocked</span><span class="pa-row"><i class="ok"></i>Agent kept working safely</span></div>
     </a>
@@ -659,6 +640,7 @@
       <p class="mp-k">AI on-call engineer</p>
       <h3>IT Ops</h3>
       <p class="mp-p">Finds why a system failed and fixes it, with your approval.</p>
+      <ul class="mp-feats"><li>Root cause backed by evidence</li><li>Approved fixes only, with rollback</li><li>Every step on tamper-evident record</li></ul>
       <span class="mp-go">See the product <em>→</em></span>
     </a>
     <a class="mp" id="breakpoint" href="breakpoint.html">
@@ -666,6 +648,7 @@
       <p class="mp-k">AI pentester</p>
       <h3>Breakpoint</h3>
       <p class="mp-p">Attacks your apps every day, proves each finding and fixes it.</p>
+      <ul class="mp-feats"><li>Every finding proven by reproduction</li><li>Fix proposed, then re-tested</li><li>Code, web, APIs and AI apps</li></ul>
       <span class="mp-go">See the product <em>→</em></span>
     </a>
     <a class="mp" id="fennec" href="fennec.html">
@@ -673,6 +656,7 @@
       <p class="mp-k">Code scanner</p>
       <h3>Fennec</h3>
       <p class="mp-p">Catches bugs, leaked secrets and weak crypto in seconds.</p>
+      <ul class="mp-feats"><li>Scans every change in seconds</li><li>Code, secrets and dependencies, one tool</li><li>Quantum-readiness score and crypto inventory</li></ul>
       <span class="mp-go">See the product <em>→</em></span>
     </a>
     <a class="mp" id="sonar" href="sonar.html">
@@ -680,6 +664,7 @@
       <p class="mp-k">Factory network security</p>
       <h3>Sonar</h3>
       <p class="mp-p">Shows everything on your plant network, without stopping production.</p>
+      <ul class="mp-feats"><li>Fully passive, zero production risk</li><li>Every device and command on record</li><li>Packet-level evidence for every incident</li></ul>
       <span class="mp-go">See the product <em>→</em></span>
     </a>
     <a class="mp" id="robodr" href="robodr.html">
@@ -687,6 +672,7 @@
       <p class="mp-k">Robot security</p>
       <h3>RoboDR</h3>
       <p class="mp-p">Sees an attack on a robot, stops it safely and proves what happened.</p>
+      <ul class="mp-feats"><li>Reads every command to the motors</li><li>Safe stop without a fall</li><li>Tamper-proof black box for auditors</li></ul>
       <span class="mp-go">See the product <em>→</em></span>
     </a>
   </div>
@@ -782,7 +768,7 @@
       </thead>
       <tbody>
         <tr><th scope="row">AI agents investigate every alert</th><td data-label="Legacy SOAR">Scripts only</td><td data-label="AI automation" class="yes">Yes</td><td data-label="Singularity" class="us yes">Yes</td></tr>
-        <tr><th scope="row">Kernel-level protection for AI agents (AIDR)</th><td data-label="Legacy SOAR" class="no">—</td><td data-label="AI automation" class="no">—</td><td data-label="Singularity" class="us yes">AIDR</td></tr>
+        <tr><th scope="row">Blocks harmful AI agent actions before they run (AIDR)</th><td data-label="Legacy SOAR" class="no">—</td><td data-label="AI automation" class="no">—</td><td data-label="Singularity" class="us yes">AIDR</td></tr>
         <tr><th scope="row">Own EDR, NDR and SIEM</th><td data-label="Legacy SOAR">Separate products</td><td data-label="AI automation">Integrations only</td><td data-label="Singularity" class="us yes">Included</td></tr>
         <tr><th scope="row">AI model that runs air-gapped</th><td data-label="Legacy SOAR" class="no">—</td><td data-label="AI automation" class="no">—</td><td data-label="Singularity" class="us yes">Foundation Models</td></tr>
       </tbody>
@@ -807,7 +793,7 @@
       <p class="q-k"><i class="dot-b"></i>AIDR</p>
       <h3>Request a quote</h3>
       <p>Based on the AI agents, MCP servers and coding agents your company runs.</p>
-      <ul><li>Any agent, no code changes</li><li>Your rules, enforced in the kernel</li><li>Works alone or with AutoSecOps</li></ul>
+      <ul><li>Claude Code, Codex, OpenCode and MCP tools</li><li>Your rules, checked before every action</li><li>Works alone or with AutoSecOps</li></ul>
       <a class="btn btn-solid btn-lg" href="https://calendly.com/anill-yagiz/singularity" target="_blank" rel="noopener">Get a quote <span class="chev">›</span></a>
     </article>
   </div>
@@ -854,7 +840,7 @@
     </details>
     <details class="faq-item">
       <summary><h3>What makes AIDR different from a prompt firewall?</h3><span class="faq-mark" aria-hidden="true"></span></summary>
-      <p>A prompt firewall only reads text. AIDR also watches what the agent does at the operating-system kernel: the programs it starts, the files it touches and the connections it opens. An agent can be tricked into hiding its intent in words; it can’t hide a system call.</p>
+      <p>A prompt firewall only reads text. AIDR also checks what the agent does before it runs: the programs it starts, the files it touches and the connections it opens. An agent can be tricked into hiding its intent in words, not in its actions. On Linux, kernel-level enforcement is available as a preview.</p>
     </details>
     <details class="faq-item">
       <summary><h3>Does it work with our existing tools?</h3><span class="faq-mark" aria-hidden="true"></span></summary>

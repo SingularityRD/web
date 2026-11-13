@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 
 <title>AIDR: security for AI agents | Singularity</title>
-<meta name="description" content="AIDR is security for AI agents. It watches what agents actually do, blocks harmful actions before they run and logs every decision. No code changes." />
+<meta name="description" content="AIDR is security for AI agents. It checks what agents actually do, blocks harmful actions before they run and logs every decision." />
 <link rel="canonical" href="https://www.singularityrd.com/aidr.html" />
 <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
 <meta name="author" content="Singularity Research and Development Inc." />
@@ -17,13 +17,13 @@
 <meta property="og:locale" content="en_US" />
 <meta property="og:url" content="https://www.singularityrd.com/aidr.html" />
 <meta property="og:title" content="AIDR — AI agent security" />
-<meta property="og:description" content="AIDR is security for AI agents. It watches what agents actually do, blocks harmful actions before they run and logs every decision. No code changes." />
+<meta property="og:description" content="AIDR is security for AI agents. It checks what agents actually do, blocks harmful actions before they run and logs every decision." />
 <meta property="og:image" content="https://www.singularityrd.com/assets/og-cover.png" />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="AIDR — AI agent security" />
-<meta name="twitter:description" content="AIDR is security for AI agents. It watches what agents actually do, blocks harmful actions before they run and logs every decision. No code changes." />
+<meta name="twitter:description" content="AIDR is security for AI agents. It checks what agents actually do, blocks harmful actions before they run and logs every decision." />
 <meta name="twitter:image" content="https://www.singularityrd.com/assets/og-cover.png" />
 
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
@@ -72,6 +72,56 @@
       "description": "AIDR is security for AI agents. It watches what each agent actually does and blocks harmful actions before they run. Your teams keep the speed of AI, and you keep control.",
       "url": "https://www.singularityrd.com/aidr.html",
       "applicationCategory": "SecurityApplication",
+      "featureList": [
+        "Finds the AI agents and MCP servers running in your company",
+        "Spots shadow AI and controls personal accounts on AI sites",
+        "Scans agent skills and MCP servers for known vulnerabilities",
+        "Kernel-level check that agents do what they declare, on Linux (preview)",
+        "Prompt injection hidden in documents, READMEs and emails",
+        "Poisoned tool output hidden before the AI reads it",
+        "Poisoned MCP servers and tools that turn malicious after approval",
+        "Credential theft and data leaks stopped before the command runs",
+        "Multi-step attacks judged as one chain, not step by step",
+        "Fake software packages",
+        "Destructive commands, decoded even when hidden inside other commands",
+        "Deleting databases or infrastructure, publishing or messaging as you needs approval",
+        "Skipped tests, deleted checks, disabled CI and force-pushes held for approval",
+        "Loops, repeated errors, call spikes or a blown budget pause the session",
+        "Agents launching other agents with permission prompts off are blocked",
+        "Shell, file, web and MCP actions allowed, held or blocked before running",
+        "Single-use, time-limited approvals, given only by a person",
+        "Attempts to switch off, reconfigure or bypass AIDR are blocked and logged",
+        "Fails closed: if the connector errors, the call is denied",
+        "Each decision shows the rule and reasoning behind it",
+        "Masks data on ChatGPT, Gemini, Claude, Copilot, Perplexity, DeepSeek, Mistral and Grok",
+        "The reply shows full details again, only on the employee’s screen",
+        "Turkish national ID numbers (TCKN) and IBANs, checked for validity",
+        "Names, emails, phones, cards, addresses and secret keys, in Turkish and English",
+        "Project code names, internal server names and classification labels",
+        "Your own customer records, matched by fingerprint (needs a device helper)",
+        "Masked copies of Office, PDF, CSV and ZIP files are uploaded",
+        "Screenshots with personal data are not sent (preview)",
+        "Tamper-proof, signed log of every decision, without sensitive values",
+        "Signed receipt for each agent action, on Linux (preview)",
+        "AI bill of materials (AI-BOM)",
+        "Monthly governance scorecard and weekly or monthly email summary",
+        "One-click KVKK (Turkish data protection law) and GDPR report",
+        "Rules mapped to frameworks clause by clause, with gaps shown",
+        "Claude Code, Codex, OpenCode and OpenClaw coding agents",
+        "Cursor and Copilot in VS Code (preview)",
+        "MCP servers and tools, through one gateway",
+        "Chrome, Edge and Firefox browsers",
+        "Sends incidents to Splunk, Microsoft Sentinel, Elastic, QRadar or a webhook",
+        "AutoSecOps, which turns findings into tracked cases",
+        "On your own servers, management console included",
+        "Air-gapped networks, with a signed offline license and packages",
+        "Local mode protects from install, offline and after license expiry",
+        "Entra ID, SAML, SCIM and MFA, with session revocation",
+        "Tenant isolation and per-tenant IP allowlists",
+        "Signed packages, rules and threat intelligence, each verified",
+        "Only counts by type and site reach the console, never content",
+        "Refuses to install with a weak configuration"
+      ],
       "publisher": {
         "@type": "Organization",
         "@id": "https://www.singularityrd.com/#organization",
@@ -104,7 +154,7 @@
           "name": "How is AIDR different from a prompt firewall?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "A prompt firewall only reads the text an agent receives and writes. AIDR also watches what the agent does at the kernel, the core of the operating system: the programs it starts, the files it touches and the connections it opens."
+            "text": "A prompt firewall only reads the text an agent receives and writes. AIDR also checks what the agent does before it runs: the programs it starts, the files it touches and the connections it opens. On Linux, kernel-level enforcement is available as a preview."
           }
         },
         {
@@ -199,10 +249,10 @@
   <p class="sec-tag">See it work</p>
   <h2 class="sec-title" id="flow-h">Every action is checked before it runs.</h2>
   <p class="sec-sub">Safe actions reach your systems. Harmful ones stop at AIDR, and the agent keeps working.</p>
-  <div class="pipe pipe-b" role="img" aria-label="How AIDR works: every action an AI agent tries passes through AIDR in the kernel; safe actions reach your systems and harmful ones are blocked">
+  <div class="pipe pipe-b" role="img" aria-label="How AIDR works: every action an AI agent tries passes through AIDR; safe actions reach your systems and harmful ones are blocked">
     <div class="pn"><span class="pn-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="8" width="14" height="10" rx="2"/><path d="M12 4v4M9 13h.01M15 13h.01"/></svg></span><b>AI agent</b><small>support bot, coding agent, MCP</small></div>
     <div class="pc pc-in" aria-hidden="true"><i class="g"></i><i class="r"></i><i class="g"></i><i class="r"></i><i class="g"></i><em>every action</em></div>
-    <div class="pn is-core is-shield"><span class="pn-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 4 6v6c0 4.5 3.4 8.3 8 9 4.6-.7 8-4.5 8-9V6l-8-3Z"/><path d="m9 12 2 2 4-4"/></svg></span><b>AIDR, in the kernel</b><small>checks it before it runs</small></div>
+    <div class="pn is-core is-shield"><span class="pn-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 4 6v6c0 4.5 3.4 8.3 8 9 4.6-.7 8-4.5 8-9V6l-8-3Z"/><path d="m9 12 2 2 4-4"/></svg></span><b>AIDR</b><small>checks it before it runs</small></div>
     <div class="pc pc-out" aria-hidden="true"><i class="g"></i><i class="g"></i><i class="g"></i><em>only safe actions</em></div>
     <div class="pn"><span class="pn-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><ellipse cx="12" cy="6" rx="7" ry="3"/><path d="M5 6v12c0 1.7 3.1 3 7 3s7-1.3 7-3V6M5 12c0 1.7 3.1 3 7 3s7-1.3 7-3"/></svg></span><b>Your systems</b><small>files · network · programs</small></div>
   </div>
@@ -231,7 +281,7 @@
       </ol>
     </div>
     <div class="layers" role="group" aria-label="What each kind of tool can see">
-      <p class="ly-title">Why the kernel?</p>
+      <p class="ly-title">Why AIDR?</p>
       <p class="ly-sub">Other tools only read what an agent says. AIDR also sees what it does.</p>
       <div class="ly-row ly-head"><span></span><span>Prompt filter</span><span>AI gateway</span><span class="ly-us">AIDR</span></div>
       <div class="ly-row"><span>What it says</span><i class="on"><span class="sr">Yes</span></i><i class="on"><span class="sr">Yes</span></i><i class="on us"><span class="sr">Yes</span></i></div>
@@ -241,8 +291,8 @@
   </div>
 
   <div class="works">
-    <p>Works with any agent, no code changes</p>
-    <ul><li>Claude Code</li><li>Cursor</li><li>GitHub Copilot</li><li>Codex</li><li>LangChain</li><li>CrewAI</li><li>MCP servers</li><li>Your own agents</li></ul>
+    <p>Works with your coding agents</p>
+    <ul><li>Claude Code</li><li>Codex</li><li>OpenCode</li><li>OpenClaw</li><li>MCP tools</li><li>Cursor (preview)</li><li>VS Code Copilot (preview)</li></ul>
   </div>
   <p class="together"><i class="dot-ab"></i>Works on its own. With AutoSecOps, every blocked action becomes an investigated case automatically.</p>
 </section>
@@ -252,13 +302,38 @@
   <p class="sec-tag">What you get</p>
   <h2 class="sec-title" id="feat-h">What you get with AIDR</h2>
   <div class="p-feats">
-    <article class="p-feat"><h3>Sees actions, not just words</h3><p>Prompt filters read what an agent says. AIDR works in the operating-system kernel, so it sees what the agent does.</p></article>
-    <article class="p-feat"><h3>Works with any agent</h3><p>AIDR covers coding agents, your own agents and MCP servers, the connectors that give agents tools. No code changes.</p></article>
+    <article class="p-feat"><h3>Sees actions, not just words</h3><p>Prompt filters read what an agent says. AIDR checks what the agent does: commands, files and connections.</p></article>
+    <article class="p-feat"><h3>Works with your coding agents</h3><p>Claude Code, Codex, OpenCode, OpenClaw and MCP tools. Cursor and VS Code Copilot in preview.</p></article>
     <article class="p-feat"><h3>Everyday work stays fast</h3><p>Fixing code and running tests pass straight through. Developers do not notice AIDR during normal work.</p></article>
     <article class="p-feat"><h3>Catches honest mistakes too</h3><p>No attacker is needed for harm. An agent about to delete a database by accident is held for your approval.</p></article>
     <article class="p-feat"><h3>Keeps customer data out</h3><p>When employees use AI chat tools such as ChatGPT, customer data and passwords are masked before they reach the site.</p></article>
     <article class="p-feat"><h3>Works with AutoSecOps</h3><p>AIDR works alone and feeds your security team’s systems. With AutoSecOps, every blocked action becomes an investigated case.</p></article>
   </div>
+</section>
+
+<!-- ── Everything in the product ────────────────────────────────── -->
+<section class="wrap sec" id="features" aria-labelledby="caps-h">
+  <p class="sec-tag">Features</p>
+  <h2 class="sec-title" id="caps-h">Everything in AIDR</h2>
+  <p class="sec-sub">One rulebook for coding agents, MCP tools and AI chats: what AIDR sees, stops and records.</p>
+  <div class="p-caps">
+    <article class="p-cap"><h3>Sees and discovers</h3><ul><li>Finds the AI agents and MCP servers running in your company</li><li>Spots shadow AI and controls personal accounts on AI sites</li><li>Scans agent skills and MCP servers for known vulnerabilities</li><li>Kernel-level check that agents do what they declare, on Linux (preview)</li></ul></article>
+    <article class="p-cap"><h3>Stops attacks on agents</h3><ul><li>Prompt injection hidden in documents, READMEs and emails</li><li>Poisoned tool output hidden before the AI reads it</li><li>Poisoned MCP servers and tools that turn malicious after approval</li><li>Credential theft and data leaks stopped before the command runs</li><li>Multi-step attacks judged as one chain, not step by step</li><li>Fake software packages</li><li>Destructive commands, decoded even when hidden inside other commands</li></ul></article>
+    <article class="p-cap"><h3>Catches agent mistakes</h3><ul><li>Deleting databases or infrastructure, publishing or messaging as you needs approval</li><li>Skipped tests, deleted checks, disabled CI and force-pushes held for approval</li><li>Loops, repeated errors, call spikes or a blown budget pause the session</li><li>Agents launching other agents with permission prompts off are blocked</li></ul></article>
+    <article class="p-cap"><h3>Keeps people in control</h3><ul><li>Shell, file, web and MCP actions allowed, held or blocked before running</li><li>Single-use, time-limited approvals, given only by a person</li><li>Attempts to switch off, reconfigure or bypass AIDR are blocked and logged</li><li>Fails closed: if the connector errors, the call is denied</li><li>Each decision shows the rule and reasoning behind it</li></ul></article>
+    <article class="p-cap"><h3>Protects customer data</h3><ul><li>Masks data on ChatGPT, Gemini, Claude, Copilot, Perplexity, DeepSeek, Mistral and Grok</li><li>The reply shows full details again, only on the employee’s screen</li><li>Turkish national ID numbers (TCKN) and IBANs, checked for validity</li><li>Names, emails, phones, cards, addresses and secret keys, in Turkish and English</li><li>Project code names, internal server names and classification labels</li><li>Your own customer records, matched by fingerprint (needs a device helper)</li><li>Masked copies of Office, PDF, CSV and ZIP files are uploaded</li><li>Screenshots with personal data are not sent (preview)</li></ul></article>
+    <article class="p-cap"><h3>Evidence and reporting</h3><ul><li>Tamper-proof, signed log of every decision, without sensitive values</li><li>Signed receipt for each agent action, on Linux (preview)</li><li>AI bill of materials (AI-BOM)</li><li>Monthly governance scorecard and weekly or monthly email summary</li><li>One-click KVKK (Turkish data protection law) and GDPR report</li><li>Rules mapped to frameworks clause by clause, with gaps shown</li></ul></article>
+    <article class="p-cap"><h3>Works with</h3><ul><li>Claude Code, Codex, OpenCode and OpenClaw coding agents</li><li>Cursor and Copilot in VS Code (preview)</li><li>MCP servers and tools, through one gateway</li><li>Chrome, Edge and Firefox browsers</li><li>Sends incidents to Splunk, Microsoft Sentinel, Elastic, QRadar or a webhook</li><li>AutoSecOps, which turns findings into tracked cases</li></ul></article>
+    <article class="p-cap"><h3>Deployment and admin</h3><ul><li>On your own servers, management console included</li><li>Air-gapped networks, with a signed offline license and packages</li><li>Local mode protects from install, offline and after license expiry</li><li>Entra ID, SAML, SCIM and MFA, with session revocation</li><li>Tenant isolation and per-tenant IP allowlists</li><li>Signed packages, rules and threat intelligence, each verified</li><li>Only counts by type and site reach the console, never content</li><li>Refuses to install with a weak configuration</li></ul></article>
+  </div>
+  <dl class="p-specs">
+    <div><dt>Deployment</dt><dd>Your own servers or air-gapped networks; local mode needs no account or network</dd></div>
+    <div><dt>Agents</dt><dd>Claude Code, Codex, OpenCode, OpenClaw, MCP tools; Cursor and VS Code Copilot (preview)</dd></div>
+    <div><dt>AI chat sites</dt><dd>ChatGPT, Gemini, Claude, Copilot, Perplexity, DeepSeek, Mistral, Grok; Chrome, Edge, Firefox</dd></div>
+    <div><dt>Mapped to</dt><dd>KVKK, GDPR, EU AI Act, ISO/IEC 42001, NIST AI RMF, DORA, NIS2, OWASP LLM, MITRE ATLAS</dd></div>
+    <div><dt>Access control</dt><dd>Entra ID, SAML, SCIM, MFA, session revocation, per-tenant IP allowlist</dd></div>
+    <div><dt>Data</dt><dd>Decided on the device, no external AI calls; optional URL check goes where you choose</dd></div>
+  </dl>
 </section>
 
 <!-- ── Who it is for ────────────────────────────────────────────── -->
@@ -295,7 +370,7 @@
     </details>
     <details class="faq-item">
       <summary><h3>How is AIDR different from a prompt firewall?</h3><span class="faq-mark" aria-hidden="true"></span></summary>
-      <p>A prompt firewall only reads the text an agent receives and writes. AIDR also watches what the agent does at the kernel, the core of the operating system: the programs it starts, the files it touches and the connections it opens.</p>
+      <p>A prompt firewall only reads the text an agent receives and writes. AIDR also checks what the agent does before it runs: the programs it starts, the files it touches and the connections it opens. On Linux, kernel-level enforcement is available as a preview.</p>
     </details>
     <details class="faq-item">
       <summary><h3>Can AIDR run on-premises or air‑gapped?</h3><span class="faq-mark" aria-hidden="true"></span></summary>

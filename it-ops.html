@@ -72,6 +72,56 @@
       "description": "IT Ops is an AI on-call engineer. It groups scattered alerts into one incident, finds the cause with evidence, proposes a fix, applies it with your approval and records every step.",
       "url": "https://www.singularityrd.com/it-ops.html",
       "applicationCategory": "SecurityApplication",
+      "featureList": [
+        "Merges duplicate alerts from many tools into one incident",
+        "Service, environment and owner taken from your service catalog",
+        "Covers service outages, resource exhaustion and bad deployments",
+        "Optional monitoring of metrics, logs, traces, deployments and databases",
+        "Monitoring agents for Linux, Windows and Kubernetes, no code changes",
+        "Service map, service level objectives (SLOs) and charts on each incident",
+        "Finds the root cause and ties every claim to evidence",
+        "Flags unsupported claims and names data sources it could not reach",
+        "The AI investigator has read-only access to your systems",
+        "Recalls past incidents and only the fixes confirmed to work",
+        "Instructions hidden in logs or alerts are treated as data, never obeyed",
+        "Team ratings of each investigation guide when to expand automation",
+        "Fixes come only from an approved catalog, never free-form commands",
+        "Linux: service restart, process stop, log and temp file cleanup",
+        "Windows and IIS: service restart, process stop, app pool recycle, cleanup",
+        "Kubernetes: change report, pod and rollout restarts, rollout undo, scale-up",
+        "Argo CD and Helm rollback to a previous release; Docker container restart",
+        "PostgreSQL and MySQL: connection pool check, stop long-running queries",
+        "Disk, port, health, DNS, connectivity and certificate expiry checks",
+        "Risk levels from look-only to forbidden; policy can only raise them",
+        "Caps on targets per action; systems not on your list are refused",
+        "Approval required during change freeze windows",
+        "Four-eyes rule: nobody can approve their own request",
+        "Approval cards show evidence, dry-run result and rollback plan",
+        "Approvals expire and are void if target or parameters change",
+        "Staged rollout: observe, suggest, act in test, then in production",
+        "Dry run before every change",
+        "Success measured by metrics and health checks, not the AI's opinion",
+        "Automatic rollback and handover to a person if checks fail",
+        "Temporary changes revert on their own when their time runs out",
+        "One emergency stop halts every automated change, even rollback",
+        "Append-only, tamper-evident audit log of every step",
+        "Any later edit is caught against an external copy of the log",
+        "Audit records flow to your security monitoring system (SIEM)",
+        "Value report on screen and as PDF: incidents, actions, rollbacks",
+        "Your name and logo on tickets, chat cards and PDFs",
+        "Monitoring: Prometheus Alertmanager, Grafana, Zabbix and Datadog",
+        "Logs and cloud: Splunk, Azure Monitor and AWS CloudWatch",
+        "Webhook, email or API intake for SolarWinds, PRTG, Nagios and more",
+        "Tickets in Jira or ServiceNow; approvals in Microsoft Teams or Slack",
+        "AI provider: Anthropic, Azure OpenAI, Amazon Bedrock or OpenAI-compatible",
+        "Documented REST API with OpenAPI, plus CSV and NDJSON export",
+        "Sign-in via Entra ID, Okta, AD FS, Active Directory or OpenLDAP",
+        "Viewer, operator and admin roles; unmapped users cannot sign in",
+        "Local emergency admin account if your identity provider is down",
+        "One Linux server with Docker Compose, or Kubernetes with Helm",
+        "Air-gapped install from one offline bundle with a local AI model",
+        "Secrets and personal data masked before any text reaches the AI"
+      ],
       "publisher": {
         "@type": "Organization",
         "@id": "https://www.singularityrd.com/#organization",
@@ -211,6 +261,31 @@
     <article class="p-feat"><h3>Your tools stay in place</h3><p>IT Ops reads the tools you already run. Your team keeps working in the screens it knows.</p></article>
     <article class="p-feat"><h3>Trust in stages</h3><p>It starts by only watching. You decide when it may recommend, fix in test and fix in production.</p></article>
   </div>
+</section>
+
+<!-- ── Everything in the product ────────────────────────────────── -->
+<section class="wrap sec" id="features" aria-labelledby="caps-h">
+  <p class="sec-tag">Features</p>
+  <h2 class="sec-title" id="caps-h">Everything in IT Ops</h2>
+  <p class="sec-sub">What IT Ops does from the first alert to a verified fix, and what keeps it under your control.</p>
+  <div class="p-caps">
+    <article class="p-cap"><h3>Alerts and monitoring</h3><ul><li>Merges duplicate alerts from many tools into one incident</li><li>Service, environment and owner taken from your service catalog</li><li>Covers service outages, resource exhaustion and bad deployments</li><li>Optional monitoring of metrics, logs, traces, deployments and databases</li><li>Monitoring agents for Linux, Windows and Kubernetes, no code changes</li><li>Service map, service level objectives (SLOs) and charts on each incident</li></ul></article>
+    <article class="p-cap"><h3>AI investigation</h3><ul><li>Finds the root cause and ties every claim to evidence</li><li>Flags unsupported claims and names data sources it could not reach</li><li>The AI investigator has read-only access to your systems</li><li>Recalls past incidents and only the fixes confirmed to work</li><li>Instructions hidden in logs or alerts are treated as data, never obeyed</li><li>Team ratings of each investigation guide when to expand automation</li></ul></article>
+    <article class="p-cap"><h3>Approved fixes</h3><ul><li>Fixes come only from an approved catalog, never free-form commands</li><li>Linux: service restart, process stop, log and temp file cleanup</li><li>Windows and IIS: service restart, process stop, app pool recycle, cleanup</li><li>Kubernetes: change report, pod and rollout restarts, rollout undo, scale-up</li><li>Argo CD and Helm rollback to a previous release; Docker container restart</li><li>PostgreSQL and MySQL: connection pool check, stop long-running queries</li><li>Disk, port, health, DNS, connectivity and certificate expiry checks</li></ul></article>
+    <article class="p-cap"><h3>Approval and policy</h3><ul><li>Risk levels from look-only to forbidden; policy can only raise them</li><li>Caps on targets per action; systems not on your list are refused</li><li>Approval required during change freeze windows</li><li>Four-eyes rule: nobody can approve their own request</li><li>Approval cards show evidence, dry-run result and rollback plan</li><li>Approvals expire and are void if target or parameters change</li><li>Staged rollout: observe, suggest, act in test, then in production</li></ul></article>
+    <article class="p-cap"><h3>Verify, roll back, stop</h3><ul><li>Dry run before every change</li><li>Success measured by metrics and health checks, not the AI's opinion</li><li>Automatic rollback and handover to a person if checks fail</li><li>Temporary changes revert on their own when their time runs out</li><li>One emergency stop halts every automated change, even rollback</li></ul></article>
+    <article class="p-cap"><h3>Records and reports</h3><ul><li>Append-only, tamper-evident audit log of every step</li><li>Any later edit is caught against an external copy of the log</li><li>Audit records flow to your security monitoring system (SIEM)</li><li>Value report on screen and as PDF: incidents, actions, rollbacks</li><li>Your name and logo on tickets, chat cards and PDFs</li></ul></article>
+    <article class="p-cap"><h3>Integrations</h3><ul><li>Monitoring: Prometheus Alertmanager, Grafana, Zabbix and Datadog</li><li>Logs and cloud: Splunk, Azure Monitor and AWS CloudWatch</li><li>Webhook, email or API intake for SolarWinds, PRTG, Nagios and more</li><li>Tickets in Jira or ServiceNow; approvals in Microsoft Teams or Slack</li><li>AI provider: Anthropic, Azure OpenAI, Amazon Bedrock or OpenAI-compatible</li><li>Documented REST API with OpenAPI, plus CSV and NDJSON export</li></ul></article>
+    <article class="p-cap"><h3>Access and deployment</h3><ul><li>Sign-in via Entra ID, Okta, AD FS, Active Directory or OpenLDAP</li><li>Viewer, operator and admin roles; unmapped users cannot sign in</li><li>Local emergency admin account if your identity provider is down</li><li>One Linux server with Docker Compose, or Kubernetes with Helm</li><li>Air-gapped install from one offline bundle with a local AI model</li><li>Secrets and personal data masked before any text reaches the AI</li></ul></article>
+  </div>
+  <dl class="p-specs">
+    <div><dt>Deployment</dt><dd>In your environment: one Linux server, Kubernetes, private cloud or fully air-gapped</dd></div>
+    <div><dt>Platforms</dt><dd>Linux, Windows and IIS, Kubernetes, Docker, Argo CD, Helm, PostgreSQL and MySQL</dd></div>
+    <div><dt>Works with</dt><dd>Zabbix, Datadog, Grafana, Prometheus, Splunk, CloudWatch, Azure Monitor, Jira, ServiceNow, Teams, Slack</dd></div>
+    <div><dt>Access control</dt><dd>SSO via OIDC or SAML 2.0, AD and LDAP; viewer, operator and admin roles</dd></div>
+    <div><dt>Data</dt><dd>Single-tenant; sensitive text masked before the AI; KVKK (Türkiye's data protection law) erasure requests honored</dd></div>
+    <div><dt>Languages</dt><dd>Interface and documentation in Turkish and English</dd></div>
+  </dl>
 </section>
 
 <!-- ── Who it is for ────────────────────────────────────────────── -->

@@ -72,6 +72,46 @@
       "description": "Fennec scans your code in seconds for vulnerabilities, leaked passwords, risky open-source libraries and quantum-weak encryption. Problems are caught at the keyboard, and your code never leaves.",
       "url": "https://www.singularityrd.com/fennec.html",
       "applicationCategory": "SecurityApplication",
+      "featureList": [
+        "Security bugs in your own code, across the major programming languages",
+        "Follows untrusted input, even across files, to where it causes harm",
+        "Knows popular frameworks such as Django, Spring, Rails and Laravel",
+        "Passwords, API keys and tokens, caught before they reach the repository",
+        "Open-source dependencies with known vulnerabilities",
+        "Risky settings in Docker, Terraform, Nginx, Apache, HAProxy, YAML, JSON, XML",
+        "Custom rules, and existing rules reused without a rewrite",
+        "Finds RSA, DSA, elliptic-curve and Diffie-Hellman use that quantum computers could break",
+        "Shows the CNSA 2.0 migration deadline for each finding",
+        "Recognizes quantum-safe algorithms such as ML-KEM, ML-DSA and hybrids",
+        "Scores your migration with a readiness percentage",
+        "Crypto bill of materials (CBOM) in CycloneDX format, in one run",
+        "Automatic fixes for supported issues, applied in place",
+        "Diff mode shows only the problems a branch adds",
+        "Shared baselines split findings into new, recurring and resolved",
+        "Interactive terminal review that opens the exact line in your editor",
+        "Mark, ignore or baseline many findings at once, with a preview",
+        "Accept a finding with an in-code note reviewers see in pull requests",
+        "Each rule labeled by tier, so teams can tune noise",
+        "Standard SARIF reports, including for GitHub code scanning",
+        "JSON output for any tool or pipeline",
+        "Terminal output during local scans",
+        "Audit reports for customer security reviews and SOC 2 evidence",
+        "Fast enough to run on every save, commit and pull request",
+        "Command line, on every developer laptop",
+        "VS Code, with findings inline as developers type",
+        "Pre-commit hook stops secrets and new issues before they are committed",
+        "GitHub Action and GitHub App for pull request checks",
+        "Any CI pipeline, failing builds by severity",
+        "MCP server lets AI coding agents check their own code",
+        "AutoSecOps, where findings become tracked cases",
+        "Install with npx, pipx, cargo or a single binary",
+        "Runs on macOS, Linux and Windows",
+        "Your code never leaves your machines",
+        "Air-gapped install; code, secret and crypto scans run fully offline",
+        "Dependency checks look up the public OSV vulnerability database",
+        "Releases verified with published checksums and build attestations",
+        "Single sign-on for team access"
+      ],
       "publisher": {
         "@type": "Organization",
         "@id": "https://www.singularityrd.com/#organization",
@@ -218,6 +258,29 @@
     <article class="p-feat"><h3>Configuration files</h3><p>Checks Docker, Terraform, Nginx and other configuration files for risky settings.</p></article>
     <article class="p-feat"><h3>Only what’s new</h3><p>On each change, developers see the problems that change adds, not the whole backlog.</p></article>
   </div>
+</section>
+
+<!-- ── Everything in the product ────────────────────────────────── -->
+<section class="wrap sec" id="features" aria-labelledby="caps-h">
+  <p class="sec-tag">Features</p>
+  <h2 class="sec-title" id="caps-h">Everything in Fennec</h2>
+  <p class="sec-sub">Code, secrets, dependencies, configuration and crypto, checked from the keyboard to the pull request.</p>
+  <div class="p-caps">
+    <article class="p-cap"><h3>What it checks</h3><ul><li>Security bugs in your own code, across the major programming languages</li><li>Follows untrusted input, even across files, to where it causes harm</li><li>Knows popular frameworks such as Django, Spring, Rails and Laravel</li><li>Passwords, API keys and tokens, caught before they reach the repository</li><li>Open-source dependencies with known vulnerabilities</li><li>Risky settings in Docker, Terraform, Nginx, Apache, HAProxy, YAML, JSON, XML</li><li>Custom rules, and existing rules reused without a rewrite</li></ul></article>
+    <article class="p-cap"><h3>Quantum readiness</h3><ul><li>Finds RSA, DSA, elliptic-curve and Diffie-Hellman use that quantum computers could break</li><li>Shows the CNSA 2.0 migration deadline for each finding</li><li>Recognizes quantum-safe algorithms such as ML-KEM, ML-DSA and hybrids</li><li>Scores your migration with a readiness percentage</li><li>Crypto bill of materials (CBOM) in CycloneDX format, in one run</li></ul></article>
+    <article class="p-cap"><h3>Fixing and triage</h3><ul><li>Automatic fixes for supported issues, applied in place</li><li>Diff mode shows only the problems a branch adds</li><li>Shared baselines split findings into new, recurring and resolved</li><li>Interactive terminal review that opens the exact line in your editor</li><li>Mark, ignore or baseline many findings at once, with a preview</li><li>Accept a finding with an in-code note reviewers see in pull requests</li><li>Each rule labeled by tier, so teams can tune noise</li></ul></article>
+    <article class="p-cap"><h3>Reports and outputs</h3><ul><li>Standard SARIF reports, including for GitHub code scanning</li><li>JSON output for any tool or pipeline</li><li>Terminal output during local scans</li><li>Audit reports for customer security reviews and SOC 2 evidence</li></ul></article>
+    <article class="p-cap"><h3>Where it runs</h3><ul><li>Fast enough to run on every save, commit and pull request</li><li>Command line, on every developer laptop</li><li>VS Code, with findings inline as developers type</li><li>Pre-commit hook stops secrets and new issues before they are committed</li><li>GitHub Action and GitHub App for pull request checks</li><li>Any CI pipeline, failing builds by severity</li><li>MCP server lets AI coding agents check their own code</li><li>AutoSecOps, where findings become tracked cases</li></ul></article>
+    <article class="p-cap"><h3>Deployment and control</h3><ul><li>Install with npx, pipx, cargo or a single binary</li><li>Runs on macOS, Linux and Windows</li><li>Your code never leaves your machines</li><li>Air-gapped install; code, secret and crypto scans run fully offline</li><li>Dependency checks look up the public OSV vulnerability database</li><li>Releases verified with published checksums and build attestations</li><li>Single sign-on for team access</li></ul></article>
+  </div>
+  <dl class="p-specs">
+    <div><dt>Scans</dt><dd>Code, secrets, dependencies, configuration files and quantum-weak crypto, in one tool</dd></div>
+    <div><dt>Languages</dt><dd>Major languages, including JavaScript, TypeScript, Python, Go, Java, C#, PHP, Ruby, Swift and Rust</dd></div>
+    <div><dt>Works with</dt><dd>Command line, VS Code, pre-commit, GitHub pull requests, any CI, AI coding agents, AutoSecOps</dd></div>
+    <div><dt>Outputs</dt><dd>SARIF, JSON, terminal and CycloneDX crypto bill of materials (CBOM)</dd></div>
+    <div><dt>Platforms</dt><dd>macOS, Linux and Windows; air-gapped install available</dd></div>
+    <div><dt>Data</dt><dd>Code never leaves; only dependency checks query the public OSV database</dd></div>
+  </dl>
 </section>
 
 <!-- ── Who it is for ────────────────────────────────────────────── -->

@@ -24,7 +24,7 @@ The model:
 - Frontier Cyber is offense-grade. It is sold only to approved government and defense institutions.
 - CyberGym, internal measurement: 88.0. Published results for other models: GPT-5.5-Cyber 85.6, GPT-5.6 Sol 84.5, Claude Mythos 5 83.8.
 - General intelligence: an internal estimate of 44 on the Artificial Analysis Intelligence Index scale. Artificial Analysis has not listed the model.
-- Singularity-3B is a small model. It scores 72 on Cybench, internal measurement.
+- On the same scale, paid closed models score: Claude Opus 5.5 59, GPT-6 Astra 57, GPT-6.1 Sol 55, Claude Sonnet 5.5 55, GPT-6.1 Terra 51, Claude Haiku 5.5 36 (Artificial Analysis Intelligence Index v5, November 2026).
 
 ## Company
 
@@ -32,14 +32,14 @@ The model:
 
 ## Products
 
-- [Singularity Foundation Models](https://www.singularityrd.com/foundation-models.html): AI models trained from scratch by Singularity. They run on-premises and fully air-gapped, and power the AI products.
-- [AutoSecOps](https://www.singularityrd.com/autosecops.html): An AI security team. AI SOC analysts triage and investigate every alert, cases are written automatically, and AI SOAR workflows act with human approval. 2,000+ integrations and an MCP server. It also automates workflows for IT, finance, RevOps and other teams.
-- [AIDR](https://www.singularityrd.com/aidr.html): Security for AI agents. It watches what agents do at the operating-system kernel and blocks prompt injection, tool abuse and data theft. No code changes.
-- [IT Ops](https://www.singularityrd.com/it-ops.html): An AI on-call engineer. It groups alerts into one incident, finds the cause, proposes a fix, applies it with approval and records every step.
-- [Breakpoint](https://www.singularityrd.com/breakpoint.html): An AI pentester. It attacks code, web apps, APIs and AI apps every day, proves each finding with a reproduced exploit and delivers a fix.
-- [Fennec](https://www.singularityrd.com/fennec.html): A fast code security scanner. It finds vulnerabilities, leaked secrets, risky dependencies and quantum-weak crypto in seconds. Code never leaves.
-- [Sonar](https://www.singularityrd.com/sonar.html): Factory and OT network security. It shows what is happening on a plant network without stopping production.
-- [RoboDR](https://www.singularityrd.com/robodr.html): Security for robots. It sees an attack, stops the robot safely and proves what happened. It supports ROS 2 robots.
+- [Singularity Foundation Models](https://www.singularityrd.com/foundation-models.html): AI models trained from scratch by Singularity. They run on-premises and fully air-gapped, and power the AI products. Key features: Runs air-gapped on your hardware; Tops published frontier results on CyberGym; Cannot be shut off remotely.
+- [AutoSecOps](https://www.singularityrd.com/autosecops.html): An AI security team. AI SOC analysts triage and investigate every alert, cases are written automatically, and AI SOAR workflows act with human approval. 2,000+ integrations and an MCP server. It also automates workflows for IT, finance, RevOps and other teams. Key features: AI analysts investigate every alert; Critical actions wait for your approval; 2,000+ integrations with your tools.
+- [AIDR](https://www.singularityrd.com/aidr.html): Security for AI agents. It checks every action an agent takes before it runs and blocks prompt injection, tool abuse and data theft. Works with Claude Code, Codex, OpenCode, OpenClaw and MCP tools; Cursor and VS Code Copilot in preview; kernel-level enforcement on Linux in preview. Key features: Blocks harmful actions before they run; Keeps customer data out of ChatGPT; Signed, audit-ready log of every decision.
+- [IT Ops](https://www.singularityrd.com/it-ops.html): An AI on-call engineer. It groups alerts into one incident, finds the cause, proposes a fix, applies it with approval and records every step. Key features: Root cause backed by evidence; Approved fixes only, with rollback; Every step on tamper-evident record.
+- [Breakpoint](https://www.singularityrd.com/breakpoint.html): An AI pentester. It attacks code, web apps, APIs and AI apps every day, proves each finding with a reproduced exploit and delivers a fix. Key features: Every finding proven by reproduction; Fix proposed, then re-tested; Code, web, APIs and AI apps.
+- [Fennec](https://www.singularityrd.com/fennec.html): A fast code security scanner. It finds vulnerabilities, leaked secrets, risky dependencies and quantum-weak crypto in seconds. Code never leaves. Key features: Scans every change in seconds; Code, secrets and dependencies, one tool; Quantum-readiness score and crypto inventory.
+- [Sonar](https://www.singularityrd.com/sonar.html): Factory and OT network security. It shows what is happening on a plant network without stopping production. Key features: Fully passive, zero production risk; Every device and command on record; Packet-level evidence for every incident.
+- [RoboDR](https://www.singularityrd.com/robodr.html): Security for robots. It sees an attack, stops the robot safely and proves what happened. It supports ROS 2 robots. Key features: Reads every command to the motors; Safe stop without a fall; Tamper-proof black box for auditors.
 
 ## Research
 

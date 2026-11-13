@@ -356,6 +356,55 @@
         }
       });
     }
+    /* A keyhole of light in the wall: the way in, opened from the inside. */
+    function keyhole(cx, cy, r, hot, halo) {
+      hot = C(hot);
+      var k, ang, d, t, half;
+      glow(cx, cy + r, r * 6, halo, 0.5);
+      glow(cx, cy + r * 0.6, r * 2.6, hot, 0.5);
+      /* The shape itself, solid, so its edge stays crisp under the strokes. */
+      ctx.fillStyle = css(mix(hot, halo, 0.25), 0.96);
+      ctx.beginPath();
+      ctx.arc(cx, cy, r, 0, TAU);
+      ctx.fill();
+      ctx.beginPath();
+      ctx.moveTo(cx - r * 0.42, cy + r * 0.5);
+      ctx.lineTo(cx + r * 0.42, cy + r * 0.5);
+      ctx.lineTo(cx + r * 0.86, cy + r * 2.9);
+      ctx.lineTo(cx - r * 0.86, cy + r * 2.9);
+      ctx.closePath();
+      ctx.fill();
+      light(function () {
+        for (k = 0; k < 280; k++) {
+          ang = R() * TAU; d = Math.sqrt(R()) * r * 0.9;
+          dab(cx + Math.cos(ang) * d, cy + Math.sin(ang) * d, rr(0.2, 0.45) * r, HALF + rr(-0.3, 0.3), rr(1.5, 4) * u, vary(hot, 14), rr(0.5, 0.95), false);
+        }
+        for (k = 0; k < 440; k++) {
+          t = R(); half = lerp(r * 0.36, r * 0.76, t);
+          dab(cx + (R() * 2 - 1) * half, cy + r * 0.6 + t * r * 2.15, rr(0.2, 0.45) * r, HALF + rr(-0.2, 0.2), rr(1.5, 4) * u, vary(hot, 14), rr(0.5, 0.95), false);
+        }
+      });
+    }
+    /* Light from the opening, pooled on the ground. */
+    function spill(cx, y, w, depth, c) {
+      c = C(c);
+      light(function () {
+        for (var k = 0; k < 380; k++) {
+          var t = Math.pow(R(), 0.8), half = w * (0.3 + t * 1.6);
+          dab(cx + (R() * 2 - 1) * half, y + t * depth, rr(14, 60) * u * (0.6 + t), rr(-0.04, 0.04), rr(1.5, 4) * u, vary(c, 16), rr(0.08, 0.36) * (1 - t * 0.7), true);
+        }
+      });
+    }
+    /* A small figure, for scale. */
+    function person(x, y, k, dark, rimc) {
+      var body = place([[-7, 0], [-9, -30], [-7, -52], [-3, -58], [3, -58], [7, -52], [9, -30], [7, 0], [2, 0], [0, -24], [-2, 0]], x, y, k);
+      fillPoly(body, dark, mix(dark, rimc, 0.14), { den: 16, len: 0.3, hatch: HALF });
+      ctx.fillStyle = css(C(dark), 1);
+      ctx.beginPath();
+      ctx.arc(x, y - 66 * k, 6.5 * k, 0, TAU);
+      ctx.fill();
+      rim(body, [4, 5, 6], rimc, 0.8);
+    }
     function fox(x, y, k, dark, lightc) {
       var tail = place([[-24, 0], [-44, -1], [-66, -8], [-84, -24], [-84, -42], [-70, -40], [-52, -24], [-34, -12]], x, y, k);
       var body = place([[-26, 0], [-35, -14], [-37, -34], [-31, -54], [-21, -70], [-11, -80], [-13, -92], [-9, -104], [-15, -118], [-21, -152], [-2, -122], [4, -115], [8, -125], [23, -158], [27, -119], [31, -109], [45, -99], [47, -93], [35, -89], [27, -86], [21, -78], [23, -60], [25, -30], [27, -6], [31, 0], [13, 0], [11, -22], [5, -8], [1, 0]], x, y, k);
@@ -473,12 +522,22 @@
     return {
       W: W, H: H, u: u, fbm: fbm, sky: sky, stars: stars, bands: bands, cloud: cloud, water: water, ridge: ridge, groundAt: groundAt,
       skyline: skyline, moon: moon, sun: sun, eclipse: eclipse, beam: beam, lighthouse: lighthouse, dome: dome, strike: strike,
-      tower: tower, wall: wall, crack: crack, fox: fox, robot: robot, shield: shield, rings: rings, factory: factory, finish: finish
+      tower: tower, wall: wall, crack: crack, keyhole: keyhole, spill: spill, person: person, fox: fox, robot: robot, shield: shield, rings: rings, factory: factory, finish: finish
     };
   }
 
   /* ── The paintings ────────────────────────────────────────────────────── */
   var SCENES = {
+    /* Offense-proven: the wall, and the way in that was opened for us. */
+    gate: function (p, W, H, u) {
+      p.sky([[0, '#05081c'], [0.55, '#14204e'], [1, '#2d4f7a']], H * 0.36);
+      p.stars(130, H * 0.3);
+      p.wall(-20, W + 20, H * 0.31, H * 0.85, '#090c1d', '#222b52', '#8fa6d8');
+      p.keyhole(W * 0.56, H * 0.47, 33 * u, '#ffe9b0', '#ff9a4a');
+      p.ridge(H * 0.85, H * 0.015, 2, 3.7, '#06080f', '#181f3c', { rim: '#c98f5a' });
+      p.spill(W * 0.56, H * 0.855, 38 * u, H * 0.14, '#ffd89a');
+      p.person(W * 0.46, H * 0.885, 1.5 * u, '#02030a', '#ffd89a');
+    },
     /* The model: a singularity rising over the range. */
     model: function (p, W, H, u) {
       p.sky([[0, '#05071a'], [0.42, '#16184a'], [0.7, '#4a2f78'], [0.88, '#c9736f'], [1, '#f7c796']], H * 0.76);
@@ -584,7 +643,7 @@
       p.ridge(H * 0.93, H * 0.12, 2.6, 11.2, '#090a1b', '#272b57', { rim: '#b98ba2' });
     }
   };
-  var SEEDS = { model: 88, autosecops: 101, aidr: 202, itops: 303, breakpoint: 404, fennec: 505, sonar: 606, robodr: 707, dawn: 808 };
+  var SEEDS = { gate: 909, model: 88, autosecops: 101, aidr: 202, itops: 303, breakpoint: 404, fennec: 505, sonar: 606, robodr: 707, dawn: 808 };
 
   function paint(cv) {
     if (cv.__painted) return;

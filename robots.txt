@@ -1,4 +1,4 @@
-# robots.txt for https://singularityrd.com/
+# robots.txt for https://www.singularityrd.com/
 # Every page is open to every crawler.
 User-agent: *
 Allow: /
@@ -6,7 +6,7 @@ Allow: /
 # Answer engines and AI crawlers are welcome. The homepage is the canonical
 # description of Singularity, its model and its seven products, and we want
 # them cited correctly.
-# LLM-friendly summary of this site: https://singularityrd.com/llms.txt
+# LLM-friendly summary of this site: https://www.singularityrd.com/llms.txt
 
 User-agent: GPTBot
 Allow: /
@@ -53,4 +53,4 @@ Allow: /
 User-agent: CCBot
 Allow: /
 
-Sitemap: https://singularityrd.com/sitemap.xml
+Sitemap: https://www.singularityrd.com/sitemap.xml

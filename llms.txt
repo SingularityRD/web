@@ -1,6 +1,6 @@
 # Singularity
 
-> Singularity Research and Development Inc. is a frontier AI security lab. With the owner's authorization, it hacks government systems, then secures them. It trains its own AI models, the Singularity Foundation Models, and builds seven products on them.
+> Singularity Research and Development Inc. is a frontier AI security lab. With the owner's authorization, it hacks government systems, then secures them. It trains its own AI models, the Singularity Foundation Models, and builds seven security products.
 
 Key facts:
 
@@ -23,37 +23,37 @@ The model:
 - Singularity General is an in-house assistant for documents, analysis and code.
 - Frontier Cyber is offense-grade. It is sold only to approved government and defense institutions.
 - CyberGym, internal measurement: 88.0. Published results for other models: GPT-5.5-Cyber 85.6, GPT-5.6 Sol 84.5, Claude Mythos 5 83.8.
-- DeepSWE v1.1, internal measurement: 77.0. Other models: Claude Opus 5.5 72.3, GPT-6.1 Sol 72.3.
+- General intelligence: an internal estimate of 44 on the Artificial Analysis Intelligence Index scale. Artificial Analysis has not listed the model.
 - Singularity-3B is a small model. It scores 72 on Cybench, internal measurement.
 
 ## Company
 
-- [Singularity homepage](https://singularityrd.com/): The lab, the model, all seven products, pricing and the FAQ on one page.
+- [Singularity homepage](https://www.singularityrd.com/): The lab, the model, all seven products, pricing and the FAQ. Each product also has its own page.
 
 ## Products
 
-- [Singularity Foundation Models](https://singularityrd.com/#research): AI models trained from scratch by Singularity. They run on-premises and fully air-gapped, and power every product.
-- [AutoSecOps](https://singularityrd.com/#autosecops): An AI security team. AI SOC analysts triage and investigate every alert, cases are written automatically, and AI SOAR workflows act with human approval. 300+ integrations and an MCP server. It also automates workflows for IT, finance, RevOps and other teams.
-- [AIDR](https://singularityrd.com/#aidr): Security for AI agents. It watches what agents do at the operating-system kernel and blocks prompt injection, tool abuse and data theft. No code changes.
-- [IT Ops](https://singularityrd.com/#itops): An AI on-call engineer. It groups alerts into one incident, finds the cause, proposes a fix, applies it with approval and records every step.
-- [Breakpoint](https://singularityrd.com/#breakpoint): An AI pentester. It attacks code, web apps, APIs and AI apps every day, proves each finding with a reproduced exploit and delivers a fix.
-- [Fennec](https://singularityrd.com/#fennec): A fast code security scanner. It finds vulnerabilities, leaked secrets, risky dependencies and quantum-weak crypto in seconds. 14 languages. Code never leaves.
-- [Sonar](https://singularityrd.com/#sonar): Factory and OT network security. It shows what is happening on a plant network without stopping production.
-- [RoboDR](https://singularityrd.com/#robodr): Security for robots. It sees an attack, stops the robot safely and proves what happened. It supports ROS 2 robots.
+- [Singularity Foundation Models](https://www.singularityrd.com/foundation-models.html): AI models trained from scratch by Singularity. They run on-premises and fully air-gapped, and power the AI products.
+- [AutoSecOps](https://www.singularityrd.com/autosecops.html): An AI security team. AI SOC analysts triage and investigate every alert, cases are written automatically, and AI SOAR workflows act with human approval. 300+ integrations and an MCP server. It also automates workflows for IT, finance, RevOps and other teams.
+- [AIDR](https://www.singularityrd.com/aidr.html): Security for AI agents. It watches what agents do at the operating-system kernel and blocks prompt injection, tool abuse and data theft. No code changes.
+- [IT Ops](https://www.singularityrd.com/it-ops.html): An AI on-call engineer. It groups alerts into one incident, finds the cause, proposes a fix, applies it with approval and records every step.
+- [Breakpoint](https://www.singularityrd.com/breakpoint.html): An AI pentester. It attacks code, web apps, APIs and AI apps every day, proves each finding with a reproduced exploit and delivers a fix.
+- [Fennec](https://www.singularityrd.com/fennec.html): A fast code security scanner. It finds vulnerabilities, leaked secrets, risky dependencies and quantum-weak crypto in seconds. 14 languages. Code never leaves.
+- [Sonar](https://www.singularityrd.com/sonar.html): Factory and OT network security. It shows what is happening on a plant network without stopping production.
+- [RoboDR](https://www.singularityrd.com/robodr.html): Security for robots. It sees an attack, stops the robot safely and proves what happened. It supports ROS 2 robots.
 
 ## Research
 
-- [Research blog](https://singularityrd.com/blog.html): The index of research posts. It redirects to the homepage.
-- [Small security models reach the Cybench frontier](https://singularityrd.com/blog-cybench.html): A 25-model Cybench evaluation. Singularity-3B scores 72, internal measurement.
-- [Singularity AutoSecOps EDR ranks #1 in Linux and Windows telemetry benchmarks](https://singularityrd.com/blog-edr-telemetry-benchmark.html): How the AutoSecOps EDR ranked #1 in Singularity's own Linux and Windows telemetry evaluation.
-- [AI agents need security controls while they run](https://singularityrd.com/blog-runtime-security.html): A practical guide to AI agent runtime security: visibility, prevention and human control.
-- [From alert queues to one operating rhythm](https://singularityrd.com/blog-security-operations.html): Why connecting the security tools you already own removes the waiting between detection, investigation, action and proof.
+- [Research blog](https://www.singularityrd.com/blog.html): The index of research posts. It redirects to the homepage.
+- [Small security models reach the Cybench frontier](https://www.singularityrd.com/blog-cybench.html): A 25-model Cybench evaluation. Singularity-3B scores 72, internal measurement.
+- [Singularity AutoSecOps EDR ranks #1 in Linux and Windows telemetry benchmarks](https://www.singularityrd.com/blog-edr-telemetry-benchmark.html): How the AutoSecOps EDR ranked #1 in Singularity's own Linux and Windows telemetry evaluation.
+- [AI agents need security controls while they run](https://www.singularityrd.com/blog-runtime-security.html): A practical guide to AI agent runtime security: visibility, prevention and human control.
+- [From alert queues to one operating rhythm](https://www.singularityrd.com/blog-security-operations.html): Why connecting the security tools you already own removes the waiting between detection, investigation, action and proof.
 
 ## Customers
 
-- [Customer success](https://singularityrd.com/customer-success.html): Anonymized AutoSecOps case studies on alert triage, threat hunting and audit-ready security operations.
+- [Customer success](https://www.singularityrd.com/customer-success.html): Anonymized AutoSecOps case studies on alert triage, threat hunting and audit-ready security operations.
 
 ## Optional
 
-- [FAQ](https://singularityrd.com/#faq): Short answers about the products, deployment, control and pricing.
-- [Pricing](https://singularityrd.com/#pricing): Every company gets its own quote. There are no public prices.
+- [FAQ](https://www.singularityrd.com/#faq): Short answers about the products, deployment, control and pricing.
+- [Pricing](https://www.singularityrd.com/#pricing): Every company gets its own quote. There are no public prices.

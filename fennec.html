@@ -1,0 +1,335 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<title>Fennec: Fast Code Security Scanner | Singularity</title>
+<meta name="description" content="Fennec scans your code for vulnerabilities, leaked secrets, risky dependencies and quantum-weak crypto in seconds. 14 languages. Your code never leaves." />
+<link rel="canonical" href="https://www.singularityrd.com/fennec.html" />
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+<meta name="author" content="Singularity Research and Development Inc." />
+<meta name="theme-color" content="#070707" />
+<meta name="color-scheme" content="dark" />
+
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Singularity" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:url" content="https://www.singularityrd.com/fennec.html" />
+<meta property="og:title" content="Fennec — Code security scanner" />
+<meta property="og:description" content="Fennec scans your code for vulnerabilities, leaked secrets, risky dependencies and quantum-weak crypto in seconds. 14 languages. Your code never leaves." />
+<meta property="og:image" content="https://www.singularityrd.com/assets/og-cover.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Fennec — Code security scanner" />
+<meta name="twitter:description" content="Fennec scans your code for vulnerabilities, leaked secrets, risky dependencies and quantum-weak crypto in seconds. 14 languages. Your code never leaves." />
+<meta name="twitter:image" content="https://www.singularityrd.com/assets/og-cover.png" />
+
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+<link rel="apple-touch-icon" href="assets/mark.svg" />
+<link rel="sitemap" type="application/xml" href="/sitemap.xml" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Inter+Tight:wght@500;600&family=JetBrains+Mono:wght@400;500;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+<link rel="stylesheet" href="home.css" />
+<link rel="stylesheet" href="product.css" />
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://www.singularityrd.com/fennec.html#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Singularity",
+          "item": "https://www.singularityrd.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Products",
+          "item": "https://www.singularityrd.com/#products"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Fennec",
+          "item": "https://www.singularityrd.com/fennec.html"
+        }
+      ]
+    },
+    {
+      "@type": "SoftwareApplication",
+      "@id": "https://www.singularityrd.com/fennec.html#product",
+      "name": "Fennec",
+      "description": "Fennec scans your code in seconds for vulnerabilities, leaked passwords, risky open-source libraries and quantum-weak encryption. Problems are caught at the keyboard, and your code never leaves.",
+      "url": "https://www.singularityrd.com/fennec.html",
+      "applicationCategory": "SecurityApplication",
+      "publisher": {
+        "@type": "Organization",
+        "@id": "https://www.singularityrd.com/#organization",
+        "name": "Singularity Research and Development Inc.",
+        "url": "https://www.singularityrd.com/"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://www.singularityrd.com/fennec.html#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is Fennec?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Fennec is Singularity’s code security scanner. In seconds, it checks code in 14 languages for vulnerabilities, leaked secrets, risky dependencies and encryption that quantum computers could break. It is named after the fennec fox: small, fast, with ears that hear what others miss."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Who is Fennec for?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Fennec is for any team that writes software. That includes software and SaaS companies, banks and fintech, defense and public sector, telecom and e-commerce, software agencies, and teams that write code with AI assistants."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How is Fennec different from other code scanners?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "When a scan takes minutes, developers switch it off. Fennec finishes in seconds, fast enough to run before every change is committed. It covers code, secrets, dependencies, configuration and quantum readiness in one tool, and shows only the new problems each change adds."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can Fennec run on-premises or air-gapped?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Fennec runs on your own machines and your code never leaves. It can be installed air-gapped, on a network with no internet connection. Code, secret and encryption scans run fully offline; dependency checks look up a public database of known vulnerabilities."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do developers stay in control of Fennec?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Fennec reports what it finds and developers decide. Automatic fixes cover supported issues only, and a developer applies them. A finding can be accepted with a note in the code, which reviewers see in the pull request."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body id="top" class="home product-page">
+
+<header class="site-header">
+  <div class="shell header-inner">
+    <a class="brand" href="index.html" aria-label="Singularity — home">
+      <img class="brand-logo" src="assets/logo.svg" alt="Singularity" width="1409" height="306" />
+    </a>
+
+    <nav class="nav-secondary home-nav" aria-label="Primary">
+      <a class="nav-link" href="index.html#products">Products</a>
+      <a class="nav-link" href="foundation-models.html">Model</a>
+      <a class="nav-link" href="index.html#industries">Industries</a>
+      <a class="nav-link" href="index.html#pricing">Pricing</a>
+      <a class="btn btn-solid" href="https://calendly.com/anill-yagiz/singularity" target="_blank" rel="noopener">Book a demo <span class="chev">›</span></a>
+    </nav>
+
+    <button class="burger" type="button" aria-label="Open menu" aria-controls="mobile-nav" aria-expanded="false"><span></span><span></span></button>
+  </div>
+
+  <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation" hidden>
+    <div class="shell mobile-nav-grid">
+      <a class="mobile-nav-link" href="index.html#products">Products</a>
+      <a class="mobile-nav-link" href="foundation-models.html">Model</a>
+      <a class="mobile-nav-link" href="index.html#industries">Industries</a>
+      <a class="mobile-nav-link" href="index.html#pricing">Pricing</a>
+      <a class="btn btn-solid btn-lg mobile-nav-cta" href="https://calendly.com/anill-yagiz/singularity" target="_blank" rel="noopener">Book a demo <span class="chev">›</span></a>
+    </div>
+  </nav>
+</header>
+
+<main>
+
+<!-- ── Hero ────────────────────────────────────────────────────── -->
+<section class="p-hero">
+  <div class="p-hero-art paint" style="--flip: -1"><canvas data-art="fennec" width="1600" height="760" aria-hidden="true"></canvas></div>
+  <div class="shell p-hero-inner">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="index.html">Singularity</a><i aria-hidden="true">/</i><a href="index.html#products">Products</a><i aria-hidden="true">/</i><span aria-current="page">Fennec</span></nav>
+    <p class="p-kicker"><i></i>Fennec · Code security scanner</p>
+    <h1 class="p-title">Every line of code checked before it ships</h1>
+    <p class="p-lede">Fennec scans your code in seconds for vulnerabilities, leaked passwords, risky open-source libraries and quantum-weak encryption. Problems are caught at the keyboard, and your code never leaves.</p>
+    <div class="hero-actions">
+      <a class="btn btn-solid btn-lg" href="https://calendly.com/anill-yagiz/singularity" target="_blank" rel="noopener">Book a demo <span class="chev">›</span></a>
+      <a class="btn btn-ghost btn-lg" href="mailto:anil@singularityrd.com?subject=Fennec%20technical%20brief">Request the technical brief</a>
+    </div>
+  </div>
+</section>
+
+<section class="wrap p-statw" aria-label="Key fact">
+  <div class="p-stat">
+    <p class="p-stat-v">39 million</p>
+    <p class="p-stat-l">passwords, API keys and tokens detected in code on GitHub in a single year<small>GitHub, March 2025</small></p>
+  </div>
+</section>
+
+<!-- ── The problem ──────────────────────────────────────────────── -->
+<section class="wrap sec" aria-labelledby="problem-h">
+  <p class="sec-tag">The problem</p>
+  <h2 class="sec-title" id="problem-h">Code ships daily. Security checks lag behind.</h2>
+  <div class="p-cards">
+    <article class="p-card"><p class="p-n">01</p><h3>Slow tools get skipped</h3><p>When a scan takes minutes, developers switch it off. The bugs ship with the next release.</p></article>
+    <article class="p-card"><p class="p-n">02</p><h3>Nobody knows what’s inside</h3><p>Most companies cannot say what is in their code today: which bugs, which leaked keys, which weak algorithms.</p></article>
+    <article class="p-card"><p class="p-n">03</p><h3>The quantum deadline</h3><p>Encryption that quantum computers could break must be replaced on published timelines (CNSA 2.0). Few teams know where theirs is.</p></article>
+  </div>
+</section>
+
+<!-- ── How it works ─────────────────────────────────────────────── -->
+<section class="wrap sec" aria-labelledby="how-h">
+  <p class="sec-tag">How it works</p>
+  <h2 class="sec-title" id="how-h">A smoke detector for your code</h2>
+  <ol class="p-steps" style="--n: 4">
+    <li><b>1</b><h3>Listens</h3><p>Fennec runs on every developer laptop and on every pull request, a proposed code change, in seconds.</p></li>
+    <li><b>2</b><h3>Flags</h3><p>It points to vulnerabilities, leaked secrets, risky libraries, weak encryption and misconfigurations, right where developers work.</p></li>
+    <li><b>3</b><h3>Fixes</h3><p>It offers automatic fixes for supported issues and shows only the new problems each change adds.</p></li>
+    <li><b>4</b><h3>Reports</h3><p>Standard reports and an inventory of your encryption give auditors and customers the evidence they ask for.</p></li>
+  </ol>
+</section>
+
+<!-- ── What you get ─────────────────────────────────────────────── -->
+<section class="wrap sec" aria-labelledby="feat-h">
+  <p class="sec-tag">What you get</p>
+  <h2 class="sec-title" id="feat-h">What Fennec checks on every change</h2>
+  <div class="p-feats">
+    <article class="p-feat"><h3>Code vulnerabilities</h3><p>Finds security bugs in your own code, across 14 programming languages.</p></article>
+    <article class="p-feat"><h3>Leaked secrets</h3><p>Catches passwords, API keys and tokens before they reach your code repository.</p></article>
+    <article class="p-feat"><h3>Risky dependencies</h3><p>Flags the open-source libraries you ship that have known vulnerabilities.</p></article>
+    <article class="p-feat"><h3>Quantum readiness</h3><p>Finds encryption that quantum computers could break, shows the deadlines and gives a readiness score.</p></article>
+    <article class="p-feat"><h3>Configuration files</h3><p>Checks Docker, Terraform, Nginx and other configuration files for risky settings.</p></article>
+    <article class="p-feat"><h3>Only what’s new</h3><p>On each change, developers see the problems that change adds, not the whole backlog.</p></article>
+  </div>
+</section>
+
+<!-- ── Who it is for ────────────────────────────────────────────── -->
+<section class="wrap sec" aria-labelledby="fit-h">
+  <p class="sec-tag">Who it is for</p>
+  <h2 class="sec-title" id="fit-h">Any team that writes software</h2>
+  <div class="p-fit">
+    <div><p class="p-fit-k">Built for</p><ul class="p-chips"><li>Software and SaaS companies</li><li>Banks and fintech</li><li>Defense and public sector</li><li>Telecom and e-commerce</li><li>Software agencies</li><li>AI-assisted teams</li></ul></div>
+    <div><p class="p-fit-k">Works with</p><ul class="p-chips"><li>Command line</li><li>VS Code</li><li>Pre-commit checks</li><li>Pull requests</li><li>Docker</li><li>Terraform</li><li>Nginx</li><li>AutoSecOps</li></ul></div>
+  </div>
+</section>
+
+<!-- ── Control ──────────────────────────────────────────────────── -->
+<section class="wrap sec" aria-labelledby="ctl-h">
+  <p class="sec-tag">Control</p>
+  <h2 class="sec-title" id="ctl-h">You stay in control</h2>
+  <div class="p-cards">
+    <article class="p-card"><span class="p-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3 4 6v6c0 4.5 3.4 8.3 8 9 4.6-.7 8-4.5 8-9V6l-8-3Z"/><path d="m9 12 2 2 4-4"/></svg></span><h3>Code never leaves</h3><p>Fennec runs on your developers’ laptops and on your pull requests. Your code never leaves.</p></article>
+    <article class="p-card"><span class="p-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg></span><h3>Developers decide</h3><p>Automatic fixes cover supported issues only, and a developer applies them. Accepted exceptions stay visible in code review.</p></article>
+    <article class="p-card"><span class="p-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 3h7l5 5v13H7z"/><path d="M10 13h6M10 17h6"/></svg></span><h3>Air-gapped install</h3><p>Fennec can be installed air-gapped, meaning on a network with no internet connection. Code, secret and encryption scans run fully offline.</p></article>
+  </div>
+</section>
+
+<!-- ── FAQ ──────────────────────────────────────────────────────── -->
+<section class="wrap sec" id="faq" aria-labelledby="faq-h">
+  <h2 class="sec-title" id="faq-h">Questions about Fennec</h2>
+  <div class="faq">
+    <details class="faq-item" open>
+      <summary><h3>What is Fennec?</h3><span class="faq-mark" aria-hidden="true"></span></summary>
+      <p>Fennec is Singularity’s code security scanner. In seconds, it checks code in 14 languages for vulnerabilities, leaked secrets, risky dependencies and encryption that quantum computers could break. It is named after the fennec fox: small, fast, with ears that hear what others miss.</p>
+    </details>
+    <details class="faq-item">
+      <summary><h3>Who is Fennec for?</h3><span class="faq-mark" aria-hidden="true"></span></summary>
+      <p>Fennec is for any team that writes software. That includes software and SaaS companies, banks and fintech, defense and public sector, telecom and e-commerce, software agencies, and teams that write code with AI assistants.</p>
+    </details>
+    <details class="faq-item">
+      <summary><h3>How is Fennec different from other code scanners?</h3><span class="faq-mark" aria-hidden="true"></span></summary>
+      <p>When a scan takes minutes, developers switch it off. Fennec finishes in seconds, fast enough to run before every change is committed. It covers code, secrets, dependencies, configuration and quantum readiness in one tool, and shows only the new problems each change adds.</p>
+    </details>
+    <details class="faq-item">
+      <summary><h3>Can Fennec run on-premises or air-gapped?</h3><span class="faq-mark" aria-hidden="true"></span></summary>
+      <p>Yes. Fennec runs on your own machines and your code never leaves. It can be installed air-gapped, on a network with no internet connection. Code, secret and encryption scans run fully offline; dependency checks look up a public database of known vulnerabilities.</p>
+    </details>
+    <details class="faq-item">
+      <summary><h3>How do developers stay in control of Fennec?</h3><span class="faq-mark" aria-hidden="true"></span></summary>
+      <p>Fennec reports what it finds and developers decide. Automatic fixes cover supported issues only, and a developer applies them. A finding can be accepted with a note in the code, which reviewers see in the pull request.</p>
+    </details>
+  </div>
+</section>
+
+<!-- ── Contact ──────────────────────────────────────────────────── -->
+<section class="wrap sec" id="contact" aria-labelledby="contact-h">
+  <div class="p-cta">
+    <p class="sec-tag">Book a demo</p>
+    <h2 class="cta-title" id="contact-h">Small. Fast. Hears every bug.</h2>
+    <p>Like the fennec fox, with ears that hear what others miss. Book a demo, or request the technical brief.</p>
+    <div class="hero-actions">
+      <a class="btn btn-solid btn-lg" href="https://calendly.com/anill-yagiz/singularity" target="_blank" rel="noopener">Book a demo <span class="chev">›</span></a>
+      <a class="btn btn-ghost btn-lg" href="mailto:anil@singularityrd.com?subject=Fennec%20technical%20brief">Request the technical brief</a>
+    </div>
+    <p class="p-nda">Architecture, deployment and integration details are shared under NDA.</p>
+  </div>
+  <nav class="p-more" aria-label="More from Singularity">
+    <p>More from Singularity</p>
+    <a href="foundation-models.html"><b>Singularity Foundation Models</b><span>Our own AI models</span></a>
+    <a href="autosecops.html"><b>AutoSecOps</b><span>AI security operations</span></a>
+    <a href="aidr.html"><b>AIDR</b><span>AI agent security</span></a>
+    <a href="it-ops.html"><b>IT Ops</b><span>AI on-call engineer</span></a>
+    <a href="breakpoint.html"><b>Breakpoint</b><span>AI pentester</span></a>
+    <a href="sonar.html"><b>Sonar</b><span>Factory network security</span></a>
+    <a href="robodr.html"><b>RoboDR</b><span>Robot security</span></a>
+  </nav>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="shell footer-inner">
+    <div class="footer-brand">
+      <a class="brand" href="index.html" aria-label="Singularity — home">
+        <img class="brand-logo" src="assets/logo.svg" alt="Singularity" width="1409" height="306" />
+      </a>
+      <p>We hack governments. Then we secure them, with our own frontier model.</p>
+      <a class="btn btn-ghost" href="https://calendly.com/anill-yagiz/singularity" target="_blank" rel="noopener">Book a demo <span class="chev">›</span></a>
+    </div>
+    <nav class="footer-cols" aria-label="Footer">
+      <div>
+        <p class="footer-head">Products</p>
+        <a href="autosecops.html">AutoSecOps</a><a href="aidr.html">AIDR</a><a href="it-ops.html">IT Ops</a><a href="breakpoint.html">Breakpoint</a><a href="fennec.html">Fennec</a><a href="sonar.html">Sonar</a><a href="robodr.html">RoboDR</a><a href="foundation-models.html">Foundation Models</a>
+      </div>
+      <div>
+        <p class="footer-head">Company</p>
+        <a href="index.html#industries">Industries</a><a href="index.html#pricing">Pricing</a><a href="index.html#lab">Research</a><a href="customer-success.html">Customer Success</a><a href="index.html#compare">Compare</a><a href="index.html#faq">FAQ</a><a href="mailto:anil@singularityrd.com">Contact</a>
+      </div>
+      <div class="footer-ents">
+        <p class="footer-head">Companies</p>
+        <p><b>United States</b>Singularity Research and Development Inc.</p>
+        <p><b>Türkiye</b>Singularity Arge Siber Güvenlik ve Yapay Zeka Teknoloji A.Ş.</p>
+        <p><b>South Korea</b>Singularity Korea</p>
+      </div>
+    </nav>
+  </div>
+  <div class="shell">
+    <p class="footer-tag" aria-hidden="true">Offense-proven. <span>Defense-grade.</span></p>
+  </div>
+  <div class="shell footer-bar">
+    <p>© 2026 Singularity Research and Development Inc.</p>
+    <p><a href="mailto:anil@singularityrd.com">anil@singularityrd.com</a></p>
+  </div>
+</footer>
+
+<script src="art.js" defer></script>
+<script src="home.js" defer></script>
+</body>
+</html>

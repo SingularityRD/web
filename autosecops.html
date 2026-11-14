@@ -69,7 +69,7 @@
       "@type": "SoftwareApplication",
       "@id": "https://www.singularityrd.com/autosecops.html#product",
       "name": "AutoSecOps",
-      "description": "AutoSecOps is an AI security team that works around the clock. It investigates every alert and stops real threats with your approval, through 2,000+ integrations with the tools you already run.",
+      "description": "AutoSecOps investigates every security alert around the clock, finds the real threats and stops them with your approval. It works through 2,000+ integrations with the tools you already run.",
       "url": "https://www.singularityrd.com/autosecops.html",
       "applicationCategory": "SecurityApplication",
       "featureList": [
@@ -135,42 +135,42 @@
       "mainEntity": [
         {
           "@type": "Question",
-          "name": "What is AutoSecOps?",
+          "name": "What exactly is AutoSecOps?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "AutoSecOps is an AI security team from Singularity. Its AI analysts investigate every security alert around the clock, filter out false alarms and open a written case for each real threat. They stop the threat through 2,000+ integrations with your existing tools and ask your team before any serious step."
+            "text": "AutoSecOps is an AI security operations platform from Singularity. AI analysts investigate every security alert around the clock, filter out false alarms and open a case for each real threat. They respond through 2,000+ integrations with your existing tools and ask a person before any critical step."
           }
         },
         {
           "@type": "Question",
-          "name": "Who is AutoSecOps for?",
+          "name": "Can we run it on-premises, or fully air-gapped?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "AutoSecOps is for organizations whose security team gets more alerts than it can review, such as banks, factories, hospitals, defense and government bodies. IT, finance, revenue operations, people, legal and engineering teams can use the same workflows to automate their own work."
+            "text": "Yes. AutoSecOps runs in a managed cloud, on your own servers or fully air-gapped, with no internet connection and the license checked offline. With on-premises deployment and a local model, such as the Singularity Foundation Models, no logs, events or prompts leave your network."
           }
         },
         {
           "@type": "Question",
-          "name": "How is AutoSecOps different from a traditional SOAR?",
+          "name": "If the AI wants to disable an account, who has the final say?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "A traditional SOAR, a tool that automates security response, runs the scripts you write and stops when reality does not match them. AutoSecOps runs predictable workflows for known threats and AI analysts that reason through new ones. Risky actions always wait for a person."
+            "text": "Your team does. AutoSecOps runs read-only lookups on its own, but disabling accounts or isolating devices waits for approval in its inbox or in Slack. The approver sees the exact arguments and can approve, edit or reject. Agent, approver and time are recorded in the case."
           }
         },
         {
           "@type": "Question",
-          "name": "Can AutoSecOps run on-premises or air-gapped?",
+          "name": "Can an attacker hide instructions in an alert to steer the AI?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Yes. AutoSecOps runs in the cloud, in your own datacenter or fully air-gapped, meaning with no connection to the internet. It can run on the Singularity Foundation Models, on your own hardware, so sensitive data never has to leave."
+            "text": "AutoSecOps is built for that attack. Its agents can call only the tools you allow, run in a sandbox with no internet access, and send any change to a person. In a product demo, an email ordering the AI to delete its case failed; the case stayed open."
           }
         },
         {
           "@type": "Question",
-          "name": "How do people stay in control of AutoSecOps?",
+          "name": "Do we have to replace our SIEM and EDR?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "You decide which actions AutoSecOps runs on its own, which need approval and who can approve them. Serious steps, such as disabling an account, wait for a person. Every step is recorded with its evidence, so any decision can be explained later."
+            "text": "No. AutoSecOps works alongside the security tools you already own, reading from them and acting through 2,000+ integrations. Your tools keep raising alerts; AutoSecOps investigates them. If you have no tools yet, Singularity's own EDR, NDR and SIEM sensors can cover the gap."
           }
         }
       ]
@@ -211,17 +211,17 @@
 
 <main>
 
-<!-- ── Hero ────────────────────────────────────────────────────── -->
+<!-- ── The promise ──────────────────────────────────────────────── -->
 <section class="p-hero">
   <div class="p-hero-art paint"><canvas data-art="autosecops" width="1600" height="760" aria-hidden="true"></canvas></div>
   <div class="shell p-hero-inner">
     <nav class="crumbs" aria-label="Breadcrumb"><a href="index.html">Singularity</a><i aria-hidden="true">/</i><a href="index.html#products">Products</a><i aria-hidden="true">/</i><span aria-current="page">AutoSecOps</span></nav>
     <p class="p-kicker"><i></i>AutoSecOps · AI security operations</p>
     <h1 class="p-title"><span class="s">Every alert investigated.</span> <span class="s">Big decisions stay with you.</span></h1>
-    <p class="p-lede">AutoSecOps is an AI security team that works around the clock. It investigates every alert and stops real threats with your approval, through 2,000+ integrations with the tools you already run.</p>
+    <p class="p-lede">AutoSecOps investigates every security alert around the clock, finds the real threats and stops them with your approval. It works through 2,000+ integrations with the tools you already run.</p>
     <div class="hero-actions">
       <a class="btn btn-solid btn-lg" href="https://calendly.com/anill-yagiz/singularity" target="_blank" rel="noopener">Book a demo <span class="chev">›</span></a>
-      <a class="btn btn-ghost btn-lg" href="mailto:anil@singularityrd.com?subject=AutoSecOps%20technical%20brief">Request the technical brief</a>
+      <a class="btn btn-ghost btn-lg" href="#story">See the difference</a>
     </div>
   </div>
 </section>
@@ -229,19 +229,25 @@
 <section class="wrap p-statw" aria-label="Key fact">
   <div class="p-stat">
     <p class="p-stat-v">4,484</p>
-    <p class="p-stat-l">alerts reach the average security team every day. Two-thirds are never reviewed.<small>Vectra AI, State of Threat Detection, 2023</small></p>
+    <p class="p-stat-l">alerts reach the average security team every day. Two-thirds of them are never reviewed.<small>Vectra AI, State of Threat Detection, 2023</small></p>
   </div>
 </section>
 
-<!-- ── The problem ──────────────────────────────────────────────── -->
-<section class="wrap sec" aria-labelledby="problem-h">
-  <p class="sec-tag">The problem</p>
-  <h2 class="sec-title" id="problem-h"><span class="s">Too many alerts.</span> <span class="s">Too few people.</span></h2>
-  <div class="p-cards">
-    <article class="p-card"><p class="p-n">01</p><h3>Most alerts go unread</h3><p>Two-thirds of alerts are never reviewed, and 97% of analysts worry about missing a real attack (Vectra AI, 2023).</p></article>
-    <article class="p-card"><p class="p-n">02</p><h3>Night alerts wait until morning</h3><p>An alert that arrives at night usually sits in the queue. No one looks unless someone is on call.</p></article>
-    <article class="p-card"><p class="p-n">03</p><h3>The trail is scattered</h3><p>Who looked, who approved and what was done sit in different tools. Gathering evidence for an auditor can take days.</p></article>
-  </div>
+<!-- ── The scene: one incident, told twice ──────────────────────── -->
+<section class="wrap sec" id="story" aria-labelledby="scene-h">
+  <p class="sec-tag">The same hours, twice</p>
+  <h2 class="sec-title" id="scene-h">A link clicked at 03:12</h2>
+  <p class="sec-sub">A bank, early Saturday morning. An employee clicks a link in an email warning that their account will be suspended, and types a password into the page.</p>
+  <table class="p-scene">
+    <thead><tr><th scope="col"><span class="sr">Time</span></th><th scope="col">Without AutoSecOps</th><th scope="col">With AutoSecOps</th></tr></thead>
+    <tbody>
+      <tr><th scope="row">03:12</th><td data-k="Without AutoSecOps">Email security flags the click. The alert lands in a queue that nobody watches at night.</td><td data-k="With AutoSecOps">The alert arrives. AutoSecOps removes duplicates and pulls out the link and the sender's domain.</td></tr>
+      <tr><th scope="row">03:14</th><td data-k="Without AutoSecOps">Thousands of alerts sit ahead of it. Most of them will never be opened.</td><td data-k="With AutoSecOps">Threat intelligence flags the domain. The AI writes its verdict: credential phishing, critical.</td></tr>
+      <tr><th scope="row">03:20</th><td data-k="Without AutoSecOps">The password typed into the fake page still works. Nobody knows yet.</td><td data-k="With AutoSecOps">A case opens with the evidence. Suspending the account waits for a yes in Slack.</td></tr>
+      <tr><th scope="row">08:30</th><td data-k="Without AutoSecOps">An analyst arrives and opens five tools to piece together what happened overnight.</td><td data-k="With AutoSecOps">The on-call analyst decided in one click. The team reads one case, start to finish.</td></tr>
+      <tr class="ps-end"><th scope="row">How it ends</th><td data-k="Without AutoSecOps">Hours exposed. The evidence is scattered across five tools.</td><td data-k="With AutoSecOps">Decided before dawn, with every step on record.</td></tr>
+    </tbody>
+  </table>
 </section>
 
 <!-- ── See it work ──────────────────────────────────────────────── -->
@@ -352,81 +358,12 @@
   </div>
 </section>
 
-<!-- ── Bento ────────────────────────────────────────────────────── -->
-<section class="wrap sec" aria-labelledby="bento-h">
-  <p class="sec-tag">Platform</p>
-  <h2 class="sec-title" id="bento-h">Everything your security team needs.</h2>
-  <p class="sec-sub">Investigate, respond and prove what happened — from one place.</p>
-
-  <div class="bento">
-    <article class="card">
-      <div class="art art-prompt" aria-hidden="true">
-        <p class="pr-in" data-typeloop="When someone reports phishing, check it and remove it everywhere">When someone reports phishing, check it and remove it everywhere</p>
-        <p class="pr-out"><span>Trigger</span><span>3 steps</span><span>1 approval</span></p>
-      </div>
-      <h3>Describe it. It’s automated.</h3>
-      <p>Write what you want in plain English and get a working workflow you can review.</p>
-    </article>
-    <article class="card">
-      <div class="art art-approve" aria-hidden="true">
-        <div class="ap-card"><p class="ap-k">Pending approval</p><b>Wipe laptop HR-LT-0077</b><small>Requested by the endpoint agent · 12s ago</small><span class="ap-btns"><i class="yes">Approve</i><i>Deny</i></span></div>
-      </div>
-      <h3>People approve the big moves.</h3>
-      <p>Locking an account or wiping a laptop never happens without a yes from your team.</p>
-    </article>
-    <article class="card">
-      <div class="art art-log" aria-hidden="true">
-        <ul class="log" data-log>
-          <li><i></i>Laptop WS-091 isolated by endpoint agent</li>
-          <li><i></i>3 Okta sessions revoked after phishing</li>
-          <li><i></i>Cloud agent blocked a risky permission</li>
-          <li><i></i>Approval granted by m.kaya for a.demir@</li>
-        </ul>
-      </div>
-      <h3>Every action on record.</h3>
-      <p>Each step, tool call and approval is logged, so you can always explain what happened.</p>
-    </article>
-    <article class="card">
-      <div class="art art-int" aria-hidden="true">
-        <p class="int-grid"><span>CrowdStrike</span><span>Splunk</span><span>Okta</span><span>M365</span><span>AWS</span><span>Palo Alto</span><span>Sentinel</span><span>Slack</span><span>Jira</span></p>
-      </div>
-      <h3>Works with your tools.</h3>
-      <p>2,000+ integrations. AutoSecOps reads from your stack, acts through it and writes results back.</p>
-    </article>
-    <article class="card">
-      <div class="art art-where" aria-hidden="true">
-        <ul class="where"><li>Our cloud</li><li>Your datacenter</li><li>Fully air-gapped</li></ul>
-      </div>
-      <h3>Runs anywhere, even offline.</h3>
-      <p>Singularity Foundation Models run on your own hardware, so sensitive data never leaves.</p>
-    </article>
-    <article class="card">
-      <div class="art art-sensors" aria-hidden="true">
-        <p class="sensors"><span>EDR</span><span>NDR</span><span>SIEM</span><span>XDR</span><span>MDM</span><span>CTI</span></p>
-      </div>
-      <h3>Our own sensors, if you need them.</h3>
-      <p>No security tools yet? Our first-party EDR, NDR and SIEM cover the gap.</p>
-    </article>
-  </div>
-</section>
-
 <!-- ── Workflows ────────────────────────────────────────────────── -->
 <section class="wrap sec" id="workflows" aria-labelledby="workflows-h">
   <span class="anchor" id="soar"></span>
   <p class="sec-tag">Workflows</p>
   <h2 class="sec-title" id="workflows-h">Predictable workflows when you need them.</h2>
   <p class="sec-sub">Known threats run the same way every time. New ones go to an AI agent. Anything big waits for a person.</p>
-
-  <div class="mini">
-    <div><b>2,000+ integrations</b><span>EDR, SIEM, identity, email, cloud and more.</span></div>
-    <div><b>AutoSecOps MCP</b><span>Build and run workflows from your coding agent.</span></div>
-    <div><b>Branches and loops</b><span>Conditions, parallel steps and sub-workflows.</span></div>
-    <div><b>Human in the loop</b><span>Approval steps routed to Slack, Teams or email.</span></div>
-    <div><b>Forms and tables</b><span>Collect input and keep data, with no code.</span></div>
-    <div><b>Workspace chat</b><span>Ask in plain English. It runs the workflow.</span></div>
-    <div><b>Git versioning</b><span>Every change reviewed, versioned and reversible.</span></div>
-    <div><b>SSO, SCIM and RBAC</b><span>Roles, scopes and service accounts built in.</span></div>
-  </div>
 
   <div class="canvas" data-flow-wrap>
     <aside class="events" aria-hidden="true">
@@ -560,74 +497,166 @@
   </div>
 </section>
 
-<!-- ── Everything in the product ────────────────────────────────── -->
-<section class="wrap sec" id="features" aria-labelledby="caps-h">
-  <p class="sec-tag">Features</p>
-  <h2 class="sec-title" id="caps-h">Everything in AutoSecOps</h2>
-  <p class="sec-sub">What AutoSecOps does from the first alert to the audit record, grouped the way your team works.</p>
-  <div class="p-caps">
-    <article class="p-cap"><h3>Alert triage</h3><ul><li>Every alert triaged around the clock: SIEM, EDR, email, identity, cloud</li><li>Duplicates removed, indicators of compromise (IOCs) extracted</li><li>Enrichment from threat intelligence and your own lookup tables</li><li>AI verdict, severity and summary; case opened in the same run</li></ul></article>
-    <article class="p-cap"><h3>Response and approval</h3><ul><li>Read-only lookups and enrichment run without waiting</li><li>Disabling accounts or isolating devices waits for a person</li><li>See each action’s arguments, then approve, edit or reject</li><li>One approval inbox, plus approval buttons in Slack threads</li><li>Recommendation-only mode before automation is switched on</li></ul></article>
-    <article class="p-cap"><h3>AI agents</h3><ul><li>Agents can call only the tools you allow</li><li>Isolated sandbox with no internet access by default</li><li>Instructions hidden in an alert cannot take over the agent</li><li>Token budgets per agent; AI keys stay outside the sandbox</li><li>Workspace chat that works across tables, cases and workflows</li><li>Skill packs: triage, hunting, detection rules, AWS access, incident response, threat intel</li></ul></article>
-    <article class="p-cap"><h3>Workflows</h3><ul><li>Drag-and-drop builder, or describe the playbook in chat</li><li>Triggers: webhooks, schedules, case events, forms, manual runs and API</li><li>Conditions, loops, parallel branches, retries and sub-workflows</li><li>Runs survive restarts; step-by-step history, rerun from any step</li><li>Checks before publishing; locked versions with one-step rollback</li><li>Tables for allowlists, assets and IOCs; forms that start workflows</li><li>Also automates IT, finance, revenue operations, people, legal and engineering work</li></ul></article>
-    <article class="p-cap"><h3>Cases and reporting</h3><ul><li>Built-in cases with status, priority, severity, tags and custom fields</li><li>Tasks, sub-cases, SLA tracking and required fields at closing</li><li>Comments, attachments, activity feed and full version history</li><li>One-click workflows from a case, inputs filled from case data</li><li>Case copilot: AI chat on every case; mention the agent in comments</li><li>Proposing agent, approver and time recorded in the case</li><li>Duration metrics, closing reasons and reports for management</li></ul></article>
-    <article class="p-cap"><h3>Integrations</h3><ul><li>2,000+ integrations: SIEM, EDR, identity, cloud, email, ticketing and chat</li><li>Catalog of Model Context Protocol (MCP) servers, one-click connect</li><li>AutoSecOps MCP server: Claude Code and Cursor manage workflows and cases</li><li>Watchtower: see what coding agents call over MCP, end sessions if needed</li><li>Your own Python actions and playbooks, synced with GitHub, GitLab or Bitbucket</li><li>Tunnels reach internal systems with scoped, short-lived access</li><li>First-party EDR, NDR and SIEM sensors if you have none</li></ul></article>
-    <article class="p-cap"><h3>Deployment and AI models</h3><ul><li>Managed cloud: we handle installation and updates</li><li>On-premises on one server in minutes, or Kubernetes via Helm</li><li>Fully air-gapped: local AI model, license checked offline</li><li>Cloud AI providers: OpenAI, Anthropic, AWS Bedrock, Azure, Google, Mistral, OpenRouter</li><li>Self-hosted AI: Singularity Foundation Models, Ollama, vLLM or LiteLLM</li><li>Setup, configuration and training by our team</li></ul></article>
-    <article class="p-cap"><h3>Access and audit</h3><ul><li>Single sign-on (SAML, OIDC), SCIM user sync and IP allowlists</li><li>Custom roles, scoped permissions and service accounts</li><li>Every action in the audit log; session logs and revocation</li><li>Encrypted secrets with masking, per-environment scope and external vaults</li><li>Audit-ready records for Turkish KVKK, BDDK and Law No. 7545</li><li>Security mapped to OWASP Top 10, LLM and Agentic Top 10</li></ul></article>
+<!-- ── The case, chapter by chapter ─────────────────────────────── -->
+<section class="wrap sec" aria-labelledby="case-h">
+  <p class="sec-tag">Why AutoSecOps</p>
+  <h2 class="sec-title" id="case-h">Six reasons to choose AutoSecOps</h2>
+  <div class="p-chs">
+    <article class="p-ch">
+      <div class="p-ch-l">
+        <p class="p-ch-n">01 · Coverage</p>
+        <h3>No alert waits until morning</h3>
+        <p>Your team cannot read thousands of alerts a day, and night alerts sit until someone logs in. AutoSecOps triages every alert as it arrives, gathers the evidence and writes a verdict. Your analysts start with a case, not a queue.</p>
+      </div>
+      <ul class="p-ch-r"><li>Every alert triaged: SIEM, EDR, email, identity, cloud</li><li>Duplicates removed, indicators of compromise extracted and enriched</li><li>Verdict, severity and written summary inside the case</li><li>Case copilot and workspace chat beside every case</li><li>Skill packs for hunting, detection rules and incident response</li></ul>
+    </article>
+    <article class="p-ch">
+      <div class="p-ch-l">
+        <p class="p-ch-n">02 · Human approval</p>
+        <h3>The AI proposes. Your people make the call.</h3>
+        <p>Nobody wants software disabling accounts on its own. AutoSecOps runs lookups and enrichment without waiting, and holds anything serious, such as disabling an account or isolating a laptop, until a person says yes. You set which actions need approval.</p>
+      </div>
+      <ul class="p-ch-r"><li>Read-only lookups and enrichment run without waiting</li><li>See each action's arguments, then approve, edit or reject</li><li>One approval inbox, plus approval buttons in Slack</li><li>Recommendation-only mode before any automation goes live</li><li>Watchtower shows what coding agents call over MCP</li></ul>
+    </article>
+    <article class="p-ch">
+      <div class="p-ch-l">
+        <p class="p-ch-n">03 · AI safety</p>
+        <h3>A hidden instruction in an alert cannot steer it</h3>
+        <p>In June 2025 a single email hijacked an AI assistant (EchoLeak). Attackers now hide orders to the AI inside their emails. AutoSecOps treats those as part of the attack: its agents use only the tools you allow, and any change still goes to a person.</p>
+      </div>
+      <ul class="p-ch-r"><li>Agents can call only the tools you allow</li><li>Isolated sandbox with no internet access by default</li><li>AI keys stay outside the sandbox; token budget per agent</li><li>Mapped to OWASP Top 10, LLM and Agentic Top 10</li></ul>
+    </article>
+    <article class="p-ch">
+      <div class="p-ch-l">
+        <p class="p-ch-n">04 · Speed</p>
+        <h3>New tools and playbooks in minutes, not weeks</h3>
+        <p>Connecting a new tool used to mean API documents, code and testing. A new playbook, a written response plan, needed a developer. With AutoSecOps you pick an integration and enter a key, then draw the playbook or describe it in plain words.</p>
+      </div>
+      <ul class="p-ch-r"><li>2,000+ integrations across SIEM, EDR, identity, cloud and chat</li><li>Drag-and-drop builder, or describe the playbook in chat</li><li>Runs survive restarts; rerun from any step</li><li>Locked versions, checks before publishing, one-step rollback</li><li>Your own Python actions, synced from GitHub, GitLab or Bitbucket</li></ul>
+    </article>
+    <article class="p-ch">
+      <div class="p-ch-l">
+        <p class="p-ch-n">05 · Audit</p>
+        <h3>When the auditor asks, the answer is already written</h3>
+        <p>KVKK (Turkish data protection law), BDDK (the Turkish banking regulator) and Cybersecurity Law No. 7545 want proof of response, and so do DORA and NIS2 in the EU. AutoSecOps records who proposed, who approved and when, in the case itself.</p>
+      </div>
+      <ul class="p-ch-r"><li>Proposing agent, approver and timestamp in every case</li><li>Every action in the audit log, with audit webhooks</li><li>SLA tracking, duration metrics and reports for management</li><li>Single sign-on, SCIM, custom roles and IP allowlists</li><li>Encrypted secrets with masking and external vaults</li></ul>
+    </article>
+    <article class="p-ch">
+      <div class="p-ch-l">
+        <p class="p-ch-n">06 · Your infrastructure</p>
+        <h3>Your alerts and prompts can stay in your building</h3>
+        <p>Many banks and public bodies cannot send logs to someone else's cloud. Deploy AutoSecOps on-premises with a local AI model, and no logs, events or prompts leave your network. Choose a cloud AI provider instead, and prompts go to that provider.</p>
+      </div>
+      <ul class="p-ch-r"><li>One server in minutes, or Kubernetes via Helm</li><li>Fully air-gapped, with the license checked offline</li><li>Local models: Singularity Foundation Models, Ollama, vLLM, LiteLLM</li><li>Tunnels reach internal systems with short-lived access</li><li>First-party EDR, NDR and SIEM sensors if you have none</li></ul>
+    </article>
   </div>
-  <dl class="p-specs">
-    <div><dt>Deployment</dt><dd>Managed cloud, on-premises (single server or Kubernetes) or fully air-gapped</dd></div>
-    <div><dt>Works with</dt><dd>2,000+ integrations across SIEM, EDR, identity, cloud, email, ticketing and chat</dd></div>
-    <div><dt>AI models</dt><dd>Singularity Foundation Models, major cloud AI providers or self-hosted models via Ollama, vLLM, LiteLLM</dd></div>
-    <div><dt>Access control</dt><dd>Single sign-on, SCIM, custom roles, IP allowlists and a full audit log</dd></div>
-    <div><dt>Evidence for</dt><dd>KVKK (Turkish data protection), BDDK (banking regulator) and Law No. 7545</dd></div>
-    <div><dt>Data</dt><dd>Platform and AI stay on your network with on-premises deployment and a local model</dd></div>
-  </dl>
 </section>
 
-<!-- ── Who it is for ────────────────────────────────────────────── -->
-<section class="wrap sec" aria-labelledby="fit-h">
-  <p class="sec-tag">Who it is for</p>
-  <h2 class="sec-title" id="fit-h">Who AutoSecOps is for</h2>
-  <div class="p-fit">
-    <div><p class="p-fit-k">Built for</p><ul class="p-chips"><li>Security operations teams</li><li>CISOs and IT managers</li><li>Banks and fintech</li><li>Defense and government</li><li>Factories and utilities</li><li>IT, finance and people teams</li></ul></div>
-    <div><p class="p-fit-k">Works with</p><ul class="p-chips"><li>CrowdStrike</li><li>SentinelOne</li><li>Splunk</li><li>Microsoft Sentinel</li><li>Palo Alto</li><li>Okta</li><li>Microsoft 365</li><li>Slack</li><li>2,000+ more</li></ul></div>
+<!-- ── Before and after ─────────────────────────────────────────── -->
+<section class="wrap sec" aria-labelledby="shift-h">
+  <p class="sec-tag">Before and after</p>
+  <h2 class="sec-title" id="shift-h">From weeks to minutes</h2>
+  <table class="p-shift">
+    <thead><tr><th scope="col"><span class="sr">What</span></th><th scope="col">Before</th><th scope="col">With AutoSecOps</th></tr></thead>
+    <tbody>
+      <tr><th scope="row">Connect a new tool</th><td data-k="Before">Weeks of API documents, code and testing</td><td data-k="With AutoSecOps">Minutes: pick an integration, enter your key</td></tr>
+      <tr><th scope="row">New playbook</th><td data-k="Before">Weeks: a developer writes and deploys a script</td><td data-k="With AutoSecOps">Minutes: drag and drop, or describe it</td></tr>
+      <tr><th scope="row">Night alert</th><td data-k="Before">Waits until morning unless someone is on call</td><td data-k="With AutoSecOps">Investigated at once, case and summary ready</td></tr>
+      <tr><th scope="row">Audit evidence</th><td data-k="Before">Days, gathered from emails and tickets</td><td data-k="With AutoSecOps">Ready: who, what and when, in the case</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- ── Where it stops ───────────────────────────────────────────── -->
+<section class="wrap sec" aria-labelledby="limits-h">
+  <p class="sec-tag">Straight talk</p>
+  <h2 class="sec-title" id="limits-h">What AutoSecOps will not do</h2>
+  <div class="p-limits" style="--n: 4">
+    <article class="p-limit"><span class="p-no" aria-hidden="true"></span><h3>Act on critical steps alone</h3><p>Disabling an account or isolating a device always waits for a person. The agent shows what it wants to do and someone decides.</p></article>
+    <article class="p-limit"><span class="p-no" aria-hidden="true"></span><h3>Use tools you never allowed</h3><p>An agent cannot call a tool outside its preset, and its sandbox cannot reach the internet by default.</p></article>
+    <article class="p-limit"><span class="p-no" aria-hidden="true"></span><h3>Replace your security tools</h3><p>Your SIEM, EDR and identity tools stay in place. AutoSecOps works alongside them and acts through them.</p></article>
+    <article class="p-limit"><span class="p-no" aria-hidden="true"></span><h3>Keep prompts in-house on cloud AI</h3><p>Data stays on your network only with on-premises deployment and a local model. A cloud AI provider receives the prompts sent to it.</p></article>
   </div>
 </section>
 
-<!-- ── FAQ ──────────────────────────────────────────────────────── -->
+<!-- ── How you start ────────────────────────────────────────────── -->
+<section class="wrap sec" aria-labelledby="pilot-h">
+  <p class="sec-tag">How you start</p>
+  <h2 class="sec-title" id="pilot-h">A pilot on your own alerts</h2>
+  <ol class="p-steps" style="--n: 4">
+    <li><b>1</b><h3>Pick the alerts</h3><p>Together we choose your most frequent alerts, their sources and responses, and write the success criteria.</p></li>
+    <li><b>2</b><h3>Install and connect</h3><p>We install AutoSecOps on your infrastructure and connect your SIEM, EDR and identity tools.</p></li>
+    <li><b>3</b><h3>Recommend first</h3><p>The first playbooks run in recommendation-only mode. We measure before and after with your own alerts.</p></li>
+    <li><b>4</b><h3>Switch on automation</h3><p>We set the approval rules with you and deliver the results in a report ready for management.</p></li>
+  </ol>
+</section>
+
+<!-- ── The questions buyers ask ─────────────────────────────────── -->
 <section class="wrap sec" id="faq" aria-labelledby="faq-h">
+  <p class="sec-tag">Questions buyers ask</p>
   <h2 class="sec-title" id="faq-h">Questions about AutoSecOps</h2>
   <div class="faq">
     <details class="faq-item" open>
-      <summary><h3>What is AutoSecOps?</h3><span class="faq-mark" aria-hidden="true"></span></summary>
-      <p>AutoSecOps is an AI security team from Singularity. Its AI analysts investigate every security alert around the clock, filter out false alarms and open a written case for each real threat. They stop the threat through 2,000+ integrations with your existing tools and ask your team before any serious step.</p>
+      <summary><h3>What exactly is AutoSecOps?</h3><span class="faq-mark" aria-hidden="true"></span></summary>
+      <p>AutoSecOps is an AI security operations platform from Singularity. AI analysts investigate every security alert around the clock, filter out false alarms and open a case for each real threat. They respond through 2,000+ integrations with your existing tools and ask a person before any critical step.</p>
     </details>
     <details class="faq-item">
-      <summary><h3>Who is AutoSecOps for?</h3><span class="faq-mark" aria-hidden="true"></span></summary>
-      <p>AutoSecOps is for organizations whose security team gets more alerts than it can review, such as banks, factories, hospitals, defense and government bodies. IT, finance, revenue operations, people, legal and engineering teams can use the same workflows to automate their own work.</p>
+      <summary><h3>Can we run it on-premises, or fully air‑gapped?</h3><span class="faq-mark" aria-hidden="true"></span></summary>
+      <p>Yes. AutoSecOps runs in a managed cloud, on your own servers or fully air-gapped, with no internet connection and the license checked offline. With on-premises deployment and a local model, such as the Singularity Foundation Models, no logs, events or prompts leave your network.</p>
     </details>
     <details class="faq-item">
-      <summary><h3>How is AutoSecOps different from a traditional SOAR?</h3><span class="faq-mark" aria-hidden="true"></span></summary>
-      <p>A traditional SOAR, a tool that automates security response, runs the scripts you write and stops when reality does not match them. AutoSecOps runs predictable workflows for known threats and AI analysts that reason through new ones. Risky actions always wait for a person.</p>
+      <summary><h3>If the AI wants to disable an account, who has the final say?</h3><span class="faq-mark" aria-hidden="true"></span></summary>
+      <p>Your team does. AutoSecOps runs read-only lookups on its own, but disabling accounts or isolating devices waits for approval in its inbox or in Slack. The approver sees the exact arguments and can approve, edit or reject. Agent, approver and time are recorded in the case.</p>
     </details>
     <details class="faq-item">
-      <summary><h3>Can AutoSecOps run on-premises or air‑gapped?</h3><span class="faq-mark" aria-hidden="true"></span></summary>
-      <p>Yes. AutoSecOps runs in the cloud, in your own datacenter or fully air-gapped, meaning with no connection to the internet. It can run on the Singularity Foundation Models, on your own hardware, so sensitive data never has to leave.</p>
+      <summary><h3>Can an attacker hide instructions in an alert to steer the AI?</h3><span class="faq-mark" aria-hidden="true"></span></summary>
+      <p>AutoSecOps is built for that attack. Its agents can call only the tools you allow, run in a sandbox with no internet access, and send any change to a person. In a product demo, an email ordering the AI to delete its case failed; the case stayed open.</p>
     </details>
     <details class="faq-item">
-      <summary><h3>How do people stay in control of AutoSecOps?</h3><span class="faq-mark" aria-hidden="true"></span></summary>
-      <p>You decide which actions AutoSecOps runs on its own, which need approval and who can approve them. Serious steps, such as disabling an account, wait for a person. Every step is recorded with its evidence, so any decision can be explained later.</p>
+      <summary><h3>Do we have to replace our SIEM and EDR?</h3><span class="faq-mark" aria-hidden="true"></span></summary>
+      <p>No. AutoSecOps works alongside the security tools you already own, reading from them and acting through 2,000+ integrations. Your tools keep raising alerts; AutoSecOps investigates them. If you have no tools yet, Singularity's own EDR, NDR and SIEM sensors can cover the gap.</p>
     </details>
   </div>
 </section>
 
-<!-- ── Contact ──────────────────────────────────────────────────── -->
+<!-- ── The full list, for the evaluation team ───────────────────── -->
+<section class="wrap sec" id="features" aria-labelledby="caps-h">
+  <details class="p-sheet">
+    <summary><span><b id="caps-h">Every feature of AutoSecOps</b><small>The full list for your evaluation team: 48 capabilities in 8 groups.</small></span><i class="p-sheet-mark" aria-hidden="true"></i></summary>
+    <div class="p-sheet-in">
+      <div class="p-caps">
+        <article class="p-cap"><h3>Alert triage</h3><ul><li>Every alert triaged around the clock: SIEM, EDR, email, identity, cloud</li><li>Duplicates removed, indicators of compromise (IOCs) extracted</li><li>Enrichment from threat intelligence and your own lookup tables</li><li>AI verdict, severity and summary; case opened in the same run</li></ul></article>
+        <article class="p-cap"><h3>Response and approval</h3><ul><li>Read-only lookups and enrichment run without waiting</li><li>Disabling accounts or isolating devices waits for a person</li><li>See each action’s arguments, then approve, edit or reject</li><li>One approval inbox, plus approval buttons in Slack threads</li><li>Recommendation-only mode before automation is switched on</li></ul></article>
+        <article class="p-cap"><h3>AI agents</h3><ul><li>Agents can call only the tools you allow</li><li>Isolated sandbox with no internet access by default</li><li>Instructions hidden in an alert cannot take over the agent</li><li>Token budgets per agent; AI keys stay outside the sandbox</li><li>Workspace chat that works across tables, cases and workflows</li><li>Skill packs: triage, hunting, detection rules, AWS access, incident response, threat intel</li></ul></article>
+        <article class="p-cap"><h3>Workflows</h3><ul><li>Drag-and-drop builder, or describe the playbook in chat</li><li>Triggers: webhooks, schedules, case events, forms, manual runs and API</li><li>Conditions, loops, parallel branches, retries and sub-workflows</li><li>Runs survive restarts; step-by-step history, rerun from any step</li><li>Checks before publishing; locked versions with one-step rollback</li><li>Tables for allowlists, assets and IOCs; forms that start workflows</li><li>Also automates IT, finance, revenue operations, people, legal and engineering work</li></ul></article>
+        <article class="p-cap"><h3>Cases and reporting</h3><ul><li>Built-in cases with status, priority, severity, tags and custom fields</li><li>Tasks, sub-cases, SLA tracking and required fields at closing</li><li>Comments, attachments, activity feed and full version history</li><li>One-click workflows from a case, inputs filled from case data</li><li>Case copilot: AI chat on every case; mention the agent in comments</li><li>Proposing agent, approver and time recorded in the case</li><li>Duration metrics, closing reasons and reports for management</li></ul></article>
+        <article class="p-cap"><h3>Integrations</h3><ul><li>2,000+ integrations: SIEM, EDR, identity, cloud, email, ticketing and chat</li><li>Catalog of Model Context Protocol (MCP) servers, one-click connect</li><li>AutoSecOps MCP server: Claude Code and Cursor manage workflows and cases</li><li>Watchtower: see what coding agents call over MCP, end sessions if needed</li><li>Your own Python actions and playbooks, synced with GitHub, GitLab or Bitbucket</li><li>Tunnels reach internal systems with scoped, short-lived access</li><li>First-party EDR, NDR and SIEM sensors if you have none</li></ul></article>
+        <article class="p-cap"><h3>Deployment and AI models</h3><ul><li>Managed cloud: we handle installation and updates</li><li>On-premises on one server in minutes, or Kubernetes via Helm</li><li>Fully air-gapped: local AI model, license checked offline</li><li>Cloud AI providers: OpenAI, Anthropic, AWS Bedrock, Azure, Google, Mistral, OpenRouter</li><li>Self-hosted AI: Singularity Foundation Models, Ollama, vLLM or LiteLLM</li><li>Setup, configuration and training by our team</li></ul></article>
+        <article class="p-cap"><h3>Access and audit</h3><ul><li>Single sign-on (SAML, OIDC), SCIM user sync and IP allowlists</li><li>Custom roles, scoped permissions and service accounts</li><li>Every action in the audit log; session logs and revocation</li><li>Encrypted secrets with masking, per-environment scope and external vaults</li><li>Audit-ready records for Turkish KVKK, BDDK and Law No. 7545</li><li>Security mapped to OWASP Top 10, LLM and Agentic Top 10</li></ul></article>
+      </div>
+      <dl class="p-specs">
+        <div><dt>Deployment</dt><dd>Managed cloud, on-premises (single server or Kubernetes) or fully air-gapped</dd></div>
+        <div><dt>Works with</dt><dd>2,000+ integrations across SIEM, EDR, identity, cloud, email, ticketing and chat</dd></div>
+        <div><dt>AI models</dt><dd>Singularity Foundation Models, major cloud AI providers or self-hosted models via Ollama, vLLM, LiteLLM</dd></div>
+        <div><dt>Access control</dt><dd>Single sign-on, SCIM, custom roles, IP allowlists and a full audit log</dd></div>
+        <div><dt>Evidence for</dt><dd>KVKK (Turkish data protection), BDDK (banking regulator) and Law No. 7545</dd></div>
+        <div><dt>Data</dt><dd>Platform and AI stay on your network with on-premises deployment and a local model</dd></div>
+      </dl>
+      <div class="p-fit">
+        <div><p class="p-fit-k">Built for</p><ul class="p-chips"><li>Security operations teams</li><li>CISOs and IT managers</li><li>Banks and fintech</li><li>Defense and government</li><li>Factories and utilities</li><li>IT, finance and people teams</li></ul></div>
+        <div><p class="p-fit-k">Works with</p><ul class="p-chips"><li>CrowdStrike</li><li>SentinelOne</li><li>Splunk</li><li>Microsoft Sentinel</li><li>Palo Alto</li><li>Okta</li><li>Microsoft 365</li><li>Slack</li><li>2,000+ more</li></ul></div>
+      </div>
+    </div>
+  </details>
+</section>
+
+<!-- ── The close ────────────────────────────────────────────────── -->
 <section class="wrap sec" id="contact" aria-labelledby="contact-h">
   <div class="p-cta">
     <p class="sec-tag">Book a demo</p>
     <h2 class="cta-title" id="contact-h">See AutoSecOps on your own alerts</h2>
-    <p>Book a demo, or start with a pilot in your environment. We measure before and after together, with your own alerts.</p>
+    <p>Start with a pilot in your environment. We measure before and after together, with your own alerts and your own approval rules.</p>
     <div class="hero-actions">
       <a class="btn btn-solid btn-lg" href="https://calendly.com/anill-yagiz/singularity" target="_blank" rel="noopener">Book a demo <span class="chev">›</span></a>
       <a class="btn btn-ghost btn-lg" href="mailto:anil@singularityrd.com?subject=AutoSecOps%20technical%20brief">Request the technical brief</a>
@@ -637,7 +666,7 @@
   <nav class="p-more" aria-label="More from Singularity">
     <p>More from Singularity</p>
     <a href="foundation-models.html"><b>Singularity Foundation Models</b><span>Our own AI models</span></a>
-    <a href="aidr.html"><b>AIDR</b><span>AI agent security</span></a>
+    <a href="aidr.html"><b>AIDR</b><span>Security for AI</span></a>
     <a href="it-ops.html"><b>IT Ops</b><span>AI on-call engineer</span></a>
     <a href="breakpoint.html"><b>Breakpoint</b><span>AI pentester</span></a>
     <a href="fennec.html"><b>Fennec</b><span>Code security scanner</span></a>
@@ -672,6 +701,12 @@
         <p><b>Türkiye</b>Singularity Arge Siber Güvenlik ve Yapay Zeka Teknoloji A.Ş.</p>
         <p><b>South Korea</b>Singularity Korea</p>
       </div>
+    </nav>
+  </div>
+  <div class="world">
+    <div class="footer-art paint"><canvas data-art="world" width="2400" height="620" aria-hidden="true"></canvas></div>
+    <nav class="world-nav" aria-label="Products in the picture">
+      <a href="autosecops.html" style="--x: 7.2%">AutoSecOps</a><a href="aidr.html" style="--x: 21.5%">AIDR</a><a href="it-ops.html" style="--x: 36.6%">IT Ops</a><a href="breakpoint.html" style="--x: 50%">Breakpoint</a><a href="fennec.html" style="--x: 64%">Fennec</a><a href="sonar.html" style="--x: 77.6%">Sonar</a><a href="robodr.html" style="--x: 92.5%">RoboDR</a>
     </nav>
   </div>
   <div class="shell">

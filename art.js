@@ -1,19 +1,22 @@
-/* Generative paintings for the homepage.
+/* Generative paintings.
  *
  * Every <canvas data-art="name"> is painted in the browser from a fixed seed:
  * a few thousand short pastel strokes laid down the way a painter would, sky
- * first, then clouds, then land, then the one object that tells the product's
- * story. There are no image files to download.
+ * first, then clouds, then land, then the one object that tells the story.
+ * There are no image files to download.
  *
- * The strokes are recorded first and replayed over a few seconds when the
- * canvas scrolls into view, so each picture is painted in front of the viewer.
- * After that a second, transparent canvas keeps its lights alive: a glow that
- * breathes, stars that twinkle, rings that spread. With reduced motion the
- * picture simply appears, finished and still. */
+ * A picture is never seen being built. It is prepared off screen, fades in
+ * finished, and then lives: clouds drift, a beam sways, a corona turns
+ * (sheets of the same painting, moved by CSS), while a small canvas on top
+ * keeps the lights going (stars, glows, water, a shooting star). With reduced
+ * motion the picture is one still canvas. */
 (function () {
   'use strict';
   var list = [].slice.call(document.querySelectorAll('canvas[data-art]'));
   if (!list.length) return;
+  var still = window.matchMedia('(prefers-reduced-motion: reduce)').matches || !('IntersectionObserver' in window);
+  /* Phones get lighter canvases: the same pictures at 70% of the pixels. */
+  var RES = (window.innerWidth || 1200) < 700 ? 0.7 : 1;
 
   var TAU = Math.PI * 2, HALF = Math.PI / 2;
   function clamp(v, a, b) { return v < a ? a : v > b ? b : v; }
@@ -47,7 +50,9 @@
 
   /* ── The painter: one canvas, one seeded hand ─────────────────────────── */
   function painter(cv, seed) {
-    var real = cv.getContext('2d'), ctx = recorder(real), W = cv.width, H = cv.height, u = Math.min(W, H) / 460, s = seed >>> 0, effects = [];
+    var real = cv.getContext('2d'), W = cv.width, H = cv.height, u = Math.min(W, H) / 460, s = seed >>> 0, effects = [], cuts = [], grained = false;
+    if (RES < 1) { cv.width = Math.round(W * RES); cv.height = Math.round(H * RES); real = cv.getContext('2d'); real.scale(RES, RES); }
+    var ctx = recorder(real);
     function R() { s = s + 0x6D2B79F5 | 0; var t = Math.imul(s ^ s >>> 15, 1 | s); t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t; return ((t ^ t >>> 14) >>> 0) / 4294967296; }
     function rr(a, b) { return a + (b - a) * R(); }
     var tab = [], i;
@@ -235,11 +240,12 @@
     function moon(x, y, r, c) { glow(x, y, r * 5, c, 0.26); disc(x, y, r, c, mix(c, '#9fb0d0', 0.4), 280); }
     function sun(x, y, r, core, halo) { glow(x, y, r * 6.5, halo, 0.6); glow(x, y, r * 2.4, core, 0.85); disc(x, y, r, '#ffffff', core, 520); }
     /* The singularity: a black disc with a painted corona. */
-    function eclipse(cx, cy, r, core, corona) {
+    function eclipse(cx, cy, r, core, corona, spin) {
       core = C(core); corona = C(corona);
       var k, a, d;
       glow(cx, cy, r * 5.2, corona, 0.5);
       glow(cx, cy, r * 2.2, core, 0.55);
+      if (spin) layer(spin);
       light(function () {
         for (k = 0; k < 900; k++) {
           a = R() * TAU;
@@ -248,6 +254,7 @@
           dab(cx + Math.cos(a) * d, cy + Math.sin(a) * d, r * rr(0.25, 0.95) * (1.25 - far * 0.6), a + rr(-0.1, 0.1), rr(1.4, 4) * u, vary(mix(core, corona, clamp(far * 1.4, 0, 1)), 18), rr(0.1, 0.42) * (1 - far * 0.8), true);
         }
       });
+      if (spin) layer({ kind: 'still', box: [cx - r * 1.5, cy - r * 1.5, cx + r * 1.5, cy + r * 1.5] });
       ctx.fillStyle = '#04040b';
       ctx.beginPath();
       ctx.arc(cx, cy, r * 0.985, 0, TAU);
@@ -260,6 +267,7 @@
         a = R() * TAU;
         dab(cx + Math.cos(a) * r, cy + Math.sin(a) * r, r * rr(0.12, 0.36), a + HALF, rr(1.3, 3) * u, vary(core, 10), rr(0.45, 0.95), false);
       }
+      if (spin) layer();
     }
     function beam(x, y, ang, len, spread, c) {
       c = C(c);
@@ -492,13 +500,16 @@
       });
       glow(cx, cy, 44 * u, c, 0.5);
     }
-    function factory(x, base, k, dark, lite, win) {
+    function factory(x, base, k, dark, lite, win, smoke) {
       var hw = 230 * k, hh = 64 * k, teeth = 4, tw = hw / teeth, hall = [[x, base], [x, base - hh]], j;
       for (j = 0; j < teeth; j++) { hall.push([x + j * tw + tw * 0.72, base - hh - 26 * k]); hall.push([x + (j + 1) * tw, base - hh]); }
       hall.push([x + hw, base]);
-      [[hw + 96, 196], [hw + 134, 150]].forEach(function (q) {
+      var stacks = [[hw + 96, 196], [hw + 134, 150]];
+      if (smoke) layer(smoke);
+      stacks.forEach(function (q) { cloud(x + q[0] * k + 40 * k, base - q[1] * k - 14 * k, 96 * k, 46 * k, { lit: '#6fb7a8', shade: '#143b44', rim: '#d6f5e0', lx: -0.6, ly: -0.5 }, 7); });
+      if (smoke) layer();
+      stacks.forEach(function (q) {
         var cx = x + q[0] * k, ch = q[1] * k;
-        cloud(cx + 40 * k, base - ch - 14 * k, 96 * k, 46 * k, { lit: '#6fb7a8', shade: '#143b44', rim: '#d6f5e0', lx: -0.6, ly: -0.5 }, 7);
         fillPoly([[cx - 9 * k, base], [cx - 6.5 * k, base - ch], [cx + 6.5 * k, base - ch], [cx + 9 * k, base]], dark, lite, { den: 20, len: 0.5, hatch: 1.5, grad: 'x' });
         dab(cx, base - ch + 14 * k, 13 * k, 0, 5 * k, C('#d9584a'), 0.9, false);
         dab(cx, base - ch + 30 * k, 13.6 * k, 0, 5 * k, C('#e8ecea'), 0.7, false);
@@ -677,6 +688,7 @@
     /* Paper tooth, a soft vignette and fine grain to finish. */
     function finish() {
       var k;
+      grained = true;
       for (k = 0; k < W * H / 240; k++) {
         ctx.fillStyle = R() < 0.6 ? css([6, 7, 12], rr(0.05, 0.2)) : css([255, 244, 230], rr(0.03, 0.1));
         ctx.fillRect(rr(0, W), rr(0, H), rr(0.6, 2.2) * u, rr(0.6, 2.2) * u);
@@ -704,38 +716,69 @@
 
     /* A light to keep alive once the picture is done (see FX below). */
     function fx() { effects.push([].slice.call(arguments)); }
-    /* Replays the recorded strokes over ms milliseconds, quickly at first and
-       slowly at the end, so the subject arrives last and can be watched. */
-    function play(ms, done) {
-      var ops = ctx.ops, n = ops.length, i = 0, start = 0, ended = false;
-      function run(to) {
-        for (; i < to; i++) {
-          var o = ops[i];
-          if (typeof real[o[0]] === 'function') real[o[0]].apply(real, o[1]); else real[o[0]] = o[1];
+    /* Everything painted after this call goes on a sheet of its own. Given a
+       motion, the sheet moves (clouds drift, a beam sways, a corona turns; the
+       art-* animations live in home.css). Given nothing, it is a still sheet
+       laid over whatever moves beneath it.
+       m = { kind, amt, dur, delay, lo, at: [x, y], box: [x0, y0, x1, y1], blend, res } */
+    function layer(m) { cuts.push({ at: ctx.ops.length, m: m || null }); }
+    function pct(v) { return (v * 100).toFixed(3) + '%'; }
+    function sheet(stage, m) {
+      var pad = m && m.kind !== 'still' && !m.box ? 0.04 : 0;
+      var box = (m && m.box) || [-W * pad, -H * pad, W * (1 + pad), H * (1 + pad)];
+      var bw = box[2] - box[0], bh = box[3] - box[1], k = RES * ((m && m.res) || 1), c = document.createElement('canvas'), g;
+      c.width = Math.ceil(bw * k);
+      c.height = Math.ceil(bh * k);
+      c.setAttribute('aria-hidden', 'true');
+      c.className = m && m.kind !== 'still' ? 'lay m-' + m.kind + (m.blend ? ' b-screen' : '') : 'top';
+      c.style.cssText = 'left:' + pct(box[0] / W) + ';top:' + pct(box[1] / H) + ';width:' + pct(bw / W) + ';height:' + pct(bh / H) + ';right:auto;bottom:auto';
+      if (m) {
+        if (m.amt != null) c.style.setProperty('--amt', m.amt);
+        if (m.dur) c.style.setProperty('--dur', m.dur + 's');
+        if (m.delay) c.style.setProperty('--delay', m.delay + 's');
+        if (m.lo != null) c.style.setProperty('--lo', m.lo);
+        if (m.at) c.style.transformOrigin = pct((m.at[0] - box[0]) / bw) + ' ' + pct((m.at[1] - box[1]) / bh);
+      }
+      stage.appendChild(c);
+      g = c.getContext('2d');
+      g.scale(k, k);
+      g.translate(-box[0], -box[1]);
+      return g;
+    }
+    /* Lays the recorded strokes down: the first run on the canvas itself, each
+       later run on its own sheet. The work is cut into short slices so the
+       page stays smooth; the stage is shown only when the picture is whole. */
+    function render(stage, done) {
+      var ops = ctx.ops, plan = [], prev = 0, cur = null, target = real, moved = false, pi = 0, i = 0;
+      cuts.push({ at: ops.length, m: null });
+      cuts.forEach(function (c) {
+        if (c.at > prev) {
+          if (cur && !still) { target = sheet(stage, cur); moved = true; }
+          else if (moved) { target = sheet(stage, null); moved = false; }
+          plan.push([target, prev, c.at]);
         }
-      }
-      function end() {
-        if (ended) return;
-        ended = true;
-        run(n);
-        ctx.ops.length = 0;
-        if (done) done();
-      }
-      if (!ms) { end(); return; }
-      function frame(now) {
-        if (ended) return;
-        if (!start) start = now;
-        var t = Math.min(1, (now - start) / ms);
-        run(Math.ceil(n * (1 - Math.pow(1 - t, 2.4))));
-        if (t < 1) requestAnimationFrame(frame); else end();
-      }
-      requestAnimationFrame(frame);
-      /* If frames never come (a background tab), finish the picture anyway. */
-      setTimeout(end, ms + 1500);
+        prev = c.at;
+        cur = c.m;
+      });
+      (function step() {
+        var t0 = Date.now();
+        while (pi < plan.length) {
+          var g = plan[pi][0], end = plan[pi][2];
+          if (i < plan[pi][1]) i = plan[pi][1];
+          for (; i < end; i++) {
+            var o = ops[i];
+            if (typeof g[o[0]] === 'function') g[o[0]].apply(g, o[1]); else g[o[0]] = o[1];
+            if ((i & 127) === 127 && Date.now() - t0 > 8) { i++; setTimeout(step, 0); return; }
+          }
+          pi++;
+        }
+        ops.length = 0;
+        done();
+      })();
     }
 
     return {
-      play: play, fx: fx, effects: effects,
+      render: render, layer: layer, fx: fx, effects: effects, finished: function () { return grained; },
       W: W, H: H, u: u, fbm: fbm, sky: sky, stars: stars, bands: bands, cloud: cloud, water: water, ridge: ridge, groundAt: groundAt,
       skyline: skyline, moon: moon, sun: sun, eclipse: eclipse, beam: beam, lighthouse: lighthouse, dome: dome, strike: strike,
       tower: tower, wall: wall, crack: crack, keyhole: keyhole, spill: spill, person: person, fox: fox, robot: robot, shield: shield, rings: rings, factory: factory, finish: finish,
@@ -743,7 +786,10 @@
     };
   }
 
-  /* ── The paintings ────────────────────────────────────────────────────── */
+  /* ── The paintings ──────────────────────────────────────────────────────
+     Each scene paints back to front. p.layer({...}) starts a sheet that moves;
+     p.layer() goes back to a still one. A scene that ends with moving lights
+     calls p.finish() itself, before them, so the paper grain stays beneath. */
   var SCENES = {
     /* Offense-proven: the wall, and the way in that was opened for us. */
     gate: function (p, W, H, u) {
@@ -751,39 +797,52 @@
       p.stars(130, H * 0.3);
       p.wall(-20, W + 20, H * 0.31, H * 0.85, '#090c1d', '#222b52', '#8fa6d8');
       p.keyhole(W * 0.56, H * 0.47, 33 * u, '#ffe9b0', '#ff9a4a');
+      p.layer({ kind: 'drift', amt: '2.4%', dur: 52, res: 0.7 });
+      p.bands(H * 0.79, 22 * u, 54, '#8fa6d8', 0.34);
+      p.layer();
       p.ridge(H * 0.85, H * 0.015, 2, 3.7, '#06080f', '#181f3c', { rim: '#c98f5a' });
       p.spill(W * 0.56, H * 0.855, 38 * u, H * 0.14, '#ffd89a');
       p.person(W * 0.46, H * 0.885, 1.5 * u, '#02030a', '#ffd89a');
       p.fx('twinkle', 26, H * 0.3, 11);
+      p.fx('meteor', H * 0.27, 11, 3);
       p.fx('pulse', W * 0.56, H * 0.47 + 40 * u, 190 * u, [255, 176, 96], 1.6, 0.08, 0.26);
     },
     /* The model: a singularity rising over the range. */
     model: function (p, W, H, u) {
+      var cx = W * 0.5, cy = H * 0.36, r = 74 * u, R = r * 4.4;
       p.sky([[0, '#05071a'], [0.42, '#16184a'], [0.7, '#4a2f78'], [0.88, '#c9736f'], [1, '#f7c796']], H * 0.76);
       p.stars(170, H * 0.52);
-      p.eclipse(W * 0.5, H * 0.36, 74 * u, '#fff1d8', '#f2a37c');
+      p.eclipse(cx, cy, r, '#fff1d8', '#f2a37c', { kind: 'spin', dur: 280, at: [cx, cy], box: [cx - R, cy - R, cx + R, cy + R], blend: true, res: 0.8 });
+      p.layer({ kind: 'drift', amt: '1.6%', dur: 58, res: 0.7 });
       p.bands(H * 0.66, 26 * u, 60, '#f0a98c', 0.55);
       p.bands(H * 0.58, 20 * u, 30, '#8a5a9a', 0.4);
+      p.layer();
       p.ridge(H * 0.76, H * 0.2, 2.1, 3.1, '#1b1640', '#4e3b82', { rim: '#f5b48e' });
       p.ridge(H * 0.87, H * 0.14, 3.0, 9.4, '#0d0b22', '#2c2456', { rim: '#b77e92' });
       p.ridge(H * 1.0, H * 0.11, 4.2, 21.7, '#05050f', '#16122c');
       p.fx('twinkle', 40, H * 0.5, 12);
-      p.fx('pulse', W * 0.5, H * 0.36, 310 * u, [242, 163, 124], 1.1, 0.06, 0.24);
+      p.fx('meteor', H * 0.3, 13, 5);
+      p.fx('pulse', cx, cy, 310 * u, [242, 163, 124], 1.1, 0.06, 0.24);
     },
     /* AutoSecOps: the lighthouse that watches a sleeping city. */
     autosecops: function (p, W, H, u) {
       p.sky([[0, '#030d14'], [0.5, '#0a2c35'], [0.84, '#2b6b63'], [1, '#a8d8b6']], H * 0.7);
       p.stars(110, H * 0.42);
       var pal = { lit: '#3d7d76', shade: '#0d2c34', rim: '#c4ecd0', lx: 0.75, ly: -0.45 };
+      p.layer({ kind: 'drift', amt: '1.8%', dur: 64 });
       p.cloud(W * 0.2, H * 0.42, W * 0.26, H * 0.24, pal, 18);
       p.cloud(W * 0.55, H * 0.3, W * 0.18, H * 0.15, pal, 12);
+      p.layer();
       p.water(H * 0.7, H, [[0, '#8fcab0'], [0.22, '#1f5b5a'], [1, '#051820']], '#e9fff0', W * 0.3);
       p.skyline(W * 0.04, W * 0.6, H * 0.705, H * 0.03, H * 0.13, '#051318', '#ffd58c', 0.14);
       var g = p.ridge(H * 0.92, H * 0.32, 1, 0, '#03080b', '#113038', { rim: '#8fd3b6', shape: function (t) { return ease(clamp((t - 0.56) / 0.3, 0, 1)) * (0.8 + 0.2 * p.fbm(t * 6)); } });
       var lamp = p.lighthouse(W * 0.81, p.groundAt(g, W * 0.81) + 4 * u, H * 0.36, '#e6efe2', '#c5584a', '#0a1a1e');
+      p.finish();
+      p.layer({ kind: 'sway', amt: '2.4deg', dur: 7, at: lamp, blend: true, res: 0.6 });
       p.beam(lamp[0], lamp[1], Math.PI + 0.1, W * 0.8, 0.075, '#fff4c8');
       p.beam(lamp[0], lamp[1], -0.32, W * 0.32, 0.09, '#fff4c8');
       p.fx('twinkle', 26, H * 0.4, 13);
+      p.fx('glint', W * 0.3, H * 0.73, H * 0.98, 90 * u, 30, 5, [233, 255, 240]);
       p.fx('pulse', lamp[0], lamp[1], 96 * u, [255, 244, 200], 2.6, 0.08, 0.6);
     },
     /* AIDR: a town under glass. What comes for it stops at the shield. */
@@ -791,29 +850,37 @@
       p.sky([[0, '#0b0722'], [0.5, '#291c62'], [0.82, '#7b4b9e'], [1, '#f1aac2']], H * 0.78);
       p.stars(120, H * 0.5);
       var pal = { lit: '#8a62b8', shade: '#231650', rim: '#f6c3d6', lx: -0.7, ly: -0.4 }, r = W * 0.175, cx = W * 0.5, base = H * 0.81;
+      var a = [cx + Math.cos(-2.4) * r, base + Math.sin(-2.4) * r], b = [cx + Math.cos(-0.62) * r, base + Math.sin(-0.62) * r];
+      p.layer({ kind: 'drift', amt: '1.6%', dur: 70 });
       p.cloud(W * 0.84, H * 0.44, W * 0.22, H * 0.2, pal, 15);
       p.cloud(W * 0.12, H * 0.52, W * 0.18, H * 0.13, pal, 11);
+      p.layer();
       p.ridge(H * 0.78, H * 0.09, 2, 4.2, '#190f38', '#4b2f7c', { rim: '#f1aac2' });
       p.skyline(W * 0.37, W * 0.63, base, H * 0.04, H * 0.19, '#0a061e', '#ffdca6', 0.4);
-      p.dome(cx, base, r, '#8ff2c4', '#cbb7ff');
-      p.strike(W * 0.14, H * 0.1, cx + Math.cos(-2.4) * r, base + Math.sin(-2.4) * r, '#ff6b5a');
-      p.strike(W * 0.9, H * 0.2, cx + Math.cos(-0.62) * r, base + Math.sin(-0.62) * r, '#ff8a4a');
       p.ridge(H * 0.97, H * 0.1, 3, 12.5, '#06041a', '#1d1444');
+      p.finish();
+      p.layer({ kind: 'breathe', lo: 0.66, dur: 3.4, blend: true, res: 0.8 });
+      p.dome(cx, base, r, '#8ff2c4', '#cbb7ff');
+      p.layer({ kind: 'flash', dur: 6.4, blend: true, res: 0.7 });
+      p.strike(W * 0.14, H * 0.1, a[0], a[1], '#ff6b5a');
+      p.layer({ kind: 'flash', dur: 6.4, delay: -3.1, blend: true, res: 0.7 });
+      p.strike(W * 0.9, H * 0.2, b[0], b[1], '#ff8a4a');
       p.fx('twinkle', 30, H * 0.5, 14);
       p.fx('pulse', cx, base - r * 0.4, r * 1.5, [143, 242, 196], 1.4, 0.04, 0.2);
-      p.fx('pulse', cx + Math.cos(-2.4) * r, base + Math.sin(-2.4) * r, 40 * p.u, [255, 107, 90], 5.2, 0.05, 0.55);
-      p.fx('pulse', cx + Math.cos(-0.62) * r, base + Math.sin(-0.62) * r, 40 * p.u, [255, 138, 74], 6.7, 0.05, 0.55);
     },
     /* IT Ops: three in the morning, one window still lit. */
     itops: function (p, W, H, u) {
       p.sky([[0, '#040714'], [0.55, '#0f1c44'], [0.9, '#25496a'], [1, '#3d7684']], H * 0.88);
       p.stars(150, H * 0.62);
       p.moon(W * 0.78, H * 0.2, 24 * u, '#f6eed8');
+      p.layer({ kind: 'drift', amt: '2%', dur: 76 });
       p.cloud(W * 0.24, H * 0.36, W * 0.36, H * 0.16, { lit: '#35507f', shade: '#0b1533', rim: '#b6c6e6', lx: 0.8, ly: -0.4 }, 13);
+      p.layer();
       p.skyline(0, W, H * 0.9, H * 0.08, H * 0.34, '#060a1b', '#ffd07c', 0.035);
       p.tower(W * 0.4, H * 0.99, W * 0.24, H * 0.7, '#070b1d', '#1b2a55', 5, 11, [[3, 4]], '#ffcf7a');
       p.ridge(H * 1.01, H * 0.05, 3, 6, '#02030a', '#0a1024');
       p.fx('twinkle', 40, H * 0.6, 15);
+      p.fx('meteor', H * 0.3, 14, 8);
       p.fx('pulse', W * 0.568, H * 0.586, 74 * u, [255, 207, 122], 2, 0.12, 0.42);
       p.fx('pulse', W * 0.52, H * 0.206, 18 * u, [255, 90, 74], 3.2, 0, 0.9);
     },
@@ -821,21 +888,26 @@
     breakpoint: function (p, W, H) {
       p.sky([[0, '#12060c'], [0.48, '#481423'], [0.8, '#c0502f'], [1, '#ffc27a']], H * 0.68);
       var pal = { lit: '#c8573a', shade: '#3a1220', rim: '#ffd9a0', lx: 0.5, ly: 0.5 };
+      p.layer({ kind: 'drift', amt: '1.8%', dur: 66 });
       p.cloud(W * 0.2, H * 0.34, W * 0.34, H * 0.2, pal, 14);
       p.cloud(W * 0.86, H * 0.26, W * 0.24, H * 0.14, pal, 10);
+      p.layer();
       p.ridge(H * 0.68, H * 0.09, 2, 3.3, '#2c0f19', '#73302c', { rim: '#ffb574' });
       p.wall(W * 0.06, W * 0.94, H * 0.46, H * 0.93, '#14080f', '#4a1c22', '#ffb574');
-      p.crack(W * 0.53, H * 0.43, H * 0.92, '#fff0c0', '#ff7a3a');
       p.ridge(H * 1.0, H * 0.07, 3, 11, '#070308', '#1f0b12');
+      p.finish();
+      p.layer({ kind: 'breathe', lo: 0.6, dur: 2.3, blend: true });
+      p.crack(W * 0.53, H * 0.43, H * 0.92, '#fff0c0', '#ff7a3a');
       p.fx('pulse', W * 0.53, H * 0.47, 150 * p.u, [255, 122, 58], 3.1, 0.06, 0.3);
-      p.fx('pulse', W * 0.53, H * 0.7, 110 * p.u, [255, 170, 90], 4.3, 0.04, 0.2);
     },
     /* Fennec: small, fast, hears everything. */
     fennec: function (p, W, H, u) {
       p.sky([[0, '#171231'], [0.42, '#553a76'], [0.76, '#de876b'], [1, '#fad89e']], H * 0.64);
       p.stars(60, H * 0.3);
       p.sun(W * 0.7, H * 0.6, 44 * u, '#fff0c4', '#ff9a58');
+      p.layer({ kind: 'drift', amt: '2.2%', dur: 54, res: 0.7 });
       p.bands(H * 0.5, 18 * u, 34, '#f7b98d', 0.5);
+      p.layer();
       p.ridge(H * 0.66, H * 0.07, 1.3, 2.2, '#7c4a54', '#dd9066', { rim: '#ffdba4', hatch: 0.12 });
       p.ridge(H * 0.8, H * 0.13, 1.0, 8.6, '#4c2c3e', '#ad6641', { rim: '#f5b477', hatch: 0.2 });
       var g = p.ridge(H * 0.97, H * 0.16, 0.8, 15.3, '#1b1124', '#5c3542', { rim: '#e99c68', hatch: 0.26 });
@@ -849,7 +921,7 @@
       p.stars(80, H * 0.4);
       p.rings(W * 0.46, H * 0.78, [70 * u, 125 * u, 185 * u, 250 * u, 320 * u], '#a6f7d2');
       p.ridge(H * 0.76, H * 0.07, 2, 5.5, '#0a2a33', '#2a6f6a', { rim: '#bbe8c4' });
-      p.factory(W * 0.14, H * 0.86, u, '#04121a', '#12333c', '#ffd58c');
+      p.factory(W * 0.14, H * 0.86, u, '#04121a', '#12333c', '#ffd58c', { kind: 'rise', amt: '1.3%', dur: 9 });
       p.ridge(H * 1.0, H * 0.08, 3, 14, '#020a0f', '#0c2229');
       p.fx('twinkle', 22, H * 0.4, 17);
       p.fx('rings', W * 0.46, H * 0.78, 330 * u, [166, 247, 210], 3.4, 0.86);
@@ -859,28 +931,35 @@
       p.sky([[0, '#060b1b'], [0.5, '#1d3256'], [0.84, '#86778c'], [1, '#f1c892']], H * 0.72);
       p.stars(110, H * 0.45);
       p.moon(W * 0.22, H * 0.22, 28 * u, '#f7ecd4');
+      p.layer({ kind: 'drift', amt: '2%', dur: 72 });
       p.cloud(W * 0.76, H * 0.36, W * 0.3, H * 0.16, { lit: '#5b6e98', shade: '#182746', rim: '#f1d2a8', lx: -0.7, ly: -0.3 }, 12);
+      p.layer();
       p.ridge(H * 0.72, H * 0.14, 2.2, 2.7, '#1b2748', '#4a5a86', { rim: '#f1c892' });
       var g = p.ridge(H * 0.93, H * 0.16, 1.1, 6.6, '#070b18', '#1c2a4a', { rim: '#d9a878' });
-      var gx = W * 0.54, gy = p.groundAt(g, gx);
-      p.shield(gx, gy - 34 * u, 104 * u, '#8ff2c4');
+      var gx = W * 0.54, gy = p.groundAt(g, gx), sr = 104 * u;
       p.robot(gx, gy + 2 * u, 1.25 * u, '#04060e', '#8ff2c4');
+      p.finish();
+      p.layer({ kind: 'breathe', lo: 0.5, dur: 3, blend: true, box: [gx - sr * 1.5, gy - 34 * u - sr * 1.5, gx + sr * 1.5, gy - 34 * u + sr * 1.5] });
+      p.shield(gx, gy - 34 * u, sr, '#8ff2c4');
       p.fx('twinkle', 30, H * 0.45, 18);
       p.fx('pulse', gx + 77 * u, gy - 72 * u, 30 * u, [143, 242, 196], 2.4, 0.15, 0.9);
-      p.fx('pulse', gx, gy - 34 * u, 150 * u, [143, 242, 196], 1.3, 0.02, 0.12);
     },
     /* Contact: first light over the range. */
     dawn: function (p, W, H) {
       p.sky([[0, '#0e1434'], [0.38, '#383c84'], [0.68, '#c47d90'], [0.88, '#f7ba8a'], [1, '#ffe4b4']], H * 0.72);
       p.stars(60, H * 0.28);
       var pal = { lit: '#f7cba8', shade: '#4b4a8e', rim: '#fff3da', lx: 0.7, ly: -0.45 };
+      p.layer({ kind: 'drift', amt: '1.2%', dur: 84 });
       p.cloud(W * 0.7, H * 0.58, W * 0.44, H * 0.46, pal, 40);
+      p.layer({ kind: 'drift', amt: '2.4%', dur: 62, delay: -20 });
       p.cloud(W * 0.2, H * 0.5, W * 0.3, H * 0.24, pal, 20);
       p.cloud(W * 0.97, H * 0.62, W * 0.2, H * 0.18, pal, 12);
+      p.layer();
       p.ridge(H * 0.72, H * 0.17, 1.7, 2.4, '#2c2b5c', '#6c5c98', { rim: '#f7ba8a' });
       p.water(H * 0.75, H, [[0, '#eaa98c'], [0.3, '#5b4b88'], [1, '#0b0d22']], '#fff0d0', W * 0.62);
       p.ridge(H * 0.93, H * 0.12, 2.6, 11.2, '#090a1b', '#272b57', { rim: '#b98ba2' });
       p.fx('twinkle', 20, H * 0.28, 19);
+      p.fx('glint', W * 0.62, H * 0.77, H * 0.92, 110 * p.u, 34, 9, [255, 240, 208]);
       p.fx('pulse', W * 0.62, H * 0.72, 280 * p.u, [255, 217, 160], 0.8, 0.03, 0.14);
     },
 
@@ -894,7 +973,7 @@
       var far = p.pylon(W * 0.68, H * 0.73, H * 0.28, '#0f2c35');
       far.forEach(function (q) { p.wire(q[0], q[1], -20, q[1] + H * 0.05, H * 0.03, 0.9 * u, '#0f2c35', 0.8); });
       var k = 0.92 * u, x0 = W * 0.04, base = H * 0.8;
-      p.factory(x0, base, k, '#04121a', '#163b44', '#ffd58c');
+      p.factory(x0, base, k, '#04121a', '#163b44', '#ffd58c', { kind: 'rise', amt: '1.3%', dur: 8 });
       p.ridge(H * 0.84, H * 0.035, 3, 7.3, '#030c12', '#0f2a31');
       var px = W * 0.86, pb = H * 0.88, ph = H * 0.7, near = p.pylon(px, pb, ph, '#03090f');
       near.forEach(function (q, j) {
@@ -906,14 +985,18 @@
       p.fx('pulse', px, pb - ph * 1.06, 9 * u, [255, 90, 74], 2.8, 0, 0.9);
     },
     /* Banks and finance: the hall, lit late. */
-    'ind-finance': function (p, W, H) {
+    'ind-finance': function (p, W, H, u) {
       p.sky([[0, '#0a0b22'], [0.5, '#1f2458'], [0.84, '#5a4a86'], [1, '#c58e8a']], H * 0.8);
       p.stars(80, H * 0.45);
+      p.layer({ kind: 'drift', amt: '2.2%', dur: 50, res: 0.7 });
+      p.bands(H * 0.5, 20 * u, 26, '#8f7fc0', 0.38);
+      p.layer();
       p.skyline(-10, W + 10, H * 0.8, H * 0.08, H * 0.38, '#0d0e2a', '#ffd58c', 0.07);
       var cx = W * 0.5, base = H * 0.86, h = H * 0.64;
       p.bank(cx, base, W * 0.5, h, '#0b0a1c', '#3a3566', '#ffc98a', '#f3d2a6');
       p.ridge(H * 1.02, H * 0.05, 3, 8, '#05050f', '#16122c');
       p.fx('twinkle', 24, H * 0.45, 22);
+      p.fx('meteor', H * 0.22, 12, 2);
       p.fx('pulse', cx, base - h * 0.3, W * 0.3, [255, 201, 138], 1.1, 0.06, 0.24);
     },
     /* Robotics: the arm keeps working, inside its shield. */
@@ -922,24 +1005,27 @@
       p.stars(70, H * 0.42);
       p.ridge(H * 0.78, H * 0.06, 2, 5, '#111c36', '#36466e', { rim: '#d9c2c6' });
       p.ridge(H * 0.86, H * 0.008, 4, 2, '#070b16', '#1c2744');
-      var bx = W * 0.36, base = H * 0.86, k = 1.12 * u, belt = base - 44 * k;
-      p.shield(W * 0.5, base, H * 0.66, '#8ff2c4');
+      var bx = W * 0.36, base = H * 0.86, k = 1.12 * u, belt = base - 44 * k, sr = H * 0.66;
       p.block(W * 0.58, belt, W * 0.5, 9 * k, '#05070f', '#2a3658', { den: 12, len: 0.6, hatch: 0.02, fall: 1.1 });
       [0.62, 0.8, 0.96].forEach(function (f) { p.seg(W * f, belt + 9 * k, W * f, base, 3 * k, '#05070f'); });
       var j = p.arm(bx, base, k, '#04060e', '#3e4f78', '#cfe0ff', '#8ff2c4');
       [[j[3][0], 40], [W * 0.86, 34]].forEach(function (c) {
         p.block(c[0] - c[1] * 0.5 * k, belt - c[1] * 0.9 * k, c[1] * k, c[1] * 0.9 * k, '#2c1a10', '#c08a52', { den: 12, len: 0.4, hatch: HALF, grad: 'x', fall: 1.3 });
       });
+      p.finish();
+      p.layer({ kind: 'breathe', lo: 0.5, dur: 3.2, blend: true });
+      p.shield(W * 0.5, base, sr, '#8ff2c4');
       p.fx('twinkle', 20, H * 0.42, 23);
       j.slice(0, 3).forEach(function (q, n) { p.fx('pulse', q[0], q[1], [44, 36, 28][n] * k, [143, 242, 196], 2 + n * 0.7, 0.1, 0.7); });
-      p.fx('pulse', W * 0.5, base - H * 0.3, H * 0.5, [143, 242, 196], 1.2, 0.02, 0.1);
     },
     /* Hospitals: the lights stay on. */
     'ind-health': function (p, W, H, u) {
       p.sky([[0, '#04101a'], [0.5, '#0d2c3c'], [0.85, '#2f6a74'], [1, '#9fd2c2']], H * 0.8);
       p.stars(90, H * 0.45);
       p.moon(W * 0.14, H * 0.2, 15 * u, '#f3f0dc');
+      p.layer({ kind: 'drift', amt: '2.2%', dur: 56, res: 0.7 });
       p.bands(H * 0.56, 22 * u, 30, '#5c9a98', 0.4);
+      p.layer();
       p.skyline(-10, W + 10, H * 0.82, H * 0.05, H * 0.22, '#061722', '#ffd58c', 0.06);
       var c = p.hospital(W * 0.42, H * 0.86, W * 0.3, H * 0.66, '#06121c', '#1f4a58', '#ffe1a6', '#8ff2c4');
       p.ridge(H * 1.02, H * 0.05, 3, 9, '#020a0f', '#0c2229');
@@ -950,7 +1036,9 @@
     'ind-gov': function (p, W, H, u) {
       p.sky([[0, '#0d0a2a'], [0.42, '#2d2468'], [0.75, '#8a5a96'], [0.92, '#f0a28e'], [1, '#ffd2a0']], H * 0.8);
       p.stars(70, H * 0.4);
+      p.layer({ kind: 'drift', amt: '2.2%', dur: 60, res: 0.7 });
       p.bands(H * 0.66, 14 * u, 24, '#f6b494', 0.45);
+      p.layer();
       var t = p.capitol(W * 0.5, H * 0.86, W * 0.8, H * 0.74, '#0d0a20', '#3a2e66', '#ffcf9e', '#ffd58c');
       p.ridge(H * 1.02, H * 0.05, 3, 6, '#05040f', '#1a1236');
       p.fx('twinkle', 20, H * 0.4, 25);
@@ -970,14 +1058,86 @@
       p.glow(tx + tw * 0.5, mast, 10 * u, '#ff5a4a', 0.95);
       p.water(H * 0.81, H, [[0, '#33427a'], [0.3, '#121c42'], [1, '#03050f']], '#ffd58c', tx + tw * 0.5);
       p.fx('twinkle', 26, H * 0.4, 26);
+      p.fx('glint', tx + tw * 0.5, H * 0.83, H * 0.98, 60 * u, 22, 4, [255, 213, 140]);
       p.fx('pulse', tx + tw * 0.5, mast, 16 * u, [255, 90, 74], 3, 0, 0.9);
-      p.fx('pulse', tx + tw * 0.5, tb - th * 0.5, th * 0.6, [255, 213, 140], 0.9, 0.02, 0.1);
+    },
+
+    /* ── Footer: everything we defend, under one sky ──
+       Left to right: the lighthouse (AutoSecOps), the town under glass (AIDR),
+       the lit window (IT Ops), the breached wall (Breakpoint) beneath the
+       singularity, the fox (Fennec), the plant (Sonar), the robot (RoboDR). */
+    world: function (p, W, H, u) {
+      var cx = W * 0.5, cy = H * 0.3, r = 44 * u, R = r * 4.4;
+      p.sky([[0, '#04061a'], [0.4, '#131a4c'], [0.7, '#4a2f78'], [0.9, '#c9736f'], [1, '#f7c796']], H * 0.82);
+      p.stars(560, H * 0.58);
+      p.eclipse(cx, cy, r, '#fff1d8', '#f2a37c', { kind: 'spin', dur: 300, at: [cx, cy], box: [cx - R, cy - R, cx + R, cy + R], blend: true, res: 0.8 });
+      var pal = { lit: '#7b5a9c', shade: '#1c1846', rim: '#f5b48e', lx: 0.1, ly: 0.7 };
+      p.layer({ kind: 'drift', amt: '0.9%', dur: 96, res: 0.7 });
+      p.bands(H * 0.62, 30 * u, 170, '#f0a98c', 0.5);
+      p.cloud(W * 0.145, H * 0.36, W * 0.1, H * 0.2, pal, 13);
+      p.cloud(W * 0.3, H * 0.27, W * 0.07, H * 0.13, pal, 9);
+      p.cloud(W * 0.7, H * 0.3, W * 0.09, H * 0.17, pal, 11);
+      p.cloud(W * 0.865, H * 0.4, W * 0.08, H * 0.14, pal, 9);
+      p.layer();
+      p.ridge(H * 0.8, H * 0.17, 5.5, 3.1, '#1b1640', '#4e3b82', { rim: '#f5b48e' });
+      var g = p.ridge(H * 0.86, H * 0.05, 6, 6.6, '#0b0a20', '#2b2456', { rim: '#b77e92' });
+      function gy(x) { return p.groundAt(g, x); }
+      /* AIDR: the town */
+      var dx = W * 0.215, db = gy(dx) + 2 * u, dr = H * 0.205;
+      p.skyline(dx - dr * 0.72, dx + dr * 0.72, db, H * 0.05, H * 0.2, '#090620', '#ffdca6', 0.42);
+      /* IT Ops: the tower and its one window */
+      var tx = W * 0.352, tw = W * 0.028, tb = gy(tx) + 4 * u, th = H * 0.5;
+      p.skyline(tx - W * 0.04, tx + tw + W * 0.04, tb, H * 0.05, H * 0.16, '#080a22', '#ffd07c', 0.06);
+      p.tower(tx, tb, tw, th, '#070b1d', '#1e2c5a', 4, 11, [[2, 4]], '#ffcf7a');
+      /* Breakpoint: the wall */
+      var wx = cx, wb = gy(wx) + 6 * u, wt = wb - H * 0.2;
+      p.wall(wx - W * 0.046, wx + W * 0.046, wt, wb, '#120a16', '#40243a', '#ffb574');
+      /* Fennec */
+      var fx0 = W * 0.64;
+      p.fox(fx0, gy(fx0) + 3 * u, 0.62 * u, '#0c0814', '#f3a672');
+      /* Sonar: the plant */
+      var sx = W * 0.735, sb = gy(sx + 110 * u) + 5 * u, sk = 0.62 * u;
+      p.rings(sx + 150 * sk, sb, [70 * u, 120 * u, 172 * u], '#a6f7d2');
+      p.factory(sx, sb, sk, '#06101c', '#1a3046', '#ffd58c');
+      /* RoboDR */
+      var rx = W * 0.925, rb = gy(rx) + 2 * u, rk = 0.86 * u, sr = 74 * u;
+      p.robot(rx, rb, rk, '#04060e', '#8ff2c4');
+      /* AutoSecOps: the lighthouse */
+      var lx = W * 0.072, lamp = p.lighthouse(lx, gy(lx) + 5 * u, H * 0.4, '#e6efe2', '#c5584a', '#0a1022');
+      p.ridge(H * 1.03, H * 0.1, 7, 21.7, '#04040d', '#14112a');
+      p.finish();
+      p.layer({ kind: 'sway', amt: '3deg', dur: 8, at: lamp, blend: true, res: 0.6, box: [lamp[0] - W * 0.09, lamp[1] - H * 0.36, lamp[0] + W * 0.17, lamp[1] + H * 0.36] });
+      p.beam(lamp[0], lamp[1], -0.14, W * 0.14, 0.08, '#fff4c8');
+      p.beam(lamp[0], lamp[1], Math.PI + 0.2, W * 0.06, 0.1, '#fff4c8');
+      p.layer({ kind: 'breathe', lo: 0.62, dur: 3.4, blend: true, res: 0.8, box: [dx - dr * 1.6, db - dr * 1.8, dx + dr * 1.6, db + dr * 0.4] });
+      p.dome(dx, db, dr, '#8ff2c4', '#cbb7ff');
+      p.layer({ kind: 'flash', dur: 7, blend: true, res: 0.8, box: [dx - dr * 2.4, db - dr * 2.6, dx, db - dr * 0.3] });
+      p.strike(dx - dr * 2.1, db - dr * 2.3, dx + Math.cos(-2.3) * dr, db + Math.sin(-2.3) * dr, '#ff6b5a');
+      p.layer({ kind: 'breathe', lo: 0.55, dur: 2.4, blend: true, box: [wx - 200 * u, wt - 200 * u, wx + 200 * u, wb + 30 * u] });
+      p.crack(wx + 4 * u, wt - 6 * u, wb - 4 * u, '#fff0c0', '#ff7a3a');
+      p.layer({ kind: 'breathe', lo: 0.5, dur: 3, blend: true, box: [rx - sr * 1.5, rb - 30 * u - sr * 1.5, rx + sr * 1.5, rb - 30 * u + sr * 1.5] });
+      p.shield(rx, rb - 30 * u, sr, '#8ff2c4');
+      p.fx('twinkle', 90, H * 0.55, 31);
+      p.fx('meteor', H * 0.3, 9, 6);
+      p.fx('pulse', cx, cy, 190 * u, [242, 163, 124], 1.1, 0.05, 0.22);
+      p.fx('pulse', lamp[0], lamp[1], 60 * u, [255, 244, 200], 2.6, 0.08, 0.6);
+      p.fx('pulse', tx + tw * 0.625, tb - th + (4.9 / 11.6) * th, 46 * u, [255, 207, 122], 2, 0.1, 0.42);
+      p.fx('pulse', tx + tw * 0.5, tb - th * 1.12, 12 * u, [255, 90, 74], 3.2, 0, 0.9);
+      p.fx('rings', sx + 150 * sk, sb, 185 * u, [166, 247, 210], 3.6, 0.86);
+      p.fx('pulse', rx + 53 * u, rb - 51 * u, 22 * u, [143, 242, 196], 2.4, 0.15, 0.9);
     }
   };
-  var SEEDS = { gate: 909, model: 88, autosecops: 101, aidr: 202, itops: 303, breakpoint: 404, fennec: 505, sonar: 606, robodr: 707, dawn: 808, 'ind-ot': 1101, 'ind-finance': 1202, 'ind-robotics': 1303, 'ind-health': 1404, 'ind-gov': 1505, 'ind-it': 1606 };
+  var SEEDS = { gate: 909, model: 88, autosecops: 101, aidr: 202, itops: 303, breakpoint: 404, fennec: 505, sonar: 606, robodr: 707, dawn: 808, 'ind-ot': 1101, 'ind-finance': 1202, 'ind-robotics': 1303, 'ind-health': 1404, 'ind-gov': 1505, 'ind-it': 1606, world: 2026 };
 
-  /* ── Lights that stay alive after the painting is done ────────────────── */
+  /* ── Lights that stay alive on the finished picture ───────────────────── */
   function rgba(c, al) { return 'rgba(' + c[0] + ',' + c[1] + ',' + c[2] + ',' + Math.max(0, al).toFixed(3) + ')'; }
+  /* A small repeatable random list, so a light show is the same on every visit. */
+  function seeded(seed, n, each) {
+    var s = seed * 9973 + 7, out = [], k;
+    function next() { s = (s * 16807 + 11) % 2147483647; return s / 2147483647; }
+    for (k = 0; k < n; k++) out.push(each(next));
+    return out;
+  }
   var FX = {
     /* ['pulse', x, y, radius, [r,g,b], speed, min, max]: a glow that breathes. */
     pulse: function (g, t, e) {
@@ -989,11 +1149,7 @@
     },
     /* ['twinkle', count, skyBottom, seed]: stars that brighten and fade. */
     twinkle: function (g, t, e, W, u) {
-      if (!e.pts) {
-        var s = e[3] * 9973, k;
-        e.pts = [];
-        for (k = 0; k < e[1]; k++) { s = (s * 16807 + 11) % 2147483647; var x = s / 2147483647; s = (s * 16807 + 11) % 2147483647; var y = s / 2147483647; e.pts.push([x * W, Math.pow(y, 1.5) * e[2], x * 40, 0.7 + y * 1.8]); }
-      }
+      if (!e.pts) e.pts = seeded(e[3], e[1], function (r) { var x = r(), y = r(); return [x * W, Math.pow(y, 1.5) * e[2], x * 40, 0.7 + y * 1.8]; });
       e.pts.forEach(function (q) {
         var al = Math.pow(0.5 + 0.5 * Math.sin(t * q[3] + q[2]), 4);
         g.fillStyle = rgba([255, 244, 222], al * 0.9);
@@ -1012,17 +1168,69 @@
         g.ellipse(e[1], e[2], e[3] * ph, e[3] * ph * e[6], 0, Math.PI, TAU);
         g.stroke();
       }
+    },
+    /* ['meteor', skyBottom, period, seed]: now and then, a shooting star. */
+    meteor: function (g, t, e, W, u) {
+      var n = Math.floor(t / e[2]), ph = (t / e[2]) % 1, span = 1.1 / e[2];
+      if (ph > span) return;
+      var a = Math.sin((n + e[3]) * 12.9898) * 43758.5453, b = Math.sin((n + e[3]) * 78.233) * 12543.123;
+      var r1 = a - Math.floor(a), r2 = b - Math.floor(b), k = ph / span, dir = r2 < 0.5 ? 1 : -1, len = 170 * u, f = Math.min(1, k * 3);
+      var x = W * (0.2 + r1 * 0.6) + dir * k * len * 1.6, y = e[1] * (0.08 + r2 * 0.45) + k * len * 0.62;
+      var tx = x - dir * len * 0.5 * f, ty = y - len * 0.194 * f, gr = g.createLinearGradient(tx, ty, x, y);
+      gr.addColorStop(0, 'rgba(255,244,222,0)');
+      gr.addColorStop(1, rgba([255, 244, 222], Math.sin(k * Math.PI) * 0.95));
+      g.strokeStyle = gr;
+      g.lineWidth = 1.7 * u;
+      g.lineCap = 'round';
+      g.beginPath();
+      g.moveTo(tx, ty);
+      g.lineTo(x, y);
+      g.stroke();
+    },
+    /* ['glint', x, y0, y1, spread, count, seed, [r,g,b]]: light breaking on water. */
+    glint: function (g, t, e, W, u) {
+      if (!e.pts) e.pts = seeded(e[6], e[5], function (r) { return [Math.pow(r(), 0.8), r() * 2 - 1, r() * 40, 0.9 + r() * 2.2, 5 + r() * 16]; });
+      g.lineCap = 'round';
+      e.pts.forEach(function (q) {
+        var al = Math.pow(0.5 + 0.5 * Math.sin(t * q[3] + q[2]), 3), y = e[2] + (e[3] - e[2]) * q[0], x = e[1] + q[1] * (12 * u + q[0] * e[4]), half = q[4] * u * (0.5 + q[0]);
+        g.strokeStyle = rgba(e[7], al * 0.75 * (1 - q[0] * 0.45));
+        g.lineWidth = (1 + q[0] * 1.6) * u;
+        g.beginPath();
+        g.moveTo(x - half, y);
+        g.lineTo(x + half, y);
+        g.stroke();
+      });
     }
   };
-  function life(cv, effects, W, H, u) {
-    if (!effects.length || !cv.parentNode) return;
-    var layer = document.createElement('canvas'), g, seen = false, raf = 0, last = 0;
-    layer.width = W;
-    layer.height = H;
-    layer.className = 'fx is-painted';
-    layer.setAttribute('aria-hidden', 'true');
-    cv.parentNode.insertBefore(layer, cv.nextSibling);
-    g = layer.getContext('2d');
+
+  /* The stage holds a picture and its sheets at the picture's own shape, and
+     covers its frame the way object-fit: cover would, so every sheet lines up. */
+  function fit(box) {
+    var st = box.__stage, bw = box.clientWidth, bh = box.clientHeight;
+    if (!st || !bw || !bh) return;
+    var k = Math.max(bw / st.__w, bh / st.__h), w = st.__w * k, h = st.__h * k;
+    st.style.width = w.toFixed(2) + 'px';
+    st.style.height = h.toFixed(2) + 'px';
+    st.style.left = ((bw - w) / 2).toFixed(2) + 'px';
+    st.style.top = ((bh - h) / 2).toFixed(2) + 'px';
+  }
+  var ro = 'ResizeObserver' in window ? new ResizeObserver(function (entries) { entries.forEach(function (e) { fit(e.target); }); }) : null;
+  if (!ro) window.addEventListener('resize', function () { list.forEach(function (cv) { if (cv.__box) fit(cv.__box); }); });
+
+  /* While a picture is on screen its sheets move (CSS) and its lights play
+     (a half-size canvas, drawn about thirty times a second). Off screen, both rest. */
+  function life(box, stage, effects, W, H, u) {
+    var fxc = null, g = null, raf = 0, last = 0, seen = false;
+    if (effects.length) {
+      fxc = document.createElement('canvas');
+      fxc.width = Math.ceil(W * RES / 2);
+      fxc.height = Math.ceil(H * RES / 2);
+      fxc.className = 'fx';
+      fxc.setAttribute('aria-hidden', 'true');
+      stage.appendChild(fxc);
+      g = fxc.getContext('2d');
+      g.scale(RES / 2, RES / 2);
+    }
     function draw(now) {
       raf = 0;
       if (!seen) return;
@@ -1033,60 +1241,66 @@
       }
       raf = requestAnimationFrame(draw);
     }
-    /* Only the pictures on screen keep moving. */
     new IntersectionObserver(function (entries) {
       seen = entries[entries.length - 1].isIntersecting;
-      if (seen && !raf) raf = requestAnimationFrame(draw);
-    }, { threshold: 0.05 }).observe(layer);
+      if (seen) box.classList.add('live'); else box.classList.remove('live');
+      if (seen && g && !raf) raf = requestAnimationFrame(draw);
+    }, { threshold: 0.02 }).observe(box);
   }
 
-  var still = window.matchMedia('(prefers-reduced-motion: reduce)').matches || !('IntersectionObserver' in window);
-  function paint(cv) {
-    if (cv.__painted) return;
+  function paint(cv, done) {
+    if (cv.__painted) { done(); return; }
     cv.__painted = true;
-    var name = cv.getAttribute('data-art'), scene = SCENES[name];
-    if (!scene) return;
+    var name = cv.getAttribute('data-art'), scene = SCENES[name], box = cv.parentNode;
+    if (!scene || !box) { done(); return; }
     try {
-      var p = painter(cv, SEEDS[name] || 7);
+      var p = painter(cv, SEEDS[name] || 7), stage = document.createElement('div');
       scene(p, p.W, p.H, p.u);
-      p.finish();
-      cv.classList.add('is-painted');
-      /* Bigger pictures take a little longer to paint. */
-      p.play(still ? 0 : Math.round(2400 + Math.min(1400, p.W * p.H / 900)), function () {
-        if (!still) life(cv, p.effects, p.W, p.H, p.u);
+      if (!p.finished()) { p.layer(); p.finish(); }
+      stage.className = 'stage' + (p.W >= 1000 && name !== 'world' ? ' kb' : '');
+      stage.__w = p.W;
+      stage.__h = p.H;
+      box.insertBefore(stage, cv);
+      stage.appendChild(cv);
+      box.__stage = stage;
+      cv.__box = box;
+      fit(box);
+      if (ro) ro.observe(box);
+      p.render(stage, function () {
+        if (!still) life(box, stage, p.effects, p.W, p.H, p.u);
+        /* The picture arrives whole: a short fade, never a build-up. */
+        requestAnimationFrame(function () { stage.classList.add('on'); });
+        setTimeout(function () { stage.classList.add('on'); }, 300);
+        done();
       });
     } catch (err) {
       if (window.console) console.error('art: ' + name, err);
+      done();
     }
   }
 
-  /* Start the pictures a moment apart, so several can paint side by side. */
+  /* One picture is prepared at a time. Those near the screen go first; the
+     rest are prepared in quiet moments, so they are ready before they are seen. */
   var queue = [], busy = false;
   function pump() {
     if (busy) return;
+    var cv = queue.shift();
+    if (!cv) return;
     busy = true;
-    (function next() {
-      var cv = queue.shift();
-      if (!cv) { busy = false; return; }
-      paint(cv);
-      setTimeout(next, 140);
-    })();
+    paint(cv, function () { setTimeout(function () { busy = false; pump(); }, 30); });
   }
-  function enqueue(cv) {
+  function enqueue(cv, first) {
     if (cv.__queued) return;
     cv.__queued = true;
-    queue.push(cv);
+    if (first) queue.unshift(cv); else queue.push(cv);
     pump();
   }
-  /* A picture starts when it is on screen (or, with reduced motion, shortly
-     before). The observer does the work; the sweep covers webviews where it
-     stays silent. */
   function sweep() {
     var vh = window.innerHeight || 800;
     list.forEach(function (cv) {
       if (cv.__queued) return;
       var r = cv.getBoundingClientRect();
-      if (r.width && r.top < vh * (still ? 1.8 : 0.92) && r.bottom > vh * (still ? -0.8 : 0.08)) enqueue(cv);
+      if (r.width && r.top < vh * 1.8 && r.bottom > -vh * 0.8) enqueue(cv, true);
     });
   }
   if ('IntersectionObserver' in window) {
@@ -1094,9 +1308,9 @@
       entries.forEach(function (e) {
         if (!e.isIntersecting) return;
         io.unobserve(e.target);
-        enqueue(e.target);
+        enqueue(e.target, true);
       });
-    }, still ? { rootMargin: '700px 0px' } : { threshold: 0.12 });
+    }, { rootMargin: '800px 0px' });
     list.forEach(function (cv) { io.observe(cv); });
   }
   var ticking = false;
@@ -1107,4 +1321,10 @@
   }, { passive: true });
   window.addEventListener('resize', sweep);
   setTimeout(sweep, 400);
+  function rest() {
+    for (var k = 0; k < list.length; k++) if (!list[k].__queued) { enqueue(list[k]); break; }
+    if (k < list.length) later(rest);
+  }
+  function later(f) { if (window.requestIdleCallback) window.requestIdleCallback(f, { timeout: 3000 }); else setTimeout(f, 700); }
+  setTimeout(function () { later(rest); }, 1500);
 })();

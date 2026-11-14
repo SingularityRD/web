@@ -655,7 +655,6 @@
 .ind:hover { transform: translateY(-3px); border-color: var(--edge-2); }
 .ind-art { aspect-ratio: 16 / 9; margin-bottom: 18px; }
 .ind-art::after { content: ""; position: absolute; inset: auto 0 0; height: 36%; pointer-events: none; background: linear-gradient(180deg, rgba(13, 13, 13, 0), var(--card)); }
-.ind:hover .ind-art canvas.is-painted { transform: scale(1.04); }
 .ind h3 { margin: 0 22px 6px; font-family: var(--display); font-size: 21px; font-weight: 500; letter-spacing: -0.022em; }
 .ind-line { margin: 0 22px 16px; font-size: 14.5px; line-height: 1.5; color: var(--text-muted); }
 .ind-chips { display: flex; flex-wrap: wrap; gap: 6px; margin: auto 22px 0; }
@@ -950,10 +949,30 @@
 
 /* ── Paintings (art.js draws them; the gradient shows until it has) ─────── */
 .paint { position: relative; overflow: hidden; background: linear-gradient(180deg, #0a0d24 0%, #241d4c 58%, #6a4560 100%); }
-.paint canvas { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transform: scale(1.05); transition: opacity 1.1s ease, transform 1.8s var(--ease); }
-.paint canvas.is-painted { opacity: 1; transform: none; }
-/* The light layer (art.js) sits on the painting and only ever brightens it. */
-.paint canvas.fx { mix-blend-mode: screen; pointer-events: none; }
+/* art.js wraps each picture in a stage: the canvas, the sheets that move over
+   it, and a light layer on top. The stage fades in once the picture is whole. */
+.paint > canvas { opacity: 0; }
+.paint .stage { position: absolute; left: 0; top: 0; width: 100%; height: 100%; opacity: 0; transition: opacity 1.2s ease; }
+.paint .stage.on { opacity: 1; }
+.paint canvas { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
+.paint .fx, .paint .b-screen { mix-blend-mode: screen; }
+/* Sheets move only while the picture is on screen (art.js adds .live). */
+.paint .lay { animation: var(--dur, 40s) ease-in-out var(--delay, 0s) infinite alternate paused; will-change: transform, opacity; }
+.paint.live .lay, .paint.live .stage.kb { animation-play-state: running; }
+.paint .m-drift { animation-name: art-drift; }
+.paint .m-rise { animation-name: art-rise; }
+.paint .m-sway { animation-name: art-sway; }
+.paint .m-breathe { animation-name: art-breathe; }
+.paint .m-spin { animation-name: art-spin; animation-timing-function: linear; animation-direction: normal; }
+.paint .m-flash { animation-name: art-flash; animation-timing-function: linear; animation-direction: normal; }
+.paint .stage.kb { animation: art-kb 40s ease-in-out infinite alternate paused; }
+@keyframes art-drift { from { transform: translate3d(calc(var(--amt, 2%) * -1), 0, 0); } to { transform: translate3d(var(--amt, 2%), 0, 0); } }
+@keyframes art-rise { from { transform: translate3d(0, 0, 0); opacity: 1; } to { transform: translate3d(var(--amt, 1%), calc(var(--amt, 1%) * -1.6), 0); opacity: 0.72; } }
+@keyframes art-sway { from { transform: rotate(calc(var(--amt, 2deg) * -1)); } to { transform: rotate(var(--amt, 2deg)); } }
+@keyframes art-breathe { from { opacity: var(--lo, 0.6); } to { opacity: 1; } }
+@keyframes art-spin { to { transform: rotate(360deg); } }
+@keyframes art-flash { 0%, 100% { opacity: 0; } 6%, 34% { opacity: 1; } 58% { opacity: 0; } }
+@keyframes art-kb { from { scale: 1; } to { scale: 1.05; } }
 
 /* ── The model ──────────────────────────────────────────────────────────── */
 .core { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.08fr); margin-bottom: 14px; overflow: hidden; border: 1px solid var(--edge); border-radius: 22px; background: var(--card); }
@@ -996,7 +1015,6 @@
 .mp:hover { transform: translateY(-4px); border-color: var(--edge-2); }
 .mp-art { aspect-ratio: 4 / 3; }
 .mp-art::after { height: 38%; }
-.mp:hover .mp-art canvas.is-painted, .prod:hover .prod-banner canvas.is-painted { transform: scale(1.04); }
 .mp-k { margin: 14px 18px 6px; font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-faint); }
 .mp h3 { margin: 0 18px 8px; font-family: var(--display); font-size: 23px; font-weight: 500; letter-spacing: -0.03em; }
 .mp-p { margin: 0 18px 18px; font-size: 14px; line-height: 1.5; color: var(--text-muted); }
@@ -1134,7 +1152,8 @@
 }
 @media (prefers-reduced-motion: reduce) {
   .home .hero-media img, .hero-title .hl > *, .hero-strip, .al-dot.run { animation: none !important; }
-  .paint canvas { transition: none; }
+  .paint .stage { transition: none; }
+  .paint .lay, .paint .stage.kb { animation: none; }
   .prod:hover, .mp:hover, .ind:hover, .post-c:hover { transform: none; }
 }
 
@@ -1194,11 +1213,46 @@
   .off-art { min-height: 320px; }
 }
 
-/* ── Headline features on the product cards ─────────────────────────────── */
-.prod-feats, .mp-feats { margin: 0; padding: 0; list-style: none; }
-.prod-feats { display: grid; gap: 2px; margin: -4px 0 20px; }
-.mp-feats { margin: -6px 18px 18px; }
-.prod-feats li, .mp-feats li { position: relative; padding: 4px 0 4px 19px; font-size: 13.5px; line-height: 1.4; color: rgba(242, 242, 240, 0.82); }
-.mp-feats li { font-size: 13px; }
-.prod-feats li::before, .mp-feats li::before { content: ""; position: absolute; left: 1px; top: 10px; width: 7px; height: 3.5px; border-left: 1.5px solid var(--a); border-bottom: 1.5px solid var(--a); transform: rotate(-45deg); }
-.prod.is-b .prod-feats li::before { border-color: var(--b); }
+/* ── What we see from the inside: the three gaps ────────────────────────── */
+.gaps { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; margin: 0; padding: 0; list-style: none; }
+.gap { position: relative; display: flex; flex-direction: column; overflow: hidden; padding: 30px 28px 26px; border: 1px solid var(--edge); border-radius: 18px; background: linear-gradient(180deg, rgba(255, 107, 90, 0.06), var(--card) 48%); }
+.gap::before { content: ""; position: absolute; left: 28px; top: 0; width: 44px; height: 2px; background: var(--bad); }
+.gap-v { margin: 0 0 24px; font-family: var(--display); font-size: clamp(44px, 4.6vw, 68px); font-weight: 600; line-height: 1; letter-spacing: -0.045em; }
+.gap h3 { margin: 0 0 10px; font-family: var(--display); font-size: 23px; font-weight: 500; line-height: 1.16; letter-spacing: -0.025em; }
+.gap > p:not(.gap-v) { margin: 0 0 18px; font-size: 15px; line-height: 1.55; color: var(--text-muted); }
+.gap small { margin-top: auto; font-size: 12px; color: var(--text-faint); }
+.gaps-turn { max-width: 780px; margin: 40px 0 0; font-family: var(--display); font-size: clamp(24px, 2.7vw, 36px); font-weight: 500; line-height: 1.16; letter-spacing: -0.032em; }
+.gaps-turn span { background: linear-gradient(94deg, #c9f7de, var(--a)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+
+/* ── A scene stamp on each product painting ─────────────────────────────── */
+.scene { position: absolute; left: 14px; top: 14px; z-index: 2; display: inline-flex; align-items: center; gap: 8px; padding: 6px 11px; border: 1px solid rgba(255, 255, 255, 0.14); border-radius: 999px; background: rgba(7, 7, 9, 0.5); -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255, 255, 255, 0.92); }
+.scene i { width: 6px; height: 6px; border-radius: 50%; background: var(--a); box-shadow: 0 0 10px var(--a); }
+.prod.is-b .scene i { background: var(--b); box-shadow: 0 0 10px var(--b); }
+.prod-banner .scene { left: 34px; top: 18px; }
+
+/* ── Control: three promises ────────────────────────────────────────────── */
+.vows { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; margin: 0; padding: 0; list-style: none; }
+.vows li { padding: 26px 26px 28px; border: 1px solid var(--edge); border-radius: 18px; background: var(--card); }
+.vows .r-ico { margin-bottom: 22px; }
+.vows h3 { margin: 0 0 8px; font-family: var(--display); font-size: 22px; font-weight: 500; letter-spacing: -0.022em; }
+.vows p { margin: 0; font-size: 15px; line-height: 1.55; color: var(--text-muted); }
+.band-light .vows li { box-shadow: 0 1px 2px rgba(12, 12, 13, 0.04), 0 18px 40px -28px rgba(12, 12, 13, 0.25); }
+
+/* ── Footer: everything we defend, under one sky ────────────────────────── */
+.world { position: relative; margin-top: 18px; }
+.footer-art { aspect-ratio: 2400 / 620; background: #0a0a0a; }
+.footer-art::after { content: ""; position: absolute; inset: 0; pointer-events: none; background: linear-gradient(180deg, #0a0a0a 0%, rgba(10, 10, 10, 0) 26%, rgba(10, 10, 10, 0) 70%, #0a0a0a 100%), linear-gradient(90deg, #0a0a0a 0%, rgba(10, 10, 10, 0) 7%, rgba(10, 10, 10, 0) 93%, #0a0a0a 100%); }
+.world-nav a { position: absolute; left: var(--x); top: 87%; padding-top: 14px; transform: translateX(-50%); font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.14em; text-transform: uppercase; white-space: nowrap; color: rgba(242, 242, 240, 0.6); transition: color 0.2s ease; }
+.world-nav a::before { content: ""; position: absolute; left: 50%; top: 0; width: 1px; height: 9px; background: currentColor; opacity: 0.55; }
+.world-nav a:hover { color: #fff; }
+.world + .shell .footer-tag { padding-top: 34px; }
+
+@media (max-width: 1000px) {
+  .gaps, .vows { grid-template-columns: minmax(0, 1fr); }
+  .gap-v { margin-bottom: 16px; }
+  .world-nav { display: none; }
+}
+@media (max-width: 700px) {
+  .footer-art { aspect-ratio: 16 / 10; }
+  .prod-banner .scene { left: 22px; }
+}

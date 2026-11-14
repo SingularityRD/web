@@ -69,7 +69,7 @@
       "@type": "SoftwareApplication",
       "@id": "https://www.singularityrd.com/breakpoint.html#product",
       "name": "Breakpoint",
-      "description": "Breakpoint is an AI pentester. It attacks your code, web apps, APIs and AI apps every day, like a real attacker. Every finding is proven and comes with a fix.",
+      "description": "Breakpoint attacks your code, web apps, APIs and AI apps every day, like a real attacker. It reports only what it can prove, and hands you the fix.",
       "url": "https://www.singularityrd.com/breakpoint.html",
       "applicationCategory": "SecurityApplication",
       "featureList": [
@@ -135,42 +135,42 @@
       "mainEntity": [
         {
           "@type": "Question",
-          "name": "What is Singularity Breakpoint?",
+          "name": "What is Breakpoint, in plain terms?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Breakpoint is an AI pentester from Singularity. It attacks your code, web apps, APIs and AI apps every day, the way a real attacker would, proves each finding by reproducing it and delivers a fix your team can review."
+            "text": "Singularity Breakpoint is an AI pentester. It attacks your code, web apps, APIs and AI apps every day, the way a real attacker would. It reports a finding only after reproducing it, proposes a fix and re-tests the fix with the same exploit."
           }
         },
         {
           "@type": "Question",
-          "name": "Who is Breakpoint for?",
+          "name": "Can it run on our own servers, even air-gapped?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Breakpoint is for teams that ship software often and must prove it is secure: banks and fintech, insurance and capital markets, SaaS and software companies, telecom, energy and utilities, the public sector and defense, and e-commerce and retail."
+            "text": "Yes. Breakpoint installs on your own Linux or Apple Silicon machines, with the AI provider you choose. It also runs fully air-gapped, offline with a self-hosted model and no outbound connection. Code, findings and evidence stay on your machines, and telemetry can be turned off."
           }
         },
         {
           "@type": "Question",
-          "name": "How is Breakpoint different from scanners and annual pentests?",
+          "name": "Is it safe to point an AI attacker at our systems?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "A scanner raises suspicions and an annual pentest is a snapshot. Breakpoint attacks every day and counts a finding only when it has been reproduced. Keep the certified annual pentest where regulators require it; Breakpoint covers the time between tests."
+            "text": "Breakpoint tests only the targets in your written scope; other hosts are refused. Each run has step and spend limits, tools run isolated in Docker or a VM, and every run keeps a journal. Fixes are proposed for review, and nothing merges without your team."
           }
         },
         {
           "@type": "Question",
-          "name": "Can Breakpoint run on-premises or air-gapped?",
+          "name": "Won't an AI just flood us with false positives?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Yes. Breakpoint runs in your own environment with the AI provider you choose. It can also run fully air-gapped, meaning offline with no outbound connection. Your code, findings and evidence stay on your machines."
+            "text": "No. Breakpoint treats a finding without a reproduction as a hypothesis, not a finding. An AI verdict alone never marks anything as confirmed. What reaches your team carries the request, the response and the proof, so engineers fix real holes instead of sorting noise."
           }
         },
         {
           "@type": "Question",
-          "name": "How do people stay in control of Breakpoint?",
+          "name": "Does it replace our annual pentest and compliance audits?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Breakpoint tests only the targets you approve in writing, inside limits you set. Fixes are proposed for review and nothing is merged without your team. Every test run keeps a record of what it did."
+            "text": "Keep the certified annual pentest where regulators require it. Breakpoint makes that test shorter and keeps you covered between tests. Its reports are evidence for PCI DSS, ISO 27001, SOC 2 and DORA work, but they are not a certification."
           }
         }
       ]
@@ -211,17 +211,17 @@
 
 <main>
 
-<!-- ── Hero ────────────────────────────────────────────────────── -->
+<!-- ── The promise ──────────────────────────────────────────────── -->
 <section class="p-hero">
   <div class="p-hero-art paint" style="--shift: 15%"><canvas data-art="breakpoint" width="1600" height="760" aria-hidden="true"></canvas></div>
   <div class="shell p-hero-inner">
     <nav class="crumbs" aria-label="Breadcrumb"><a href="index.html">Singularity</a><i aria-hidden="true">/</i><a href="index.html#products">Products</a><i aria-hidden="true">/</i><span aria-current="page">Breakpoint</span></nav>
     <p class="p-kicker"><i></i>Breakpoint · AI pentester</p>
     <h1 class="p-title">Find your breaking point before attackers do.</h1>
-    <p class="p-lede">Breakpoint is an AI pentester. It attacks your code, web apps, APIs and AI apps every day, like a real attacker. Every finding is proven and comes with a fix.</p>
+    <p class="p-lede">Breakpoint attacks your code, web apps, APIs and AI apps every day, like a real attacker. It reports only what it can prove, and hands you the fix.</p>
     <div class="hero-actions">
       <a class="btn btn-solid btn-lg" href="https://calendly.com/anill-yagiz/singularity" target="_blank" rel="noopener">Book a demo <span class="chev">›</span></a>
-      <a class="btn btn-ghost btn-lg" href="mailto:anil@singularityrd.com?subject=Breakpoint%20technical%20brief">Request the technical brief</a>
+      <a class="btn btn-ghost btn-lg" href="#story">See the difference</a>
     </div>
   </div>
 </section>
@@ -229,125 +229,187 @@
 <section class="wrap p-statw" aria-label="Key fact">
   <div class="p-stat">
     <p class="p-stat-v">$4.99M</p>
-    <p class="p-stat-l">Average cost of a single data breach to a company in 2026<small>IBM Cost of a Data Breach Report, 2026</small></p>
+    <p class="p-stat-l">What a single data breach costs a company, on average, in 2026<small>IBM Cost of a Data Breach Report, 2026</small></p>
   </div>
 </section>
 
-<!-- ── The problem ──────────────────────────────────────────────── -->
-<section class="wrap sec" aria-labelledby="problem-h">
-  <p class="sec-tag">The problem</p>
-  <h2 class="sec-title" id="problem-h"><span class="s">Code changes daily.</span> <span class="s">Testing happens once a year.</span></h2>
-  <div class="p-cards">
-    <article class="p-card"><p class="p-n">01</p><h3>A pentest is a snapshot</h3><p>A pentest is a test attack on your own systems. Between two of them, only real attackers are testing your new code.</p></article>
-    <article class="p-card"><p class="p-n">02</p><h3>Scanners raise too many alarms</h3><p>Security scanners produce thousands of alerts. Nobody proves which ones an attacker can actually use, so engineers sort through noise.</p></article>
-    <article class="p-card"><p class="p-n">03</p><h3>Attackers use AI too</h3><p>Breaches where attackers used AI cost about $1M more than average (IBM Cost of a Data Breach Report, 2026).</p></article>
+<!-- ── The scene: one incident, told twice ──────────────────────── -->
+<section class="wrap sec" id="story" aria-labelledby="scene-h">
+  <p class="sec-tag">The same hours, twice</p>
+  <h2 class="sec-title" id="scene-h">One vulnerable change, one afternoon</h2>
+  <p class="sec-sub">A weekday afternoon. A developer's change adds a search to the orders API, with a SQL injection hole that lets an attacker read the database.</p>
+  <table class="p-scene">
+    <thead><tr><th scope="col"><span class="sr">Time</span></th><th scope="col">Without Breakpoint</th><th scope="col">With Breakpoint</th></tr></thead>
+    <tbody>
+      <tr><th scope="row">14:00</th><td data-k="Without Breakpoint">The pull request merges without a security review. Nobody has looked at it like an attacker.</td><td data-k="With Breakpoint">Breakpoint reviews the pull request before merge and flags a possible SQL injection as a hypothesis.</td></tr>
+      <tr><th scope="row">14:30</th><td data-k="Without Breakpoint">A scanner flags it among thousands of alerts. Nobody proves whether an attacker can use it.</td><td data-k="With Breakpoint">It attacks the staging app inside the written scope and reproduces the injection three times, evidence attached.</td></tr>
+      <tr><th scope="row">15:30</th><td data-k="Without Breakpoint">The change ships to production. No one has attacked it.</td><td data-k="With Breakpoint">A six-line patch with a plain explanation arrives for review. The developer reads it and merges.</td></tr>
+      <tr><th scope="row">17:00</th><td data-k="Without Breakpoint">The last pentest report is eleven months old. Until the next one, only attackers test the code.</td><td data-k="With Breakpoint">Breakpoint replays the same exploit against the fix. It fails, and the finding closes on record.</td></tr>
+      <tr class="ps-end"><th scope="row">How it ends</th><td data-k="Without Breakpoint">An open hole that only attackers are testing</td><td data-k="With Breakpoint">Proven, fixed and re-tested the same afternoon</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- ── The case, chapter by chapter ─────────────────────────────── -->
+<section class="wrap sec" aria-labelledby="case-h">
+  <p class="sec-tag">Why Breakpoint</p>
+  <h2 class="sec-title" id="case-h">Six reasons to choose Breakpoint</h2>
+  <div class="p-chs">
+    <article class="p-ch">
+      <div class="p-ch-l">
+        <p class="p-ch-n">01 · Continuous</p>
+        <h3>Testing on every release, not once a year</h3>
+        <p>A pentest, a test attack on your own systems, is a snapshot. Then months of new code ship that no one has attacked. Breakpoint reviews every pull request (a proposed code change) and tests every release, so exposure windows shrink from months to days.</p>
+      </div>
+      <ul class="p-ch-r"><li>Security review of every pull request before merge</li><li>Deep, expert-style review of your source repositories</li><li>Live testing of web apps and APIs, logged in</li><li>GitHub Actions workflow and SARIF output for any CI</li></ul>
+    </article>
+    <article class="p-ch">
+      <div class="p-ch-l">
+        <p class="p-ch-n">02 · Proof</p>
+        <h3>Only findings an attacker could really use</h3>
+        <p>Scanners produce thousands of alerts, and nobody proves which are real. Breakpoint counts a finding only after it has been reproduced, with the request, response and proof attached. An AI verdict alone never confirms anything. Your team fixes what is real.</p>
+      </div>
+      <ul class="p-ch-r"><li>Finds with scanners, code reading and live probing</li><li>Unproven candidates stay labeled as hypotheses</li><li>Every finding carries request, response and proof</li><li>Adjustable triage: less noise or every lead kept</li></ul>
+    </article>
+    <article class="p-ch">
+      <div class="p-ch-l">
+        <p class="p-ch-n">03 · Fix</p>
+        <h3>Every proven hole comes with its fix</h3>
+        <p>Knowing about a hole does not close it. For each verified finding Breakpoint proposes a minimal patch and a plain explanation. Then it replays the original exploit against the fix and closes the finding only when the attack fails. Teams close issues in the same sprint.</p>
+      </div>
+      <ul class="p-ch-r"><li>Minimal patch proposed for review, never auto-merged</li><li>Same exploit replayed against the fix</li><li>Findings exported to GitHub Issues with evidence</li><li>Works with coding agents such as Claude Code and Cursor</li></ul>
+    </article>
+    <article class="p-ch">
+      <div class="p-ch-l">
+        <p class="p-ch-n">04 · AI apps</p>
+        <h3>Your chatbot and agents attacked before launch</h3>
+        <p>An AI feature launched last sprint has often never been tested. Breakpoint attacks chatbots, agents and MCP servers (tool connectors for AI agents) the way an attacker would: tricking them with hidden instructions, pulling out secrets and making agents call tools they should not.</p>
+      </div>
+      <ul class="p-ch-r"><li>Prompt injection, including multi-turn and role-play attacks</li><li>System prompt extraction and data exfiltration attempts</li><li>Jailbreaks through encoding tricks and language switching</li><li>Unauthorized tool calls and multi-step attack chains</li><li>Built-in attack templates, plus your own</li></ul>
+    </article>
+    <article class="p-ch">
+      <div class="p-ch-l">
+        <p class="p-ch-n">05 · Coverage</p>
+        <h3>One attacker for everything you ship</h3>
+        <p>Your risk does not stop at your own code. Breakpoint reads the code and attacks the running app together, audits the packages and container images you depend on, and maps Active Directory access paths offline. Software without source can be tested too.</p>
+      </div>
+      <ul class="p-ch-r"><li>White-box testing: code review plus live attack</li><li>npm, PyPI and Cargo packages and container images</li><li>Compiled binaries without source code (preview)</li><li>Active Directory and Entra ID relationship analysis</li><li>OpenAPI and Swagger import to map your endpoints</li></ul>
+    </article>
+    <article class="p-ch">
+      <div class="p-ch-l">
+        <p class="p-ch-n">06 · Audit</p>
+        <h3>Proof for the auditor, and a shorter pentest</h3>
+        <p>When an auditor or a customer asks for proof, you show the attack and the fix. Breakpoint keeps a dated record of what was tested, found and closed. Keep the certified annual pentest where regulators require it. Breakpoint makes it shorter and covers the time between.</p>
+      </div>
+      <ul class="p-ch-r"><li>Reports in PDF, HTML, JSON, Markdown and SARIF</li><li>Evidence for PCI DSS, ISO 27001, SOC 2 and DORA</li><li>Findings feed your SIEM, tickets and dashboards</li><li>Verified findings open as cases in AutoSecOps</li></ul>
+    </article>
   </div>
 </section>
 
-<!-- ── How it works ─────────────────────────────────────────────── -->
-<section class="wrap sec" aria-labelledby="how-h">
-  <p class="sec-tag">How it works</p>
-  <h2 class="sec-title" id="how-h"><span class="s">Find.</span> <span class="s">Prove.</span> <span class="s">Fix.</span> <span class="s">Re-test.</span></h2>
+<!-- ── Before and after ─────────────────────────────────────────── -->
+<section class="wrap sec" aria-labelledby="shift-h">
+  <p class="sec-tag">Before and after</p>
+  <h2 class="sec-title" id="shift-h">Between pentests, someone attacks on your side</h2>
+  <table class="p-shift">
+    <thead><tr><th scope="col"><span class="sr">What</span></th><th scope="col">Before</th><th scope="col">With Breakpoint</th></tr></thead>
+    <tbody>
+      <tr><th scope="row">Testing</th><td data-k="Before">One pentest a year, then months untested</td><td data-k="With Breakpoint">Every pull request and every release</td></tr>
+      <tr><th scope="row">Scanner alerts</th><td data-k="Before">Thousands of alerts, none of them proven</td><td data-k="With Breakpoint">Only reproduced findings, with proof attached</td></tr>
+      <tr><th scope="row">Fixes</th><td data-k="Before">Findings in a PDF, the fix left to you</td><td data-k="With Breakpoint">A proposed patch for every verified finding</td></tr>
+      <tr><th scope="row">Closing</th><td data-k="Before">Nobody checks that the fix closed the hole</td><td data-k="With Breakpoint">Same exploit replayed, closed only when it fails</td></tr>
+      <tr><th scope="row">AI features</th><td data-k="Before">Launched last sprint, never tested</td><td data-k="With Breakpoint">Attacked for prompt injection and tool abuse</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- ── Where it stops ───────────────────────────────────────────── -->
+<section class="wrap sec" aria-labelledby="limits-h">
+  <p class="sec-tag">Straight talk</p>
+  <h2 class="sec-title" id="limits-h">What Breakpoint will not do</h2>
+  <div class="p-limits" style="--n: 4">
+    <article class="p-limit"><span class="p-no" aria-hidden="true"></span><h3>Test outside your scope</h3><p>Breakpoint tests only targets listed in a written scope. Out-of-scope hosts are refused, and live testing needs written authorization.</p></article>
+    <article class="p-limit"><span class="p-no" aria-hidden="true"></span><h3>Merge code on its own</h3><p>Fixes are proposed for review. Nothing is merged into your code without your team.</p></article>
+    <article class="p-limit"><span class="p-no" aria-hidden="true"></span><h3>Confirm findings on AI judgment</h3><p>A finding without a reproduction stays a hypothesis. An AI verdict alone never marks anything as confirmed.</p></article>
+    <article class="p-limit"><span class="p-no" aria-hidden="true"></span><h3>Replace a certified pentest</h3><p>Reports are evidence for PCI DSS, ISO 27001, SOC 2 and DORA work, not a certification. Keep the certified pentest regulators require.</p></article>
+  </div>
+</section>
+
+<!-- ── How you start ────────────────────────────────────────────── -->
+<section class="wrap sec" aria-labelledby="pilot-h">
+  <p class="sec-tag">How you start</p>
+  <h2 class="sec-title" id="pilot-h">One application, 30 days, a clear report</h2>
   <ol class="p-steps" style="--n: 4">
-    <li><b>1</b><h3>Find</h3><p>Breakpoint probes your code, web apps, APIs and AI features the way a real attacker would.</p></li>
-    <li><b>2</b><h3>Prove</h3><p>A finding counts only when it has been reproduced, with the evidence attached. No guesswork.</p></li>
-    <li><b>3</b><h3>Fix</h3><p>Each proven finding comes with a fix that is ready for your team to review.</p></li>
-    <li><b>4</b><h3>Re-test</h3><p>The same attack is run again after the fix. The finding is closed only when the attack fails.</p></li>
+    <li><b>1</b><h3>Agree the scope</h3><p>Pick one application and agree the scope, rules and success criteria in writing. You bring a staging environment and repository read access.</p></li>
+    <li><b>2</b><h3>Attack the baseline</h3><p>Breakpoint runs a full first assessment of the application and proves what it finds.</p></li>
+    <li><b>3</b><h3>Test every change</h3><p>For the rest of the month it tests every pull request and release.</p></li>
+    <li><b>4</b><h3>Decide on results</h3><p>You get verified findings, fixes, false-positive rate and time-to-fix in a report ready for management.</p></li>
   </ol>
 </section>
 
-<!-- ── What you get ─────────────────────────────────────────────── -->
-<section class="wrap sec" aria-labelledby="feat-h">
-  <p class="sec-tag">What you get</p>
-  <h2 class="sec-title" id="feat-h">One platform for everything you ship</h2>
-  <div class="p-feats">
-    <article class="p-feat"><h3>Source code</h3><p>Reviews your code repositories in depth, the way an expert reviewer reads them.</p></article>
-    <article class="p-feat"><h3>Web apps and APIs</h3><p>Tests live applications with logins and API specifications, inside the scope you set.</p></article>
-    <article class="p-feat"><h3>AI apps and agents</h3><p>Tests your chatbots and AI agents for prompt injection (text that tricks an AI), data leaks and misuse of tools.</p></article>
-    <article class="p-feat"><h3>Every code change</h3><p>Each code change, or pull request, is reviewed for security before it reaches production.</p></article>
-    <article class="p-feat"><h3>Packages and containers</h3><p>Checks the npm, PyPI and Cargo packages and container images your software depends on.</p></article>
-    <article class="p-feat"><h3>Evidence for audits</h3><p>Reports support your PCI DSS, ISO 27001, SOC 2 and DORA compliance work. They are evidence, not a certification.</p></article>
-  </div>
-</section>
-
-<!-- ── Everything in the product ────────────────────────────────── -->
-<section class="wrap sec" id="features" aria-labelledby="caps-h">
-  <p class="sec-tag">Features</p>
-  <h2 class="sec-title" id="caps-h">Everything in Breakpoint</h2>
-  <p class="sec-sub">What Breakpoint attacks, how it proves and fixes each finding, and how it stays inside your limits.</p>
-  <div class="p-caps">
-    <article class="p-cap"><h3>What it tests</h3><ul><li>Live testing of web apps and REST APIs, including logged-in areas</li><li>Expert-style security review of your source repositories</li><li>Security review of every pull request before it merges</li><li>White-box testing: reads the code, then attacks the running app</li><li>AI apps, chatbots, agents and Model Context Protocol (MCP) servers</li><li>npm, PyPI and Cargo packages and container images, including malicious packages</li><li>Compiled binaries without source: find, prove and patch bugs (preview)</li><li>Offline analysis of Active Directory and Entra ID access relationships</li></ul></article>
-    <article class="p-cap"><h3>Find, prove, fix, verify</h3><ul><li>Finds issues with scanners, code reading and live probing</li><li>A finding counts only after it has been reproduced</li><li>An AI verdict alone never marks a finding confirmed</li><li>A minimal patch and plain explanation for each verified finding</li><li>Original exploit replayed against the fix; closed only when it fails</li><li>Adjustable triage: less noise, or every lead kept for research</li></ul></article>
-    <article class="p-cap"><h3>Attacks on AI apps</h3><ul><li>Prompt injection: overrides, role-play, multi-turn and context stuffing</li><li>System prompt extraction, including encoded and translated attempts</li><li>Data exfiltration attempts: credentials, personal data, training data</li><li>Jailbreaks: encoding tricks, language switching, markdown injection</li><li>Agent tool abuse: tool discovery and unauthorized tool calls</li><li>Multi-step attack chains with social engineering and chained tools</li><li>Built-in attack templates, plus your own</li></ul></article>
-    <article class="p-cap"><h3>Evidence and reports</h3><ul><li>Every finding carries the request, response and proof</li><li>Dated record of what was tested, found and closed</li><li>Reports in PDF, HTML, JSON, Markdown and SARIF (code-scanning standard)</li><li>Findings queue and board view</li><li>Evidence for PCI DSS, ISO 27001, SOC 2 and DORA work</li></ul></article>
-    <article class="p-cap"><h3>Integrations</h3><ul><li>GitHub Actions workflow, plus SARIF output for any CI pipeline</li><li>Findings exported to GitHub Issues with their evidence</li><li>MCP server for coding agents such as Claude Code and Cursor</li><li>OpenAPI and Swagger specs to map your API endpoints</li><li>JSON and SARIF feeds for security monitoring (SIEM), tickets and dashboards</li><li>Verified findings open as cases in AutoSecOps</li></ul></article>
-    <article class="p-cap"><h3>Scope and control</h3><ul><li>Tests only targets in your scope file; others are refused</li><li>Written authorization required before any live testing</li><li>Step and spend limits per run, so tests cannot run away</li><li>Attack tools run isolated in Docker or a VM, disposable by default</li><li>Interactive approvals in the web console</li><li>Every run keeps a journal of what it did</li><li>Fixes proposed for review; nothing merged without your team</li><li>Single sign-on for your team</li></ul></article>
-    <article class="p-cap"><h3>Deployment and data</h3><ul><li>Self-hosted on Linux (x64, ARM64) or Apple Silicon</li><li>Shared team workspace connected to your CI and repositories</li><li>Air-gapped mode with a self-hosted model and no outbound connection</li><li>Bring your own AI model, cloud or self-hosted</li><li>Command line, browser console and MCP access</li><li>Code, findings and evidence stay on your machines</li><li>Offline and no-telemetry modes</li><li>Target credentials and model keys kept apart in restricted files</li></ul></article>
-  </div>
-  <dl class="p-specs">
-    <div><dt>Tests</dt><dd>Source code, pull requests, web apps, APIs, AI apps, packages, containers, binaries (preview)</dd></div>
-    <div><dt>Deployment</dt><dd>Self-hosted on Linux or Apple Silicon, shared team workspace, or fully air-gapped</dd></div>
-    <div><dt>AI provider</dt><dd>Anthropic, OpenAI, Azure OpenAI, OpenRouter or any OpenAI-compatible model you host</dd></div>
-    <div><dt>Outputs</dt><dd>PDF, HTML, JSON, Markdown and SARIF reports; GitHub Issues; AutoSecOps cases</dd></div>
-    <div><dt>Evidence for</dt><dd>PCI DSS, ISO 27001, SOC 2 and DORA work; reports are not a certification</dd></div>
-    <div><dt>Data</dt><dd>Code, findings and evidence stay on your machines; telemetry can be turned off</dd></div>
-  </dl>
-</section>
-
-<!-- ── Who it is for ────────────────────────────────────────────── -->
-<section class="wrap sec" aria-labelledby="fit-h">
-  <p class="sec-tag">Who it is for</p>
-  <h2 class="sec-title" id="fit-h">Built for teams that can’t afford to guess</h2>
-  <div class="p-fit">
-    <div><p class="p-fit-k">Built for</p><ul class="p-chips"><li>Banking and fintech</li><li>Insurance and capital markets</li><li>SaaS and software companies</li><li>Telecom, energy and utilities</li><li>Public sector and defense</li><li>E-commerce and retail</li></ul></div>
-    <div><p class="p-fit-k">Works with</p><ul class="p-chips"><li>GitHub Actions</li><li>GitHub Issues</li><li>OpenAPI</li><li>Swagger</li><li>npm</li><li>PyPI</li><li>Cargo</li><li>AutoSecOps</li></ul></div>
-  </div>
-</section>
-
-<!-- ── Control ──────────────────────────────────────────────────── -->
-<section class="wrap sec" aria-labelledby="ctl-h">
-  <p class="sec-tag">Control</p>
-  <h2 class="sec-title" id="ctl-h"><span class="s">Powerful by design.</span> <span class="s">Bounded by default.</span></h2>
-  <div class="p-cards">
-    <article class="p-card"><span class="p-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3 4 6v6c0 4.5 3.4 8.3 8 9 4.6-.7 8-4.5 8-9V6l-8-3Z"/><path d="m9 12 2 2 4-4"/></svg></span><h3>Only targets you approve</h3><p>Breakpoint tests only the targets you approve, inside limits you set, with your written authorization. Every run keeps a record.</p></article>
-    <article class="p-card"><span class="p-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg></span><h3>People decide on fixes</h3><p>Fixes are proposed for review. Nothing is merged into your code without your team.</p></article>
-    <article class="p-card"><span class="p-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 3h7l5 5v13H7z"/><path d="M10 13h6M10 17h6"/></svg></span><h3>Your code stays with you</h3><p>Breakpoint runs in your environment with the AI provider you choose, or air-gapped with no outside connection. Your code stays with you.</p></article>
-  </div>
-</section>
-
-<!-- ── FAQ ──────────────────────────────────────────────────────── -->
+<!-- ── The questions buyers ask ─────────────────────────────────── -->
 <section class="wrap sec" id="faq" aria-labelledby="faq-h">
+  <p class="sec-tag">Questions buyers ask</p>
   <h2 class="sec-title" id="faq-h">Questions about Breakpoint</h2>
   <div class="faq">
     <details class="faq-item" open>
-      <summary><h3>What is Singularity Breakpoint?</h3><span class="faq-mark" aria-hidden="true"></span></summary>
-      <p>Breakpoint is an AI pentester from Singularity. It attacks your code, web apps, APIs and AI apps every day, the way a real attacker would, proves each finding by reproducing it and delivers a fix your team can review.</p>
+      <summary><h3>What is Breakpoint, in plain terms?</h3><span class="faq-mark" aria-hidden="true"></span></summary>
+      <p>Singularity Breakpoint is an AI pentester. It attacks your code, web apps, APIs and AI apps every day, the way a real attacker would. It reports a finding only after reproducing it, proposes a fix and re-tests the fix with the same exploit.</p>
     </details>
     <details class="faq-item">
-      <summary><h3>Who is Breakpoint for?</h3><span class="faq-mark" aria-hidden="true"></span></summary>
-      <p>Breakpoint is for teams that ship software often and must prove it is secure: banks and fintech, insurance and capital markets, SaaS and software companies, telecom, energy and utilities, the public sector and defense, and e-commerce and retail.</p>
+      <summary><h3>Can it run on our own servers, even air‑gapped?</h3><span class="faq-mark" aria-hidden="true"></span></summary>
+      <p>Yes. Breakpoint installs on your own Linux or Apple Silicon machines, with the AI provider you choose. It also runs fully air-gapped, offline with a self-hosted model and no outbound connection. Code, findings and evidence stay on your machines, and telemetry can be turned off.</p>
     </details>
     <details class="faq-item">
-      <summary><h3>How is Breakpoint different from scanners and annual pentests?</h3><span class="faq-mark" aria-hidden="true"></span></summary>
-      <p>A scanner raises suspicions and an annual pentest is a snapshot. Breakpoint attacks every day and counts a finding only when it has been reproduced. Keep the certified annual pentest where regulators require it; Breakpoint covers the time between tests.</p>
+      <summary><h3>Is it safe to point an AI attacker at our systems?</h3><span class="faq-mark" aria-hidden="true"></span></summary>
+      <p>Breakpoint tests only the targets in your written scope; other hosts are refused. Each run has step and spend limits, tools run isolated in Docker or a VM, and every run keeps a journal. Fixes are proposed for review, and nothing merges without your team.</p>
     </details>
     <details class="faq-item">
-      <summary><h3>Can Breakpoint run on-premises or air‑gapped?</h3><span class="faq-mark" aria-hidden="true"></span></summary>
-      <p>Yes. Breakpoint runs in your own environment with the AI provider you choose. It can also run fully air-gapped, meaning offline with no outbound connection. Your code, findings and evidence stay on your machines.</p>
+      <summary><h3>Won't an AI just flood us with false positives?</h3><span class="faq-mark" aria-hidden="true"></span></summary>
+      <p>No. Breakpoint treats a finding without a reproduction as a hypothesis, not a finding. An AI verdict alone never marks anything as confirmed. What reaches your team carries the request, the response and the proof, so engineers fix real holes instead of sorting noise.</p>
     </details>
     <details class="faq-item">
-      <summary><h3>How do people stay in control of Breakpoint?</h3><span class="faq-mark" aria-hidden="true"></span></summary>
-      <p>Breakpoint tests only the targets you approve in writing, inside limits you set. Fixes are proposed for review and nothing is merged without your team. Every test run keeps a record of what it did.</p>
+      <summary><h3>Does it replace our annual pentest and compliance audits?</h3><span class="faq-mark" aria-hidden="true"></span></summary>
+      <p>Keep the certified annual pentest where regulators require it. Breakpoint makes that test shorter and keeps you covered between tests. Its reports are evidence for PCI DSS, ISO 27001, SOC 2 and DORA work, but they are not a certification.</p>
     </details>
   </div>
 </section>
 
-<!-- ── Contact ──────────────────────────────────────────────────── -->
+<!-- ── The full list, for the evaluation team ───────────────────── -->
+<section class="wrap sec" id="features" aria-labelledby="caps-h">
+  <details class="p-sheet">
+    <summary><span><b id="caps-h">Every feature of Breakpoint</b><small>The full list for your evaluation team: 48 capabilities in 7 groups.</small></span><i class="p-sheet-mark" aria-hidden="true"></i></summary>
+    <div class="p-sheet-in">
+      <div class="p-caps">
+        <article class="p-cap"><h3>What it tests</h3><ul><li>Live testing of web apps and REST APIs, including logged-in areas</li><li>Expert-style security review of your source repositories</li><li>Security review of every pull request before it merges</li><li>White-box testing: reads the code, then attacks the running app</li><li>AI apps, chatbots, agents and Model Context Protocol (MCP) servers</li><li>npm, PyPI and Cargo packages and container images, including malicious packages</li><li>Compiled binaries without source: find, prove and patch bugs (preview)</li><li>Offline analysis of Active Directory and Entra ID access relationships</li></ul></article>
+        <article class="p-cap"><h3>Find, prove, fix, verify</h3><ul><li>Finds issues with scanners, code reading and live probing</li><li>A finding counts only after it has been reproduced</li><li>An AI verdict alone never marks a finding confirmed</li><li>A minimal patch and plain explanation for each verified finding</li><li>Original exploit replayed against the fix; closed only when it fails</li><li>Adjustable triage: less noise, or every lead kept for research</li></ul></article>
+        <article class="p-cap"><h3>Attacks on AI apps</h3><ul><li>Prompt injection: overrides, role-play, multi-turn and context stuffing</li><li>System prompt extraction, including encoded and translated attempts</li><li>Data exfiltration attempts: credentials, personal data, training data</li><li>Jailbreaks: encoding tricks, language switching, markdown injection</li><li>Agent tool abuse: tool discovery and unauthorized tool calls</li><li>Multi-step attack chains with social engineering and chained tools</li><li>Built-in attack templates, plus your own</li></ul></article>
+        <article class="p-cap"><h3>Evidence and reports</h3><ul><li>Every finding carries the request, response and proof</li><li>Dated record of what was tested, found and closed</li><li>Reports in PDF, HTML, JSON, Markdown and SARIF (code-scanning standard)</li><li>Findings queue and board view</li><li>Evidence for PCI DSS, ISO 27001, SOC 2 and DORA work</li></ul></article>
+        <article class="p-cap"><h3>Integrations</h3><ul><li>GitHub Actions workflow, plus SARIF output for any CI pipeline</li><li>Findings exported to GitHub Issues with their evidence</li><li>MCP server for coding agents such as Claude Code and Cursor</li><li>OpenAPI and Swagger specs to map your API endpoints</li><li>JSON and SARIF feeds for security monitoring (SIEM), tickets and dashboards</li><li>Verified findings open as cases in AutoSecOps</li></ul></article>
+        <article class="p-cap"><h3>Scope and control</h3><ul><li>Tests only targets in your scope file; others are refused</li><li>Written authorization required before any live testing</li><li>Step and spend limits per run, so tests cannot run away</li><li>Attack tools run isolated in Docker or a VM, disposable by default</li><li>Interactive approvals in the web console</li><li>Every run keeps a journal of what it did</li><li>Fixes proposed for review; nothing merged without your team</li><li>Single sign-on for your team</li></ul></article>
+        <article class="p-cap"><h3>Deployment and data</h3><ul><li>Self-hosted on Linux (x64, ARM64) or Apple Silicon</li><li>Shared team workspace connected to your CI and repositories</li><li>Air-gapped mode with a self-hosted model and no outbound connection</li><li>Bring your own AI model, cloud or self-hosted</li><li>Command line, browser console and MCP access</li><li>Code, findings and evidence stay on your machines</li><li>Offline and no-telemetry modes</li><li>Target credentials and model keys kept apart in restricted files</li></ul></article>
+      </div>
+      <dl class="p-specs">
+        <div><dt>Tests</dt><dd>Source code, pull requests, web apps, APIs, AI apps, packages, containers, binaries (preview)</dd></div>
+        <div><dt>Deployment</dt><dd>Self-hosted on Linux or Apple Silicon, shared team workspace, or fully air-gapped</dd></div>
+        <div><dt>AI provider</dt><dd>Anthropic, OpenAI, Azure OpenAI, OpenRouter or any OpenAI-compatible model you host</dd></div>
+        <div><dt>Outputs</dt><dd>PDF, HTML, JSON, Markdown and SARIF reports; GitHub Issues; AutoSecOps cases</dd></div>
+        <div><dt>Evidence for</dt><dd>PCI DSS, ISO 27001, SOC 2 and DORA work; reports are not a certification</dd></div>
+        <div><dt>Data</dt><dd>Code, findings and evidence stay on your machines; telemetry can be turned off</dd></div>
+      </dl>
+      <div class="p-fit">
+        <div><p class="p-fit-k">Built for</p><ul class="p-chips"><li>Banking and fintech</li><li>Insurance and capital markets</li><li>SaaS and software companies</li><li>Telecom, energy and utilities</li><li>Public sector and defense</li><li>E-commerce and retail</li></ul></div>
+        <div><p class="p-fit-k">Works with</p><ul class="p-chips"><li>GitHub Actions</li><li>GitHub Issues</li><li>OpenAPI</li><li>Swagger</li><li>npm</li><li>PyPI</li><li>Cargo</li><li>AutoSecOps</li></ul></div>
+      </div>
+    </div>
+  </details>
+</section>
+
+<!-- ── The close ────────────────────────────────────────────────── -->
 <section class="wrap sec" id="contact" aria-labelledby="contact-h">
   <div class="p-cta">
     <p class="sec-tag">Book a demo</p>
     <h2 class="cta-title" id="contact-h">See what an attacker would find</h2>
-    <p>Pick one application. We agree the scope in writing, attack it and show you the proven findings and fixes.</p>
+    <p>Pick one application. We agree the scope in writing, attack it for 30 days and show you the proven findings and fixes.</p>
     <div class="hero-actions">
       <a class="btn btn-solid btn-lg" href="https://calendly.com/anill-yagiz/singularity" target="_blank" rel="noopener">Book a demo <span class="chev">›</span></a>
       <a class="btn btn-ghost btn-lg" href="mailto:anil@singularityrd.com?subject=Breakpoint%20technical%20brief">Request the technical brief</a>
@@ -358,7 +420,7 @@
     <p>More from Singularity</p>
     <a href="foundation-models.html"><b>Singularity Foundation Models</b><span>Our own AI models</span></a>
     <a href="autosecops.html"><b>AutoSecOps</b><span>AI security operations</span></a>
-    <a href="aidr.html"><b>AIDR</b><span>AI agent security</span></a>
+    <a href="aidr.html"><b>AIDR</b><span>Security for AI</span></a>
     <a href="it-ops.html"><b>IT Ops</b><span>AI on-call engineer</span></a>
     <a href="fennec.html"><b>Fennec</b><span>Code security scanner</span></a>
     <a href="sonar.html"><b>Sonar</b><span>Factory network security</span></a>
@@ -392,6 +454,12 @@
         <p><b>Türkiye</b>Singularity Arge Siber Güvenlik ve Yapay Zeka Teknoloji A.Ş.</p>
         <p><b>South Korea</b>Singularity Korea</p>
       </div>
+    </nav>
+  </div>
+  <div class="world">
+    <div class="footer-art paint"><canvas data-art="world" width="2400" height="620" aria-hidden="true"></canvas></div>
+    <nav class="world-nav" aria-label="Products in the picture">
+      <a href="autosecops.html" style="--x: 7.2%">AutoSecOps</a><a href="aidr.html" style="--x: 21.5%">AIDR</a><a href="it-ops.html" style="--x: 36.6%">IT Ops</a><a href="breakpoint.html" style="--x: 50%">Breakpoint</a><a href="fennec.html" style="--x: 64%">Fennec</a><a href="sonar.html" style="--x: 77.6%">Sonar</a><a href="robodr.html" style="--x: 92.5%">RoboDR</a>
     </nav>
   </div>
   <div class="shell">

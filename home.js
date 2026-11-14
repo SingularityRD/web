@@ -164,7 +164,7 @@
 
   /* Reveal on scroll, with a small stagger between siblings ------------- */
   (function () {
-    var els = $$('.creds li, .off-art, .core, .lineup-k, .mp, .team, .pn, .bench, .post-c, .ind, .q, .prod, .how3 li, .layers, .works, .together, .sec-title, .sec-sub, .app, .uc, .card, .term, .mini > div, .canvas, .case-ui, .agents > div, .ready li, .cmp, .faq-item, .cta, .p-stat, .p-card, .p-steps li, .p-feats, .p-fit > div, .p-cta, .p-more a, .p-cap, .p-specs');
+    var els = $$('.creds li, .off-art, .core, .lineup-k, .mp, .team, .pn, .bench, .post-c, .ind, .q, .prod, .how3 li, .layers, .works, .together, .sec-title, .sec-sub, .app, .uc, .card, .term, .mini > div, .canvas, .case-ui, .agents > div, .ready li, .cmp, .faq-item, .cta, .p-stat, .p-steps li, .p-fit > div, .p-cta, .p-more a, .p-cap, .p-specs, .gap, .gaps-turn, .vows li, .p-scene, .p-ch, .p-shift, .p-limit, .p-sheet');
     /* Once shown, drop .rv so the element's own transitions and hover lift apply. */
     function show(el) {
       if (el.classList.contains('in')) return;

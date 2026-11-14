@@ -69,7 +69,7 @@
       "@type": "SoftwareApplication",
       "@id": "https://www.singularityrd.com/sonar.html#product",
       "name": "Sonar",
-      "description": "Sonar is a security camera for your plant’s network. It listens to how machines talk, alerts you to anything suspicious and keeps the evidence. It never touches production.",
+      "description": "Sonar listens to how your machines talk, flags anything suspicious and keeps the evidence. It never sends a single packet to a machine, so production keeps running.",
       "url": "https://www.singularityrd.com/sonar.html",
       "applicationCategory": "SecurityApplication",
       "featureList": [
@@ -135,42 +135,42 @@
       "mainEntity": [
         {
           "@type": "Question",
-          "name": "What is Sonar?",
+          "name": "What exactly is Sonar?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Sonar is Singularity’s security product for factory and other industrial networks, often called OT (operational technology). It works like a security camera for the plant network: it listens, alerts on suspicious activity and keeps the evidence, without stopping production."
+            "text": "Sonar is Singularity’s passive security monitoring for factory and other industrial (OT, operational technology) networks. It works like a security camera for the plant network: it maps every device, reads industrial protocols such as Modbus and DNP3, alerts on suspicious activity and keeps packet-level evidence."
           }
         },
         {
           "@type": "Question",
-          "name": "Who is Sonar for?",
+          "name": "Can Sonar run on-premises, or on a site with no internet?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Sonar is for organizations that run industrial sites: manufacturing plants, energy and grid operators, oil, gas and water utilities, building and rail systems, and defense and public sector sites. It gives plant managers and security leaders one view of the plant network."
+            "text": "Yes. Sonar runs on your own servers, on Docker, Kubernetes or an installation image, and needs no internet connection. At air-gapped sites, threat intelligence and rules are loaded from offline files. Packets and files stay on the sensor that captured them; nothing flows outward."
           }
         },
         {
           "@type": "Question",
-          "name": "How is Sonar different from a firewall?",
+          "name": "Can Sonar slow down or stop our production?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "A firewall sees traffic pass but keeps no record of which device sent which command. Sonar records how machines talk to each other, flags unknown devices and unusual commands, and keeps the evidence. Sonar monitors and alerts; it does not block."
+            "text": "No. Sonar only listens, through a switch mirror port or a network tap. It never sends a single packet to a PLC, HMI or other machine, so it adds no device load and no risk of downtime."
           }
         },
         {
           "@type": "Question",
-          "name": "Can Sonar run on-premises or air-gapped?",
+          "name": "Will Sonar block anything or act on its own?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Yes. Sonar runs on your own server at the site and needs no internet connection, so it works air-gapped, meaning cut off from outside networks. Your data stays on site and nothing flows outward."
+            "text": "No. Sonar monitors, scores and alerts; it does not block traffic or close ports. Your people see the incident with its evidence and decide what to do. Incidents can also flow into your SIEM or become tracked cases in AutoSecOps."
           }
         },
         {
           "@type": "Question",
-          "name": "Can Sonar slow down or stop production?",
+          "name": "We already have a firewall. Why do we need Sonar?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "No. Sonar only listens. It never sends a command to your machines, so it adds no load and no risk of downtime. Sonar also does not block anything: it raises an alert, and your team decides what to do."
+            "text": "A firewall sees traffic pass but keeps no record of which device sent which command. Sonar records every command down to its target address, flags devices missing from your inventory and stores raw packets, so you can prove what happened to an auditor, insurer or regulator."
           }
         }
       ]
@@ -211,17 +211,17 @@
 
 <main>
 
-<!-- ── Hero ────────────────────────────────────────────────────── -->
+<!-- ── The promise ──────────────────────────────────────────────── -->
 <section class="p-hero">
   <div class="p-hero-art paint" style="--flip: -1; --shift: 6%"><canvas data-art="sonar" width="1600" height="760" aria-hidden="true"></canvas></div>
   <div class="shell p-hero-inner">
     <nav class="crumbs" aria-label="Breadcrumb"><a href="index.html">Singularity</a><i aria-hidden="true">/</i><a href="index.html#products">Products</a><i aria-hidden="true">/</i><span aria-current="page">Sonar</span></nav>
     <p class="p-kicker"><i></i>Sonar · Factory network security</p>
     <h1 class="p-title">See your plant network without stopping production.</h1>
-    <p class="p-lede">Sonar is a security camera for your plant’s network. It listens to how machines talk, alerts you to anything suspicious and keeps the evidence. It never touches production.</p>
+    <p class="p-lede">Sonar listens to how your machines talk, flags anything suspicious and keeps the evidence. It never sends a single packet to a machine, so production keeps running.</p>
     <div class="hero-actions">
       <a class="btn btn-solid btn-lg" href="https://calendly.com/anill-yagiz/singularity" target="_blank" rel="noopener">Book a demo <span class="chev">›</span></a>
-      <a class="btn btn-ghost btn-lg" href="mailto:anil@singularityrd.com?subject=Sonar%20technical%20brief">Request the technical brief</a>
+      <a class="btn btn-ghost btn-lg" href="#story">See the difference</a>
     </div>
   </div>
 </section>
@@ -229,125 +229,187 @@
 <section class="wrap p-statw" aria-label="Key fact">
   <div class="p-stat">
     <p class="p-stat-v">42 days</p>
-    <p class="p-stat-l">average time ransomware goes unnoticed on an industrial network. With full visibility: 5 days.<small>Dragos OT/ICS Cybersecurity Year in Review, 2026</small></p>
+    <p class="p-stat-l">average time ransomware goes unnoticed on an industrial network. With full visibility: 5 days.<small>Dragos, OT/ICS Cybersecurity Year in Review 2026</small></p>
   </div>
 </section>
 
-<!-- ── The problem ──────────────────────────────────────────────── -->
-<section class="wrap sec" aria-labelledby="problem-h">
-  <p class="sec-tag">The problem</p>
-  <h2 class="sec-title" id="problem-h">Most plants cannot see their own network</h2>
-  <div class="p-cards">
-    <article class="p-card"><p class="p-n">01</p><h3>Unknown devices go unseen</h3><p>Who is every machine talking to? Which device is not on your list? At most sites, nobody can say.</p></article>
-    <article class="p-card"><p class="p-n">02</p><h3>Blind plants shut down</h3><p>Ransomware hit 3,300 industrial organizations in 2025 (Dragos, 2026). A plant that cannot see how far it spread may have to stop everything.</p></article>
-    <article class="p-card"><p class="p-n">03</p><h3>No record, no answer</h3><p>Regulators, auditors and insurers ask what happened. Türkiye’s Law No. 7545 (2025) requires incident reports to the state without delay.</p></article>
+<!-- ── The scene: one incident, told twice ──────────────────────── -->
+<section class="wrap sec" id="story" aria-labelledby="scene-h">
+  <p class="sec-tag">The same hours, twice</p>
+  <h2 class="sec-title" id="scene-h">An intruder walks from office to PLC</h2>
+  <p class="sec-sub">A plant on a weekday night. An attacker already inside the office network opens a remote desktop session toward the production floor.</p>
+  <table class="p-scene">
+    <thead><tr><th scope="col"><span class="sr">Time</span></th><th scope="col">Without Sonar</th><th scope="col">With Sonar</th></tr></thead>
+    <tbody>
+      <tr><th scope="row">22:10</th><td data-k="Without Sonar">The session crosses from the office into the plant network. The firewall lets it pass.</td><td data-k="With Sonar">Sonar flags the session crossing from the office into the plant and scores it.</td></tr>
+      <tr><th scope="row">22:25</th><td data-k="Without Sonar">Controllers across the site are scanned one by one. Nothing records it.</td><td data-k="With Sonar">Sonar sees a device that is not in the inventory scanning Modbus and S7 controllers.</td></tr>
+      <tr><th scope="row">22:40</th><td data-k="Without Sonar">A program file lands on the engineering workstation. Nobody checks it.</td><td data-k="With Sonar">Sonar pulls the file off the wire, scans it and adds it to the incident.</td></tr>
+      <tr><th scope="row">23:05</th><td data-k="Without Sonar">A new program is written to a PLC and a line stops. Nobody knows who wrote it.</td><td data-k="With Sonar">The program download raises a severity 85 alert. The whole chain sits on one timeline.</td></tr>
+      <tr class="ps-end"><th scope="row">How it ends</th><td data-k="Without Sonar">Unsure how far it spread, the plant stops everything.</td><td data-k="With Sonar">The team knows which devices were reached, packet by packet.</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- ── The case, chapter by chapter ─────────────────────────────── -->
+<section class="wrap sec" aria-labelledby="case-h">
+  <p class="sec-tag">Why Sonar</p>
+  <h2 class="sec-title" id="case-h">Six reasons to choose Sonar</h2>
+  <div class="p-chs">
+    <article class="p-ch">
+      <div class="p-ch-l">
+        <p class="p-ch-n">01 · Inventory</p>
+        <h3>Know every device on your site, from traffic alone</h3>
+        <p>Most sites cannot say how many controllers they run or who each one talks to. Sonar builds the inventory by listening, with no active scanning. An unlisted device shows up the moment it talks, and every alert names the machine: “the filling PLC in cell 3”.</p>
+      </div>
+      <ul class="p-ch-r"><li>IP, MAC address, vendor and services for every device</li><li>Each device mapped to its site, role and segment</li><li>A map of who talks to whom</li><li>Unlisted devices and services in their own table</li><li>Import your list, or add devices by hand or CSV</li></ul>
+    </article>
+    <article class="p-ch">
+      <div class="p-ch-l">
+        <p class="p-ch-n">02 · Commands</p>
+        <h3>Know who wrote to the PLC, and what</h3>
+        <p>A PLC (programmable logic controller) is the small computer that runs a machine. A firewall sees traffic reach it but keeps no record of the command. Sonar reads the languages industrial machines speak and records each command down to its function and target address.</p>
+      </div>
+      <ul class="p-ch-r"><li>Modbus, S7comm, EtherNet/IP, PROFINET and OPC UA</li><li>DNP3, IEC 60870-5-104 and IEEE C37.118 for energy</li><li>BACnet, BSAP, ROC Plus and GENISYS for buildings, utilities, rail</li><li>Remote screen (VNC) sessions decoded and recorded</li><li>Other protocols listed with a best-guess identification</li></ul>
+    </article>
+    <article class="p-ch">
+      <div class="p-ch-l">
+        <p class="p-ch-n">03 · Scope</p>
+        <h3>See how far an attack reached before shutting down</h3>
+        <p>In 2025 a cyberattack on Jaguar Land Rover stopped its factories for about five weeks. When nobody can see how far an attack has reached, stopping everything is the only safe choice. Sonar keeps the traffic record that answers the question.</p>
+      </div>
+      <ul class="p-ch-r"><li>Traffic crossing from the office or internet into the site</li><li>Program downloads to controllers, with sender and source</li><li>Files on the wire extracted and scanned automatically</li><li>One incident view from entry to impact, with raw packets</li></ul>
+    </article>
+    <article class="p-ch">
+      <div class="p-ch-l">
+        <p class="p-ch-n">04 · Priorities</p>
+        <h3>The incident to check first, not thousands of records</h3>
+        <p>Your team cannot read every connection. Sonar scores each incident from 0 to 100, tuned to your site. After a few weeks of learning your normal traffic, it also flags what departs from it, with no labeled data needed.</p>
+      </div>
+      <ul class="p-ch-r"><li>Cleartext passwords, old protocols, VPNs and tunnels</li><li>Sensitive-country connections, odd domain names, large transfers</li><li>Threat intelligence matches from MISP and STIX/TAXII feeds</li><li>New protocols, unusual commands and unexpected file types</li><li>Sudden traffic spikes, or silence from a stopped device</li></ul>
+    </article>
+    <article class="p-ch">
+      <div class="p-ch-l">
+        <p class="p-ch-n">05 · Evidence</p>
+        <h3>Answer the regulator, the auditor and the insurer</h3>
+        <p>Türkiye’s Law No. 7545 (2025) requires cyber incidents to be reported to the state without delay, and withholding information can mean one to three years in prison. Sonar stores every session with its raw packets, so the record is ready when someone asks.</p>
+      </div>
+      <ul class="p-ch-r"><li>Search back in time across captured traffic</li><li>Incidents classified with MITRE ATT&amp;CK for ICS</li><li>Chain, packets and files exported together; PCAP for Wireshark</li><li>Management report with risks ranked by priority</li><li>Incidents sent to your SIEM, or as AutoSecOps cases</li></ul>
+    </article>
+    <article class="p-ch">
+      <div class="p-ch-l">
+        <p class="p-ch-n">06 · Zero intervention</p>
+        <h3>Production never notices Sonar is there</h3>
+        <p>The production manager’s first question is about downtime. Sonar connects to a switch mirror port or a network tap and only listens. It never sends a packet to a machine, so it adds no load and no downtime risk. Your data stays on site.</p>
+      </div>
+      <ul class="p-ch-r"><li>Sensors from a small industrial PC to a rack server</li><li>Many sites report to one hub on your premises</li><li>Air-gapped: intelligence and rules loaded from offline files</li><li>Local accounts, LDAP or single sign-on (SSO)</li><li>REST API and your own detection rules</li></ul>
+    </article>
   </div>
 </section>
 
-<!-- ── How it works ─────────────────────────────────────────────── -->
-<section class="wrap sec" aria-labelledby="how-h">
-  <p class="sec-tag">How it works</p>
-  <h2 class="sec-title" id="how-h">A security camera for your site’s network</h2>
+<!-- ── Before and after ─────────────────────────────────────────── -->
+<section class="wrap sec" aria-labelledby="shift-h">
+  <p class="sec-tag">Before and after</p>
+  <h2 class="sec-title" id="shift-h">Your site, before and after Sonar</h2>
+  <table class="p-shift">
+    <thead><tr><th scope="col"><span class="sr">What</span></th><th scope="col">Before</th><th scope="col">With Sonar</th></tr></thead>
+    <tbody>
+      <tr><th scope="row">Writes to the PLC</th><td data-k="Before">Firewall saw traffic but kept no record</td><td data-k="With Sonar">Command, sender and target address on record</td></tr>
+      <tr><th scope="row">Unlisted devices</th><td data-k="Before">Nobody can say what is on site</td><td data-k="With Sonar">Flagged the moment they talk</td></tr>
+      <tr><th scope="row">Ransomware unnoticed</th><td data-k="Before">42 days on average (Dragos, 2026)</td><td data-k="With Sonar">5 days with full visibility (Dragos, 2026)</td></tr>
+      <tr><th scope="row">Packet evidence</th><td data-k="Before">No record to show</td><td data-k="With Sonar">Every session stored with its raw packets</td></tr>
+      <tr><th scope="row">When an attack hits</th><td data-k="Before">Shut everything down to be safe</td><td data-k="With Sonar">The traffic record shows how far it reached</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- ── Where it stops ───────────────────────────────────────────── -->
+<section class="wrap sec" aria-labelledby="limits-h">
+  <p class="sec-tag">Straight talk</p>
+  <h2 class="sec-title" id="limits-h">What Sonar will not do</h2>
+  <div class="p-limits" style="--n: 4">
+    <article class="p-limit"><span class="p-no" aria-hidden="true"></span><h3>Block traffic</h3><p>Sonar monitors and alerts. It does not block traffic or close ports. Your team decides what to do.</p></article>
+    <article class="p-limit"><span class="p-no" aria-hidden="true"></span><h3>Decode serial or encrypted traffic</h3><p>Serial protocols and encrypted traffic are not decoded. Sonar sees encrypted sessions but not what is inside them.</p></article>
+    <article class="p-limit"><span class="p-no" aria-hidden="true"></span><h3>Scan your devices</h3><p>Sonar never scans actively. Devices that never talk on the network can be added by hand or by CSV.</p></article>
+    <article class="p-limit"><span class="p-no" aria-hidden="true"></span><h3>Know your normal on day one</h3><p>Anomaly detection needs a few weeks of your traffic. The first weeks are a learning period.</p></article>
+  </div>
+</section>
+
+<!-- ── How you start ────────────────────────────────────────────── -->
+<section class="wrap sec" aria-labelledby="pilot-h">
+  <p class="sec-tag">How you start</p>
+  <h2 class="sec-title" id="pilot-h">One site, a few weeks, a clear report</h2>
   <ol class="p-steps" style="--n: 4">
-    <li><b>1</b><h3>Listens</h3><p>Sonar silently monitors how your machines, controllers and computers talk to each other.</p></li>
-    <li><b>2</b><h3>Detects</h3><p>It alerts you when it spots an unknown device, an unusual command or a suspicious file.</p></li>
-    <li><b>3</b><h3>Proves</h3><p>It keeps a record of everything that happens, so the answer to “what happened?” is ready.</p></li>
-    <li><b>4</b><h3>Reports</h3><p>Management gets risks ranked by priority, so it is clear where to invest first.</p></li>
+    <li><b>1</b><h3>Pick listening points</h3><p>Together we choose the site, the switch and the segment, and agree what success looks like.</p></li>
+    <li><b>2</b><h3>Connect the sensor</h3><p>We handle installation. All we need from your team is a mirror port and a few hours of site access.</p></li>
+    <li><b>3</b><h3>Listen quietly</h3><p>A few weeks of passive monitoring brings up inventory gaps, insecure protocols and the first findings.</p></li>
+    <li><b>4</b><h3>Report and go live</h3><p>Findings, a risk score and a remediation list, in a report ready for management.</p></li>
   </ol>
 </section>
 
-<!-- ── What you get ─────────────────────────────────────────────── -->
-<section class="wrap sec" aria-labelledby="feat-h">
-  <p class="sec-tag">What you get</p>
-  <h2 class="sec-title" id="feat-h">What you see with Sonar</h2>
-  <div class="p-feats">
-    <article class="p-feat"><h3>Full device inventory</h3><p>See what is on site and who talks to whom. An unlisted device shows up the moment it talks.</p></article>
-    <article class="p-feat"><h3>Early warning</h3><p>Unusual commands and traffic that departs from your site’s normal pattern are caught as they happen, not weeks later.</p></article>
-    <article class="p-feat"><h3>Outside connections in view</h3><p>See every connection that crosses into the plant network from the office network or the internet.</p></article>
-    <article class="p-feat"><h3>Reads industrial protocols</h3><p>Sonar understands the languages industrial machines speak, such as Modbus and DNP3, and records which command went where.</p></article>
-    <article class="p-feat"><h3>Files checked in transit</h3><p>Files moving across the plant network are scanned automatically. Suspicious ones raise an alert.</p></article>
-    <article class="p-feat"><h3>Evidence on record</h3><p>Every incident is kept with its evidence, ready for reporting, audits and insurance.</p></article>
-  </div>
-</section>
-
-<!-- ── Everything in the product ────────────────────────────────── -->
-<section class="wrap sec" id="features" aria-labelledby="caps-h">
-  <p class="sec-tag">Features</p>
-  <h2 class="sec-title" id="caps-h">Everything in Sonar</h2>
-  <p class="sec-sub">Every capability, from device discovery to packet-level evidence, without sending a single packet to your machines.</p>
-  <div class="p-caps">
-    <article class="p-cap"><h3>Asset inventory</h3><ul><li>Devices found from traffic alone, with no active scanning</li><li>IP, MAC address, vendor and running services for each device</li><li>Each device mapped to its site, role and segment</li><li>See who talks to whom across the site</li><li>Unlisted devices and services shown in their own table</li><li>Import your existing list, or add devices manually or by CSV</li></ul></article>
-    <article class="p-cap"><h3>Industrial protocols decoded</h3><ul><li>Commands recorded down to function and target address</li><li>Energy and grid: DNP3, IEC 60870-5-104, IEEE C37.118, ANSI C12.22</li><li>Manufacturing and process: Modbus, S7comm, EtherNet/IP (CIP), PROFINET, OPC UA</li><li>Also EtherCAT, Omron FINS, GE SRTP and HART-IP</li><li>Oil, gas, water, building and rail: BSAP, ROC Plus, BACnet, GENISYS</li><li>Remote screen sessions (VNC) decoded and recorded</li><li>Other protocols listed separately, with a best-guess identification</li></ul></article>
-    <article class="p-cap"><h3>Threat detection</h3><ul><li>Program downloads to controllers (PLCs), with who sent them and from where</li><li>Traffic crossing from the office network or internet into the site</li><li>Cleartext passwords and old, insecure protocols</li><li>Services on non-standard ports, VPNs and tunnels</li><li>Connections to sensitive countries and random-looking domain names</li><li>Large transfers and unusually long connections</li><li>Threat intelligence matches, such as Tor exit nodes</li><li>Files crossing the network extracted and scanned automatically</li></ul></article>
-    <article class="p-cap"><h3>Scoring and machine learning</h3><ul><li>Every incident scored for severity from 0 to 100</li><li>Scoring and sensitive-country list tuned to your site</li><li>Learns your site’s normal in a few weeks; no labeled data needed</li><li>Protocols never seen on site before</li><li>Unusual commands, results or user names</li><li>File types that should not move across the site</li><li>Sudden traffic spikes or silence, such as a stopped device</li></ul></article>
-    <article class="p-cap"><h3>Evidence and reporting</h3><ul><li>Every session stored with its raw packets</li><li>Search back in time across all captured traffic</li><li>One incident view from entry to impact, with raw packets</li><li>Incidents classified with MITRE ATT&amp;CK for ICS</li><li>Incident chain, packets and files exported together; PCAP for Wireshark</li><li>Dashboards as PDF and scheduled reports</li><li>Management report with risks ranked by priority</li></ul></article>
-    <article class="p-cap"><h3>Integrations</h3><ul><li>Sends incidents to your SIEM and SOC</li><li>Incidents become tracked cases in AutoSecOps</li><li>Threat intelligence from MISP and STIX/TAXII feeds</li><li>REST API for your own tools</li><li>Add your own detection rules and scripts</li><li>Upload saved traffic captures (PCAP) for analysis</li></ul></article>
-    <article class="p-cap"><h3>Deployment and access</h3><ul><li>Sensor listens on a mirror (SPAN) port or network TAP</li><li>Sensors from a small industrial PC to a rack server</li><li>Central hub on-premises: Docker, Kubernetes or installation image (ISO)</li><li>Sensors across multiple sites report to one hub</li><li>Air-gapped: intelligence and rules loaded from offline files</li><li>Encrypted console and sensor-to-hub traffic</li><li>Local accounts, LDAP or single sign-on (SSO)</li></ul></article>
-  </div>
-  <dl class="p-specs">
-    <div><dt>Deployment</dt><dd>Passive site sensors, on-premises hub, air-gapped option</dd></div>
-    <div><dt>Hardware</dt><dd>Sensor from 4 cores, 8 GB RAM; hub from 8 cores, 24 GB RAM</dd></div>
-    <div><dt>Works with</dt><dd>SIEM and SOC tools, AutoSecOps, MISP, STIX/TAXII, REST API</dd></div>
-    <div><dt>Evidence for</dt><dd>Incident reporting under Türkiye’s Law No. 7545, audits and insurers</dd></div>
-    <div><dt>Access control</dt><dd>Local accounts, LDAP or SSO; encrypted console and sensor traffic</dd></div>
-    <div><dt>Data</dt><dd>Packets and files stay on the sensor; nothing flows outward</dd></div>
-  </dl>
-</section>
-
-<!-- ── Who it is for ────────────────────────────────────────────── -->
-<section class="wrap sec" aria-labelledby="fit-h">
-  <p class="sec-tag">Who it is for</p>
-  <h2 class="sec-title" id="fit-h">Built for industrial sites</h2>
-  <div class="p-fit">
-    <div><p class="p-fit-k">Built for</p><ul class="p-chips"><li>Manufacturing plants</li><li>Energy and grid</li><li>Oil, gas and water</li><li>Building and rail</li><li>Defense and public sector</li></ul></div>
-    <div><p class="p-fit-k">Works with</p><ul class="p-chips"><li>Modbus</li><li>DNP3</li><li>S7comm</li><li>EtherNet/IP</li><li>OPC UA</li><li>IEC 104</li><li>AutoSecOps</li></ul></div>
-  </div>
-</section>
-
-<!-- ── Control ──────────────────────────────────────────────────── -->
-<section class="wrap sec" aria-labelledby="ctl-h">
-  <p class="sec-tag">Control</p>
-  <h2 class="sec-title" id="ctl-h"><span class="s">Production never stops.</span> <span class="s">Not for a second.</span></h2>
-  <div class="p-cards">
-    <article class="p-card"><span class="p-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3 4 6v6c0 4.5 3.4 8.3 8 9 4.6-.7 8-4.5 8-9V6l-8-3Z"/><path d="m9 12 2 2 4-4"/></svg></span><h3>Touches nothing</h3><p>Sonar only listens. It never sends a single command to your machines, so it adds no load and no downtime risk.</p></article>
-    <article class="p-card"><span class="p-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg></span><h3>Data stays on site</h3><p>Sonar runs on your own server, with no internet connection required. No data flows outward.</p></article>
-    <article class="p-card"><span class="p-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 3h7l5 5v13H7z"/><path d="M10 13h6M10 17h6"/></svg></span><h3>Your team decides</h3><p>Sonar does not block traffic or close ports. It shows, scores and alerts, and your people decide what to do.</p></article>
-  </div>
-</section>
-
-<!-- ── FAQ ──────────────────────────────────────────────────────── -->
+<!-- ── The questions buyers ask ─────────────────────────────────── -->
 <section class="wrap sec" id="faq" aria-labelledby="faq-h">
+  <p class="sec-tag">Questions buyers ask</p>
   <h2 class="sec-title" id="faq-h">Questions about Sonar</h2>
   <div class="faq">
     <details class="faq-item" open>
-      <summary><h3>What is Sonar?</h3><span class="faq-mark" aria-hidden="true"></span></summary>
-      <p>Sonar is Singularity’s security product for factory and other industrial networks, often called OT (operational technology). It works like a security camera for the plant network: it listens, alerts on suspicious activity and keeps the evidence, without stopping production.</p>
+      <summary><h3>What exactly is Sonar?</h3><span class="faq-mark" aria-hidden="true"></span></summary>
+      <p>Sonar is Singularity’s passive security monitoring for factory and other industrial (OT, operational technology) networks. It works like a security camera for the plant network: it maps every device, reads industrial protocols such as Modbus and DNP3, alerts on suspicious activity and keeps packet-level evidence.</p>
     </details>
     <details class="faq-item">
-      <summary><h3>Who is Sonar for?</h3><span class="faq-mark" aria-hidden="true"></span></summary>
-      <p>Sonar is for organizations that run industrial sites: manufacturing plants, energy and grid operators, oil, gas and water utilities, building and rail systems, and defense and public sector sites. It gives plant managers and security leaders one view of the plant network.</p>
+      <summary><h3>Can Sonar run on-premises, or on a site with no internet?</h3><span class="faq-mark" aria-hidden="true"></span></summary>
+      <p>Yes. Sonar runs on your own servers, on Docker, Kubernetes or an installation image, and needs no internet connection. At air-gapped sites, threat intelligence and rules are loaded from offline files. Packets and files stay on the sensor that captured them; nothing flows outward.</p>
     </details>
     <details class="faq-item">
-      <summary><h3>How is Sonar different from a firewall?</h3><span class="faq-mark" aria-hidden="true"></span></summary>
-      <p>A firewall sees traffic pass but keeps no record of which device sent which command. Sonar records how machines talk to each other, flags unknown devices and unusual commands, and keeps the evidence. Sonar monitors and alerts; it does not block.</p>
+      <summary><h3>Can Sonar slow down or stop our production?</h3><span class="faq-mark" aria-hidden="true"></span></summary>
+      <p>No. Sonar only listens, through a switch mirror port or a network tap. It never sends a single packet to a PLC, HMI or other machine, so it adds no device load and no risk of downtime.</p>
     </details>
     <details class="faq-item">
-      <summary><h3>Can Sonar run on-premises or air‑gapped?</h3><span class="faq-mark" aria-hidden="true"></span></summary>
-      <p>Yes. Sonar runs on your own server at the site and needs no internet connection, so it works air-gapped, meaning cut off from outside networks. Your data stays on site and nothing flows outward.</p>
+      <summary><h3>Will Sonar block anything or act on its own?</h3><span class="faq-mark" aria-hidden="true"></span></summary>
+      <p>No. Sonar monitors, scores and alerts; it does not block traffic or close ports. Your people see the incident with its evidence and decide what to do. Incidents can also flow into your SIEM or become tracked cases in AutoSecOps.</p>
     </details>
     <details class="faq-item">
-      <summary><h3>Can Sonar slow down or stop production?</h3><span class="faq-mark" aria-hidden="true"></span></summary>
-      <p>No. Sonar only listens. It never sends a command to your machines, so it adds no load and no risk of downtime. Sonar also does not block anything: it raises an alert, and your team decides what to do.</p>
+      <summary><h3>We already have a firewall. Why do we need Sonar?</h3><span class="faq-mark" aria-hidden="true"></span></summary>
+      <p>A firewall sees traffic pass but keeps no record of which device sent which command. Sonar records every command down to its target address, flags devices missing from your inventory and stores raw packets, so you can prove what happened to an auditor, insurer or regulator.</p>
     </details>
   </div>
 </section>
 
-<!-- ── Contact ──────────────────────────────────────────────────── -->
+<!-- ── The full list, for the evaluation team ───────────────────── -->
+<section class="wrap sec" id="features" aria-labelledby="caps-h">
+  <details class="p-sheet">
+    <summary><span><b id="caps-h">Every feature of Sonar</b><small>The full list for your evaluation team: 48 capabilities in 7 groups.</small></span><i class="p-sheet-mark" aria-hidden="true"></i></summary>
+    <div class="p-sheet-in">
+      <div class="p-caps">
+        <article class="p-cap"><h3>Asset inventory</h3><ul><li>Devices found from traffic alone, with no active scanning</li><li>IP, MAC address, vendor and running services for each device</li><li>Each device mapped to its site, role and segment</li><li>See who talks to whom across the site</li><li>Unlisted devices and services shown in their own table</li><li>Import your existing list, or add devices manually or by CSV</li></ul></article>
+        <article class="p-cap"><h3>Industrial protocols decoded</h3><ul><li>Commands recorded down to function and target address</li><li>Energy and grid: DNP3, IEC 60870-5-104, IEEE C37.118, ANSI C12.22</li><li>Manufacturing and process: Modbus, S7comm, EtherNet/IP (CIP), PROFINET, OPC UA</li><li>Also EtherCAT, Omron FINS, GE SRTP and HART-IP</li><li>Oil, gas, water, building and rail: BSAP, ROC Plus, BACnet, GENISYS</li><li>Remote screen sessions (VNC) decoded and recorded</li><li>Other protocols listed separately, with a best-guess identification</li></ul></article>
+        <article class="p-cap"><h3>Threat detection</h3><ul><li>Program downloads to controllers (PLCs), with who sent them and from where</li><li>Traffic crossing from the office network or internet into the site</li><li>Cleartext passwords and old, insecure protocols</li><li>Services on non-standard ports, VPNs and tunnels</li><li>Connections to sensitive countries and random-looking domain names</li><li>Large transfers and unusually long connections</li><li>Threat intelligence matches, such as Tor exit nodes</li><li>Files crossing the network extracted and scanned automatically</li></ul></article>
+        <article class="p-cap"><h3>Scoring and machine learning</h3><ul><li>Every incident scored for severity from 0 to 100</li><li>Scoring and sensitive-country list tuned to your site</li><li>Learns your site’s normal in a few weeks; no labeled data needed</li><li>Protocols never seen on site before</li><li>Unusual commands, results or user names</li><li>File types that should not move across the site</li><li>Sudden traffic spikes or silence, such as a stopped device</li></ul></article>
+        <article class="p-cap"><h3>Evidence and reporting</h3><ul><li>Every session stored with its raw packets</li><li>Search back in time across all captured traffic</li><li>One incident view from entry to impact, with raw packets</li><li>Incidents classified with MITRE ATT&amp;CK for ICS</li><li>Incident chain, packets and files exported together; PCAP for Wireshark</li><li>Dashboards as PDF and scheduled reports</li><li>Management report with risks ranked by priority</li></ul></article>
+        <article class="p-cap"><h3>Integrations</h3><ul><li>Sends incidents to your SIEM and SOC</li><li>Incidents become tracked cases in AutoSecOps</li><li>Threat intelligence from MISP and STIX/TAXII feeds</li><li>REST API for your own tools</li><li>Add your own detection rules and scripts</li><li>Upload saved traffic captures (PCAP) for analysis</li></ul></article>
+        <article class="p-cap"><h3>Deployment and access</h3><ul><li>Sensor listens on a mirror (SPAN) port or network TAP</li><li>Sensors from a small industrial PC to a rack server</li><li>Central hub on-premises: Docker, Kubernetes or installation image (ISO)</li><li>Sensors across multiple sites report to one hub</li><li>Air-gapped: intelligence and rules loaded from offline files</li><li>Encrypted console and sensor-to-hub traffic</li><li>Local accounts, LDAP or single sign-on (SSO)</li></ul></article>
+      </div>
+      <dl class="p-specs">
+        <div><dt>Deployment</dt><dd>Passive site sensors, on-premises hub, air-gapped option</dd></div>
+        <div><dt>Hardware</dt><dd>Sensor from 4 cores, 8 GB RAM; hub from 8 cores, 24 GB RAM</dd></div>
+        <div><dt>Works with</dt><dd>SIEM and SOC tools, AutoSecOps, MISP, STIX/TAXII, REST API</dd></div>
+        <div><dt>Evidence for</dt><dd>Incident reporting under Türkiye’s Law No. 7545, audits and insurers</dd></div>
+        <div><dt>Access control</dt><dd>Local accounts, LDAP or SSO; encrypted console and sensor traffic</dd></div>
+        <div><dt>Data</dt><dd>Packets and files stay on the sensor; nothing flows outward</dd></div>
+      </dl>
+      <div class="p-fit">
+        <div><p class="p-fit-k">Built for</p><ul class="p-chips"><li>Manufacturing plants</li><li>Energy and grid</li><li>Oil, gas and water</li><li>Building and rail</li><li>Defense and public sector</li></ul></div>
+        <div><p class="p-fit-k">Works with</p><ul class="p-chips"><li>Modbus</li><li>DNP3</li><li>S7comm</li><li>EtherNet/IP</li><li>OPC UA</li><li>IEC 104</li><li>AutoSecOps</li></ul></div>
+      </div>
+    </div>
+  </details>
+</section>
+
+<!-- ── The close ────────────────────────────────────────────────── -->
 <section class="wrap sec" id="contact" aria-labelledby="contact-h">
   <div class="p-cta">
     <p class="sec-tag">Book a demo</p>
     <h2 class="cta-title" id="contact-h"><span class="s">See your site.</span> <span class="s">Keep production running.</span></h2>
-    <p>We handle installation. All we need from your team is a few hours of site access. Book a demo or request the technical brief.</p>
+    <p>Pick one site. We connect, listen for a few weeks and show management what we find. Book a demo.</p>
     <div class="hero-actions">
       <a class="btn btn-solid btn-lg" href="https://calendly.com/anill-yagiz/singularity" target="_blank" rel="noopener">Book a demo <span class="chev">›</span></a>
       <a class="btn btn-ghost btn-lg" href="mailto:anil@singularityrd.com?subject=Sonar%20technical%20brief">Request the technical brief</a>
@@ -358,7 +420,7 @@
     <p>More from Singularity</p>
     <a href="foundation-models.html"><b>Singularity Foundation Models</b><span>Our own AI models</span></a>
     <a href="autosecops.html"><b>AutoSecOps</b><span>AI security operations</span></a>
-    <a href="aidr.html"><b>AIDR</b><span>AI agent security</span></a>
+    <a href="aidr.html"><b>AIDR</b><span>Security for AI</span></a>
     <a href="it-ops.html"><b>IT Ops</b><span>AI on-call engineer</span></a>
     <a href="breakpoint.html"><b>Breakpoint</b><span>AI pentester</span></a>
     <a href="fennec.html"><b>Fennec</b><span>Code security scanner</span></a>
@@ -392,6 +454,12 @@
         <p><b>Türkiye</b>Singularity Arge Siber Güvenlik ve Yapay Zeka Teknoloji A.Ş.</p>
         <p><b>South Korea</b>Singularity Korea</p>
       </div>
+    </nav>
+  </div>
+  <div class="world">
+    <div class="footer-art paint"><canvas data-art="world" width="2400" height="620" aria-hidden="true"></canvas></div>
+    <nav class="world-nav" aria-label="Products in the picture">
+      <a href="autosecops.html" style="--x: 7.2%">AutoSecOps</a><a href="aidr.html" style="--x: 21.5%">AIDR</a><a href="it-ops.html" style="--x: 36.6%">IT Ops</a><a href="breakpoint.html" style="--x: 50%">Breakpoint</a><a href="fennec.html" style="--x: 64%">Fennec</a><a href="sonar.html" style="--x: 77.6%">Sonar</a><a href="robodr.html" style="--x: 92.5%">RoboDR</a>
     </nav>
   </div>
   <div class="shell">

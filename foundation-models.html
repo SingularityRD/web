@@ -69,7 +69,7 @@
       "@type": "SoftwareApplication",
       "@id": "https://www.singularityrd.com/foundation-models.html#product",
       "name": "Singularity Foundation Models",
-      "description": "The Singularity Foundation Models are trained from scratch by us. They run on your own hardware, fully air-gapped, so sensitive data never leaves and nobody can switch them off from outside.",
+      "description": "We trained the Singularity Foundation Models from scratch. They run on your own hardware, fully air-gapped, so sensitive data never leaves and nobody can switch them off from outside.",
       "url": "https://www.singularityrd.com/foundation-models.html",
       "applicationCategory": "Artificial intelligence model",
       "featureList": [
@@ -117,42 +117,42 @@
       "mainEntity": [
         {
           "@type": "Question",
-          "name": "What are the Singularity Foundation Models?",
+          "name": "What are the Singularity Foundation Models, exactly?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "The Singularity Foundation Models are AI models that Singularity trained from scratch, not a wrapper around another vendor’s API. The family has three members: Singularity Cyber, Singularity General and Frontier Cyber."
+            "text": "The Singularity Foundation Models are AI models Singularity trained from scratch, not a wrapper around another vendor's API. The family has three members: Singularity Cyber for security work, Singularity General for documents, analysis and code, and Frontier Cyber for approved government and defense institutions."
           }
         },
         {
           "@type": "Question",
-          "name": "Can the Singularity Foundation Models run air-gapped?",
+          "name": "Can they really run fully air-gapped, inside our own datacenter?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Yes. The Singularity Foundation Models run on your own hardware, in your cloud, your datacenter or a fully air-gapped site with no internet connection. We size the hardware with you. Requirements are in the technical brief."
+            "text": "Yes. The Singularity Foundation Models run on hardware you own, in your cloud, your datacenter or a fully air-gapped site with no internet connection. They are sized to fit in your own server racks, and we size the hardware with your team."
           }
         },
         {
           "@type": "Question",
-          "name": "How do the Singularity Foundation Models compare with other frontier models?",
+          "name": "Who controls the model once it is installed?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "By Singularity’s internal measurement, our best model scores 88.0 on CyberGym, ahead of the results published for other frontier models. On general intelligence, Singularity estimates 44 on the Artificial Analysis Intelligence Index v5 scale: ahead of Claude Sonnet 5.5 (31) and GPT-6.1 Terra (38) at medium reasoning effort, and behind GPT-6 Astra (52) and Claude Opus 5.5 (48)."
+            "text": "You do. The Singularity Foundation Models run in your building, retain no data, and cannot be shut off remotely by anyone. The weights are installed and auditable on site. Frontier Cyber adds a contract, an approval process and a full audit trail."
           }
         },
         {
           "@type": "Question",
-          "name": "Who can buy Frontier Cyber?",
+          "name": "How good is it next to the big cloud models?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Frontier Cyber is the offense-grade member of the Singularity Foundation Models. Singularity sells it only to approved government and defense institutions, under contract and with a full audit trail."
+            "text": "By Singularity's internal measurement, the flagship scores 88.0 on CyberGym, ahead of published frontier results. On general intelligence Singularity estimates 44 on the Artificial Analysis Index v5 scale: ahead of Claude Sonnet 5.5 (31) and GPT-6.1 Terra (38), behind GPT-6 Astra (52) and Claude Opus 5.5 (48)."
           }
         },
         {
           "@type": "Question",
-          "name": "Which Singularity products use the models?",
+          "name": "Why not sign a contract with a cloud AI provider instead?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Singularity’s AI products can run on the Singularity Foundation Models on your own hardware. Those products are AutoSecOps, AIDR, IT Ops and Breakpoint."
+            "text": "A cloud provider's model runs on its servers, so your data leaves the building, and access can be cut by that provider or by another government's rules. The Singularity Foundation Models run on your hardware, where nobody outside can switch them off."
           }
         }
       ]
@@ -193,136 +193,191 @@
 
 <main>
 
-<!-- ── Hero ────────────────────────────────────────────────────── -->
+<!-- ── The promise ──────────────────────────────────────────────── -->
 <section class="p-hero">
   <div class="p-hero-art paint" style="--shift: 17%"><canvas data-art="model" width="1600" height="760" aria-hidden="true"></canvas></div>
   <div class="shell p-hero-inner">
     <nav class="crumbs" aria-label="Breadcrumb"><a href="index.html">Singularity</a><i aria-hidden="true">/</i><a href="index.html#products">Products</a><i aria-hidden="true">/</i><span aria-current="page">Singularity Foundation Models</span></nav>
     <p class="p-kicker"><i></i>Singularity Foundation Models · Our own AI models</p>
     <h1 class="p-title">Frontier AI that runs inside your walls.</h1>
-    <p class="p-lede">The Singularity Foundation Models are trained from scratch by us. They run on your own hardware, fully air-gapped, so sensitive data never leaves and nobody can switch them off from outside.</p>
+    <p class="p-lede">We trained the Singularity Foundation Models from scratch. They run on your own hardware, fully air-gapped, so sensitive data never leaves and nobody can switch them off from outside.</p>
     <div class="hero-actions">
       <a class="btn btn-solid btn-lg" href="https://calendly.com/anill-yagiz/singularity" target="_blank" rel="noopener">Book a demo <span class="chev">›</span></a>
-      <a class="btn btn-ghost btn-lg" href="mailto:anil@singularityrd.com?subject=Singularity%20Foundation%20Models%20technical%20brief">Request the technical brief</a>
+      <a class="btn btn-ghost btn-lg" href="#story">See the difference</a>
     </div>
   </div>
 </section>
 
-<section class="wrap p-statw" aria-label="Key fact">
-  <div class="p-stat">
-    <p class="p-stat-v">88.0</p>
-    <p class="p-stat-l">on CyberGym, above every published frontier result.<small>Singularity internal measurement, 2026. Other models: results published by their makers.</small></p>
+<!-- ── The scene: one incident, told twice ──────────────────────── -->
+<section class="wrap sec" id="story" aria-labelledby="scene-h">
+  <p class="sec-tag">The same hours, twice</p>
+  <h2 class="sec-title" id="scene-h">A critical flaw, announced on Monday</h2>
+  <p class="sec-sub">A ministry, 09:00. A critical flaw is published in software that runs across its internal network. Leadership wants to know by evening: are we exposed?</p>
+  <table class="p-scene">
+    <thead><tr><th scope="col"><span class="sr">Time</span></th><th scope="col">Without the models</th><th scope="col">With the models</th></tr></thead>
+    <tbody>
+      <tr><th scope="row">09:00</th><td data-k="Without the models">Rules forbid sending internal code or logs to a foreign cloud. The AI tools stay closed.</td><td data-k="With the models">Singularity Cyber, on the ministry's own servers, reads the internal code. Nothing leaves the network.</td></tr>
+      <tr><th scope="row">11:00</th><td data-k="Without the models">Two engineers read code by hand. Meanwhile the alert queue keeps growing.</td><td data-k="With the models">The model reproduces the flaw on internal systems and shows which ones are exposed.</td></tr>
+      <tr><th scope="row">14:00</th><td data-k="Without the models">The strongest cyber model is open only to approved institutions in another country.</td><td data-k="With the models">Singularity General turns the findings and internal documents into a briefing for leadership.</td></tr>
+      <tr><th scope="row">18:00</th><td data-k="Without the models">Leadership gets a best guess. Attackers who automate exploitation do not wait.</td><td data-k="With the models">Exposed systems are patched first. Prompts, files and outputs never left the building.</td></tr>
+      <tr class="ps-end"><th scope="row">How it ends</th><td data-k="Without the models">Exposure still unknown, and the data problem unsolved.</td><td data-k="With the models">Exposure known by noon. No data left the building.</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- ── The case, chapter by chapter ─────────────────────────────── -->
+<section class="wrap sec" aria-labelledby="case-h">
+  <p class="sec-tag">Why the models</p>
+  <h2 class="sec-title" id="case-h">Six reasons to choose the models</h2>
+  <div class="p-chs">
+    <article class="p-ch">
+      <div class="p-ch-l">
+        <p class="p-ch-n">01 · Your data</p>
+        <h3>Use frontier AI on data that cannot leave</h3>
+        <p>Banks, ministries and defense bodies often cannot send data to a foreign cloud, and frontier models are served only from their makers' clouds. Our models install on hardware you own, so your most sensitive data finally gets frontier AI.</p>
+      </div>
+      <ul class="p-ch-r"><li>Your cloud, your datacenter or fully air-gapped</li><li>Prompts, files and outputs never leave your network</li><li>Zero data retention</li><li>Sized to fit in your own server racks</li><li>Compact versions alongside the flagship model</li></ul>
+    </article>
+    <article class="p-ch">
+      <div class="p-ch-l">
+        <p class="p-ch-n">02 · Independence</p>
+        <h3>Nobody outside your building can switch it off</h3>
+        <p>A model served from abroad can be cut off by its maker or by another government's rules, and every product built on it stops the same day. Ours runs in your building. Access depends on no other vendor or government.</p>
+      </div>
+      <ul class="p-ch-r"><li>Cannot be shut off remotely by anyone</li><li>Trained from scratch, not another vendor's API underneath</li><li>Weights installed and auditable on site</li><li>Works with no internet connection at all</li></ul>
+    </article>
+    <article class="p-ch">
+      <div class="p-ch-l">
+        <p class="p-ch-n">03 · Singularity Cyber</p>
+        <h3>Find the holes in your network before attackers do</h3>
+        <p>Attackers already use AI to find and exploit weaknesses. Singularity Cyber gives your team the same reach inside your own network. It runs internal penetration tests, authorized simulated attacks, and reproduces real vulnerabilities instead of only flagging them.</p>
+      </div>
+      <ul class="p-ch-r"><li>88.0 on CyberGym, ahead of published frontier results</li><li>Internal penetration tests on your own network</li><li>Reproduces real vulnerabilities, not only detects them</li><li>Triage of security operations center (SOC) alerts</li><li>Built for SOC teams, pentest teams and managed security providers</li></ul>
+    </article>
+    <article class="p-ch">
+      <div class="p-ch-l">
+        <p class="p-ch-n">04 · Singularity General</p>
+        <h3>An in-house assistant for every desk</h3>
+        <p>Staff who cannot paste documents into a public chatbot still need help with letters, analysis and code. Singularity General does that work inside your network, at a level we estimate ahead of several paid cloud models.</p>
+      </div>
+      <ul class="p-ch-r"><li>Documents and correspondence, drafted in-house</li><li>Analysis work that stays inside your network</li><li>Software and coding work</li><li>Estimated 44 on the Artificial Analysis Index v5 scale</li><li>Built for banks, holding companies and public bodies</li></ul>
+    </article>
+    <article class="p-ch">
+      <div class="p-ch-l">
+        <p class="p-ch-n">05 · Products</p>
+        <h3>Security products that run on the same model</h3>
+        <p>A model alone does not run your security operations. Singularity's AI products can run on these models on your own hardware, so the whole stack, from alert triage to penetration testing, stays inside your network.</p>
+      </div>
+      <ul class="p-ch-r"><li>AutoSecOps: AI analysts that investigate security alerts</li><li>AIDR: keeps data out of AI tools, stops risky agents</li><li>IT Ops: AI on-call with root cause, approved fix, rollback</li><li>Breakpoint: finds, proves and fixes vulnerabilities</li></ul>
+    </article>
+    <article class="p-ch">
+      <div class="p-ch-l">
+        <p class="p-ch-n">06 · Frontier Cyber</p>
+        <h3>Offense-grade capability, under contract and full audit</h3>
+        <p>Some national missions need a model that can reach the hardest, most hardened targets. Frontier Cyber is built for that. It is sold only to approved government and defense institutions, after an approval process, with every use on record.</p>
+      </div>
+      <ul class="p-ch-r"><li>Only for approved government and defense institutions</li><li>Available only under contract, after an approval process</li><li>Used only with a full audit trail</li></ul>
+    </article>
   </div>
 </section>
 
-<!-- ── The problem ──────────────────────────────────────────────── -->
-<section class="wrap sec" aria-labelledby="problem-h">
-  <p class="sec-tag">The problem</p>
-  <h2 class="sec-title" id="problem-h">The best models live in someone else’s cloud</h2>
-  <div class="p-cards">
-    <article class="p-card"><p class="p-n">01</p><h3>Data can’t leave</h3><p>Banks, defense and public bodies often cannot send their data to a foreign cloud.</p></article>
-    <article class="p-card"><p class="p-n">02</p><h3>Models can’t come in</h3><p>Frontier models are served from their makers’ clouds. They are not installed on a closed network.</p></article>
-    <article class="p-card"><p class="p-n">03</p><h3>Attackers already use AI</h3><p>Security teams drown in alerts while attackers automate finding and exploiting weaknesses.</p></article>
+<!-- ── Before and after ─────────────────────────────────────────── -->
+<section class="wrap sec" aria-labelledby="shift-h">
+  <p class="sec-tag">Before and after</p>
+  <h2 class="sec-title" id="shift-h">Frontier AI, moved inside</h2>
+  <table class="p-shift">
+    <thead><tr><th scope="col"><span class="sr">What</span></th><th scope="col">Before</th><th scope="col">With the models</th></tr></thead>
+    <tbody>
+      <tr><th scope="row">Where it runs</th><td data-k="Before">In the maker's cloud, often in another country</td><td data-k="With the models">On your own hardware, even fully air-gapped</td></tr>
+      <tr><th scope="row">Sensitive data</th><td data-k="Before">Kept away from AI, or sent abroad</td><td data-k="With the models">Used with AI, never leaves your network</td></tr>
+      <tr><th scope="row">Who can cut access</th><td data-k="Before">Another company or another government</td><td data-k="With the models">Nobody outside your building</td></tr>
+      <tr><th scope="row">Strongest cyber AI</th><td data-k="Before">Restricted to approved institutions elsewhere</td><td data-k="With the models">88.0 on CyberGym, inside your walls</td></tr>
+      <tr><th scope="row">What you can inspect</th><td data-k="Before">An API you cannot see into</td><td data-k="With the models">Weights installed and auditable on site</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- ── Where it stops ───────────────────────────────────────────── -->
+<section class="wrap sec" aria-labelledby="limits-h">
+  <p class="sec-tag">Straight talk</p>
+  <h2 class="sec-title" id="limits-h">What the models will not do</h2>
+  <div class="p-limits" style="--n: 3">
+    <article class="p-limit"><span class="p-no" aria-hidden="true"></span><h3>Top every general benchmark</h3><p>On general intelligence we estimate 44, behind GPT-6 Astra (52) and Claude Opus 5.5 (48). Our lead is in cyber.</p></article>
+    <article class="p-limit"><span class="p-no" aria-hidden="true"></span><h3>Claim outside verification yet</h3><p>88.0 on CyberGym is our internal measurement. The 44 is our estimate; Artificial Analysis has not listed the model.</p></article>
+    <article class="p-limit"><span class="p-no" aria-hidden="true"></span><h3>Sell Frontier Cyber to anyone</h3><p>Frontier Cyber goes only to approved government and defense institutions, under contract and with a full audit trail.</p></article>
   </div>
 </section>
 
-<!-- ── How it works ─────────────────────────────────────────────── -->
-<section class="wrap sec" aria-labelledby="how-h">
-  <p class="sec-tag">How it works</p>
-  <h2 class="sec-title" id="how-h">From our lab to your building</h2>
-  <ol class="p-steps" style="--n: 3">
-    <li><b>1</b><h3>Choose</h3><p>Pick Singularity Cyber for security work, Singularity General for everyday work, or both.</p></li>
-    <li><b>2</b><h3>Install</h3><p>The model is deployed on your own hardware: in your cloud, your datacenter or a fully air-gapped site.</p></li>
-    <li><b>3</b><h3>Use</h3><p>Your teams and our AI products work with it inside your network. Your data stays where it is.</p></li>
+<!-- ── How you start ────────────────────────────────────────────── -->
+<section class="wrap sec" aria-labelledby="pilot-h">
+  <p class="sec-tag">How you start</p>
+  <h2 class="sec-title" id="pilot-h">From our lab to your building</h2>
+  <ol class="p-steps" style="--n: 4">
+    <li><b>1</b><h3>Tell us the constraints</h3><p>Where the model has to run, in your cloud, your datacenter or air-gapped, and what it has to do.</p></li>
+    <li><b>2</b><h3>See it work</h3><p>We show the model working on your kind of problem.</p></li>
+    <li><b>3</b><h3>Size and install</h3><p>We size the hardware with your team and deploy the model on hardware you own.</p></li>
+    <li><b>4</b><h3>Put it to work</h3><p>Your teams and our AI products use it inside your network. Your data stays where it is.</p></li>
   </ol>
 </section>
 
-<!-- ── What you get ─────────────────────────────────────────────── -->
-<section class="wrap sec" aria-labelledby="feat-h">
-  <p class="sec-tag">What you get</p>
-  <h2 class="sec-title" id="feat-h">Three models, one family</h2>
-  <div class="p-feats">
-    <article class="p-feat"><h3>Singularity Cyber</h3><p>Finds the weaknesses in your own network first: internal pentests, vulnerability discovery and SOC triage.</p></article>
-    <article class="p-feat"><h3>Singularity General</h3><p>An in-house assistant for documents, analysis and software work.</p></article>
-    <article class="p-feat"><h3>Frontier Cyber</h3><p>Offense-grade. Sold only to approved government and defense institutions, under contract and full audit.</p></article>
-    <article class="p-feat"><h3>Trained from scratch</h3><p>Our own models, not a wrapper around another vendor’s API.</p></article>
-    <article class="p-feat"><h3>Runs air-gapped</h3><p>Works with no internet connection, on hardware you own.</p></article>
-    <article class="p-feat"><h3>Strong general intelligence</h3><p>We estimate 44 on the Artificial Analysis Index v5 scale, ahead of Claude Sonnet 5.5 (31) at medium effort.</p></article>
-  </div>
-</section>
-
-<!-- ── Everything in the product ────────────────────────────────── -->
-<section class="wrap sec" id="features" aria-labelledby="caps-h">
-  <p class="sec-tag">Features</p>
-  <h2 class="sec-title" id="caps-h">Everything in the Singularity Foundation Models</h2>
-  <p class="sec-sub">What each model does, where it runs and how you stay in control of it.</p>
-  <div class="p-caps">
-    <article class="p-cap"><h3>Singularity Cyber</h3><ul><li>Internal penetration tests on your own network</li><li>Finds vulnerabilities before attackers do</li><li>Reproduces real vulnerabilities, not only detects them</li><li>Triage of security operations center (SOC) alerts</li><li>Built for SOC teams, pentest teams and managed security providers</li></ul></article>
-    <article class="p-cap"><h3>Singularity General</h3><ul><li>In-house assistant for documents and correspondence</li><li>Analysis work that stays inside your network</li><li>Software and coding work</li><li>Built for banks, holding companies and public bodies</li></ul></article>
-    <article class="p-cap"><h3>Frontier Cyber</h3><ul><li>Offense-grade, built for the hardest, most hardened targets</li><li>Only for approved government and defense institutions</li><li>Available only under contract, after an approval process</li><li>Used only with a full audit trail</li></ul></article>
-    <article class="p-cap"><h3>Powers our products</h3><ul><li>AutoSecOps: AI analysts that investigate security alerts</li><li>AIDR: keeps data out of AI tools, stops risky agents</li><li>IT Ops: AI on-call with root cause, approved fix and rollback</li><li>Breakpoint: AI penetration testing that finds, proves and fixes flaws</li><li>Each product can run on the models inside your network</li></ul></article>
-    <article class="p-cap"><h3>Where it runs</h3><ul><li>In your own cloud or your own datacenter</li><li>Fully air-gapped, with no internet connection</li><li>On hardware you own</li><li>Sized to fit in your own server racks</li><li>Compact versions alongside the flagship model</li><li>Hardware sized together with your team</li></ul></article>
-    <article class="p-cap"><h3>Control and data</h3><ul><li>Prompts, files and outputs never leave your network</li><li>Zero data retention</li><li>Cannot be shut off remotely by anyone</li><li>Access independent of any other vendor or government</li><li>Singularity’s own models, not another vendor’s API underneath</li><li>Weights owned by Singularity, installed and auditable on site</li></ul></article>
-  </div>
-  <dl class="p-specs">
-    <div><dt>Models</dt><dd>Singularity Cyber, Singularity General and Frontier Cyber (restricted)</dd></div>
-    <div><dt>Deployment</dt><dd>Your cloud, your datacenter or fully air-gapped, on hardware you own</dd></div>
-    <div><dt>Data</dt><dd>Prompts, files and outputs stay on your network; zero data retention</dd></div>
-    <div><dt>Powers</dt><dd>AutoSecOps, AIDR, IT Ops and Breakpoint</dd></div>
-    <div><dt>Frontier Cyber access</dt><dd>Approved government and defense institutions only, under contract, with a full audit trail</dd></div>
-    <div><dt>Measured</dt><dd>88.0 on CyberGym; about 44 on the Artificial Analysis Index v5 scale (internal)</dd></div>
-  </dl>
-</section>
-
-<!-- ── Who it is for ────────────────────────────────────────────── -->
-<section class="wrap sec" aria-labelledby="fit-h">
-  <p class="sec-tag">Who it is for</p>
-  <h2 class="sec-title" id="fit-h">For organizations that keep data in-house</h2>
-  <div class="p-fit">
-    <div><p class="p-fit-k">Built for</p><ul class="p-chips"><li>Banks and finance</li><li>Government</li><li>Defense</li><li>Critical infrastructure</li><li>Security teams and MSSPs</li></ul></div>
-    <div><p class="p-fit-k">Works with</p><ul class="p-chips"><li>AutoSecOps</li><li>AIDR</li><li>IT Ops</li><li>Breakpoint</li></ul></div>
-  </div>
-</section>
-
-<!-- ── Control ──────────────────────────────────────────────────── -->
-<section class="wrap sec" aria-labelledby="ctl-h">
-  <p class="sec-tag">Control</p>
-  <h2 class="sec-title" id="ctl-h">Yours to run, yours to check</h2>
-  <div class="p-cards">
-    <article class="p-card"><span class="p-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3 4 6v6c0 4.5 3.4 8.3 8 9 4.6-.7 8-4.5 8-9V6l-8-3Z"/><path d="m9 12 2 2 4-4"/></svg></span><h3>Nobody can switch it off</h3><p>The model runs in your building. Access does not depend on another company or another government.</p></article>
-    <article class="p-card"><span class="p-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg></span><h3>Data never leaves</h3><p>Prompts, documents and results stay on your own network.</p></article>
-    <article class="p-card"><span class="p-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 3h7l5 5v13H7z"/><path d="M10 13h6M10 17h6"/></svg></span><h3>Frontier Cyber is restricted</h3><p>It is sold only to approved institutions, under contract, with a full audit trail.</p></article>
-  </div>
-</section>
-
-<!-- ── FAQ ──────────────────────────────────────────────────────── -->
+<!-- ── The questions buyers ask ─────────────────────────────────── -->
 <section class="wrap sec" id="faq" aria-labelledby="faq-h">
+  <p class="sec-tag">Questions buyers ask</p>
   <h2 class="sec-title" id="faq-h">Questions about the models</h2>
   <div class="faq">
     <details class="faq-item" open>
-      <summary><h3>What are the Singularity Foundation Models?</h3><span class="faq-mark" aria-hidden="true"></span></summary>
-      <p>The Singularity Foundation Models are AI models that Singularity trained from scratch, not a wrapper around another vendor’s API. The family has three members: Singularity Cyber, Singularity General and Frontier Cyber.</p>
+      <summary><h3>What are the Singularity Foundation Models, exactly?</h3><span class="faq-mark" aria-hidden="true"></span></summary>
+      <p>The Singularity Foundation Models are AI models Singularity trained from scratch, not a wrapper around another vendor's API. The family has three members: Singularity Cyber for security work, Singularity General for documents, analysis and code, and Frontier Cyber for approved government and defense institutions.</p>
     </details>
     <details class="faq-item">
-      <summary><h3>Can the Singularity Foundation Models run air‑gapped?</h3><span class="faq-mark" aria-hidden="true"></span></summary>
-      <p>Yes. The Singularity Foundation Models run on your own hardware, in your cloud, your datacenter or a fully air-gapped site with no internet connection. We size the hardware with you. Requirements are in the technical brief.</p>
+      <summary><h3>Can they really run fully air‑gapped, inside our own datacenter?</h3><span class="faq-mark" aria-hidden="true"></span></summary>
+      <p>Yes. The Singularity Foundation Models run on hardware you own, in your cloud, your datacenter or a fully air-gapped site with no internet connection. They are sized to fit in your own server racks, and we size the hardware with your team.</p>
     </details>
     <details class="faq-item">
-      <summary><h3>How do the Singularity Foundation Models compare with other frontier models?</h3><span class="faq-mark" aria-hidden="true"></span></summary>
-      <p>By Singularity’s internal measurement, our best model scores 88.0 on CyberGym, ahead of the results published for other frontier models. On general intelligence, Singularity estimates 44 on the Artificial Analysis Intelligence Index v5 scale: ahead of Claude Sonnet 5.5 (31) and GPT-6.1 Terra (38) at medium reasoning effort, and behind GPT-6 Astra (52) and Claude Opus 5.5 (48).</p>
+      <summary><h3>Who controls the model once it is installed?</h3><span class="faq-mark" aria-hidden="true"></span></summary>
+      <p>You do. The Singularity Foundation Models run in your building, retain no data, and cannot be shut off remotely by anyone. The weights are installed and auditable on site. Frontier Cyber adds a contract, an approval process and a full audit trail.</p>
     </details>
     <details class="faq-item">
-      <summary><h3>Who can buy Frontier Cyber?</h3><span class="faq-mark" aria-hidden="true"></span></summary>
-      <p>Frontier Cyber is the offense-grade member of the Singularity Foundation Models. Singularity sells it only to approved government and defense institutions, under contract and with a full audit trail.</p>
+      <summary><h3>How good is it next to the big cloud models?</h3><span class="faq-mark" aria-hidden="true"></span></summary>
+      <p>By Singularity's internal measurement, the flagship scores 88.0 on CyberGym, ahead of published frontier results. On general intelligence Singularity estimates 44 on the Artificial Analysis Index v5 scale: ahead of Claude Sonnet 5.5 (31) and GPT-6.1 Terra (38), behind GPT-6 Astra (52) and Claude Opus 5.5 (48).</p>
     </details>
     <details class="faq-item">
-      <summary><h3>Which Singularity products use the models?</h3><span class="faq-mark" aria-hidden="true"></span></summary>
-      <p>Singularity’s AI products can run on the Singularity Foundation Models on your own hardware. Those products are AutoSecOps, AIDR, IT Ops and Breakpoint.</p>
+      <summary><h3>Why not sign a contract with a cloud AI provider instead?</h3><span class="faq-mark" aria-hidden="true"></span></summary>
+      <p>A cloud provider's model runs on its servers, so your data leaves the building, and access can be cut by that provider or by another government's rules. The Singularity Foundation Models run on your hardware, where nobody outside can switch them off.</p>
     </details>
   </div>
 </section>
 
-<!-- ── Contact ──────────────────────────────────────────────────── -->
+<!-- ── The full list, for the evaluation team ───────────────────── -->
+<section class="wrap sec" id="features" aria-labelledby="caps-h">
+  <details class="p-sheet">
+    <summary><span><b id="caps-h">Every feature of the models</b><small>The full list for your evaluation team: 30 capabilities in 6 groups.</small></span><i class="p-sheet-mark" aria-hidden="true"></i></summary>
+    <div class="p-sheet-in">
+      <div class="p-caps">
+        <article class="p-cap"><h3>Singularity Cyber</h3><ul><li>Internal penetration tests on your own network</li><li>Finds vulnerabilities before attackers do</li><li>Reproduces real vulnerabilities, not only detects them</li><li>Triage of security operations center (SOC) alerts</li><li>Built for SOC teams, pentest teams and managed security providers</li></ul></article>
+        <article class="p-cap"><h3>Singularity General</h3><ul><li>In-house assistant for documents and correspondence</li><li>Analysis work that stays inside your network</li><li>Software and coding work</li><li>Built for banks, holding companies and public bodies</li></ul></article>
+        <article class="p-cap"><h3>Frontier Cyber</h3><ul><li>Offense-grade, built for the hardest, most hardened targets</li><li>Only for approved government and defense institutions</li><li>Available only under contract, after an approval process</li><li>Used only with a full audit trail</li></ul></article>
+        <article class="p-cap"><h3>Powers our products</h3><ul><li>AutoSecOps: AI analysts that investigate security alerts</li><li>AIDR: keeps data out of AI tools, stops risky agents</li><li>IT Ops: AI on-call with root cause, approved fix and rollback</li><li>Breakpoint: AI penetration testing that finds, proves and fixes flaws</li><li>Each product can run on the models inside your network</li></ul></article>
+        <article class="p-cap"><h3>Where it runs</h3><ul><li>In your own cloud or your own datacenter</li><li>Fully air-gapped, with no internet connection</li><li>On hardware you own</li><li>Sized to fit in your own server racks</li><li>Compact versions alongside the flagship model</li><li>Hardware sized together with your team</li></ul></article>
+        <article class="p-cap"><h3>Control and data</h3><ul><li>Prompts, files and outputs never leave your network</li><li>Zero data retention</li><li>Cannot be shut off remotely by anyone</li><li>Access independent of any other vendor or government</li><li>Singularity’s own models, not another vendor’s API underneath</li><li>Weights owned by Singularity, installed and auditable on site</li></ul></article>
+      </div>
+      <dl class="p-specs">
+        <div><dt>Models</dt><dd>Singularity Cyber, Singularity General and Frontier Cyber (restricted)</dd></div>
+        <div><dt>Deployment</dt><dd>Your cloud, your datacenter or fully air-gapped, on hardware you own</dd></div>
+        <div><dt>Data</dt><dd>Prompts, files and outputs stay on your network; zero data retention</dd></div>
+        <div><dt>Powers</dt><dd>AutoSecOps, AIDR, IT Ops and Breakpoint</dd></div>
+        <div><dt>Frontier Cyber access</dt><dd>Approved government and defense institutions only, under contract, with a full audit trail</dd></div>
+        <div><dt>Measured</dt><dd>88.0 on CyberGym; about 44 on the Artificial Analysis Index v5 scale (internal)</dd></div>
+      </dl>
+      <div class="p-fit">
+        <div><p class="p-fit-k">Built for</p><ul class="p-chips"><li>Banks and finance</li><li>Government</li><li>Defense</li><li>Critical infrastructure</li><li>Security teams and MSSPs</li></ul></div>
+        <div><p class="p-fit-k">Works with</p><ul class="p-chips"><li>AutoSecOps</li><li>AIDR</li><li>IT Ops</li><li>Breakpoint</li></ul></div>
+      </div>
+    </div>
+  </details>
+</section>
+
+<!-- ── The close ────────────────────────────────────────────────── -->
 <section class="wrap sec" id="contact" aria-labelledby="contact-h">
   <div class="p-cta">
     <p class="sec-tag">Book a demo</p>
@@ -337,7 +392,7 @@
   <nav class="p-more" aria-label="More from Singularity">
     <p>More from Singularity</p>
     <a href="autosecops.html"><b>AutoSecOps</b><span>AI security operations</span></a>
-    <a href="aidr.html"><b>AIDR</b><span>AI agent security</span></a>
+    <a href="aidr.html"><b>AIDR</b><span>Security for AI</span></a>
     <a href="it-ops.html"><b>IT Ops</b><span>AI on-call engineer</span></a>
     <a href="breakpoint.html"><b>Breakpoint</b><span>AI pentester</span></a>
     <a href="fennec.html"><b>Fennec</b><span>Code security scanner</span></a>
@@ -372,6 +427,12 @@
         <p><b>Türkiye</b>Singularity Arge Siber Güvenlik ve Yapay Zeka Teknoloji A.Ş.</p>
         <p><b>South Korea</b>Singularity Korea</p>
       </div>
+    </nav>
+  </div>
+  <div class="world">
+    <div class="footer-art paint"><canvas data-art="world" width="2400" height="620" aria-hidden="true"></canvas></div>
+    <nav class="world-nav" aria-label="Products in the picture">
+      <a href="autosecops.html" style="--x: 7.2%">AutoSecOps</a><a href="aidr.html" style="--x: 21.5%">AIDR</a><a href="it-ops.html" style="--x: 36.6%">IT Ops</a><a href="breakpoint.html" style="--x: 50%">Breakpoint</a><a href="fennec.html" style="--x: 64%">Fennec</a><a href="sonar.html" style="--x: 77.6%">Sonar</a><a href="robodr.html" style="--x: 92.5%">RoboDR</a>
     </nav>
   </div>
   <div class="shell">

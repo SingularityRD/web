@@ -69,7 +69,7 @@
       "@type": "SoftwareApplication",
       "@id": "https://www.singularityrd.com/robodr.html#product",
       "name": "RoboDR",
-      "description": "RoboDR is a security layer for robots. It watches for attacks around the clock, brings the robot to a safe stop without a fall or collision, and keeps a tamper-proof record.",
+      "description": "RoboDR sees an attack on your robot as it begins, stops the dangerous command before it reaches the motors and keeps a tamper-proof record. People approve the steps that matter.",
       "url": "https://www.singularityrd.com/robodr.html",
       "applicationCategory": "SecurityApplication",
       "featureList": [
@@ -134,42 +134,42 @@
       "mainEntity": [
         {
           "@type": "Question",
-          "name": "What is RoboDR?",
+          "name": "What is RoboDR, and which robots does it work with?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "RoboDR is a security layer for robots from Singularity. It sees an attack on a robot as it begins, brings the robot to a safe stop without a fall or collision, and keeps a tamper-proof record of what happened."
+            "text": "RoboDR is a security layer for robots from Singularity. It sees an attack as it begins, stops dangerous commands before they reach the motors and keeps a tamper-proof record. It supports Unitree quadruped and humanoid robots, and robots running ROS 2, the open-source robot software."
           }
         },
         {
           "@type": "Question",
-          "name": "Who is RoboDR for, and which robots does it support?",
+          "name": "Can RoboDR run on our own servers, at a site with no internet?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "RoboDR is for sectors where a robot cannot afford to fail: defense, energy, manufacturing, logistics, public safety and robot manufacturers. It supports Unitree quadruped and humanoid robots, and any robot running ROS 2, the open-source robot software, out of the box."
+            "text": "Yes. RoboDR’s security center runs on your own servers or in your cloud, and RoboDR works at air-gapped sites, meaning sites with no internet connection. No component calls out, and your data stays on your infrastructure."
           }
         },
         {
           "@type": "Question",
-          "name": "How is RoboDR different from traditional security software?",
+          "name": "Will RoboDR take action on our robots without asking us?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Traditional security software protects the computer. RoboDR protects the robot. It reads the commands sent to the motors and keeps humanoid and four-legged robots balanced during a safe stop. RoboDR is not a safety-rated component; it complements the robot’s own safety system."
+            "text": "RoboDR starts in monitor-only mode, and protection goes on only when you are ready. Its rules limit dangerous commands automatically. Pausing a robot, a safe state or a rollback needs approval from two people, the approver is never the requester, and every action can be undone."
           }
         },
         {
           "@type": "Question",
-          "name": "Can RoboDR run on-premises or at air-gapped sites?",
+          "name": "Does RoboDR replace or interfere with our robot’s safety system?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Yes. RoboDR runs on your own servers or in your cloud. It also works at air-gapped sites, meaning sites with no internet connection, and no component ever calls out."
+            "text": "No. RoboDR is not a safety-rated component; it complements the robot’s own safety system. It never cuts motor power, resets the emergency stop or kills a program on a moving robot, and it keeps humanoid and four-legged robots from falling during a stop."
           }
         },
         {
           "@type": "Question",
-          "name": "How do people stay in control of RoboDR?",
+          "name": "Our IT security already covers the network. Why do we need RoboDR?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "RoboDR starts in monitor-only mode, and protection is switched on only when you are ready. Your rules limit dangerous commands, and pausing the robot or putting it in a safe state needs two people’s approval. Each incident and approval is kept in one signed record."
+            "text": "Traditional security software protects the computer. RoboDR protects the robot. It reads the commands sent to the motors, can tell “walk” from “run”, and stops a hijacked robot without a fall. Its findings land in your existing SOC, beside your other alerts."
           }
         }
       ]
@@ -210,17 +210,17 @@
 
 <main>
 
-<!-- ── Hero ────────────────────────────────────────────────────── -->
+<!-- ── The promise ──────────────────────────────────────────────── -->
 <section class="p-hero">
   <div class="p-hero-art paint" style="--shift: 23%"><canvas data-art="robodr" width="1600" height="760" aria-hidden="true"></canvas></div>
   <div class="shell p-hero-inner">
     <nav class="crumbs" aria-label="Breadcrumb"><a href="index.html">Singularity</a><i aria-hidden="true">/</i><a href="index.html#products">Products</a><i aria-hidden="true">/</i><span aria-current="page">RoboDR</span></nav>
     <p class="p-kicker"><i></i>RoboDR · Robot security</p>
     <h1 class="p-title"><span class="s">Stop a hijacked robot safely.</span> <span class="s">Prove what happened.</span></h1>
-    <p class="p-lede">RoboDR is a security layer for robots. It watches for attacks around the clock, brings the robot to a safe stop without a fall or collision, and keeps a tamper-proof record.</p>
+    <p class="p-lede">RoboDR sees an attack on your robot as it begins, stops the dangerous command before it reaches the motors and keeps a tamper-proof record. People approve the steps that matter.</p>
     <div class="hero-actions">
       <a class="btn btn-solid btn-lg" href="https://calendly.com/anill-yagiz/singularity" target="_blank" rel="noopener">Book a demo <span class="chev">›</span></a>
-      <a class="btn btn-ghost btn-lg" href="mailto:anil@singularityrd.com?subject=RoboDR%20technical%20brief">Request the technical brief</a>
+      <a class="btn btn-ghost btn-lg" href="#story">See the difference</a>
     </div>
   </div>
 </section>
@@ -228,125 +228,187 @@
 <section class="wrap p-statw" aria-label="Key fact">
   <div class="p-stat">
     <p class="p-stat-v">January 2027</p>
-    <p class="p-stat-l">Protection against malicious tampering becomes mandatory for machinery under the EU Machinery Regulation.<small>EU Machinery Regulation (EU) 2023/1230. Not legal advice.</small></p>
+    <p class="p-stat-l">Machines sold in the EU must be protected against malicious tampering, with a record of any tampering.<small>EU Machinery Regulation (EU) 2023/1230, Annex III 1.1.9. Not legal advice.</small></p>
   </div>
 </section>
 
-<!-- ── The problem ──────────────────────────────────────────────── -->
-<section class="wrap sec" aria-labelledby="problem-h">
-  <p class="sec-tag">The problem</p>
-  <h2 class="sec-title" id="problem-h">A robot is a computer with motors</h2>
-  <div class="p-cards">
-    <article class="p-card"><p class="p-n">01</p><h3>Attacks become physical harm</h3><p>A compromised laptop loses data. A hijacked robot can strike a person, a machine or the facility itself.</p></article>
-    <article class="p-card"><p class="p-n">02</p><h3>Most robots are unprotected</h3><p>A vulnerability published in 2025 let attackers take control of widely used robots over Bluetooth alone. A single incident can halt a whole fleet.</p></article>
-    <article class="p-card"><p class="p-n">03</p><h3>You must show evidence</h3><p>After an incident you must answer what happened and who intervened, with evidence. Regulators now want proof of cybersecurity in robots.</p></article>
+<!-- ── The scene: one incident, told twice ──────────────────────── -->
+<section class="wrap sec" id="story" aria-labelledby="scene-h">
+  <p class="sec-tag">The same hours, twice</p>
+  <h2 class="sec-title" id="scene-h">A “run” command nobody sent</h2>
+  <p class="sec-sub">Night shift in a warehouse. A humanoid robot stands at its post. At 02:47 a device nobody recognizes starts sending it commands over the network.</p>
+  <table class="p-scene">
+    <thead><tr><th scope="col"><span class="sr">Time</span></th><th scope="col">Without RoboDR</th><th scope="col">With RoboDR</th></tr></thead>
+    <tbody>
+      <tr><th scope="row">02:47</th><td data-k="Without RoboDR">The stranger tells the robot to run. The robot obeys, because nothing checks who sent it.</td><td data-k="With RoboDR">RoboDR sees a sender that does not belong. It drops the command and the robot stays standing.</td></tr>
+      <tr><th scope="row">02:48</th><td data-k="Without RoboDR">The robot strides across the floor toward the racks. No alert reaches the security team.</td><td data-k="With RoboDR">A case opens in AutoSecOps. The AI agent summarizes it and recommends quarantining the sender.</td></tr>
+      <tr><th scope="row">02:52</th><td data-k="Without RoboDR">A worker hits the emergency stop. The motors let go and the robot falls.</td><td data-k="With RoboDR">The on-call analyst approves. RoboDR quarantines the rogue sender.</td></tr>
+      <tr><th scope="row">03:05</th><td data-k="Without RoboDR">Managers ask who sent the command. There is no record to show them.</td><td data-k="With RoboDR">The black box record is verified and attached to the case, ready for the auditor.</td></tr>
+      <tr class="ps-end"><th scope="row">How it ends</th><td data-k="Without RoboDR">A damaged robot, a stopped fleet and no answers.</td><td data-k="With RoboDR">The robot never took a single step.</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- ── The case, chapter by chapter ─────────────────────────────── -->
+<section class="wrap sec" aria-labelledby="case-h">
+  <p class="sec-tag">Why RoboDR</p>
+  <h2 class="sec-title" id="case-h">Six reasons to choose RoboDR</h2>
+  <div class="p-chs">
+    <article class="p-ch">
+      <div class="p-ch-l">
+        <p class="p-ch-n">01 · Who commands it</p>
+        <h3>Know who is giving your robot orders</h3>
+        <p>On most robots, motion commands cross the network without any check, so anyone on that network can tell the robot to walk or raise an arm. RoboDR reads every command sent to the motors, knows which senders belong and flags a stranger at once.</p>
+      </div>
+      <ul class="p-ch-r"><li>Reads Unitree and ROS 2 motion, arm and hand commands</li><li>Flags unknown senders, even when they change identity</li><li>Catches spoofed, replayed or out-of-limit speed and joint commands</li><li>Compares what the robot was told with what it did</li><li>Spots faked or frozen telemetry and disagreeing navigation sensors</li></ul>
+    </article>
+    <article class="p-ch">
+      <div class="p-ch-l">
+        <p class="p-ch-n">02 · Break-ins</p>
+        <h3>Catch a break-in before it reaches the motors</h3>
+        <p>In 2025 a published vulnerability let attackers take over widely used robots over Bluetooth alone. From there they install software, change the robot’s apps or switch off defenses. RoboDR watches the robot’s onboard computer and raises an alert at every step of known robot attacks.</p>
+      </div>
+      <ul class="p-ch-r"><li>New processes, outbound connections and remote tunnels</li><li>Package installs and changes to ROS 2 and robot apps</li><li>Bluetooth and Wi-Fi setup tools and wireless setting changes</li><li>Reads of the robot’s private keys</li><li>Any attempt to change or stop RoboDR itself</li></ul>
+    </article>
+    <article class="p-ch">
+      <div class="p-ch-l">
+        <p class="p-ch-n">03 · Safe stop</p>
+        <h3>Stop the attack without dropping the robot</h3>
+        <p>For a humanoid or four-legged robot, cutting the motors means a fall. RoboDR blocks dangerous commands before they arrive and keeps humanoid and four-legged robots on their feet. The response escalates in stages, so a moving robot is never stopped blindly.</p>
+      </div>
+      <ul class="p-ch-r"><li>Every command passed, limited or rejected</li><li>Escalates in stages: alert, restrict, slow down, pause, safe state</li><li>Slows the robot without changing its direction</li><li>Stop commands are never delayed</li><li>Isolates the robot or quarantines a rogue sender</li></ul>
+    </article>
+    <article class="p-ch">
+      <div class="p-ch-l">
+        <p class="p-ch-n">04 · People decide</p>
+        <h3>Your people make the calls that matter</h3>
+        <p>An automatic action on a moving robot is a risk of its own. RoboDR’s rules limit dangerous commands on their own, but pausing the robot, a safe state or a rollback needs two people. Every action is time-limited and can be undone.</p>
+      </div>
+      <ul class="p-ch-r"><li>Starts monitor-only; protection goes on when you are ready</li><li>Learns each robot’s normal, then locks it with human sign-off</li><li>The approver is always someone other than the requester</li><li>Emergency off at any time</li><li>Asks a person whenever the robot’s state is unknown</li></ul>
+    </article>
+    <article class="p-ch">
+      <div class="p-ch-l">
+        <p class="p-ch-n">05 · Your SOC</p>
+        <h3>Robot incidents land where your team already works</h3>
+        <p>A robot alert in a separate tool gets missed. Each RoboDR finding opens a tracked case in AutoSecOps, Singularity’s AI security operations product, next to your other alerts. An AI agent triages it and recommends a response. A person decides.</p>
+      </div>
+      <ul class="p-ch-r"><li>A case opens for every finding, before an analyst looks</li><li>The AI cannot delete cases, run scripts or go online</li><li>Attacker text from the robot never becomes AI instructions</li><li>Forged, stale or unsigned findings rejected and logged</li><li>Whole fleet on one screen, with each robot’s cases</li></ul>
+    </article>
+    <article class="p-ch">
+      <div class="p-ch-l">
+        <p class="p-ch-n">06 · Proof</p>
+        <h3>Answer the auditor with proof, not memory</h3>
+        <p>After an incident someone will ask what happened and who intervened. RoboDR writes every incident to a tamper-proof black box, like a flight recorder. Auditors can check the records but cannot forge them, which supports your evidence for the Machinery Regulation and the Cyber Resilience Act.</p>
+      </div>
+      <ul class="p-ch-r"><li>Records survive power loss; any deletion shows</li><li>Every finding mapped to MITRE ATT&amp;CK and tied to evidence</li><li>Pull evidence by finding or time range into the case</li><li>Findings in the open OCSF format, for any compatible SIEM</li><li>Signed releases with a software bill of materials (SBOM)</li></ul>
+    </article>
   </div>
 </section>
 
-<!-- ── How it works ─────────────────────────────────────────────── -->
-<section class="wrap sec" aria-labelledby="how-h">
-  <p class="sec-tag">How it works</p>
-  <h2 class="sec-title" id="how-h">Three jobs: see, stop, prove</h2>
+<!-- ── Before and after ─────────────────────────────────────────── -->
+<section class="wrap sec" aria-labelledby="shift-h">
+  <p class="sec-tag">Before and after</p>
+  <h2 class="sec-title" id="shift-h">Your robots, before and after RoboDR</h2>
+  <table class="p-shift">
+    <thead><tr><th scope="col"><span class="sr">What</span></th><th scope="col">Before</th><th scope="col">With RoboDR</th></tr></thead>
+    <tbody>
+      <tr><th scope="row">Motion commands</th><td data-k="Before">Anyone on the network can send them</td><td data-k="With RoboDR">Every command passed, limited or rejected</td></tr>
+      <tr><th scope="row">Robot’s computer</th><td data-k="Before">New software and connections go unseen</td><td data-k="With RoboDR">Each change raises an alert in your SOC</td></tr>
+      <tr><th scope="row">During an attack</th><td data-k="Before">Cutting the motors can drop the robot</td><td data-k="With RoboDR">Dangerous commands blocked; the robot stays standing</td></tr>
+      <tr><th scope="row">Who decides</th><td data-k="Before">Unclear who can cut a robot off</td><td data-k="With RoboDR">Named approvers; every action can be undone</td></tr>
+      <tr><th scope="row">After an incident</th><td data-k="Before">No proof of what happened</td><td data-k="With RoboDR">One signed record an auditor can verify</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- ── Where it stops ───────────────────────────────────────────── -->
+<section class="wrap sec" aria-labelledby="limits-h">
+  <p class="sec-tag">Straight talk</p>
+  <h2 class="sec-title" id="limits-h">What RoboDR will not do</h2>
+  <div class="p-limits" style="--n: 4">
+    <article class="p-limit"><span class="p-no" aria-hidden="true"></span><h3>Replace your safety system</h3><p>RoboDR is not a safety-rated component. It complements the robot’s own safety system and never stands in for it.</p></article>
+    <article class="p-limit"><span class="p-no" aria-hidden="true"></span><h3>Cut power or reset e-stops</h3><p>It never cuts motor power, resets the emergency stop or kills a program on a moving robot. With the e-stop active, it only records.</p></article>
+    <article class="p-limit"><span class="p-no" aria-hidden="true"></span><h3>Pause a robot on its own</h3><p>Rules limit dangerous commands automatically. Pausing the robot, a safe state or a rollback always needs two people’s approval.</p></article>
+    <article class="p-limit"><span class="p-no" aria-hidden="true"></span><h3>Certify you</h3><p>Its documents for IEC 62443 and the Cyber Resilience Act are an engineering self-assessment, not a certification.</p></article>
+  </div>
+</section>
+
+<!-- ── How you start ────────────────────────────────────────────── -->
+<section class="wrap sec" aria-labelledby="pilot-h">
+  <p class="sec-tag">How you start</p>
+  <h2 class="sec-title" id="pilot-h">One robot, one test area, three steps</h2>
   <ol class="p-steps" style="--n: 3">
-    <li><b>1</b><h3>See</h3><p>RoboDR watches the robot’s network, every command sent to its motors and its onboard computer, around the clock, and catches abnormal behavior.</p></li>
-    <li><b>2</b><h3>Stop</h3><p>It cuts off dangerous commands before they reach the robot and brings it to a safe stop, without a fall or collision.</p></li>
-    <li><b>3</b><h3>Prove</h3><p>Every incident is written to a tamper-proof black box, like a flight recorder, and your security team is alerted at once.</p></li>
+    <li><b>1</b><h3>Choose together</h3><p>Which robot, which site, which threat. Together we write the criteria for false alerts, resource use and response time.</p></li>
+    <li><b>2</b><h3>Watch first</h3><p>RoboDR learns the robot’s normal behavior and connects to AutoSecOps. Nothing is blocked at this stage.</p></li>
+    <li><b>3</b><h3>Protect, attack, report</h3><p>We switch on protection and approval rules, attack the robot with our own red team and deliver a management report.</p></li>
   </ol>
 </section>
 
-<!-- ── What you get ─────────────────────────────────────────────── -->
-<section class="wrap sec" aria-labelledby="feat-h">
-  <p class="sec-tag">What you get</p>
-  <h2 class="sec-title" id="feat-h">Protects the robot, not just the computer</h2>
-  <div class="p-feats">
-    <article class="p-feat"><h3>Speaks the robot’s language</h3><p>RoboDR reads the commands sent to the robot’s motors, so it can tell “walk” from “run”.</p></article>
-    <article class="p-feat"><h3>Keeps the robot standing</h3><p>RoboDR keeps humanoid and four-legged robots balanced, so a safe stop does not become a fall.</p></article>
-    <article class="p-feat"><h3>Tamper-proof black box</h3><p>Like a flight recorder: what happened, who approved it and what was done, all in one signed record.</p></article>
-    <article class="p-feat"><h3>Lands with your security team</h3><p>Robot incidents appear beside your team’s other alerts. With AutoSecOps, Singularity’s AI security operations product, each becomes a tracked case.</p></article>
-    <article class="p-feat"><h3>On the robot or alongside</h3><p>RoboDR can sit on the robot or beside it. We agree the setup with your team.</p></article>
-    <article class="p-feat"><h3>Starts in monitor-only mode</h3><p>RoboDR starts by only watching, so operations keep running. Protection is switched on only when you are ready.</p></article>
-  </div>
-</section>
-
-<!-- ── Everything in the product ────────────────────────────────── -->
-<section class="wrap sec" id="features" aria-labelledby="caps-h">
-  <p class="sec-tag">Features</p>
-  <h2 class="sec-title" id="caps-h">Everything in RoboDR</h2>
-  <p class="sec-sub">Every capability, from reading motor commands to signed evidence, with people approving the actions that matter.</p>
-  <div class="p-caps">
-    <article class="p-cap"><h3>Motion and network</h3><ul><li>Decodes Unitree and ROS 2 motion, arm and hand commands</li><li>Flags unknown senders on the robot’s network, even under new identities</li><li>Spoofed, replayed or out-of-limit speed, joint and torque commands</li><li>Compares what the robot was told with what it did</li><li>Faked or frozen telemetry and disagreeing navigation sensors</li><li>Links events into attacks such as key theft or motion hijacking</li><li>Never reports “all clear” when its own inputs go silent</li></ul></article>
-    <article class="p-cap"><h3>On the robot’s computer</h3><ul><li>New processes and outbound connections on the robot</li><li>Package installs and changes to ROS 2 and robot apps</li><li>Bluetooth and Wi-Fi setup tools and wireless setting changes</li><li>Reverse tunnels, VPNs, code injection and fileless execution</li><li>Reads of the robot’s private keys and unexpected kernel modules</li><li>Attempts to change or stop RoboDR itself</li><li>Published robot attacks, including UniPwn (CVE-2025-35027)</li></ul></article>
-    <article class="p-cap"><h3>Safe response</h3><ul><li>Escalates in stages: alert, restrict, slow down, pause, safe state</li><li>Isolates the robot from the network or quarantines a rogue sender</li><li>Every motion command passed, limited or rejected</li><li>Slows the robot without changing its direction; stops never delayed</li><li>Never cuts motor power or resets the emergency stop</li></ul></article>
-    <article class="p-cap"><h3>Your SOC, with AI</h3><ul><li>Each finding opens a case in AutoSecOps automatically</li><li>AI agent triages each finding and recommends a response</li><li>The AI can never delete cases, run scripts or go online</li><li>Attacker text from the robot flagged, never taken as instructions</li><li>Forged, stale or unsigned findings rejected and logged</li><li>Findings in open OCSF format for any compatible SIEM</li></ul></article>
-    <article class="p-cap"><h3>Signed evidence</h3><ul><li>Black box records survive power loss; any deletion shows</li><li>Auditors can verify records but cannot forge them</li><li>Every finding signed, mapped to MITRE ATT&amp;CK and tied to evidence</li><li>Pull evidence by finding or time range into the case</li><li>Whole fleet on one screen, with each robot’s cases and evidence</li></ul></article>
-    <article class="p-cap"><h3>Robots and add-ons</h3><ul><li>Unitree quadrupeds: Go2 (all editions), Go2-W, B2, B2-W, A2, AS2, Go1</li><li>Unitree humanoids: G1, H1, H1-2, H2, R1</li><li>ROS 2 mobile robots and collaborative arms, like MiR or Universal Robots</li><li>Add-on: signed, staged rollout of your robot apps, AI models and settings</li><li>Add-on: encrypted storage, boot integrity checks, erasure if compromised</li><li>Add-on: safe pause for Nav2, ros2_control and PX4 robots</li></ul></article>
-    <article class="p-cap"><h3>Fleet and updates</h3><ul><li>Learns each robot’s normal, then locks it with human sign-off</li><li>Ready-made Unitree profiles; profiles pushed from the SOC need two approvers</li><li>Keys created on the robot; rotate or revoke them from the SOC</li><li>RoboDR’s own updates: signed, staged, never below your security baseline</li><li>Signed, reproducible releases with a software bill of materials (SBOM)</li></ul></article>
-    <article class="p-cap"><h3>People decide</h3><ul><li>Starts monitor-only; protection switched on when you are ready</li><li>Two people approve safe pause, safe state and rollback</li><li>The approver is always someone other than the requester</li><li>Approval cannot be switched off and can cover every block</li><li>Every action time-limited and reversible; emergency off any time</li><li>Asks a person whenever the robot’s state is unknown</li></ul></article>
-  </div>
-  <dl class="p-specs">
-    <div><dt>Robots</dt><dd>Unitree quadrupeds and humanoids, ROS 2 mobile robots and collaborative arms</dd></div>
-    <div><dt>Platforms</dt><dd>Ubuntu 20.04, 22.04 and 24.04; JetPack 5 and 6; amd64 and arm64</dd></div>
-    <div><dt>Deployment</dt><dd>On the robot, beside it, or both; security center on your servers or cloud</dd></div>
-    <div><dt>Works with</dt><dd>AutoSecOps and any OCSF-compatible SIEM, over HTTPS or Kafka</dd></div>
-    <div><dt>Evidence for</dt><dd>EU Machinery Regulation, Cyber Resilience Act, IEC 62443-4-1 and 4-2 (self-assessed)</dd></div>
-    <div><dt>Data</dt><dd>Stays on your infrastructure; works air-gapped; no component calls out</dd></div>
-  </dl>
-</section>
-
-<!-- ── Who it is for ────────────────────────────────────────────── -->
-<section class="wrap sec" aria-labelledby="fit-h">
-  <p class="sec-tag">Who it is for</p>
-  <h2 class="sec-title" id="fit-h">For sectors where a robot can’t fail</h2>
-  <div class="p-fit">
-    <div><p class="p-fit-k">Built for</p><ul class="p-chips"><li>Defense</li><li>Energy and critical infrastructure</li><li>Manufacturing</li><li>Logistics</li><li>Public safety</li><li>Robot manufacturers</li></ul></div>
-    <div><p class="p-fit-k">Works with</p><ul class="p-chips"><li>ROS 2</li><li>Unitree quadruped robots</li><li>Unitree humanoid robots</li><li>AutoSecOps</li></ul></div>
-  </div>
-</section>
-
-<!-- ── Control ──────────────────────────────────────────────────── -->
-<section class="wrap sec" aria-labelledby="ctl-h">
-  <p class="sec-tag">Control</p>
-  <h2 class="sec-title" id="ctl-h">People have the final say</h2>
-  <div class="p-cards">
-    <article class="p-card"><span class="p-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3 4 6v6c0 4.5 3.4 8.3 8 9 4.6-.7 8-4.5 8-9V6l-8-3Z"/><path d="m9 12 2 2 4-4"/></svg></span><h3>People approve the big steps</h3><p>Your rules limit dangerous commands. Pausing the robot, a safe state or a rollback needs two people’s approval.</p></article>
-    <article class="p-card"><span class="p-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg></span><h3>Your data stays with you</h3><p>RoboDR runs on your servers or in your cloud. It works at sites with no internet, and no component calls out.</p></article>
-    <article class="p-card"><span class="p-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 3h7l5 5v13H7z"/><path d="M10 13h6M10 17h6"/></svg></span><h3>A full record of decisions</h3><p>What happened, who approved it and what was done are kept in one signed record you can show an auditor.</p></article>
-  </div>
-</section>
-
-<!-- ── FAQ ──────────────────────────────────────────────────────── -->
+<!-- ── The questions buyers ask ─────────────────────────────────── -->
 <section class="wrap sec" id="faq" aria-labelledby="faq-h">
+  <p class="sec-tag">Questions buyers ask</p>
   <h2 class="sec-title" id="faq-h">Questions about RoboDR</h2>
   <div class="faq">
     <details class="faq-item" open>
-      <summary><h3>What is RoboDR?</h3><span class="faq-mark" aria-hidden="true"></span></summary>
-      <p>RoboDR is a security layer for robots from Singularity. It sees an attack on a robot as it begins, brings the robot to a safe stop without a fall or collision, and keeps a tamper-proof record of what happened.</p>
+      <summary><h3>What is RoboDR, and which robots does it work with?</h3><span class="faq-mark" aria-hidden="true"></span></summary>
+      <p>RoboDR is a security layer for robots from Singularity. It sees an attack as it begins, stops dangerous commands before they reach the motors and keeps a tamper-proof record. It supports Unitree quadruped and humanoid robots, and robots running ROS 2, the open-source robot software.</p>
     </details>
     <details class="faq-item">
-      <summary><h3>Who is RoboDR for, and which robots does it support?</h3><span class="faq-mark" aria-hidden="true"></span></summary>
-      <p>RoboDR is for sectors where a robot cannot afford to fail: defense, energy, manufacturing, logistics, public safety and robot manufacturers. It supports Unitree quadruped and humanoid robots, and any robot running ROS 2, the open-source robot software, out of the box.</p>
+      <summary><h3>Can RoboDR run on our own servers, at a site with no internet?</h3><span class="faq-mark" aria-hidden="true"></span></summary>
+      <p>Yes. RoboDR’s security center runs on your own servers or in your cloud, and RoboDR works at air-gapped sites, meaning sites with no internet connection. No component calls out, and your data stays on your infrastructure.</p>
     </details>
     <details class="faq-item">
-      <summary><h3>How is RoboDR different from traditional security software?</h3><span class="faq-mark" aria-hidden="true"></span></summary>
-      <p>Traditional security software protects the computer. RoboDR protects the robot. It reads the commands sent to the motors and keeps humanoid and four-legged robots balanced during a safe stop. RoboDR is not a safety-rated component; it complements the robot’s own safety system.</p>
+      <summary><h3>Will RoboDR take action on our robots without asking us?</h3><span class="faq-mark" aria-hidden="true"></span></summary>
+      <p>RoboDR starts in monitor-only mode, and protection goes on only when you are ready. Its rules limit dangerous commands automatically. Pausing a robot, a safe state or a rollback needs approval from two people, the approver is never the requester, and every action can be undone.</p>
     </details>
     <details class="faq-item">
-      <summary><h3>Can RoboDR run on-premises or at air‑gapped sites?</h3><span class="faq-mark" aria-hidden="true"></span></summary>
-      <p>Yes. RoboDR runs on your own servers or in your cloud. It also works at air-gapped sites, meaning sites with no internet connection, and no component ever calls out.</p>
+      <summary><h3>Does RoboDR replace or interfere with our robot’s safety system?</h3><span class="faq-mark" aria-hidden="true"></span></summary>
+      <p>No. RoboDR is not a safety-rated component; it complements the robot’s own safety system. It never cuts motor power, resets the emergency stop or kills a program on a moving robot, and it keeps humanoid and four-legged robots from falling during a stop.</p>
     </details>
     <details class="faq-item">
-      <summary><h3>How do people stay in control of RoboDR?</h3><span class="faq-mark" aria-hidden="true"></span></summary>
-      <p>RoboDR starts in monitor-only mode, and protection is switched on only when you are ready. Your rules limit dangerous commands, and pausing the robot or putting it in a safe state needs two people’s approval. Each incident and approval is kept in one signed record.</p>
+      <summary><h3>Our IT security already covers the network. Why do we need RoboDR?</h3><span class="faq-mark" aria-hidden="true"></span></summary>
+      <p>Traditional security software protects the computer. RoboDR protects the robot. It reads the commands sent to the motors, can tell “walk” from “run”, and stops a hijacked robot without a fall. Its findings land in your existing SOC, beside your other alerts.</p>
     </details>
   </div>
 </section>
 
-<!-- ── Contact ──────────────────────────────────────────────────── -->
+<!-- ── The full list, for the evaluation team ───────────────────── -->
+<section class="wrap sec" id="features" aria-labelledby="caps-h">
+  <details class="p-sheet">
+    <summary><span><b id="caps-h">Every feature of RoboDR</b><small>The full list for your evaluation team: 47 capabilities in 8 groups.</small></span><i class="p-sheet-mark" aria-hidden="true"></i></summary>
+    <div class="p-sheet-in">
+      <div class="p-caps">
+        <article class="p-cap"><h3>Motion and network</h3><ul><li>Decodes Unitree and ROS 2 motion, arm and hand commands</li><li>Flags unknown senders on the robot’s network, even under new identities</li><li>Spoofed, replayed or out-of-limit speed, joint and torque commands</li><li>Compares what the robot was told with what it did</li><li>Faked or frozen telemetry and disagreeing navigation sensors</li><li>Links events into attacks such as key theft or motion hijacking</li><li>Never reports “all clear” when its own inputs go silent</li></ul></article>
+        <article class="p-cap"><h3>On the robot’s computer</h3><ul><li>New processes and outbound connections on the robot</li><li>Package installs and changes to ROS 2 and robot apps</li><li>Bluetooth and Wi-Fi setup tools and wireless setting changes</li><li>Reverse tunnels, VPNs, code injection and fileless execution</li><li>Reads of the robot’s private keys and unexpected kernel modules</li><li>Attempts to change or stop RoboDR itself</li><li>Published robot attacks, including UniPwn (CVE-2025-35027)</li></ul></article>
+        <article class="p-cap"><h3>Safe response</h3><ul><li>Escalates in stages: alert, restrict, slow down, pause, safe state</li><li>Isolates the robot from the network or quarantines a rogue sender</li><li>Every motion command passed, limited or rejected</li><li>Slows the robot without changing its direction; stops never delayed</li><li>Never cuts motor power or resets the emergency stop</li></ul></article>
+        <article class="p-cap"><h3>Your SOC, with AI</h3><ul><li>Each finding opens a case in AutoSecOps automatically</li><li>AI agent triages each finding and recommends a response</li><li>The AI can never delete cases, run scripts or go online</li><li>Attacker text from the robot flagged, never taken as instructions</li><li>Forged, stale or unsigned findings rejected and logged</li><li>Findings in open OCSF format for any compatible SIEM</li></ul></article>
+        <article class="p-cap"><h3>Signed evidence</h3><ul><li>Black box records survive power loss; any deletion shows</li><li>Auditors can verify records but cannot forge them</li><li>Every finding signed, mapped to MITRE ATT&amp;CK and tied to evidence</li><li>Pull evidence by finding or time range into the case</li><li>Whole fleet on one screen, with each robot’s cases and evidence</li></ul></article>
+        <article class="p-cap"><h3>Robots and add-ons</h3><ul><li>Unitree quadrupeds: Go2 (all editions), Go2-W, B2, B2-W, A2, AS2, Go1</li><li>Unitree humanoids: G1, H1, H1-2, H2, R1</li><li>ROS 2 mobile robots and collaborative arms, like MiR or Universal Robots</li><li>Add-on: signed, staged rollout of your robot apps, AI models and settings</li><li>Add-on: encrypted storage, boot integrity checks, erasure if compromised</li><li>Add-on: safe pause for Nav2, ros2_control and PX4 robots</li></ul></article>
+        <article class="p-cap"><h3>Fleet and updates</h3><ul><li>Learns each robot’s normal, then locks it with human sign-off</li><li>Ready-made Unitree profiles; profiles pushed from the SOC need two approvers</li><li>Keys created on the robot; rotate or revoke them from the SOC</li><li>RoboDR’s own updates: signed, staged, never below your security baseline</li><li>Signed, reproducible releases with a software bill of materials (SBOM)</li></ul></article>
+        <article class="p-cap"><h3>People decide</h3><ul><li>Starts monitor-only; protection switched on when you are ready</li><li>Two people approve safe pause, safe state and rollback</li><li>The approver is always someone other than the requester</li><li>Approval cannot be switched off and can cover every block</li><li>Every action time-limited and reversible; emergency off any time</li><li>Asks a person whenever the robot’s state is unknown</li></ul></article>
+      </div>
+      <dl class="p-specs">
+        <div><dt>Robots</dt><dd>Unitree quadrupeds and humanoids, ROS 2 mobile robots and collaborative arms</dd></div>
+        <div><dt>Platforms</dt><dd>Ubuntu 20.04, 22.04 and 24.04; JetPack 5 and 6; amd64 and arm64</dd></div>
+        <div><dt>Deployment</dt><dd>On the robot, beside it, or both; security center on your servers or cloud</dd></div>
+        <div><dt>Works with</dt><dd>AutoSecOps and any OCSF-compatible SIEM, over HTTPS or Kafka</dd></div>
+        <div><dt>Evidence for</dt><dd>EU Machinery Regulation, Cyber Resilience Act, IEC 62443-4-1 and 4-2 (self-assessed)</dd></div>
+        <div><dt>Data</dt><dd>Stays on your infrastructure; works air-gapped; no component calls out</dd></div>
+      </dl>
+      <div class="p-fit">
+        <div><p class="p-fit-k">Built for</p><ul class="p-chips"><li>Defense</li><li>Energy and critical infrastructure</li><li>Manufacturing</li><li>Logistics</li><li>Public safety</li><li>Robot manufacturers</li></ul></div>
+        <div><p class="p-fit-k">Works with</p><ul class="p-chips"><li>ROS 2</li><li>Unitree quadruped robots</li><li>Unitree humanoid robots</li><li>AutoSecOps</li></ul></div>
+      </div>
+    </div>
+  </details>
+</section>
+
+<!-- ── The close ────────────────────────────────────────────────── -->
 <section class="wrap sec" id="contact" aria-labelledby="contact-h">
   <div class="p-cta">
     <p class="sec-tag">Book a demo</p>
     <h2 class="cta-title" id="contact-h">See RoboDR on one of your robots</h2>
-    <p>A pilot needs one robot, a test area and a timeline. We handle the setup. Book a demo or request the technical brief.</p>
+    <p>Bring one robot, a test area and a schedule. We handle the setup, attack it ourselves and report to management.</p>
     <div class="hero-actions">
       <a class="btn btn-solid btn-lg" href="https://calendly.com/anill-yagiz/singularity" target="_blank" rel="noopener">Book a demo <span class="chev">›</span></a>
       <a class="btn btn-ghost btn-lg" href="mailto:anil@singularityrd.com?subject=RoboDR%20technical%20brief">Request the technical brief</a>
@@ -357,7 +419,7 @@
     <p>More from Singularity</p>
     <a href="foundation-models.html"><b>Singularity Foundation Models</b><span>Our own AI models</span></a>
     <a href="autosecops.html"><b>AutoSecOps</b><span>AI security operations</span></a>
-    <a href="aidr.html"><b>AIDR</b><span>AI agent security</span></a>
+    <a href="aidr.html"><b>AIDR</b><span>Security for AI</span></a>
     <a href="it-ops.html"><b>IT Ops</b><span>AI on-call engineer</span></a>
     <a href="breakpoint.html"><b>Breakpoint</b><span>AI pentester</span></a>
     <a href="fennec.html"><b>Fennec</b><span>Code security scanner</span></a>
@@ -391,6 +453,12 @@
         <p><b>Türkiye</b>Singularity Arge Siber Güvenlik ve Yapay Zeka Teknoloji A.Ş.</p>
         <p><b>South Korea</b>Singularity Korea</p>
       </div>
+    </nav>
+  </div>
+  <div class="world">
+    <div class="footer-art paint"><canvas data-art="world" width="2400" height="620" aria-hidden="true"></canvas></div>
+    <nav class="world-nav" aria-label="Products in the picture">
+      <a href="autosecops.html" style="--x: 7.2%">AutoSecOps</a><a href="aidr.html" style="--x: 21.5%">AIDR</a><a href="it-ops.html" style="--x: 36.6%">IT Ops</a><a href="breakpoint.html" style="--x: 50%">Breakpoint</a><a href="fennec.html" style="--x: 64%">Fennec</a><a href="sonar.html" style="--x: 77.6%">Sonar</a><a href="robodr.html" style="--x: 92.5%">RoboDR</a>
     </nav>
   </div>
   <div class="shell">

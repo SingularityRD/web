@@ -69,7 +69,7 @@
       "@type": "SoftwareApplication",
       "@id": "https://www.singularityrd.com/fennec.html#product",
       "name": "Fennec",
-      "description": "Fennec scans your code in seconds for vulnerabilities, leaked passwords, risky open-source libraries and quantum-weak encryption. Problems are caught at the keyboard, and your code never leaves.",
+      "description": "Fennec scans every change in seconds for security bugs, leaked secrets, vulnerable libraries and quantum-weak encryption. One tool, on every laptop and pull request. Your code never leaves.",
       "url": "https://www.singularityrd.com/fennec.html",
       "applicationCategory": "SecurityApplication",
       "featureList": [
@@ -125,42 +125,42 @@
       "mainEntity": [
         {
           "@type": "Question",
-          "name": "What is Fennec?",
+          "name": "What is Fennec, in one sentence?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Fennec is Singularity’s code security scanner. In seconds, it checks code in the major programming languages for vulnerabilities, leaked secrets, risky dependencies and encryption that quantum computers could break. It is named after the fennec fox: small, fast, with ears that hear what others miss."
+            "text": "Fennec is Singularity’s code security scanner: in seconds it checks your code for security bugs, leaked secrets, vulnerable open-source libraries, risky configuration and quantum-weak encryption, on developer laptops, in pull requests and in any CI pipeline."
           }
         },
         {
           "@type": "Question",
-          "name": "Who is Fennec for?",
+          "name": "Can Fennec run on-premises or in an air-gapped network?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Fennec is for any team that writes software. That includes software and SaaS companies, banks and fintech, defense and public sector, telecom and e-commerce, software agencies, and teams that write code with AI assistants."
+            "text": "Yes. Fennec runs on your own machines, on macOS, Linux and Windows, and your code never leaves them. An air-gapped install is available. Code, secret and crypto scans run fully offline; only dependency checks look up the public OSV vulnerability database."
           }
         },
         {
           "@type": "Question",
-          "name": "How is Fennec different from other code scanners?",
+          "name": "Who decides what blocks a build and what gets ignored?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "When a scan takes minutes, developers switch it off. Fennec finishes in seconds, fast enough to run before every change is committed. It covers code, secrets, dependencies, configuration and quantum readiness in one tool, and shows only the new problems each change adds."
+            "text": "Your team does. With Fennec you choose which severity fails a build. Accepting a finding takes an in-code note that reviewers see in the pull request, and bulk changes are previewed before anything is written. Automatic fixes apply only when you run them."
           }
         },
         {
           "@type": "Question",
-          "name": "Can Fennec run on-premises or air-gapped?",
+          "name": "Will Fennec slow my developers down?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Yes. Fennec runs on your own machines and your code never leaves. It can be installed air-gapped, on a network with no internet connection. Code, secret and encryption scans run fully offline; dependency checks look up a public database of known vulnerabilities."
+            "text": "No. Fennec scans in seconds, fast enough to run before every commit, and shows only the issues a branch adds rather than the whole backlog. Developers see findings where they already work: the command line, VS Code, pre-commit and pull requests."
           }
         },
         {
           "@type": "Question",
-          "name": "How do developers stay in control of Fennec?",
+          "name": "Won’t it bury my team in false positives?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Fennec reports what it finds and developers decide. Automatic fixes cover supported issues only, and a developer applies them. A finding can be accepted with a note in the code, which reviewers see in the pull request."
+            "text": "Fennec tests every rule against vulnerable code and against look-alike safe code, which must produce zero findings. Each rule is labeled by tier so you can tune noise, and in the pilot Fennec’s accuracy is measured again on your own code."
           }
         }
       ]
@@ -201,17 +201,17 @@
 
 <main>
 
-<!-- ── Hero ────────────────────────────────────────────────────── -->
+<!-- ── The promise ──────────────────────────────────────────────── -->
 <section class="p-hero">
   <div class="p-hero-art paint" style="--flip: -1"><canvas data-art="fennec" width="1600" height="760" aria-hidden="true"></canvas></div>
   <div class="shell p-hero-inner">
     <nav class="crumbs" aria-label="Breadcrumb"><a href="index.html">Singularity</a><i aria-hidden="true">/</i><a href="index.html#products">Products</a><i aria-hidden="true">/</i><span aria-current="page">Fennec</span></nav>
     <p class="p-kicker"><i></i>Fennec · Code security scanner</p>
-    <h1 class="p-title">Every line of code checked before it ships.</h1>
-    <p class="p-lede">Fennec scans your code in seconds for vulnerabilities, leaked passwords, risky open-source libraries and quantum-weak encryption. Problems are caught at the keyboard, and your code never leaves.</p>
+    <h1 class="p-title">Security checks fast enough that nobody turns them off.</h1>
+    <p class="p-lede">Fennec scans every change in seconds for security bugs, leaked secrets, vulnerable libraries and quantum-weak encryption. One tool, on every laptop and pull request. Your code never leaves.</p>
     <div class="hero-actions">
       <a class="btn btn-solid btn-lg" href="https://calendly.com/anill-yagiz/singularity" target="_blank" rel="noopener">Book a demo <span class="chev">›</span></a>
-      <a class="btn btn-ghost btn-lg" href="mailto:anil@singularityrd.com?subject=Fennec%20technical%20brief">Request the technical brief</a>
+      <a class="btn btn-ghost btn-lg" href="#story">See the difference</a>
     </div>
   </div>
 </section>
@@ -223,120 +223,181 @@
   </div>
 </section>
 
-<!-- ── The problem ──────────────────────────────────────────────── -->
-<section class="wrap sec" aria-labelledby="problem-h">
-  <p class="sec-tag">The problem</p>
-  <h2 class="sec-title" id="problem-h"><span class="s">Code ships daily.</span> <span class="s">Security checks lag behind.</span></h2>
-  <div class="p-cards">
-    <article class="p-card"><p class="p-n">01</p><h3>Slow tools get skipped</h3><p>When a scan takes minutes, developers switch it off. The bugs ship with the next release.</p></article>
-    <article class="p-card"><p class="p-n">02</p><h3>Nobody knows what’s inside</h3><p>Most companies cannot say what is in their code today: which bugs, which leaked keys, which weak algorithms.</p></article>
-    <article class="p-card"><p class="p-n">03</p><h3>The quantum deadline</h3><p>Encryption that quantum computers could break must be replaced on published timelines (CNSA 2.0). Few teams know where theirs is.</p></article>
+<!-- ── The scene: one incident, told twice ──────────────────────── -->
+<section class="wrap sec" id="story" aria-labelledby="scene-h">
+  <p class="sec-tag">The same hours, twice</p>
+  <h2 class="sec-title" id="scene-h">A cloud key on its way to production</h2>
+  <p class="sec-sub">A software company, Thursday afternoon. A developer finishes a payment feature for tomorrow’s release. A cloud access key is still pasted in a config file.</p>
+  <table class="p-scene">
+    <thead><tr><th scope="col"><span class="sr">Time</span></th><th scope="col">Without Fennec</th><th scope="col">With Fennec</th></tr></thead>
+    <tbody>
+      <tr><th scope="row">16:05</th><td data-k="Without Fennec">The developer commits. The security scan took minutes, so the team switched it off last month.</td><td data-k="With Fennec">The developer commits. Fennec checks the change in seconds and stops the key before it enters history.</td></tr>
+      <tr><th scope="row">16:20</th><td data-k="Without Fennec">The key enters the repository history. The pull request passes a quick review and merges.</td><td data-k="With Fennec">On the pull request, Fennec shows only what this branch adds: one unchecked input, with the line.</td></tr>
+      <tr><th scope="row">Fri 09:00</th><td data-k="Without Fennec">The release ships with the key and an unchecked input in the new code.</td><td data-k="With Fennec">The developer fixes the input from the finding. The release ships on time.</td></tr>
+      <tr><th scope="row">Fri 15:00</th><td data-k="Without Fennec">A customer’s security review asks for scan evidence. The team has none to send.</td><td data-k="With Fennec">The customer’s security review gets a standard SARIF report from the release.</td></tr>
+      <tr class="ps-end"><th scope="row">How it ends</th><td data-k="Without Fennec">A live key in history, a bug in production.</td><td data-k="With Fennec">A clean release, on schedule, with the evidence.</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- ── The case, chapter by chapter ─────────────────────────────── -->
+<section class="wrap sec" aria-labelledby="case-h">
+  <p class="sec-tag">Why Fennec</p>
+  <h2 class="sec-title" id="case-h">Six reasons to choose Fennec</h2>
+  <div class="p-chs">
+    <article class="p-ch">
+      <div class="p-ch-l">
+        <p class="p-ch-n">01 · Developer speed</p>
+        <h3>A scanner fast enough to stay switched on</h3>
+        <p>When a scan takes minutes, developers disable it and bugs ship with the next release. Fennec scans in seconds, runs where developers already work and shows only the issues each change adds. The check stays on, and problems are fixed at the keyboard, where fixing costs least.</p>
+      </div>
+      <ul class="p-ch-r"><li>Runs on every save, commit and pull request</li><li>Diff mode shows only what a branch adds</li><li>Findings inline in VS Code as developers type</li><li>Automatic fixes for supported issues</li><li>Terminal review that opens the exact line in your editor</li></ul>
+    </article>
+    <article class="p-ch">
+      <div class="p-ch-l">
+        <p class="p-ch-n">02 · One tool</p>
+        <h3>One tool instead of three separate scanners</h3>
+        <p>Many companies buy code, secret and dependency scanning separately, and still cannot say what is in their code. Fennec checks all of it in one pass, plus configuration files and encryption. One tool to roll out, one report to read.</p>
+      </div>
+      <ul class="p-ch-r"><li>Security bugs in your own code, across major languages</li><li>Follows untrusted input across files to where it harms</li><li>Passwords, keys and tokens stopped before they are committed</li><li>Open-source libraries with known vulnerabilities</li><li>Risky settings in Docker, Terraform, Nginx and other configs</li></ul>
+    </article>
+    <article class="p-ch">
+      <div class="p-ch-l">
+        <p class="p-ch-n">03 · Quantum readiness</p>
+        <h3>The crypto inventory banks are now asked for</h3>
+        <p>Banks, defense suppliers and critical infrastructure are being asked where their encryption stands. RSA and elliptic-curve crypto must be replaced on CNSA 2.0 timelines, the US schedule for quantum-safe encryption. Fennec finds every use, scores your readiness and writes the inventory in one run.</p>
+      </div>
+      <ul class="p-ch-r"><li>Finds RSA, DSA, elliptic-curve and Diffie-Hellman use</li><li>Migration deadline shown for every finding</li><li>Credits quantum-safe algorithms such as ML-KEM and ML-DSA</li><li>A readiness percentage you can show the board</li><li>Crypto bill of materials (CBOM) in CycloneDX format</li></ul>
+    </article>
+    <article class="p-ch">
+      <div class="p-ch-l">
+        <p class="p-ch-n">04 · Fits your stack</p>
+        <h3>Switch without rewriting the rules you trust</h3>
+        <p>Your team has written rules for the scanner it uses today. Fennec reuses them without a rewrite and plugs into the places code is reviewed, from pull requests to any CI pipeline. Even AI coding agents can check their own code before you see it.</p>
+      </div>
+      <ul class="p-ch-r"><li>Existing custom rules reused, no rewrite</li><li>GitHub Action and GitHub App for pull request checks</li><li>Any CI pipeline, failing builds by severity</li><li>MCP server lets AI coding agents check their code</li><li>Findings become tracked cases in AutoSecOps</li></ul>
+    </article>
+    <article class="p-ch">
+      <div class="p-ch-l">
+        <p class="p-ch-n">05 · Accuracy</p>
+        <h3>Fewer false alarms, measured on your own code</h3>
+        <p>False alarms teach developers to ignore a scanner. Every Fennec rule is tested in CI against vulnerable code and look-alike safe code. Known false-positive patterns are published, and in the pilot accuracy is measured again on your code, not ours.</p>
+      </div>
+      <ul class="p-ch-r"><li>Each rule must fire on its vulnerable test case</li><li>Look-alike safe code must produce zero findings</li><li>Rules labeled by tier, so teams tune noise</li><li>Baselines split new, recurring and resolved findings</li><li>Batch ignore or baseline, previewed before anything changes</li></ul>
+    </article>
+    <article class="p-ch">
+      <div class="p-ch-l">
+        <p class="p-ch-n">06 · Evidence</p>
+        <h3>Audit and customer evidence without extra work</h3>
+        <p>Software companies face customer security reviews and SOC 2 audits. Banks face strict regulators. AI now writes more of the code, and Fennec checks all of it. The same scans produce the standard reports auditors and customers ask for.</p>
+      </div>
+      <ul class="p-ch-r"><li>Standard SARIF reports, including for GitHub code scanning</li><li>JSON output for any tool or pipeline</li><li>Audit reports for SOC 2 and customer reviews</li><li>Crypto inventory for security reviews</li></ul>
+    </article>
   </div>
 </section>
 
-<!-- ── How it works ─────────────────────────────────────────────── -->
-<section class="wrap sec" aria-labelledby="how-h">
-  <p class="sec-tag">How it works</p>
-  <h2 class="sec-title" id="how-h">A smoke detector for your code</h2>
+<!-- ── Before and after ─────────────────────────────────────────── -->
+<section class="wrap sec" aria-labelledby="shift-h">
+  <p class="sec-tag">Before and after</p>
+  <h2 class="sec-title" id="shift-h">What changes with Fennec</h2>
+  <table class="p-shift">
+    <thead><tr><th scope="col"><span class="sr">What</span></th><th scope="col">Before</th><th scope="col">With Fennec</th></tr></thead>
+    <tbody>
+      <tr><th scope="row">Scan time</th><td data-k="Before">Minutes, so developers switch it off</td><td data-k="With Fennec">Seconds, on every commit</td></tr>
+      <tr><th scope="row">Tools</th><td data-k="Before">Separate code, secret and dependency scanners</td><td data-k="With Fennec">One tool, one pass</td></tr>
+      <tr><th scope="row">Leaked keys</th><td data-k="Before">Found after they reach history</td><td data-k="With Fennec">Stopped before the commit</td></tr>
+      <tr><th scope="row">Findings per change</th><td data-k="Before">The whole backlog, every time</td><td data-k="With Fennec">Only what the branch adds</td></tr>
+      <tr><th scope="row">Quantum readiness</th><td data-k="Before">Nobody knows where weak crypto is</td><td data-k="With Fennec">Inventory and readiness score in one run</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- ── Where it stops ───────────────────────────────────────────── -->
+<section class="wrap sec" aria-labelledby="limits-h">
+  <p class="sec-tag">Straight talk</p>
+  <h2 class="sec-title" id="limits-h">What Fennec will not do</h2>
+  <div class="p-limits" style="--n: 3">
+    <article class="p-limit"><span class="p-no" aria-hidden="true"></span><h3>Fix every finding for you</h3><p>Automatic fixes cover supported issues. Other findings point to the exact line and data flow, and a developer makes the change.</p></article>
+    <article class="p-limit"><span class="p-no" aria-hidden="true"></span><h3>Check dependencies fully offline</h3><p>Code, secret and crypto scans run fully offline. Dependency checks look up the public OSV vulnerability database.</p></article>
+    <article class="p-limit"><span class="p-no" aria-hidden="true"></span><h3>Promise zero false positives</h3><p>Some rules are heuristic. Fennec labels every rule by tier, publishes its known false-positive patterns and re-measures accuracy on your code.</p></article>
+  </div>
+</section>
+
+<!-- ── How you start ────────────────────────────────────────────── -->
+<section class="wrap sec" aria-labelledby="pilot-h">
+  <p class="sec-tag">How you start</p>
+  <h2 class="sec-title" id="pilot-h">Three repositories, two weeks, a clear report</h2>
   <ol class="p-steps" style="--n: 4">
-    <li><b>1</b><h3>Listens</h3><p>Fennec runs in seconds on every developer laptop and on every pull request (a proposed code change).</p></li>
-    <li><b>2</b><h3>Flags</h3><p>It points to vulnerabilities, leaked secrets, risky libraries, weak encryption and misconfigurations, right where developers work.</p></li>
-    <li><b>3</b><h3>Fixes</h3><p>It offers automatic fixes for supported issues and shows only the new problems each change adds.</p></li>
-    <li><b>4</b><h3>Reports</h3><p>Standard reports and an inventory of your encryption give auditors and customers the evidence they ask for.</p></li>
+    <li><b>1</b><h3>Pick three repositories</h3><p>Choose three repositories that matter. Read-only access is all we need, and we connect them in an hour.</p></li>
+    <li><b>2</b><h3>First scan, same day</h3><p>The first full scan runs the day you connect. Developers install nothing.</p></li>
+    <li><b>3</b><h3>Two weeks of scans</h3><p>Every pull request is scanned for two weeks, and we tune the rules with your team.</p></li>
+    <li><b>4</b><h3>Results on the table</h3><p>Real findings, live secrets, dependency risk, crypto readiness and scan times, with accuracy measured on your code.</p></li>
   </ol>
 </section>
 
-<!-- ── What you get ─────────────────────────────────────────────── -->
-<section class="wrap sec" aria-labelledby="feat-h">
-  <p class="sec-tag">What you get</p>
-  <h2 class="sec-title" id="feat-h">What Fennec checks on every change</h2>
-  <div class="p-feats">
-    <article class="p-feat"><h3>Code vulnerabilities</h3><p>Finds security bugs in your own code, across the major programming languages.</p></article>
-    <article class="p-feat"><h3>Leaked secrets</h3><p>Catches passwords, API keys and tokens before they reach your code repository.</p></article>
-    <article class="p-feat"><h3>Risky dependencies</h3><p>Flags the open-source libraries you ship that have known vulnerabilities.</p></article>
-    <article class="p-feat"><h3>Quantum readiness</h3><p>Finds encryption that quantum computers could break, shows the deadlines and gives a readiness score.</p></article>
-    <article class="p-feat"><h3>Configuration files</h3><p>Checks Docker, Terraform, Nginx and other configuration files for risky settings.</p></article>
-    <article class="p-feat"><h3>Only what’s new</h3><p>On each change, developers see the problems that change adds, not the whole backlog.</p></article>
-  </div>
-</section>
-
-<!-- ── Everything in the product ────────────────────────────────── -->
-<section class="wrap sec" id="features" aria-labelledby="caps-h">
-  <p class="sec-tag">Features</p>
-  <h2 class="sec-title" id="caps-h">Everything in Fennec</h2>
-  <p class="sec-sub">Code, secrets, dependencies, configuration and crypto, checked from the keyboard to the pull request.</p>
-  <div class="p-caps">
-    <article class="p-cap"><h3>What it checks</h3><ul><li>Security bugs in your own code, across the major programming languages</li><li>Follows untrusted input, even across files, to where it causes harm</li><li>Knows popular frameworks such as Django, Spring, Rails and Laravel</li><li>Passwords, API keys and tokens, caught before they reach the repository</li><li>Open-source dependencies with known vulnerabilities</li><li>Risky settings in Docker, Terraform, Nginx, Apache, HAProxy, YAML, JSON, XML</li><li>Custom rules, and existing rules reused without a rewrite</li></ul></article>
-    <article class="p-cap"><h3>Quantum readiness</h3><ul><li>Finds RSA, DSA, elliptic-curve and Diffie-Hellman use that quantum computers could break</li><li>Shows the CNSA 2.0 migration deadline for each finding</li><li>Recognizes quantum-safe algorithms such as ML-KEM, ML-DSA and hybrids</li><li>Scores your migration with a readiness percentage</li><li>Crypto bill of materials (CBOM) in CycloneDX format, in one run</li></ul></article>
-    <article class="p-cap"><h3>Fixing and triage</h3><ul><li>Automatic fixes for supported issues, applied in place</li><li>Diff mode shows only the problems a branch adds</li><li>Shared baselines split findings into new, recurring and resolved</li><li>Interactive terminal review that opens the exact line in your editor</li><li>Mark, ignore or baseline many findings at once, with a preview</li><li>Accept a finding with an in-code note reviewers see in pull requests</li><li>Each rule labeled by tier, so teams can tune noise</li></ul></article>
-    <article class="p-cap"><h3>Reports and outputs</h3><ul><li>Standard SARIF reports, including for GitHub code scanning</li><li>JSON output for any tool or pipeline</li><li>Terminal output during local scans</li><li>Audit reports for customer security reviews and SOC 2 evidence</li></ul></article>
-    <article class="p-cap"><h3>Where it runs</h3><ul><li>Fast enough to run on every save, commit and pull request</li><li>Command line, on every developer laptop</li><li>VS Code, with findings inline as developers type</li><li>Pre-commit hook stops secrets and new issues before they are committed</li><li>GitHub Action and GitHub App for pull request checks</li><li>Any CI pipeline, failing builds by severity</li><li>MCP server lets AI coding agents check their own code</li><li>AutoSecOps, where findings become tracked cases</li></ul></article>
-    <article class="p-cap"><h3>Deployment and control</h3><ul><li>Install with npx, pipx, cargo or a single binary</li><li>Runs on macOS, Linux and Windows</li><li>Your code never leaves your machines</li><li>Air-gapped install; code, secret and crypto scans run fully offline</li><li>Dependency checks look up the public OSV vulnerability database</li><li>Releases verified with published checksums and build attestations</li><li>Single sign-on for team access</li></ul></article>
-  </div>
-  <dl class="p-specs">
-    <div><dt>Scans</dt><dd>Code, secrets, dependencies, configuration files and quantum-weak crypto, in one tool</dd></div>
-    <div><dt>Languages</dt><dd>Major languages, including JavaScript, TypeScript, Python, Go, Java, C#, PHP, Ruby, Swift and Rust</dd></div>
-    <div><dt>Works with</dt><dd>Command line, VS Code, pre-commit, GitHub pull requests, any CI, AI coding agents, AutoSecOps</dd></div>
-    <div><dt>Outputs</dt><dd>SARIF, JSON, terminal and CycloneDX crypto bill of materials (CBOM)</dd></div>
-    <div><dt>Platforms</dt><dd>macOS, Linux and Windows; air-gapped install available</dd></div>
-    <div><dt>Data</dt><dd>Code never leaves; only dependency checks query the public OSV database</dd></div>
-  </dl>
-</section>
-
-<!-- ── Who it is for ────────────────────────────────────────────── -->
-<section class="wrap sec" aria-labelledby="fit-h">
-  <p class="sec-tag">Who it is for</p>
-  <h2 class="sec-title" id="fit-h">Any team that writes software</h2>
-  <div class="p-fit">
-    <div><p class="p-fit-k">Built for</p><ul class="p-chips"><li>Software and SaaS companies</li><li>Banks and fintech</li><li>Defense and public sector</li><li>Telecom and e-commerce</li><li>Software agencies</li><li>AI-assisted teams</li></ul></div>
-    <div><p class="p-fit-k">Works with</p><ul class="p-chips"><li>Command line</li><li>VS Code</li><li>Pre-commit checks</li><li>Pull requests</li><li>Docker</li><li>Terraform</li><li>Nginx</li><li>AutoSecOps</li></ul></div>
-  </div>
-</section>
-
-<!-- ── Control ──────────────────────────────────────────────────── -->
-<section class="wrap sec" aria-labelledby="ctl-h">
-  <p class="sec-tag">Control</p>
-  <h2 class="sec-title" id="ctl-h">You stay in control</h2>
-  <div class="p-cards">
-    <article class="p-card"><span class="p-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3 4 6v6c0 4.5 3.4 8.3 8 9 4.6-.7 8-4.5 8-9V6l-8-3Z"/><path d="m9 12 2 2 4-4"/></svg></span><h3>Code never leaves</h3><p>Fennec runs on your developers’ laptops and on your pull requests. Your code never leaves.</p></article>
-    <article class="p-card"><span class="p-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg></span><h3>Developers decide</h3><p>Automatic fixes cover supported issues only, and a developer applies them. Accepted exceptions stay visible in code review.</p></article>
-    <article class="p-card"><span class="p-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 3h7l5 5v13H7z"/><path d="M10 13h6M10 17h6"/></svg></span><h3>Air-gapped install</h3><p>Fennec can be installed air-gapped, meaning on a network with no internet connection. Code, secret and encryption scans run fully offline.</p></article>
-  </div>
-</section>
-
-<!-- ── FAQ ──────────────────────────────────────────────────────── -->
+<!-- ── The questions buyers ask ─────────────────────────────────── -->
 <section class="wrap sec" id="faq" aria-labelledby="faq-h">
+  <p class="sec-tag">Questions buyers ask</p>
   <h2 class="sec-title" id="faq-h">Questions about Fennec</h2>
   <div class="faq">
     <details class="faq-item" open>
-      <summary><h3>What is Fennec?</h3><span class="faq-mark" aria-hidden="true"></span></summary>
-      <p>Fennec is Singularity’s code security scanner. In seconds, it checks code in the major programming languages for vulnerabilities, leaked secrets, risky dependencies and encryption that quantum computers could break. It is named after the fennec fox: small, fast, with ears that hear what others miss.</p>
+      <summary><h3>What is Fennec, in one sentence?</h3><span class="faq-mark" aria-hidden="true"></span></summary>
+      <p>Fennec is Singularity’s code security scanner: in seconds it checks your code for security bugs, leaked secrets, vulnerable open-source libraries, risky configuration and quantum-weak encryption, on developer laptops, in pull requests and in any CI pipeline.</p>
     </details>
     <details class="faq-item">
-      <summary><h3>Who is Fennec for?</h3><span class="faq-mark" aria-hidden="true"></span></summary>
-      <p>Fennec is for any team that writes software. That includes software and SaaS companies, banks and fintech, defense and public sector, telecom and e-commerce, software agencies, and teams that write code with AI assistants.</p>
+      <summary><h3>Can Fennec run on-premises or in an air‑gapped network?</h3><span class="faq-mark" aria-hidden="true"></span></summary>
+      <p>Yes. Fennec runs on your own machines, on macOS, Linux and Windows, and your code never leaves them. An air-gapped install is available. Code, secret and crypto scans run fully offline; only dependency checks look up the public OSV vulnerability database.</p>
     </details>
     <details class="faq-item">
-      <summary><h3>How is Fennec different from other code scanners?</h3><span class="faq-mark" aria-hidden="true"></span></summary>
-      <p>When a scan takes minutes, developers switch it off. Fennec finishes in seconds, fast enough to run before every change is committed. It covers code, secrets, dependencies, configuration and quantum readiness in one tool, and shows only the new problems each change adds.</p>
+      <summary><h3>Who decides what blocks a build and what gets ignored?</h3><span class="faq-mark" aria-hidden="true"></span></summary>
+      <p>Your team does. With Fennec you choose which severity fails a build. Accepting a finding takes an in-code note that reviewers see in the pull request, and bulk changes are previewed before anything is written. Automatic fixes apply only when you run them.</p>
     </details>
     <details class="faq-item">
-      <summary><h3>Can Fennec run on-premises or air‑gapped?</h3><span class="faq-mark" aria-hidden="true"></span></summary>
-      <p>Yes. Fennec runs on your own machines and your code never leaves. It can be installed air-gapped, on a network with no internet connection. Code, secret and encryption scans run fully offline; dependency checks look up a public database of known vulnerabilities.</p>
+      <summary><h3>Will Fennec slow my developers down?</h3><span class="faq-mark" aria-hidden="true"></span></summary>
+      <p>No. Fennec scans in seconds, fast enough to run before every commit, and shows only the issues a branch adds rather than the whole backlog. Developers see findings where they already work: the command line, VS Code, pre-commit and pull requests.</p>
     </details>
     <details class="faq-item">
-      <summary><h3>How do developers stay in control of Fennec?</h3><span class="faq-mark" aria-hidden="true"></span></summary>
-      <p>Fennec reports what it finds and developers decide. Automatic fixes cover supported issues only, and a developer applies them. A finding can be accepted with a note in the code, which reviewers see in the pull request.</p>
+      <summary><h3>Won’t it bury my team in false positives?</h3><span class="faq-mark" aria-hidden="true"></span></summary>
+      <p>Fennec tests every rule against vulnerable code and against look-alike safe code, which must produce zero findings. Each rule is labeled by tier so you can tune noise, and in the pilot Fennec’s accuracy is measured again on your own code.</p>
     </details>
   </div>
 </section>
 
-<!-- ── Contact ──────────────────────────────────────────────────── -->
+<!-- ── The full list, for the evaluation team ───────────────────── -->
+<section class="wrap sec" id="features" aria-labelledby="caps-h">
+  <details class="p-sheet">
+    <summary><span><b id="caps-h">Every feature of Fennec</b><small>The full list for your evaluation team: 38 capabilities in 6 groups.</small></span><i class="p-sheet-mark" aria-hidden="true"></i></summary>
+    <div class="p-sheet-in">
+      <div class="p-caps">
+        <article class="p-cap"><h3>What it checks</h3><ul><li>Security bugs in your own code, across the major programming languages</li><li>Follows untrusted input, even across files, to where it causes harm</li><li>Knows popular frameworks such as Django, Spring, Rails and Laravel</li><li>Passwords, API keys and tokens, caught before they reach the repository</li><li>Open-source dependencies with known vulnerabilities</li><li>Risky settings in Docker, Terraform, Nginx, Apache, HAProxy, YAML, JSON, XML</li><li>Custom rules, and existing rules reused without a rewrite</li></ul></article>
+        <article class="p-cap"><h3>Quantum readiness</h3><ul><li>Finds RSA, DSA, elliptic-curve and Diffie-Hellman use that quantum computers could break</li><li>Shows the CNSA 2.0 migration deadline for each finding</li><li>Recognizes quantum-safe algorithms such as ML-KEM, ML-DSA and hybrids</li><li>Scores your migration with a readiness percentage</li><li>Crypto bill of materials (CBOM) in CycloneDX format, in one run</li></ul></article>
+        <article class="p-cap"><h3>Fixing and triage</h3><ul><li>Automatic fixes for supported issues, applied in place</li><li>Diff mode shows only the problems a branch adds</li><li>Shared baselines split findings into new, recurring and resolved</li><li>Interactive terminal review that opens the exact line in your editor</li><li>Mark, ignore or baseline many findings at once, with a preview</li><li>Accept a finding with an in-code note reviewers see in pull requests</li><li>Each rule labeled by tier, so teams can tune noise</li></ul></article>
+        <article class="p-cap"><h3>Reports and outputs</h3><ul><li>Standard SARIF reports, including for GitHub code scanning</li><li>JSON output for any tool or pipeline</li><li>Terminal output during local scans</li><li>Audit reports for customer security reviews and SOC 2 evidence</li></ul></article>
+        <article class="p-cap"><h3>Where it runs</h3><ul><li>Fast enough to run on every save, commit and pull request</li><li>Command line, on every developer laptop</li><li>VS Code, with findings inline as developers type</li><li>Pre-commit hook stops secrets and new issues before they are committed</li><li>GitHub Action and GitHub App for pull request checks</li><li>Any CI pipeline, failing builds by severity</li><li>MCP server lets AI coding agents check their own code</li><li>AutoSecOps, where findings become tracked cases</li></ul></article>
+        <article class="p-cap"><h3>Deployment and control</h3><ul><li>Install with npx, pipx, cargo or a single binary</li><li>Runs on macOS, Linux and Windows</li><li>Your code never leaves your machines</li><li>Air-gapped install; code, secret and crypto scans run fully offline</li><li>Dependency checks look up the public OSV vulnerability database</li><li>Releases verified with published checksums and build attestations</li><li>Single sign-on for team access</li></ul></article>
+      </div>
+      <dl class="p-specs">
+        <div><dt>Scans</dt><dd>Code, secrets, dependencies, configuration files and quantum-weak crypto, in one tool</dd></div>
+        <div><dt>Languages</dt><dd>Major languages, including JavaScript, TypeScript, Python, Go, Java, C#, PHP, Ruby, Swift and Rust</dd></div>
+        <div><dt>Works with</dt><dd>Command line, VS Code, pre-commit, GitHub pull requests, any CI, AI coding agents, AutoSecOps</dd></div>
+        <div><dt>Outputs</dt><dd>SARIF, JSON, terminal and CycloneDX crypto bill of materials (CBOM)</dd></div>
+        <div><dt>Platforms</dt><dd>macOS, Linux and Windows; air-gapped install available</dd></div>
+        <div><dt>Data</dt><dd>Code never leaves; only dependency checks query the public OSV database</dd></div>
+      </dl>
+      <div class="p-fit">
+        <div><p class="p-fit-k">Built for</p><ul class="p-chips"><li>Software and SaaS companies</li><li>Banks and fintech</li><li>Defense and public sector</li><li>Telecom and e-commerce</li><li>Software agencies</li><li>AI-assisted teams</li></ul></div>
+        <div><p class="p-fit-k">Works with</p><ul class="p-chips"><li>Command line</li><li>VS Code</li><li>Pre-commit checks</li><li>Pull requests</li><li>Docker</li><li>Terraform</li><li>Nginx</li><li>AutoSecOps</li></ul></div>
+      </div>
+    </div>
+  </details>
+</section>
+
+<!-- ── The close ────────────────────────────────────────────────── -->
 <section class="wrap sec" id="contact" aria-labelledby="contact-h">
   <div class="p-cta">
     <p class="sec-tag">Book a demo</p>
-    <h2 class="cta-title" id="contact-h"><span class="s">Small.</span> <span class="s">Fast.</span> <span class="s">Hears every bug.</span></h2>
-    <p>Like the fennec fox, with ears that hear what others miss. Book a demo, or request the technical brief.</p>
+    <h2 class="cta-title" id="contact-h">Scan three of your repositories in two weeks</h2>
+    <p>Pick three repositories and a date. You get real findings, leaked secrets and a crypto readiness score from your own code.</p>
     <div class="hero-actions">
       <a class="btn btn-solid btn-lg" href="https://calendly.com/anill-yagiz/singularity" target="_blank" rel="noopener">Book a demo <span class="chev">›</span></a>
       <a class="btn btn-ghost btn-lg" href="mailto:anil@singularityrd.com?subject=Fennec%20technical%20brief">Request the technical brief</a>
@@ -347,7 +408,7 @@
     <p>More from Singularity</p>
     <a href="foundation-models.html"><b>Singularity Foundation Models</b><span>Our own AI models</span></a>
     <a href="autosecops.html"><b>AutoSecOps</b><span>AI security operations</span></a>
-    <a href="aidr.html"><b>AIDR</b><span>AI agent security</span></a>
+    <a href="aidr.html"><b>AIDR</b><span>Security for AI</span></a>
     <a href="it-ops.html"><b>IT Ops</b><span>AI on-call engineer</span></a>
     <a href="breakpoint.html"><b>Breakpoint</b><span>AI pentester</span></a>
     <a href="sonar.html"><b>Sonar</b><span>Factory network security</span></a>
@@ -381,6 +442,12 @@
         <p><b>Türkiye</b>Singularity Arge Siber Güvenlik ve Yapay Zeka Teknoloji A.Ş.</p>
         <p><b>South Korea</b>Singularity Korea</p>
       </div>
+    </nav>
+  </div>
+  <div class="world">
+    <div class="footer-art paint"><canvas data-art="world" width="2400" height="620" aria-hidden="true"></canvas></div>
+    <nav class="world-nav" aria-label="Products in the picture">
+      <a href="autosecops.html" style="--x: 7.2%">AutoSecOps</a><a href="aidr.html" style="--x: 21.5%">AIDR</a><a href="it-ops.html" style="--x: 36.6%">IT Ops</a><a href="breakpoint.html" style="--x: 50%">Breakpoint</a><a href="fennec.html" style="--x: 64%">Fennec</a><a href="sonar.html" style="--x: 77.6%">Sonar</a><a href="robodr.html" style="--x: 92.5%">RoboDR</a>
     </nav>
   </div>
   <div class="shell">

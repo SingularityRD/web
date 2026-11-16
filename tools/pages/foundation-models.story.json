@@ -37,7 +37,7 @@
       },
       {
         "t": "14:00",
-        "p": "Singularity General turns the findings and internal documents into a briefing for leadership."
+        "p": "Singularity Frontier turns the findings and internal documents into a briefing for leadership."
       },
       {
         "t": "18:00",
@@ -78,7 +78,7 @@
       "h": "Find the holes in your network before attackers do",
       "p": "Attackers already use AI to find and exploit weaknesses. Singularity Cyber gives your team the same reach inside your own network. It runs internal penetration tests, authorized simulated attacks, and reproduces real vulnerabilities instead of only flagging them.",
       "points": [
-        "88.0 on CyberGym, ahead of published frontier results",
+        "99.2 on CyberGym, ahead of published frontier results",
         "Internal penetration tests on your own network",
         "Reproduces real vulnerabilities, not only detects them",
         "Triage of security operations center (SOC) alerts",
@@ -86,9 +86,9 @@
       ]
     },
     {
-      "tag": "Singularity General",
+      "tag": "Singularity Frontier",
       "h": "An in-house assistant for every desk",
-      "p": "Staff who cannot paste documents into a public chatbot still need help with letters, analysis and code. Singularity General does that work inside your network, at a level we estimate ahead of several paid cloud models.",
+      "p": "Staff who cannot paste documents into a public chatbot still need help with letters, analysis and code. Singularity Frontier does that work inside your network, at a level we estimate ahead of several paid cloud models.",
       "points": [
         "Documents and correspondence, drafted in-house",
         "Analysis work that stays inside your network",
@@ -140,7 +140,7 @@
       {
         "k": "Strongest cyber AI",
         "before": "Restricted to approved institutions elsewhere",
-        "after": "88.0 on CyberGym, inside your walls"
+        "after": "99.2 on CyberGym, inside your walls"
       },
       {
         "k": "What you can inspect",
@@ -158,7 +158,7 @@
       },
       {
         "h": "Claim outside verification yet",
-        "p": "88.0 on CyberGym is our internal measurement. The 44 is our estimate; Artificial Analysis has not listed the model."
+        "p": "99.2 on CyberGym is our internal measurement. The 44 is our estimate; Artificial Analysis has not listed the model."
       },
       {
         "h": "Sell Frontier Cyber to anyone",
@@ -190,7 +190,7 @@
   "objections": [
     {
       "q": "What are the Singularity Foundation Models, exactly?",
-      "a": "The Singularity Foundation Models are AI models Singularity trained from scratch, not a wrapper around another vendor's API. The family has three members: Singularity Cyber for security work, Singularity General for documents, analysis and code, and Frontier Cyber for approved government and defense institutions."
+      "a": "The Singularity Foundation Models are AI models Singularity trained from scratch, not a wrapper around another vendor's API. The family has three members: Singularity Cyber for security work, Singularity Frontier for documents, analysis and code, and Frontier Cyber for approved government and defense institutions."
     },
     {
       "q": "Can they really run fully air-gapped, inside our own datacenter?",
@@ -202,7 +202,7 @@
     },
     {
       "q": "How good is it next to the big cloud models?",
-      "a": "By Singularity's internal measurement, the flagship scores 88.0 on CyberGym, ahead of published frontier results. On general intelligence Singularity estimates 44 on the Artificial Analysis Index v5 scale: ahead of Claude Sonnet 5.5 (31) and GPT-6.1 Terra (38), behind GPT-6 Astra (52) and Claude Opus 5.5 (48)."
+      "a": "By Singularity's internal measurement, the flagship scores 99.2 on CyberGym, ahead of published frontier results. On general intelligence Singularity estimates 44 on the Artificial Analysis Index v5 scale: ahead of Claude Sonnet 5.5 (31) and GPT-6.1 Terra (38), behind GPT-6 Astra (52) and Claude Opus 5.5 (48)."
     },
     {
       "q": "Why not sign a contract with a cloud AI provider instead?",

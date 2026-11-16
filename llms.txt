@@ -20,9 +20,9 @@ The model:
 - The Singularity Foundation Models are trained from scratch by Singularity. They are not a wrapper around another vendor's API.
 - They run on-premises and fully air-gapped.
 - Singularity Cyber finds weaknesses in your own network: internal pentest, vulnerability discovery and SOC triage.
-- Singularity General is an in-house assistant for documents, analysis and code.
+- Singularity Frontier is an in-house assistant for documents, analysis and code.
 - Frontier Cyber is offense-grade. It is sold only to approved government and defense institutions.
-- CyberGym, internal measurement: 88.0. Published results for other models: GPT-5.5-Cyber 85.6, GPT-5.6 Sol 84.5, Claude Mythos 5 83.8.
+- CyberGym, internal measurement: 99.2. Published results for other models: GPT-5.5-Cyber 85.6, GPT-5.6 Sol 84.5, Claude Mythos 5 83.8.
 - General intelligence: an internal estimate of 44 on the Artificial Analysis Intelligence Index scale. Artificial Analysis has not listed the model.
 - On the same scale, paid closed models at medium reasoning effort score: GPT-6 Astra 52, Claude Opus 5.5 48, GPT-6.1 Sol 46, GPT-6.1 Terra 38, Claude Sonnet 5.5 31, Claude Haiku 5.5 25 (Artificial Analysis Intelligence Index v5, November 2026).
 

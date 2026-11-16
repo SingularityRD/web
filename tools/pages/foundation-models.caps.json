@@ -14,7 +14,7 @@
       ]
     },
     {
-      "h": "Singularity General",
+      "h": "Singularity Frontier",
       "items": [
         "In-house assistant for documents and correspondence",
         "Analysis work that stays inside your network",
@@ -67,7 +67,7 @@
   "specs": [
     {
       "k": "Models",
-      "v": "Singularity Cyber, Singularity General and Frontier Cyber (restricted)"
+      "v": "Singularity Cyber, Singularity Frontier and Frontier Cyber (restricted)"
     },
     {
       "k": "Deployment",
@@ -87,7 +87,7 @@
     },
     {
       "k": "Measured",
-      "v": "88.0 on CyberGym; about 44 on the Artificial Analysis Index v5 scale (internal)"
+      "v": "99.2 on CyberGym; about 44 on the Artificial Analysis Index v5 scale (internal)"
     }
   ],
   "top": [

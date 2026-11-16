@@ -7,7 +7,7 @@
   "h1": "Frontier AI that runs inside your walls.",
   "lede": "The Singularity Foundation Models are trained from scratch by us. They run on your own hardware, fully air-gapped, so sensitive data never leaves and nobody can switch them off from outside.",
   "stat": {
-    "value": "88.0",
+    "value": "99.2",
     "label": "on CyberGym, above every published frontier result.",
     "source": "Singularity internal measurement, 2026. Other models: results published by their makers."
   },
@@ -33,7 +33,7 @@
     "items": [
       {
         "h": "Choose",
-        "p": "Pick Singularity Cyber for security work, Singularity General for everyday work, or both."
+        "p": "Pick Singularity Cyber for security work, Singularity Frontier for everyday work, or both."
       },
       {
         "h": "Install",
@@ -53,7 +53,7 @@
         "p": "Finds the weaknesses in your own network first: internal pentests, vulnerability discovery and SOC triage."
       },
       {
-        "h": "Singularity General",
+        "h": "Singularity Frontier",
         "p": "An in-house assistant for documents, analysis and software work."
       },
       {
@@ -110,7 +110,7 @@
   "faq": [
     {
       "q": "What are the Singularity Foundation Models?",
-      "a": "The Singularity Foundation Models are AI models that Singularity trained from scratch, not a wrapper around another vendor’s API. The family has three members: Singularity Cyber, Singularity General and Frontier Cyber."
+      "a": "The Singularity Foundation Models are AI models that Singularity trained from scratch, not a wrapper around another vendor’s API. The family has three members: Singularity Cyber, Singularity Frontier and Frontier Cyber."
     },
     {
       "q": "Can the Singularity Foundation Models run air-gapped?",
@@ -118,7 +118,7 @@
     },
     {
       "q": "How do the Singularity Foundation Models compare with other frontier models?",
-      "a": "By Singularity’s internal measurement, our best model scores 88.0 on CyberGym, ahead of the results published for other frontier models. On general intelligence, Singularity estimates 44 on the Artificial Analysis Intelligence Index v5 scale: ahead of Claude Sonnet 5.5 (31) and GPT-6.1 Terra (38) at medium reasoning effort, and behind GPT-6 Astra (52) and Claude Opus 5.5 (48)."
+      "a": "By Singularity’s internal measurement, our best model scores 99.2 on CyberGym, ahead of the results published for other frontier models. On general intelligence, Singularity estimates 44 on the Artificial Analysis Intelligence Index v5 scale: ahead of Claude Sonnet 5.5 (31) and GPT-6.1 Terra (38) at medium reasoning effort, and behind GPT-6 Astra (52) and Claude Opus 5.5 (48)."
     },
     {
       "q": "Who can buy Frontier Cyber?",

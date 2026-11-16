@@ -21,7 +21,7 @@ revenue, valuation or fundraising figures, no customer or pilot names, no roadma
 ## What the site says (rules he set)
 - Hero: "We hack governments. Then we secure them." Always say it is done with authorization.
 - Proof numbers: software they secured runs on 5B+ devices and is used by 1B+ people (his call).
-- Portfolio: the Singularity Foundation Models (Cyber, General, Frontier Cyber) and seven
+- Portfolio: the Singularity Foundation Models (Cyber, Frontier, Frontier Cyber) and seven
   products: AutoSecOps, AIDR, IT Ops, Breakpoint, Fennec, Sonar, RoboDR. Other products
   exist but stay off the site until he decides.
 - Only AutoSecOps, AIDR, IT Ops and Breakpoint run on the model. Never write that all seven do.

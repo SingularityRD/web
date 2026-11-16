@@ -1,0 +1,137 @@
+{
+  "slug": "robodr",
+  "name": "RoboDR",
+  "title": "RoboDR: security layer for robots | Singularity",
+  "description": "RoboDR is a security layer for robots. It sees an attack, brings the robot to a safe stop and proves what happened. People approve the actions that matter.",
+  "kicker": "Robot security",
+  "h1": "Stop a hijacked robot safely. Prove what happened.",
+  "lede": "RoboDR is a security layer for robots. It watches for attacks around the clock, brings the robot to a safe stop without a fall or collision, and keeps a tamper-proof record.",
+  "stat": {
+    "value": "January 2027",
+    "label": "Protection against malicious tampering becomes mandatory for machinery under the EU Machinery Regulation.",
+    "source": "EU Machinery Regulation (EU) 2023/1230. Not legal advice."
+  },
+  "problem": {
+    "title": "A robot is a computer with motors",
+    "items": [
+      {
+        "h": "Attacks become physical harm",
+        "p": "A compromised laptop loses data. A hijacked robot can strike a person, a machine or the facility itself."
+      },
+      {
+        "h": "Most robots are unprotected",
+        "p": "A vulnerability published in 2025 let attackers take control of widely used robots over Bluetooth alone. A single incident can halt a whole fleet."
+      },
+      {
+        "h": "You must show evidence",
+        "p": "After an incident you must answer what happened and who intervened, with evidence. Regulators now want proof of cybersecurity in robots."
+      }
+    ]
+  },
+  "steps": {
+    "title": "Three jobs: see, stop, prove",
+    "items": [
+      {
+        "h": "See",
+        "p": "RoboDR watches the robot’s network, every command sent to its motors and its onboard computer, around the clock, and catches abnormal behavior."
+      },
+      {
+        "h": "Stop",
+        "p": "It cuts off dangerous commands before they reach the robot and brings it to a safe stop, without a fall or collision."
+      },
+      {
+        "h": "Prove",
+        "p": "Every incident is written to a tamper-proof black box, like a flight recorder, and your security team is alerted at once."
+      }
+    ]
+  },
+  "features": {
+    "title": "Protects the robot, not just the computer",
+    "items": [
+      {
+        "h": "Speaks the robot’s language",
+        "p": "RoboDR reads the commands sent to the robot’s motors, so it can tell “walk” from “run”."
+      },
+      {
+        "h": "Keeps the robot standing",
+        "p": "RoboDR keeps humanoid and four-legged robots balanced, so a safe stop does not become a fall."
+      },
+      {
+        "h": "Tamper-proof black box",
+        "p": "Like a flight recorder: what happened, who approved it and what was done, all in one signed record."
+      },
+      {
+        "h": "Lands with your security team",
+        "p": "Robot incidents appear beside your team’s other alerts. With AutoSecOps, Singularity’s AI security operations product, each becomes a tracked case."
+      },
+      {
+        "h": "On the robot or alongside",
+        "p": "RoboDR can sit on the robot or beside it. We agree the setup with your team."
+      },
+      {
+        "h": "Starts in monitor-only mode",
+        "p": "RoboDR starts by only watching, so operations keep running. Protection is switched on only when you are ready."
+      }
+    ]
+  },
+  "fit": {
+    "title": "For sectors where a robot can’t fail",
+    "who": [
+      "Defense",
+      "Energy and critical infrastructure",
+      "Manufacturing",
+      "Logistics",
+      "Public safety",
+      "Robot manufacturers"
+    ],
+    "works": [
+      "ROS 2",
+      "Unitree quadruped robots",
+      "Unitree humanoid robots",
+      "AutoSecOps"
+    ]
+  },
+  "control": {
+    "title": "People have the final say",
+    "items": [
+      {
+        "h": "People approve the big steps",
+        "p": "Your rules limit dangerous commands. Pausing the robot, a safe state or a rollback needs two people’s approval."
+      },
+      {
+        "h": "Your data stays with you",
+        "p": "RoboDR runs on your servers or in your cloud. It works at sites with no internet, and no component calls out."
+      },
+      {
+        "h": "A full record of decisions",
+        "p": "What happened, who approved it and what was done are kept in one signed record you can show an auditor."
+      }
+    ]
+  },
+  "faq": [
+    {
+      "q": "What is RoboDR?",
+      "a": "RoboDR is a security layer for robots from Singularity. It sees an attack on a robot as it begins, brings the robot to a safe stop without a fall or collision, and keeps a tamper-proof record of what happened."
+    },
+    {
+      "q": "Who is RoboDR for, and which robots does it support?",
+      "a": "RoboDR is for sectors where a robot cannot afford to fail: defense, energy, manufacturing, logistics, public safety and robot manufacturers. It supports Unitree quadruped and humanoid robots, and any robot running ROS 2, the open-source robot software, out of the box."
+    },
+    {
+      "q": "How is RoboDR different from traditional security software?",
+      "a": "Traditional security software protects the computer. RoboDR protects the robot. It reads the commands sent to the motors and keeps humanoid and four-legged robots balanced during a safe stop. RoboDR is not a safety-rated component; it complements the robot’s own safety system."
+    },
+    {
+      "q": "Can RoboDR run on-premises or at air-gapped sites?",
+      "a": "Yes. RoboDR runs on your own servers or in your cloud. It also works at air-gapped sites, meaning sites with no internet connection, and no component ever calls out."
+    },
+    {
+      "q": "How do people stay in control of RoboDR?",
+      "a": "RoboDR starts in monitor-only mode, and protection is switched on only when you are ready. Your rules limit dangerous commands, and pausing the robot or putting it in a safe state needs two people’s approval. Each incident and approval is kept in one signed record."
+    }
+  ],
+  "cta": {
+    "h": "See RoboDR on one of your robots",
+    "p": "A pilot needs one robot, a test area and a timeline. We handle the setup. Book a demo or request the technical brief."
+  }
+}

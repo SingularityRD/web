@@ -1,0 +1,132 @@
+{
+  "slug": "robodr",
+  "title": "Everything in RoboDR",
+  "sub": "Every capability, from reading motor commands to signed evidence, with people approving the actions that matter.",
+  "groups": [
+    {
+      "h": "Motion and network",
+      "items": [
+        "Decodes Unitree and ROS 2 motion, arm and hand commands",
+        "Flags unknown senders on the robot’s network, even under new identities",
+        "Spoofed, replayed or out-of-limit speed, joint and torque commands",
+        "Compares what the robot was told with what it did",
+        "Faked or frozen telemetry and disagreeing navigation sensors",
+        "Links events into attacks such as key theft or motion hijacking",
+        "Never reports “all clear” when its own inputs go silent"
+      ]
+    },
+    {
+      "h": "On the robot’s computer",
+      "items": [
+        "New processes and outbound connections on the robot",
+        "Package installs and changes to ROS 2 and robot apps",
+        "Bluetooth and Wi-Fi setup tools and wireless setting changes",
+        "Reverse tunnels, VPNs, code injection and fileless execution",
+        "Reads of the robot’s private keys and unexpected kernel modules",
+        "Attempts to change or stop RoboDR itself",
+        "Published robot attacks, including UniPwn (CVE-2025-35027)"
+      ]
+    },
+    {
+      "h": "Safe response",
+      "items": [
+        "Escalates in stages: alert, restrict, slow down, pause, safe state",
+        "Isolates the robot from the network or quarantines a rogue sender",
+        "Every motion command passed, limited or rejected",
+        "Slows the robot without changing its direction; stops never delayed",
+        "Never cuts motor power or resets the emergency stop"
+      ]
+    },
+    {
+      "h": "Your SOC, with AI",
+      "items": [
+        "Each finding opens a case in AutoSecOps automatically",
+        "AI agent triages each finding and recommends a response",
+        "The AI can never delete cases, run scripts or go online",
+        "Attacker text from the robot flagged, never taken as instructions",
+        "Forged, stale or unsigned findings rejected and logged",
+        "Findings in open OCSF format for any compatible SIEM"
+      ]
+    },
+    {
+      "h": "Signed evidence",
+      "items": [
+        "Black box records survive power loss; any deletion shows",
+        "Auditors can verify records but cannot forge them",
+        "Every finding signed, mapped to MITRE ATT&CK and tied to evidence",
+        "Pull evidence by finding or time range into the case",
+        "Whole fleet on one screen, with each robot’s cases and evidence"
+      ]
+    },
+    {
+      "h": "Robots and add-ons",
+      "items": [
+        "Unitree quadrupeds: Go2 (all editions), Go2-W, B2, B2-W, A2, AS2, Go1",
+        "Unitree humanoids: G1, H1, H1-2, H2, R1",
+        "ROS 2 mobile robots and collaborative arms, like MiR or Universal Robots",
+        "Add-on: signed, staged rollout of your robot apps, AI models and settings",
+        "Add-on: encrypted storage, boot integrity checks, erasure if compromised",
+        "Add-on: safe pause for Nav2, ros2_control and PX4 robots"
+      ]
+    },
+    {
+      "h": "Fleet and updates",
+      "items": [
+        "Learns each robot’s normal, then locks it with human sign-off",
+        "Ready-made Unitree profiles; profiles pushed from the SOC need two approvers",
+        "Keys created on the robot; rotate or revoke them from the SOC",
+        "RoboDR’s own updates: signed, staged, never below your security baseline",
+        "Signed, reproducible releases with a software bill of materials (SBOM)"
+      ]
+    },
+    {
+      "h": "People decide",
+      "items": [
+        "Starts monitor-only; protection switched on when you are ready",
+        "Two people approve safe pause, safe state and rollback",
+        "The approver is always someone other than the requester",
+        "Approval cannot be switched off and can cover every block",
+        "Every action time-limited and reversible; emergency off any time",
+        "Asks a person whenever the robot’s state is unknown"
+      ]
+    }
+  ],
+  "specs": [
+    {
+      "k": "Robots",
+      "v": "Unitree quadrupeds and humanoids, ROS 2 mobile robots and collaborative arms"
+    },
+    {
+      "k": "Platforms",
+      "v": "Ubuntu 20.04, 22.04 and 24.04; JetPack 5 and 6; amd64 and arm64"
+    },
+    {
+      "k": "Deployment",
+      "v": "On the robot, beside it, or both; security center on your servers or cloud"
+    },
+    {
+      "k": "Works with",
+      "v": "AutoSecOps and any OCSF-compatible SIEM, over HTTPS or Kafka"
+    },
+    {
+      "k": "Evidence for",
+      "v": "EU Machinery Regulation, Cyber Resilience Act, IEC 62443-4-1 and 4-2 (self-assessed)"
+    },
+    {
+      "k": "Data",
+      "v": "Stays on your infrastructure; works air-gapped; no component calls out"
+    }
+  ],
+  "top": [
+    "Reads every command to the motors",
+    "Safe stop without a fall",
+    "Tamper-proof black box for auditors"
+  ],
+  "gaps": [
+    "ROS 2 motion traffic is unauthenticated unless DDS security is switched on, so anyone on the network can command the robot. A sharp problem statement the page lacks.",
+    "EU Cyber Resilience Act: vulnerability reporting applies since September 2026 and all obligations from December 2027. The page cites only the Machinery Regulation.",
+    "Safety teams will ask where RoboDR stops. The deck documents its boundaries against ISO 10218, ISO 13849, IEC 60204-1 and ISO/TS 15066.",
+    "Standards documents are an engineering self-assessment, not a certification. Any IEC 62443 or CRA mention on the page should say so.",
+    "The deck has the command filter limiting dangerous commands by policy, while isolation and pauses need people. The page says every action needs approval; worth aligning."
+  ]
+}

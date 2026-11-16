@@ -1,0 +1,6 @@
+# Not part of the website: never upload or serve these.
+tools
+CLAUDE.md
+.claude
+.gitignore
+.vercelignore

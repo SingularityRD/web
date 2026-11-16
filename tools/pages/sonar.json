@@ -1,0 +1,143 @@
+{
+  "slug": "sonar",
+  "name": "Sonar",
+  "title": "Sonar: security for factory and OT networks | Singularity",
+  "description": "Sonar shows what is happening on your factory or industrial (OT) network: every device, every suspicious move, with evidence. Production never stops.",
+  "kicker": "Factory network security",
+  "h1": "See your plant network without stopping production.",
+  "lede": "Sonar is a security camera for your plant’s network. It listens to how machines talk, alerts you to anything suspicious and keeps the evidence. It never touches production.",
+  "stat": {
+    "value": "42 days",
+    "label": "average time ransomware goes unnoticed on an industrial network. With full visibility: 5 days.",
+    "source": "Dragos OT/ICS Cybersecurity Year in Review, 2026"
+  },
+  "problem": {
+    "title": "Most plants cannot see their own network",
+    "items": [
+      {
+        "h": "Unknown devices go unseen",
+        "p": "Who is every machine talking to? Which device is not on your list? At most sites, nobody can say."
+      },
+      {
+        "h": "Blind plants shut down",
+        "p": "Ransomware hit 3,300 industrial organizations in 2025 (Dragos, 2026). A plant that cannot see how far it spread may have to stop everything."
+      },
+      {
+        "h": "No record, no answer",
+        "p": "Regulators, auditors and insurers ask what happened. Türkiye’s Law No. 7545 (2025) requires incident reports to the state without delay."
+      }
+    ]
+  },
+  "steps": {
+    "title": "A security camera for your site’s network",
+    "items": [
+      {
+        "h": "Listens",
+        "p": "Sonar silently monitors how your machines, controllers and computers talk to each other."
+      },
+      {
+        "h": "Detects",
+        "p": "It alerts you when it spots an unknown device, an unusual command or a suspicious file."
+      },
+      {
+        "h": "Proves",
+        "p": "It keeps a record of everything that happens, so the answer to “what happened?” is ready."
+      },
+      {
+        "h": "Reports",
+        "p": "Management gets risks ranked by priority, so it is clear where to invest first."
+      }
+    ]
+  },
+  "features": {
+    "title": "What you see with Sonar",
+    "items": [
+      {
+        "h": "Full device inventory",
+        "p": "See what is on site and who talks to whom. An unlisted device shows up the moment it talks."
+      },
+      {
+        "h": "Early warning",
+        "p": "Unusual commands and traffic that departs from your site’s normal pattern are caught as they happen, not weeks later."
+      },
+      {
+        "h": "Outside connections in view",
+        "p": "See every connection that crosses into the plant network from the office network or the internet."
+      },
+      {
+        "h": "Reads industrial protocols",
+        "p": "Sonar understands the languages industrial machines speak, such as Modbus and DNP3, and records which command went where."
+      },
+      {
+        "h": "Files checked in transit",
+        "p": "Files moving across the plant network are scanned automatically. Suspicious ones raise an alert."
+      },
+      {
+        "h": "Evidence on record",
+        "p": "Every incident is kept with its evidence, ready for reporting, audits and insurance."
+      }
+    ]
+  },
+  "fit": {
+    "title": "Built for industrial sites",
+    "who": [
+      "Manufacturing plants",
+      "Energy and grid",
+      "Oil, gas and water",
+      "Building and rail",
+      "Defense and public sector"
+    ],
+    "works": [
+      "Modbus",
+      "DNP3",
+      "S7comm",
+      "EtherNet/IP",
+      "OPC UA",
+      "IEC 104",
+      "AutoSecOps"
+    ]
+  },
+  "control": {
+    "title": "Production never stops. Not for a second.",
+    "items": [
+      {
+        "h": "Touches nothing",
+        "p": "Sonar only listens. It never sends a single command to your machines, so it adds no load and no downtime risk."
+      },
+      {
+        "h": "Data stays on site",
+        "p": "Sonar runs on your own server, with no internet connection required. No data flows outward."
+      },
+      {
+        "h": "Your team decides",
+        "p": "Sonar does not block traffic or close ports. It shows, scores and alerts, and your people decide what to do."
+      }
+    ]
+  },
+  "faq": [
+    {
+      "q": "What is Sonar?",
+      "a": "Sonar is Singularity’s security product for factory and other industrial networks, often called OT (operational technology). It works like a security camera for the plant network: it listens, alerts on suspicious activity and keeps the evidence, without stopping production."
+    },
+    {
+      "q": "Who is Sonar for?",
+      "a": "Sonar is for organizations that run industrial sites: manufacturing plants, energy and grid operators, oil, gas and water utilities, building and rail systems, and defense and public sector sites. It gives plant managers and security leaders one view of the plant network."
+    },
+    {
+      "q": "How is Sonar different from a firewall?",
+      "a": "A firewall sees traffic pass but keeps no record of which device sent which command. Sonar records how machines talk to each other, flags unknown devices and unusual commands, and keeps the evidence. Sonar monitors and alerts; it does not block."
+    },
+    {
+      "q": "Can Sonar run on-premises or air-gapped?",
+      "a": "Yes. Sonar runs on your own server at the site and needs no internet connection, so it works air-gapped, meaning cut off from outside networks. Your data stays on site and nothing flows outward."
+    },
+    {
+      "q": "Can Sonar slow down or stop production?",
+      "a": "No. Sonar only listens. It never sends a command to your machines, so it adds no load and no risk of downtime. Sonar also does not block anything: it raises an alert, and your team decides what to do."
+    }
+  ],
+  "cta": {
+    "h": "See your site. Keep production running.",
+    "p": "We handle installation. All we need from your team is a few hours of site access. Book a demo or request the technical brief."
+  }
+}

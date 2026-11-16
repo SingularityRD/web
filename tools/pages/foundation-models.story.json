@@ -1,0 +1,216 @@
+{
+  "slug": "foundation-models",
+  "hook": {
+    "kicker": "Our own AI models",
+    "h1": "Frontier AI that runs inside your walls.",
+    "lede": "We trained the Singularity Foundation Models from scratch. They run on your own hardware, fully air-gapped, so sensitive data never leaves and nobody can switch them off from outside."
+  },
+  "scene": {
+    "title": "A critical flaw, announced on Monday",
+    "setup": "A ministry, 09:00. A critical flaw is published in software that runs across its internal network. Leadership wants to know by evening: are we exposed?",
+    "without": [
+      {
+        "t": "09:00",
+        "p": "Rules forbid sending internal code or logs to a foreign cloud. The AI tools stay closed."
+      },
+      {
+        "t": "11:00",
+        "p": "Two engineers read code by hand. Meanwhile the alert queue keeps growing."
+      },
+      {
+        "t": "14:00",
+        "p": "The strongest cyber model is open only to approved institutions in another country."
+      },
+      {
+        "t": "18:00",
+        "p": "Leadership gets a best guess. Attackers who automate exploitation do not wait."
+      }
+    ],
+    "with": [
+      {
+        "t": "09:00",
+        "p": "Singularity Cyber, on the ministry's own servers, reads the internal code. Nothing leaves the network."
+      },
+      {
+        "t": "11:00",
+        "p": "The model reproduces the flaw on internal systems and shows which ones are exposed."
+      },
+      {
+        "t": "14:00",
+        "p": "Singularity General turns the findings and internal documents into a briefing for leadership."
+      },
+      {
+        "t": "18:00",
+        "p": "Exposed systems are patched first. Prompts, files and outputs never left the building."
+      }
+    ],
+    "end": {
+      "without": "Exposure still unknown, and the data problem unsolved.",
+      "with": "Exposure known by noon. No data left the building."
+    }
+  },
+  "chapters": [
+    {
+      "tag": "Your data",
+      "h": "Use frontier AI on data that cannot leave",
+      "p": "Banks, ministries and defense bodies often cannot send data to a foreign cloud, and frontier models are served only from their makers' clouds. Our models install on hardware you own, so your most sensitive data finally gets frontier AI.",
+      "points": [
+        "Your cloud, your datacenter or fully air-gapped",
+        "Prompts, files and outputs never leave your network",
+        "Zero data retention",
+        "Sized to fit in your own server racks",
+        "Compact versions alongside the flagship model"
+      ]
+    },
+    {
+      "tag": "Independence",
+      "h": "Nobody outside your building can switch it off",
+      "p": "A model served from abroad can be cut off by its maker or by another government's rules, and every product built on it stops the same day. Ours runs in your building. Access depends on no other vendor or government.",
+      "points": [
+        "Cannot be shut off remotely by anyone",
+        "Trained from scratch, not another vendor's API underneath",
+        "Weights installed and auditable on site",
+        "Works with no internet connection at all"
+      ]
+    },
+    {
+      "tag": "Singularity Cyber",
+      "h": "Find the holes in your network before attackers do",
+      "p": "Attackers already use AI to find and exploit weaknesses. Singularity Cyber gives your team the same reach inside your own network. It runs internal penetration tests, authorized simulated attacks, and reproduces real vulnerabilities instead of only flagging them.",
+      "points": [
+        "88.0 on CyberGym, ahead of published frontier results",
+        "Internal penetration tests on your own network",
+        "Reproduces real vulnerabilities, not only detects them",
+        "Triage of security operations center (SOC) alerts",
+        "Built for SOC teams, pentest teams and managed security providers"
+      ]
+    },
+    {
+      "tag": "Singularity General",
+      "h": "An in-house assistant for every desk",
+      "p": "Staff who cannot paste documents into a public chatbot still need help with letters, analysis and code. Singularity General does that work inside your network, at a level we estimate ahead of several paid cloud models.",
+      "points": [
+        "Documents and correspondence, drafted in-house",
+        "Analysis work that stays inside your network",
+        "Software and coding work",
+        "Estimated 44 on the Artificial Analysis Index v5 scale",
+        "Built for banks, holding companies and public bodies"
+      ]
+    },
+    {
+      "tag": "Products",
+      "h": "Security products that run on the same model",
+      "p": "A model alone does not run your security operations. Singularity's AI products can run on these models on your own hardware, so the whole stack, from alert triage to penetration testing, stays inside your network.",
+      "points": [
+        "AutoSecOps: AI analysts that investigate security alerts",
+        "AIDR: keeps data out of AI tools, stops risky agents",
+        "IT Ops: AI on-call with root cause, approved fix, rollback",
+        "Breakpoint: finds, proves and fixes vulnerabilities"
+      ]
+    },
+    {
+      "tag": "Frontier Cyber",
+      "h": "Offense-grade capability, under contract and full audit",
+      "p": "Some national missions need a model that can reach the hardest, most hardened targets. Frontier Cyber is built for that. It is sold only to approved government and defense institutions, after an approval process, with every use on record.",
+      "points": [
+        "Only for approved government and defense institutions",
+        "Available only under contract, after an approval process",
+        "Used only with a full audit trail"
+      ]
+    }
+  ],
+  "shift": {
+    "title": "Frontier AI, moved inside",
+    "rows": [
+      {
+        "k": "Where it runs",
+        "before": "In the maker's cloud, often in another country",
+        "after": "On your own hardware, even fully air-gapped"
+      },
+      {
+        "k": "Sensitive data",
+        "before": "Kept away from AI, or sent abroad",
+        "after": "Used with AI, never leaves your network"
+      },
+      {
+        "k": "Who can cut access",
+        "before": "Another company or another government",
+        "after": "Nobody outside your building"
+      },
+      {
+        "k": "Strongest cyber AI",
+        "before": "Restricted to approved institutions elsewhere",
+        "after": "88.0 on CyberGym, inside your walls"
+      },
+      {
+        "k": "What you can inspect",
+        "before": "An API you cannot see into",
+        "after": "Weights installed and auditable on site"
+      }
+    ]
+  },
+  "limits": {
+    "title": "What the models will not do",
+    "items": [
+      {
+        "h": "Top every general benchmark",
+        "p": "On general intelligence we estimate 44, behind GPT-6 Astra (52) and Claude Opus 5.5 (48). Our lead is in cyber."
+      },
+      {
+        "h": "Claim outside verification yet",
+        "p": "88.0 on CyberGym is our internal measurement. The 44 is our estimate; Artificial Analysis has not listed the model."
+      },
+      {
+        "h": "Sell Frontier Cyber to anyone",
+        "p": "Frontier Cyber goes only to approved government and defense institutions, under contract and with a full audit trail."
+      }
+    ]
+  },
+  "pilot": {
+    "title": "From our lab to your building",
+    "steps": [
+      {
+        "h": "Tell us the constraints",
+        "p": "Where the model has to run, in your cloud, your datacenter or air-gapped, and what it has to do."
+      },
+      {
+        "h": "See it work",
+        "p": "We show the model working on your kind of problem."
+      },
+      {
+        "h": "Size and install",
+        "p": "We size the hardware with your team and deploy the model on hardware you own."
+      },
+      {
+        "h": "Put it to work",
+        "p": "Your teams and our AI products use it inside your network. Your data stays where it is."
+      }
+    ]
+  },
+  "objections": [
+    {
+      "q": "What are the Singularity Foundation Models, exactly?",
+      "a": "The Singularity Foundation Models are AI models Singularity trained from scratch, not a wrapper around another vendor's API. The family has three members: Singularity Cyber for security work, Singularity General for documents, analysis and code, and Frontier Cyber for approved government and defense institutions."
+    },
+    {
+      "q": "Can they really run fully air-gapped, inside our own datacenter?",
+      "a": "Yes. The Singularity Foundation Models run on hardware you own, in your cloud, your datacenter or a fully air-gapped site with no internet connection. They are sized to fit in your own server racks, and we size the hardware with your team."
+    },
+    {
+      "q": "Who controls the model once it is installed?",
+      "a": "You do. The Singularity Foundation Models run in your building, retain no data, and cannot be shut off remotely by anyone. The weights are installed and auditable on site. Frontier Cyber adds a contract, an approval process and a full audit trail."
+    },
+    {
+      "q": "How good is it next to the big cloud models?",
+      "a": "By Singularity's internal measurement, the flagship scores 88.0 on CyberGym, ahead of published frontier results. On general intelligence Singularity estimates 44 on the Artificial Analysis Index v5 scale: ahead of Claude Sonnet 5.5 (31) and GPT-6.1 Terra (38), behind GPT-6 Astra (52) and Claude Opus 5.5 (48)."
+    },
+    {
+      "q": "Why not sign a contract with a cloud AI provider instead?",
+      "a": "A cloud provider's model runs on its servers, so your data leaves the building, and access can be cut by that provider or by another government's rules. The Singularity Foundation Models run on your hardware, where nobody outside can switch them off."
+    }
+  ],
+  "close": {
+    "h": "Run a frontier model on your own hardware",
+    "p": "Tell us where it has to run and what it has to do. We will show it working on your kind of problem."
+  }
+}

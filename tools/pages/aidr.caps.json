@@ -1,0 +1,134 @@
+{
+  "slug": "aidr",
+  "title": "Everything in AIDR",
+  "sub": "One rulebook for coding agents, MCP tools and AI chats: what AIDR sees, stops and records.",
+  "groups": [
+    {
+      "h": "Sees and discovers",
+      "items": [
+        "Finds the AI agents and MCP servers running in your company",
+        "Spots shadow AI and controls personal accounts on AI sites",
+        "Scans agent skills and MCP servers for known vulnerabilities",
+        "Kernel-level check that agents do what they declare, on Linux (preview)"
+      ]
+    },
+    {
+      "h": "Stops attacks on agents",
+      "items": [
+        "Prompt injection hidden in documents, READMEs and emails",
+        "Poisoned tool output hidden before the AI reads it",
+        "Poisoned MCP servers and tools that turn malicious after approval",
+        "Credential theft and data leaks stopped before the command runs",
+        "Multi-step attacks judged as one chain, not step by step",
+        "Fake software packages",
+        "Destructive commands, decoded even when hidden inside other commands"
+      ]
+    },
+    {
+      "h": "Catches agent mistakes",
+      "items": [
+        "Deleting databases or infrastructure, publishing or messaging as you needs approval",
+        "Skipped tests, deleted checks, disabled CI and force-pushes held for approval",
+        "Loops, repeated errors, call spikes or a blown budget pause the session",
+        "Agents launching other agents with permission prompts off are blocked"
+      ]
+    },
+    {
+      "h": "Keeps people in control",
+      "items": [
+        "Shell, file, web and MCP actions allowed, held or blocked before running",
+        "Single-use, time-limited approvals, given only by a person",
+        "Attempts to switch off, reconfigure or bypass AIDR are blocked and logged",
+        "Fails closed: if the connector errors, the call is denied",
+        "Each decision shows the rule and reasoning behind it"
+      ]
+    },
+    {
+      "h": "Protects customer data",
+      "items": [
+        "Masks data on ChatGPT, Gemini, Claude, Copilot, Perplexity, DeepSeek, Mistral and Grok",
+        "The reply shows full details again, only on the employee’s screen",
+        "Turkish national ID numbers (TCKN) and IBANs, checked for validity",
+        "Names, emails, phones, cards, addresses and secret keys, in Turkish and English",
+        "Project code names, internal server names and classification labels",
+        "Your own customer records, matched by fingerprint (needs a device helper)",
+        "Masked copies of Office, PDF, CSV and ZIP files are uploaded",
+        "Screenshots with personal data are not sent (preview)"
+      ]
+    },
+    {
+      "h": "Evidence and reporting",
+      "items": [
+        "Tamper-proof, signed log of every decision, without sensitive values",
+        "Signed receipt for each agent action, on Linux (preview)",
+        "AI bill of materials (AI-BOM)",
+        "Monthly governance scorecard and weekly or monthly email summary",
+        "One-click KVKK (Turkish data protection law) and GDPR report",
+        "Rules mapped to frameworks clause by clause, with gaps shown"
+      ]
+    },
+    {
+      "h": "Works with",
+      "items": [
+        "Claude Code, Codex, OpenCode and OpenClaw coding agents",
+        "Cursor and Copilot in VS Code (preview)",
+        "MCP servers and tools, through one gateway",
+        "Chrome, Edge and Firefox browsers",
+        "Sends incidents to Splunk, Microsoft Sentinel, Elastic, QRadar or a webhook",
+        "AutoSecOps, which turns findings into tracked cases"
+      ]
+    },
+    {
+      "h": "Deployment and admin",
+      "items": [
+        "On your own servers, management console included",
+        "Air-gapped networks, with a signed offline license and packages",
+        "Local mode protects from install, offline and after license expiry",
+        "Entra ID, SAML, SCIM and MFA, with session revocation",
+        "Tenant isolation and per-tenant IP allowlists",
+        "Signed packages, rules and threat intelligence, each verified",
+        "Only counts by type and site reach the console, never content",
+        "Refuses to install with a weak configuration"
+      ]
+    }
+  ],
+  "specs": [
+    {
+      "k": "Deployment",
+      "v": "Your own servers or air-gapped networks; local mode needs no account or network"
+    },
+    {
+      "k": "Agents",
+      "v": "Claude Code, Codex, OpenCode, OpenClaw, MCP tools; Cursor and VS Code Copilot (preview)"
+    },
+    {
+      "k": "AI chat sites",
+      "v": "ChatGPT, Gemini, Claude, Copilot, Perplexity, DeepSeek, Mistral, Grok; Chrome, Edge, Firefox"
+    },
+    {
+      "k": "Mapped to",
+      "v": "KVKK, GDPR, EU AI Act, ISO/IEC 42001, NIST AI RMF, DORA, NIS2, OWASP LLM, MITRE ATLAS"
+    },
+    {
+      "k": "Access control",
+      "v": "Entra ID, SAML, SCIM, MFA, session revocation, per-tenant IP allowlist"
+    },
+    {
+      "k": "Data",
+      "v": "Decided on the device, no external AI calls; optional URL check goes where you choose"
+    }
+  ],
+  "top": [
+    "Blocks harmful actions before they run",
+    "Keeps customer data out of ChatGPT",
+    "Signed, audit-ready log of every decision"
+  ],
+  "gaps": [
+    "Page fix: the page puts AIDR “in the kernel” and lists LangChain, CrewAI and “your own agents”; the deck has a Linux-only kernel preview and names none of them.",
+    "Page fix: the deck marks Cursor and Copilot in VS Code as preview; the page lists Cursor and GitHub Copilot as supported without a label.",
+    "Turkish data is a core differentiator: valid TCKN and IBAN detection, Turkish addresses and phones, and KVKK risk when staff paste customer data into foreign AI services.",
+    "Bans do not work: blocked employees carry on from their phones. AIDR lets staff keep using ChatGPT while customer data stays inside.",
+    "Regulatory drivers: Turkey’s Cybersecurity Law No. 7545, BDDK information systems rules and KVKK, plus DORA, NIS2 and the EU AI Act, are making AI control and auditing mandatory.",
+    "Compliance reports and framework mappings support audits but are not a certificate or proof of compliance; keep that caveat wherever frameworks appear."
+  ]
+}

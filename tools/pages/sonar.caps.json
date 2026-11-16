@@ -1,0 +1,108 @@
+{
+  "slug": "sonar",
+  "title": "Everything in Sonar",
+  "sub": "Every capability, from device discovery to packet-level evidence, without sending a single packet to your machines.",
+  "groups": [
+    {
+      "h": "Asset inventory",
+      "items": [
+        "Devices found from traffic alone, with no active scanning",
+        "IP, MAC address, vendor and running services for each device",
+        "Each device mapped to its site, role and segment",
+        "See who talks to whom across the site",
+        "Unlisted devices and services shown in their own table",
+        "Import your existing list, or add devices manually or by CSV"
+      ]
+    },
+    {
+      "h": "Industrial protocols decoded",
+      "items": [
+        "Commands recorded down to function and target address",
+        "Energy and grid: DNP3, IEC 60870-5-104, IEEE C37.118, ANSI C12.22",
+        "Manufacturing and process: Modbus, S7comm, EtherNet/IP (CIP), PROFINET, OPC UA",
+        "Also EtherCAT, Omron FINS, GE SRTP and HART-IP",
+        "Oil, gas, water, building and rail: BSAP, ROC Plus, BACnet, GENISYS",
+        "Remote screen sessions (VNC) decoded and recorded",
+        "Other protocols listed separately, with a best-guess identification"
+      ]
+    },
+    {
+      "h": "Threat detection",
+      "items": [
+        "Program downloads to controllers (PLCs), with who sent them and from where",
+        "Traffic crossing from the office network or internet into the site",
+        "Cleartext passwords and old, insecure protocols",
+        "Services on non-standard ports, VPNs and tunnels",
+        "Connections to sensitive countries and random-looking domain names",
+        "Large transfers and unusually long connections",
+        "Threat intelligence matches, such as Tor exit nodes",
+        "Files crossing the network extracted and scanned automatically"
+      ]
+    },
+    {
+      "h": "Scoring and machine learning",
+      "items": [
+        "Every incident scored for severity from 0 to 100",
+        "Scoring and sensitive-country list tuned to your site",
+        "Learns your site’s normal in a few weeks; no labeled data needed",
+        "Protocols never seen on site before",
+        "Unusual commands, results or user names",
+        "File types that should not move across the site",
+        "Sudden traffic spikes or silence, such as a stopped device"
+      ]
+    },
+    {
+      "h": "Evidence and reporting",
+      "items": [
+        "Every session stored with its raw packets",
+        "Search back in time across all captured traffic",
+        "One incident view from entry to impact, with raw packets",
+        "Incidents classified with MITRE ATT&CK for ICS",
+        "Incident chain, packets and files exported together; PCAP for Wireshark",
+        "Dashboards as PDF and scheduled reports",
+        "Management report with risks ranked by priority"
+      ]
+    },
+    {
+      "h": "Integrations",
+      "items": [
+        "Sends incidents to your SIEM and SOC",
+        "Incidents become tracked cases in AutoSecOps",
+        "Threat intelligence from MISP and STIX/TAXII feeds",
+        "REST API for your own tools",
+        "Add your own detection rules and scripts",
+        "Upload saved traffic captures (PCAP) for analysis"
+      ]
+    },
+    {
+      "h": "Deployment and access",
+      "items": [
+        "Sensor listens on a mirror (SPAN) port or network TAP",
+        "Sensors from a small industrial PC to a rack server",
+        "Central hub on-premises: Docker, Kubernetes or installation image (ISO)",
+        "Sensors across multiple sites report to one hub",
+        "Air-gapped: intelligence and rules loaded from offline files",
+        "Encrypted console and sensor-to-hub traffic",
+        "Local accounts, LDAP or single sign-on (SSO)"
+      ]
+    }
+  ],
+  "specs": [
+    { "k": "Deployment", "v": "Passive site sensors, on-premises hub, air-gapped option" },
+    { "k": "Hardware", "v": "Sensor from 4 cores, 8 GB RAM; hub from 8 cores, 24 GB RAM" },
+    { "k": "Works with", "v": "SIEM and SOC tools, AutoSecOps, MISP, STIX/TAXII, REST API" },
+    { "k": "Evidence for", "v": "Incident reporting under Türkiye’s Law No. 7545, audits and insurers" },
+    { "k": "Access control", "v": "Local accounts, LDAP or SSO; encrypted console and sensor traffic" },
+    { "k": "Data", "v": "Packets and files stay on the sensor; nothing flows outward" }
+  ],
+  "top": [
+    "Fully passive, zero production risk",
+    "Every device and command on record",
+    "Packet-level evidence for every incident"
+  ],
+  "gaps": [
+    "Scope limits buyers will ask about: serial protocols and encrypted traffic are not decoded, and Sonar never scans actively. The deck states this openly.",
+    "Jaguar Land Rover, 2025: five weeks of shutdown because it could not see whether attackers reached its plants. The deck’s lead story; the page omits it.",
+    "Law No. 7545: withholding information carries 1–3 years in prison; critical sectors named May 2026: energy, finance, healthcare, transportation, water."
+  ]
+}

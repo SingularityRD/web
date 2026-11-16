@@ -1,0 +1,7 @@
+# Local only: deck text, screenshots and the headless browser profile.
+tools/decks/
+tools/shots/
+tools/edge-profile/
+node_modules/
+.DS_Store
+Thumbs.db

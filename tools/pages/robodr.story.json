@@ -1,0 +1,160 @@
+{
+  "slug": "robodr",
+  "hook": {
+    "kicker": "Robot security",
+    "h1": "Stop a hijacked robot safely. Prove what happened.",
+    "lede": "RoboDR sees an attack on your robot as it begins, stops the dangerous command before it reaches the motors and keeps a tamper-proof record. People approve the steps that matter."
+  },
+  "stake": {
+    "value": "January 2027",
+    "label": "Machines sold in the EU must be protected against malicious tampering, with a record of any tampering.",
+    "source": "EU Machinery Regulation (EU) 2023/1230, Annex III 1.1.9. Not legal advice."
+  },
+  "scene": {
+    "title": "A “run” command nobody sent",
+    "setup": "Night shift in a warehouse. A humanoid robot stands at its post. At 02:47 a device nobody recognizes starts sending it commands over the network.",
+    "without": [
+      { "t": "02:47", "p": "The stranger tells the robot to run. The robot obeys, because nothing checks who sent it." },
+      { "t": "02:48", "p": "The robot strides across the floor toward the racks. No alert reaches the security team." },
+      { "t": "02:52", "p": "A worker hits the emergency stop. The motors let go and the robot falls." },
+      { "t": "03:05", "p": "Managers ask who sent the command. There is no record to show them." }
+    ],
+    "with": [
+      { "t": "02:47", "p": "RoboDR sees a sender that does not belong. It drops the command and the robot stays standing." },
+      { "t": "02:48", "p": "A case opens in AutoSecOps. The AI agent summarizes it and recommends quarantining the sender." },
+      { "t": "02:52", "p": "The on-call analyst approves. RoboDR quarantines the rogue sender." },
+      { "t": "03:05", "p": "The black box record is verified and attached to the case, ready for the auditor." }
+    ],
+    "end": {
+      "without": "A damaged robot, a stopped fleet and no answers.",
+      "with": "The robot never took a single step."
+    }
+  },
+  "chapters": [
+    {
+      "tag": "Who commands it",
+      "h": "Know who is giving your robot orders",
+      "p": "On most robots, motion commands cross the network without any check, so anyone on that network can tell the robot to walk or raise an arm. RoboDR reads every command sent to the motors, knows which senders belong and flags a stranger at once.",
+      "points": [
+        "Reads Unitree and ROS 2 motion, arm and hand commands",
+        "Flags unknown senders, even when they change identity",
+        "Catches spoofed, replayed or out-of-limit speed and joint commands",
+        "Compares what the robot was told with what it did",
+        "Spots faked or frozen telemetry and disagreeing navigation sensors"
+      ]
+    },
+    {
+      "tag": "Break-ins",
+      "h": "Catch a break-in before it reaches the motors",
+      "p": "In 2025 a published vulnerability let attackers take over widely used robots over Bluetooth alone. From there they install software, change the robot’s apps or switch off defenses. RoboDR watches the robot’s onboard computer and raises an alert at every step of known robot attacks.",
+      "points": [
+        "New processes, outbound connections and remote tunnels",
+        "Package installs and changes to ROS 2 and robot apps",
+        "Bluetooth and Wi-Fi setup tools and wireless setting changes",
+        "Reads of the robot’s private keys",
+        "Any attempt to change or stop RoboDR itself"
+      ]
+    },
+    {
+      "tag": "Safe stop",
+      "h": "Stop the attack without dropping the robot",
+      "p": "For a humanoid or four-legged robot, cutting the motors means a fall. RoboDR blocks dangerous commands before they arrive and keeps humanoid and four-legged robots on their feet. The response escalates in stages, so a moving robot is never stopped blindly.",
+      "points": [
+        "Every command passed, limited or rejected",
+        "Escalates in stages: alert, restrict, slow down, pause, safe state",
+        "Slows the robot without changing its direction",
+        "Stop commands are never delayed",
+        "Isolates the robot or quarantines a rogue sender"
+      ]
+    },
+    {
+      "tag": "People decide",
+      "h": "Your people make the calls that matter",
+      "p": "An automatic action on a moving robot is a risk of its own. RoboDR’s rules limit dangerous commands on their own, but pausing the robot, a safe state or a rollback needs two people. Every action is time-limited and can be undone.",
+      "points": [
+        "Starts monitor-only; protection goes on when you are ready",
+        "Learns each robot’s normal, then locks it with human sign-off",
+        "The approver is always someone other than the requester",
+        "Emergency off at any time",
+        "Asks a person whenever the robot’s state is unknown"
+      ]
+    },
+    {
+      "tag": "Your SOC",
+      "h": "Robot incidents land where your team already works",
+      "p": "A robot alert in a separate tool gets missed. Each RoboDR finding opens a tracked case in AutoSecOps, Singularity’s AI security operations product, next to your other alerts. An AI agent triages it and recommends a response. A person decides.",
+      "points": [
+        "A case opens for every finding, before an analyst looks",
+        "The AI cannot delete cases, run scripts or go online",
+        "Attacker text from the robot never becomes AI instructions",
+        "Forged, stale or unsigned findings rejected and logged",
+        "Whole fleet on one screen, with each robot’s cases"
+      ]
+    },
+    {
+      "tag": "Proof",
+      "h": "Answer the auditor with proof, not memory",
+      "p": "After an incident someone will ask what happened and who intervened. RoboDR writes every incident to a tamper-proof black box, like a flight recorder. Auditors can check the records but cannot forge them, which supports your evidence for the Machinery Regulation and the Cyber Resilience Act.",
+      "points": [
+        "Records survive power loss; any deletion shows",
+        "Every finding mapped to MITRE ATT&CK and tied to evidence",
+        "Pull evidence by finding or time range into the case",
+        "Findings in the open OCSF format, for any compatible SIEM",
+        "Signed releases with a software bill of materials (SBOM)"
+      ]
+    }
+  ],
+  "shift": {
+    "title": "Your robots, before and after RoboDR",
+    "rows": [
+      { "k": "Motion commands", "before": "Anyone on the network can send them", "after": "Every command passed, limited or rejected" },
+      { "k": "Robot’s computer", "before": "New software and connections go unseen", "after": "Each change raises an alert in your SOC" },
+      { "k": "During an attack", "before": "Cutting the motors can drop the robot", "after": "Dangerous commands blocked; the robot stays standing" },
+      { "k": "Who decides", "before": "Unclear who can cut a robot off", "after": "Named approvers; every action can be undone" },
+      { "k": "After an incident", "before": "No proof of what happened", "after": "One signed record an auditor can verify" }
+    ]
+  },
+  "limits": {
+    "title": "What RoboDR will not do",
+    "items": [
+      { "h": "Replace your safety system", "p": "RoboDR is not a safety-rated component. It complements the robot’s own safety system and never stands in for it." },
+      { "h": "Cut power or reset e-stops", "p": "It never cuts motor power, resets the emergency stop or kills a program on a moving robot. With the e-stop active, it only records." },
+      { "h": "Pause a robot on its own", "p": "Rules limit dangerous commands automatically. Pausing the robot, a safe state or a rollback always needs two people’s approval." },
+      { "h": "Certify you", "p": "Its documents for IEC 62443 and the Cyber Resilience Act are an engineering self-assessment, not a certification." }
+    ]
+  },
+  "pilot": {
+    "title": "One robot, one test area, three steps",
+    "steps": [
+      { "h": "Choose together", "p": "Which robot, which site, which threat. Together we write the criteria for false alerts, resource use and response time." },
+      { "h": "Watch first", "p": "RoboDR learns the robot’s normal behavior and connects to AutoSecOps. Nothing is blocked at this stage." },
+      { "h": "Protect, attack, report", "p": "We switch on protection and approval rules, attack the robot with our own red team and deliver a management report." }
+    ]
+  },
+  "objections": [
+    {
+      "q": "What is RoboDR, and which robots does it work with?",
+      "a": "RoboDR is a security layer for robots from Singularity. It sees an attack as it begins, stops dangerous commands before they reach the motors and keeps a tamper-proof record. It supports Unitree quadruped and humanoid robots, and robots running ROS 2, the open-source robot software."
+    },
+    {
+      "q": "Can RoboDR run on our own servers, at a site with no internet?",
+      "a": "Yes. RoboDR’s security center runs on your own servers or in your cloud, and RoboDR works at air-gapped sites, meaning sites with no internet connection. No component calls out, and your data stays on your infrastructure."
+    },
+    {
+      "q": "Will RoboDR take action on our robots without asking us?",
+      "a": "RoboDR starts in monitor-only mode, and protection goes on only when you are ready. Its rules limit dangerous commands automatically. Pausing a robot, a safe state or a rollback needs approval from two people, the approver is never the requester, and every action can be undone."
+    },
+    {
+      "q": "Does RoboDR replace or interfere with our robot’s safety system?",
+      "a": "No. RoboDR is not a safety-rated component; it complements the robot’s own safety system. It never cuts motor power, resets the emergency stop or kills a program on a moving robot, and it keeps humanoid and four-legged robots from falling during a stop."
+    },
+    {
+      "q": "Our IT security already covers the network. Why do we need RoboDR?",
+      "a": "Traditional security software protects the computer. RoboDR protects the robot. It reads the commands sent to the motors, can tell “walk” from “run”, and stops a hijacked robot without a fall. Its findings land in your existing SOC, beside your other alerts."
+    }
+  ],
+  "close": {
+    "h": "See RoboDR on one of your robots",
+    "p": "Bring one robot, a test area and a schedule. We handle the setup, attack it ourselves and report to management."
+  }
+}

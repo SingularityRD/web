@@ -1,0 +1,228 @@
+{
+  "slug": "sonar",
+  "hook": {
+    "kicker": "Factory network security",
+    "h1": "See your plant network without stopping production.",
+    "lede": "Sonar listens to how your machines talk, flags anything suspicious and keeps the evidence. It never sends a single packet to a machine, so production keeps running."
+  },
+  "stake": {
+    "value": "42 days",
+    "label": "average time ransomware goes unnoticed on an industrial network. With full visibility: 5 days.",
+    "source": "Dragos, OT/ICS Cybersecurity Year in Review 2026"
+  },
+  "scene": {
+    "title": "An intruder walks from office to PLC",
+    "setup": "A plant on a weekday night. An attacker already inside the office network opens a remote desktop session toward the production floor.",
+    "without": [
+      {
+        "t": "22:10",
+        "p": "The session crosses from the office into the plant network. The firewall lets it pass."
+      },
+      {
+        "t": "22:25",
+        "p": "Controllers across the site are scanned one by one. Nothing records it."
+      },
+      {
+        "t": "22:40",
+        "p": "A program file lands on the engineering workstation. Nobody checks it."
+      },
+      {
+        "t": "23:05",
+        "p": "A new program is written to a PLC and a line stops. Nobody knows who wrote it."
+      }
+    ],
+    "with": [
+      {
+        "t": "22:10",
+        "p": "Sonar flags the session crossing from the office into the plant and scores it."
+      },
+      {
+        "t": "22:25",
+        "p": "Sonar sees a device that is not in the inventory scanning Modbus and S7 controllers."
+      },
+      {
+        "t": "22:40",
+        "p": "Sonar pulls the file off the wire, scans it and adds it to the incident."
+      },
+      {
+        "t": "23:05",
+        "p": "The program download raises a severity 85 alert. The whole chain sits on one timeline."
+      }
+    ],
+    "end": {
+      "without": "Unsure how far it spread, the plant stops everything.",
+      "with": "The team knows which devices were reached, packet by packet."
+    }
+  },
+  "chapters": [
+    {
+      "tag": "Inventory",
+      "h": "Know every device on your site, from traffic alone",
+      "p": "Most sites cannot say how many controllers they run or who each one talks to. Sonar builds the inventory by listening, with no active scanning. An unlisted device shows up the moment it talks, and every alert names the machine: “the filling PLC in cell 3”.",
+      "points": [
+        "IP, MAC address, vendor and services for every device",
+        "Each device mapped to its site, role and segment",
+        "A map of who talks to whom",
+        "Unlisted devices and services in their own table",
+        "Import your list, or add devices by hand or CSV"
+      ]
+    },
+    {
+      "tag": "Commands",
+      "h": "Know who wrote to the PLC, and what",
+      "p": "A PLC (programmable logic controller) is the small computer that runs a machine. A firewall sees traffic reach it but keeps no record of the command. Sonar reads the languages industrial machines speak and records each command down to its function and target address.",
+      "points": [
+        "Modbus, S7comm, EtherNet/IP, PROFINET and OPC UA",
+        "DNP3, IEC 60870-5-104 and IEEE C37.118 for energy",
+        "BACnet, BSAP, ROC Plus and GENISYS for buildings, utilities, rail",
+        "Remote screen (VNC) sessions decoded and recorded",
+        "Other protocols listed with a best-guess identification"
+      ]
+    },
+    {
+      "tag": "Scope",
+      "h": "See how far an attack reached before shutting down",
+      "p": "In 2025 a cyberattack on Jaguar Land Rover stopped its factories for about five weeks. When nobody can see how far an attack has reached, stopping everything is the only safe choice. Sonar keeps the traffic record that answers the question.",
+      "points": [
+        "Traffic crossing from the office or internet into the site",
+        "Program downloads to controllers, with sender and source",
+        "Files on the wire extracted and scanned automatically",
+        "One incident view from entry to impact, with raw packets"
+      ]
+    },
+    {
+      "tag": "Priorities",
+      "h": "The incident to check first, not thousands of records",
+      "p": "Your team cannot read every connection. Sonar scores each incident from 0 to 100, tuned to your site. After a few weeks of learning your normal traffic, it also flags what departs from it, with no labeled data needed.",
+      "points": [
+        "Cleartext passwords, old protocols, VPNs and tunnels",
+        "Sensitive-country connections, odd domain names, large transfers",
+        "Threat intelligence matches from MISP and STIX/TAXII feeds",
+        "New protocols, unusual commands and unexpected file types",
+        "Sudden traffic spikes, or silence from a stopped device"
+      ]
+    },
+    {
+      "tag": "Evidence",
+      "h": "Answer the regulator, the auditor and the insurer",
+      "p": "Türkiye’s Law No. 7545 (2025) requires cyber incidents to be reported to the state without delay, and withholding information can mean one to three years in prison. Sonar stores every session with its raw packets, so the record is ready when someone asks.",
+      "points": [
+        "Search back in time across captured traffic",
+        "Incidents classified with MITRE ATT&CK for ICS",
+        "Chain, packets and files exported together; PCAP for Wireshark",
+        "Management report with risks ranked by priority",
+        "Incidents sent to your SIEM, or as AutoSecOps cases"
+      ]
+    },
+    {
+      "tag": "Zero intervention",
+      "h": "Production never notices Sonar is there",
+      "p": "The production manager’s first question is about downtime. Sonar connects to a switch mirror port or a network tap and only listens. It never sends a packet to a machine, so it adds no load and no downtime risk. Your data stays on site.",
+      "points": [
+        "Sensors from a small industrial PC to a rack server",
+        "Many sites report to one hub on your premises",
+        "Air-gapped: intelligence and rules loaded from offline files",
+        "Local accounts, LDAP or single sign-on (SSO)",
+        "REST API and your own detection rules"
+      ]
+    }
+  ],
+  "shift": {
+    "title": "Your site, before and after Sonar",
+    "rows": [
+      {
+        "k": "Writes to the PLC",
+        "before": "Firewall saw traffic but kept no record",
+        "after": "Command, sender and target address on record"
+      },
+      {
+        "k": "Unlisted devices",
+        "before": "Nobody can say what is on site",
+        "after": "Flagged the moment they talk"
+      },
+      {
+        "k": "Ransomware unnoticed",
+        "before": "42 days on average (Dragos, 2026)",
+        "after": "5 days with full visibility (Dragos, 2026)"
+      },
+      {
+        "k": "Packet evidence",
+        "before": "No record to show",
+        "after": "Every session stored with its raw packets"
+      },
+      {
+        "k": "When an attack hits",
+        "before": "Shut everything down to be safe",
+        "after": "The traffic record shows how far it reached"
+      }
+    ]
+  },
+  "limits": {
+    "title": "What Sonar will not do",
+    "items": [
+      {
+        "h": "Block traffic",
+        "p": "Sonar monitors and alerts. It does not block traffic or close ports. Your team decides what to do."
+      },
+      {
+        "h": "Decode serial or encrypted traffic",
+        "p": "Serial protocols and encrypted traffic are not decoded. Sonar sees encrypted sessions but not what is inside them."
+      },
+      {
+        "h": "Scan your devices",
+        "p": "Sonar never scans actively. Devices that never talk on the network can be added by hand or by CSV."
+      },
+      {
+        "h": "Know your normal on day one",
+        "p": "Anomaly detection needs a few weeks of your traffic. The first weeks are a learning period."
+      }
+    ]
+  },
+  "pilot": {
+    "title": "One site, a few weeks, a clear report",
+    "steps": [
+      {
+        "h": "Pick listening points",
+        "p": "Together we choose the site, the switch and the segment, and agree what success looks like."
+      },
+      {
+        "h": "Connect the sensor",
+        "p": "We handle installation. All we need from your team is a mirror port and a few hours of site access."
+      },
+      {
+        "h": "Listen quietly",
+        "p": "A few weeks of passive monitoring brings up inventory gaps, insecure protocols and the first findings."
+      },
+      {
+        "h": "Report and go live",
+        "p": "Findings, a risk score and a remediation list, in a report ready for management."
+      }
+    ]
+  },
+  "objections": [
+    {
+      "q": "What exactly is Sonar?",
+      "a": "Sonar is Singularity’s passive security monitoring for factory and other industrial (OT, operational technology) networks. It works like a security camera for the plant network: it maps every device, reads industrial protocols such as Modbus and DNP3, alerts on suspicious activity and keeps packet-level evidence."
+    },
+    {
+      "q": "Can Sonar run on-premises, or on a site with no internet?",
+      "a": "Yes. Sonar runs on your own servers, on Docker, Kubernetes or an installation image, and needs no internet connection. At air-gapped sites, threat intelligence and rules are loaded from offline files. Packets and files stay on the sensor that captured them; nothing flows outward."
+    },
+    {
+      "q": "Can Sonar slow down or stop our production?",
+      "a": "No. Sonar only listens, through a switch mirror port or a network tap. It never sends a single packet to a PLC, HMI or other machine, so it adds no device load and no risk of downtime."
+    },
+    {
+      "q": "Will Sonar block anything or act on its own?",
+      "a": "No. Sonar monitors, scores and alerts; it does not block traffic or close ports. Your people see the incident with its evidence and decide what to do. Incidents can also flow into your SIEM or become tracked cases in AutoSecOps."
+    },
+    {
+      "q": "We already have a firewall. Why do we need Sonar?",
+      "a": "A firewall sees traffic pass but keeps no record of which device sent which command. Sonar records every command down to its target address, flags devices missing from your inventory and stores raw packets, so you can prove what happened to an auditor, insurer or regulator."
+    }
+  ],
+  "close": {
+    "h": "See your site. Keep production running.",
+    "p": "Pick one site. We connect, listen for a few weeks and show management what we find. Book a demo."
+  }
+}

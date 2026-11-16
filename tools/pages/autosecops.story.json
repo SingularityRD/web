@@ -1,0 +1,159 @@
+{
+  "slug": "autosecops",
+  "hook": {
+    "kicker": "AI security operations",
+    "h1": "Every alert investigated. Big decisions stay with you.",
+    "lede": "AutoSecOps investigates every security alert around the clock, finds the real threats and stops them with your approval. It works through 2,000+ integrations with the tools you already run."
+  },
+  "stake": {
+    "value": "4,484",
+    "label": "alerts reach the average security team every day. Two-thirds of them are never reviewed.",
+    "source": "Vectra AI, State of Threat Detection, 2023"
+  },
+  "scene": {
+    "title": "A link clicked at 03:12",
+    "setup": "A bank, early Saturday morning. An employee clicks a link in an email warning that their account will be suspended, and types a password into the page.",
+    "without": [
+      { "t": "03:12", "p": "Email security flags the click. The alert lands in a queue that nobody watches at night." },
+      { "t": "03:14", "p": "Thousands of alerts sit ahead of it. Most of them will never be opened." },
+      { "t": "03:20", "p": "The password typed into the fake page still works. Nobody knows yet." },
+      { "t": "08:30", "p": "An analyst arrives and opens five tools to piece together what happened overnight." }
+    ],
+    "with": [
+      { "t": "03:12", "p": "The alert arrives. AutoSecOps removes duplicates and pulls out the link and the sender's domain." },
+      { "t": "03:14", "p": "Threat intelligence flags the domain. The AI writes its verdict: credential phishing, critical." },
+      { "t": "03:20", "p": "A case opens with the evidence. Suspending the account waits for a yes in Slack." },
+      { "t": "08:30", "p": "The on-call analyst decided in one click. The team reads one case, start to finish." }
+    ],
+    "end": {
+      "without": "Hours exposed. The evidence is scattered across five tools.",
+      "with": "Decided before dawn, with every step on record."
+    }
+  },
+  "chapters": [
+    {
+      "tag": "Coverage",
+      "h": "No alert waits until morning",
+      "p": "Your team cannot read thousands of alerts a day, and night alerts sit until someone logs in. AutoSecOps triages every alert as it arrives, gathers the evidence and writes a verdict. Your analysts start with a case, not a queue.",
+      "points": [
+        "Every alert triaged: SIEM, EDR, email, identity, cloud",
+        "Duplicates removed, indicators of compromise extracted and enriched",
+        "Verdict, severity and written summary inside the case",
+        "Case copilot and workspace chat beside every case",
+        "Skill packs for hunting, detection rules and incident response"
+      ]
+    },
+    {
+      "tag": "Human approval",
+      "h": "The AI proposes. Your people make the call.",
+      "p": "Nobody wants software disabling accounts on its own. AutoSecOps runs lookups and enrichment without waiting, and holds anything serious, such as disabling an account or isolating a laptop, until a person says yes. You set which actions need approval.",
+      "points": [
+        "Read-only lookups and enrichment run without waiting",
+        "See each action's arguments, then approve, edit or reject",
+        "One approval inbox, plus approval buttons in Slack",
+        "Recommendation-only mode before any automation goes live",
+        "Watchtower shows what coding agents call over MCP"
+      ]
+    },
+    {
+      "tag": "AI safety",
+      "h": "A hidden instruction in an alert cannot steer it",
+      "p": "In June 2025 a single email hijacked an AI assistant (EchoLeak). Attackers now hide orders to the AI inside their emails. AutoSecOps treats those as part of the attack: its agents use only the tools you allow, and any change still goes to a person.",
+      "points": [
+        "Agents can call only the tools you allow",
+        "Isolated sandbox with no internet access by default",
+        "AI keys stay outside the sandbox; token budget per agent",
+        "Mapped to OWASP Top 10, LLM and Agentic Top 10"
+      ]
+    },
+    {
+      "tag": "Speed",
+      "h": "New tools and playbooks in minutes, not weeks",
+      "p": "Connecting a new tool used to mean API documents, code and testing. A new playbook, a written response plan, needed a developer. With AutoSecOps you pick an integration and enter a key, then draw the playbook or describe it in plain words.",
+      "points": [
+        "2,000+ integrations across SIEM, EDR, identity, cloud and chat",
+        "Drag-and-drop builder, or describe the playbook in chat",
+        "Runs survive restarts; rerun from any step",
+        "Locked versions, checks before publishing, one-step rollback",
+        "Your own Python actions, synced from GitHub, GitLab or Bitbucket"
+      ]
+    },
+    {
+      "tag": "Audit",
+      "h": "When the auditor asks, the answer is already written",
+      "p": "KVKK (Turkish data protection law), BDDK (the Turkish banking regulator) and Cybersecurity Law No. 7545 want proof of response, and so do DORA and NIS2 in the EU. AutoSecOps records who proposed, who approved and when, in the case itself.",
+      "points": [
+        "Proposing agent, approver and timestamp in every case",
+        "Every action in the audit log, with audit webhooks",
+        "SLA tracking, duration metrics and reports for management",
+        "Single sign-on, SCIM, custom roles and IP allowlists",
+        "Encrypted secrets with masking and external vaults"
+      ]
+    },
+    {
+      "tag": "Your infrastructure",
+      "h": "Your alerts and prompts can stay in your building",
+      "p": "Many banks and public bodies cannot send logs to someone else's cloud. Deploy AutoSecOps on-premises with a local AI model, and no logs, events or prompts leave your network. Choose a cloud AI provider instead, and prompts go to that provider.",
+      "points": [
+        "One server in minutes, or Kubernetes via Helm",
+        "Fully air-gapped, with the license checked offline",
+        "Local models: Singularity Foundation Models, Ollama, vLLM, LiteLLM",
+        "Tunnels reach internal systems with short-lived access",
+        "First-party EDR, NDR and SIEM sensors if you have none"
+      ]
+    }
+  ],
+  "shift": {
+    "title": "From weeks to minutes",
+    "rows": [
+      { "k": "Connect a new tool", "before": "Weeks of API documents, code and testing", "after": "Minutes: pick an integration, enter your key" },
+      { "k": "New playbook", "before": "Weeks: a developer writes and deploys a script", "after": "Minutes: drag and drop, or describe it" },
+      { "k": "Night alert", "before": "Waits until morning unless someone is on call", "after": "Investigated at once, case and summary ready" },
+      { "k": "Audit evidence", "before": "Days, gathered from emails and tickets", "after": "Ready: who, what and when, in the case" }
+    ]
+  },
+  "limits": {
+    "title": "What AutoSecOps will not do",
+    "items": [
+      { "h": "Act on critical steps alone", "p": "Disabling an account or isolating a device always waits for a person. The agent shows what it wants to do and someone decides." },
+      { "h": "Use tools you never allowed", "p": "An agent cannot call a tool outside its preset, and its sandbox cannot reach the internet by default." },
+      { "h": "Replace your security tools", "p": "Your SIEM, EDR and identity tools stay in place. AutoSecOps works alongside them and acts through them." },
+      { "h": "Keep prompts in-house on cloud AI", "p": "Data stays on your network only with on-premises deployment and a local model. A cloud AI provider receives the prompts sent to it." }
+    ]
+  },
+  "pilot": {
+    "title": "A pilot on your own alerts",
+    "steps": [
+      { "h": "Pick the alerts", "p": "Together we choose your most frequent alerts, their sources and responses, and write the success criteria." },
+      { "h": "Install and connect", "p": "We install AutoSecOps on your infrastructure and connect your SIEM, EDR and identity tools." },
+      { "h": "Recommend first", "p": "The first playbooks run in recommendation-only mode. We measure before and after with your own alerts." },
+      { "h": "Switch on automation", "p": "We set the approval rules with you and deliver the results in a report ready for management." }
+    ]
+  },
+  "objections": [
+    {
+      "q": "What exactly is AutoSecOps?",
+      "a": "AutoSecOps is an AI security operations platform from Singularity. AI analysts investigate every security alert around the clock, filter out false alarms and open a case for each real threat. They respond through 2,000+ integrations with your existing tools and ask a person before any critical step."
+    },
+    {
+      "q": "Can we run it on-premises, or fully air-gapped?",
+      "a": "Yes. AutoSecOps runs in a managed cloud, on your own servers or fully air-gapped, with no internet connection and the license checked offline. With on-premises deployment and a local model, such as the Singularity Foundation Models, no logs, events or prompts leave your network."
+    },
+    {
+      "q": "If the AI wants to disable an account, who has the final say?",
+      "a": "Your team does. AutoSecOps runs read-only lookups on its own, but disabling accounts or isolating devices waits for approval in its inbox or in Slack. The approver sees the exact arguments and can approve, edit or reject. Agent, approver and time are recorded in the case."
+    },
+    {
+      "q": "Can an attacker hide instructions in an alert to steer the AI?",
+      "a": "AutoSecOps is built for that attack. Its agents can call only the tools you allow, run in a sandbox with no internet access, and send any change to a person. In a product demo, an email ordering the AI to delete its case failed; the case stayed open."
+    },
+    {
+      "q": "Do we have to replace our SIEM and EDR?",
+      "a": "No. AutoSecOps works alongside the security tools you already own, reading from them and acting through 2,000+ integrations. Your tools keep raising alerts; AutoSecOps investigates them. If you have no tools yet, Singularity's own EDR, NDR and SIEM sensors can cover the gap."
+    }
+  ],
+  "close": {
+    "h": "See AutoSecOps on your own alerts",
+    "p": "Start with a pilot in your environment. We measure before and after together, with your own alerts and your own approval rules."
+  }
+}

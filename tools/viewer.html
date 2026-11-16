@@ -1,0 +1,14 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>slice viewer</title>
+<style>html, body { margin: 0; background: #000; overflow: hidden; } iframe { position: absolute; left: 0; border: 0; }</style>
+<iframe id="f"></iframe>
+<script>
+  // ?y=offset&w=width&h=full page height: shows one slice of the page with
+  // every section "in view" for the page's own observers.
+  var q = new URLSearchParams(location.search), f = document.getElementById('f');
+  f.style.top = -(+q.get('y') || 0) + 'px';
+  f.style.width = (+q.get('w') || 1440) + 'px';
+  f.style.height = (+q.get('h') || 19000) + 'px';
+  f.src = 'http://localhost:4321/' + (q.get('p') || '');
+</script>

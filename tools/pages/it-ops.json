@@ -1,0 +1,139 @@
+{
+  "slug": "it-ops",
+  "name": "IT Ops",
+  "title": "IT Ops: AI on-call engineer for IT incidents | Singularity",
+  "description": "IT Ops is an AI on-call engineer. It groups alerts into one incident, finds the cause, applies the fix with your approval and records every step.",
+  "kicker": "AI on-call engineer",
+  "h1": "IT failures resolved faster, safely and on the record.",
+  "lede": "IT Ops is an AI on-call engineer. It groups scattered alerts into one incident, finds the cause with evidence, proposes a fix, applies it with your approval and records every step.",
+  "problem": {
+    "title": "Failures are inevitable. Chaos isn’t.",
+    "items": [
+      {
+        "h": "Finding the cause is slow",
+        "p": "Finding the cause often takes longer than fixing it. At 3 a.m. the on-call engineer chases it across several screens."
+      },
+      {
+        "h": "Knowledge sits with a few",
+        "p": "The fix lives in the heads of a few experienced staff. What happens when they are on leave?"
+      },
+      {
+        "h": "Nobody wrote it down",
+        "p": "Who did what, and why? Often it is recorded nowhere, so management and auditors get no clear answer."
+      }
+    ]
+  },
+  "steps": {
+    "title": "Four steps. The same routine every time.",
+    "items": [
+      {
+        "h": "Detects",
+        "p": "Groups scattered alerts from your monitoring tools into one incident, so it is clear which service is hit and who owns it."
+      },
+      {
+        "h": "Investigates",
+        "p": "Finds the cause and shows the evidence. It also says plainly when it is not sure."
+      },
+      {
+        "h": "Asks",
+        "p": "Proposes a fix from a list you approved and, when needed, sends it to the owner for approval."
+      },
+      {
+        "h": "Resolves and verifies",
+        "p": "Applies the fix and measures the result. If it does not work, it undoes the change and alerts a person."
+      }
+    ]
+  },
+  "features": {
+    "title": "Shorter outages. A calmer team.",
+    "items": [
+      {
+        "h": "Faster resolution",
+        "p": "Your team starts from a recommendation backed by evidence instead of hunting for the cause."
+      },
+      {
+        "h": "A calmer on-call team",
+        "p": "One decision card at night instead of many screens. It arrives on the web, in Microsoft Teams or in Slack."
+      },
+      {
+        "h": "Knowledge stays in the company",
+        "p": "Every fix that worked is remembered, so new hires follow the same playbook."
+      },
+      {
+        "h": "An audit-ready record",
+        "p": "Who did what, and why, is always on record, and later changes are detected. Management gets a PDF report."
+      },
+      {
+        "h": "Your tools stay in place",
+        "p": "IT Ops reads the tools you already run. Your team keeps working in the screens it knows."
+      },
+      {
+        "h": "Trust in stages",
+        "p": "It starts by only watching. You decide when it may recommend, fix in test and fix in production."
+      }
+    ]
+  },
+  "fit": {
+    "title": "Not another tool. A bridge between yours.",
+    "who": [
+      "IT managers",
+      "On-call engineers",
+      "Security and compliance teams",
+      "Executive leadership",
+      "Finance leaders"
+    ],
+    "works": [
+      "Zabbix",
+      "Datadog",
+      "Grafana",
+      "Splunk",
+      "Jira",
+      "ServiceNow",
+      "Microsoft Teams",
+      "Slack"
+    ]
+  },
+  "control": {
+    "title": "As risk grows, a person steps in",
+    "items": [
+      {
+        "h": "An approved list only",
+        "p": "IT Ops cannot write its own commands. It picks from a list of fixes you approved, on systems you listed."
+      },
+      {
+        "h": "Approval grows with risk",
+        "p": "Checks run on their own. High-impact fixes always need a person. One button halts every automated action on your systems."
+      },
+      {
+        "h": "Your data stays in-house",
+        "p": "IT Ops is installed in your environment. Passwords, names and addresses are masked in any text sent to the AI."
+      }
+    ]
+  },
+  "faq": [
+    {
+      "q": "What is Singularity IT Ops?",
+      "a": "IT Ops is an AI on-call engineer from Singularity. It groups alerts from your monitoring tools into one incident, finds the cause with evidence, proposes a fix, applies it with your approval, checks the result and records every step."
+    },
+    {
+      "q": "Who is IT Ops for?",
+      "a": "IT Ops is for companies whose IT teams are on call for outages. IT managers get a less exhausted team, security and compliance teams get every step logged, and executives get shorter outages with AI kept under control."
+    },
+    {
+      "q": "How is IT Ops different from a monitoring tool?",
+      "a": "A monitoring tool tells you something is wrong. IT Ops reads the alerts from the tools you already have, finds the cause, proposes a fix, applies it with approval and keeps the record. Your existing tools stay in place."
+    },
+    {
+      "q": "Can IT Ops run on-premises or air-gapped?",
+      "a": "Yes. IT Ops is installed in your own environment and works in air-gapped networks, which have no internet connection. You choose the AI provider, and it can run on the Singularity Foundation Models on your own hardware."
+    },
+    {
+      "q": "How do people stay in control of IT Ops?",
+      "a": "IT Ops cannot write its own commands. It picks fixes from a list you approved, on systems you listed. High-impact fixes always wait for a person’s approval, nobody can approve their own request, and one button stops every automated action."
+    }
+  ],
+  "cta": {
+    "h": "See IT Ops on your own incidents",
+    "p": "We handle the setup. IT Ops starts by only watching and recommending, and you decide when it may act."
+  }
+}

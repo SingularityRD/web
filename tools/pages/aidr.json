@@ -1,0 +1,144 @@
+{
+  "slug": "aidr",
+  "name": "AIDR",
+  "title": "AIDR: security for AI agents | Singularity",
+  "description": "AIDR is security for AI agents. It checks what agents actually do, blocks harmful actions before they run and logs every decision.",
+  "kicker": "AI agent security",
+  "h1": "Stop AI agents before they do harm.",
+  "lede": "AIDR is security for AI agents. It watches what each agent actually does and blocks harmful actions before they run. Your teams keep the speed of AI, and you keep control.",
+  "stat": {
+    "value": "33%",
+    "label": "of enterprise software will include AI agents by 2028, up from under 1% in 2024",
+    "source": "Gartner, 2024"
+  },
+  "problem": {
+    "title": "AI now acts, not just answers",
+    "items": [
+      {
+        "h": "Agents can be tricked",
+        "p": "Agents read emails, documents and web pages. A hidden instruction inside one can make an agent send company passwords outside."
+      },
+      {
+        "h": "Agents make mistakes",
+        "p": "No attacker is needed. An agent that opens files and runs programs can delete a database or a server by accident."
+      },
+      {
+        "h": "They leave no trail",
+        "p": "“Which agent did this, and on whose behalf?” usually has no answer when management or an auditor asks."
+      }
+    ]
+  },
+  "steps": {
+    "title": "How AIDR works",
+    "items": [
+      {
+        "h": "Watches",
+        "p": "AIDR sees every program an agent starts, file it touches and connection it opens, before the action runs."
+      },
+      {
+        "h": "Decides",
+        "p": "Each action is checked against your rules before it runs: allow it, send it for approval or block it."
+      },
+      {
+        "h": "Stops",
+        "p": "The harmful step never runs. The agent keeps working on its normal tasks, and your team is told."
+      },
+      {
+        "h": "Records",
+        "p": "Every decision goes into a tamper-proof log. Management gets a monthly summary, and auditors get a report."
+      }
+    ]
+  },
+  "features": {
+    "title": "What you get with AIDR",
+    "items": [
+      {
+        "h": "Sees actions, not just words",
+        "p": "Prompt filters read what an agent says. AIDR checks what the agent does: commands, files and connections."
+      },
+      {
+        "h": "Works with your coding agents",
+        "p": "Claude Code, Codex, OpenCode, OpenClaw and MCP tools. Cursor and VS Code Copilot in preview."
+      },
+      {
+        "h": "Everyday work stays fast",
+        "p": "Fixing code and running tests pass straight through. Developers do not notice AIDR during normal work."
+      },
+      {
+        "h": "Catches honest mistakes too",
+        "p": "No attacker is needed for harm. An agent about to delete a database by accident is held for your approval."
+      },
+      {
+        "h": "Keeps customer data out",
+        "p": "When employees use AI chat tools such as ChatGPT, customer data and passwords are masked before they reach the site."
+      },
+      {
+        "h": "Works with AutoSecOps",
+        "p": "AIDR works alone and feeds your security team’s systems. With AutoSecOps, every blocked action becomes an investigated case."
+      }
+    ]
+  },
+  "fit": {
+    "title": "Who AIDR is for",
+    "who": [
+      "CISOs and security teams",
+      "Teams using coding agents",
+      "Teams building AI agents",
+      "Banks and fintech",
+      "Defense and government",
+      "Hospitals and health tech"
+    ],
+    "works": [
+      "Claude Code",
+      "Codex",
+      "OpenCode",
+      "OpenClaw",
+      "MCP tools",
+      "Cursor (preview)",
+      "VS Code Copilot (preview)"
+    ]
+  },
+  "control": {
+    "title": "People keep the final say",
+    "items": [
+      {
+        "h": "People approve irreversible actions",
+        "p": "Deleting a database or shutting down a server waits for approval. Only an authorized person can give it."
+      },
+      {
+        "h": "Agents cannot unblock themselves",
+        "p": "A tricked agent may try to switch AIDR off or approve its own action. Those attempts are blocked and logged."
+      },
+      {
+        "h": "Decisions stay on your machines",
+        "p": "AIDR decides on your own machines, on your servers or on air-gapped (offline) networks. No data goes to Singularity for inspection."
+      }
+    ]
+  },
+  "faq": [
+    {
+      "q": "What is AIDR?",
+      "a": "AIDR is Singularity’s security product for AI agents, the AI assistants that open files, run programs and connect to servers by themselves. AIDR watches what each agent actually does, blocks harmful actions before they run and keeps a record of every decision."
+    },
+    {
+      "q": "Who is AIDR for?",
+      "a": "AIDR is for companies whose AI agents touch real systems: developers using coding agents, teams building their own agents, and regulated organizations such as banks, hospitals, defense and government bodies that must show what their AI did."
+    },
+    {
+      "q": "How is AIDR different from a prompt firewall?",
+      "a": "A prompt firewall only reads the text an agent receives and writes. AIDR also checks what the agent does before it runs: the programs it starts, the files it touches and the connections it opens. On Linux, kernel-level enforcement is available as a preview."
+    },
+    {
+      "q": "Can AIDR run on-premises or air-gapped?",
+      "a": "Yes. AIDR runs on your own servers and on air-gapped networks, which are closed to the outside world. Decisions are made on your own machines, and protection stays on even if the internet connection goes down. Supported operating systems are listed in the technical brief."
+    },
+    {
+      "q": "How do people stay in control of AIDR?",
+      "a": "You set the rules. AIDR lets everyday work through, sends irreversible actions such as deleting a database to a person for approval, and blocks harmful ones. A tricked agent cannot approve its own action, and every decision is logged."
+    }
+  ],
+  "cta": {
+    "h": "See AIDR on one of your agents",
+    "p": "Book a demo, or start with a pilot. We first measure the risk without blocking anything, so nobody slows down."
+  }
+}

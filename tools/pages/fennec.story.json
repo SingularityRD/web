@@ -1,0 +1,159 @@
+{
+  "slug": "fennec",
+  "hook": {
+    "kicker": "Code security scanner",
+    "h1": "Security checks fast enough that nobody turns them off",
+    "lede": "Fennec scans every change in seconds for security bugs, leaked secrets, vulnerable libraries and quantum-weak encryption. One tool, on every laptop and pull request. Your code never leaves."
+  },
+  "stake": {
+    "value": "39 million",
+    "label": "passwords, API keys and tokens detected in code on GitHub in a single year",
+    "source": "GitHub, March 2025"
+  },
+  "scene": {
+    "title": "A cloud key on its way to production",
+    "setup": "A software company, Thursday afternoon. A developer finishes a payment feature for tomorrow’s release. A cloud access key is still pasted in a config file.",
+    "without": [
+      { "t": "16:05", "p": "The developer commits. The security scan took minutes, so the team switched it off last month." },
+      { "t": "16:20", "p": "The key enters the repository history. The pull request passes a quick review and merges." },
+      { "t": "Fri 09:00", "p": "The release ships with the key and an unchecked input in the new code." },
+      { "t": "Fri 15:00", "p": "A customer’s security review asks for scan evidence. The team has none to send." }
+    ],
+    "with": [
+      { "t": "16:05", "p": "The developer commits. Fennec checks the change in seconds and stops the key before it enters history." },
+      { "t": "16:20", "p": "On the pull request, Fennec shows only what this branch adds: one unchecked input, with the line." },
+      { "t": "Fri 09:00", "p": "The developer fixes the input from the finding. The release ships on time." },
+      { "t": "Fri 15:00", "p": "The customer’s security review gets a standard SARIF report from the release." }
+    ],
+    "end": {
+      "without": "A live key in history, a bug in production.",
+      "with": "A clean release, on schedule, with the evidence."
+    }
+  },
+  "chapters": [
+    {
+      "tag": "Developer speed",
+      "h": "A scanner fast enough to stay switched on",
+      "p": "When a scan takes minutes, developers disable it and bugs ship with the next release. Fennec scans in seconds, runs where developers already work and shows only the issues each change adds. The check stays on, and problems are fixed at the keyboard, where fixing costs least.",
+      "points": [
+        "Runs on every save, commit and pull request",
+        "Diff mode shows only what a branch adds",
+        "Findings inline in VS Code as developers type",
+        "Automatic fixes for supported issues",
+        "Terminal review that opens the exact line in your editor"
+      ]
+    },
+    {
+      "tag": "One tool",
+      "h": "One tool instead of three separate scanners",
+      "p": "Many companies buy code, secret and dependency scanning separately, and still cannot say what is in their code. Fennec checks all of it in one pass, plus configuration files and encryption. One tool to roll out, one report to read.",
+      "points": [
+        "Security bugs in your own code, across major languages",
+        "Follows untrusted input across files to where it harms",
+        "Passwords, keys and tokens stopped before they are committed",
+        "Open-source libraries with known vulnerabilities",
+        "Risky settings in Docker, Terraform, Nginx and other configs"
+      ]
+    },
+    {
+      "tag": "Quantum readiness",
+      "h": "The crypto inventory banks are now asked for",
+      "p": "Banks, defense suppliers and critical infrastructure are being asked where their encryption stands. RSA and elliptic-curve crypto must be replaced on CNSA 2.0 timelines, the US schedule for quantum-safe encryption. Fennec finds every use, scores your readiness and writes the inventory in one run.",
+      "points": [
+        "Finds RSA, DSA, elliptic-curve and Diffie-Hellman use",
+        "Migration deadline shown for every finding",
+        "Credits quantum-safe algorithms such as ML-KEM and ML-DSA",
+        "A readiness percentage you can show the board",
+        "Crypto bill of materials (CBOM) in CycloneDX format"
+      ]
+    },
+    {
+      "tag": "Fits your stack",
+      "h": "Switch without rewriting the rules you trust",
+      "p": "Your team has written rules for the scanner it uses today. Fennec reuses them without a rewrite and plugs into the places code is reviewed, from pull requests to any CI pipeline. Even AI coding agents can check their own code before you see it.",
+      "points": [
+        "Existing custom rules reused, no rewrite",
+        "GitHub Action and GitHub App for pull request checks",
+        "Any CI pipeline, failing builds by severity",
+        "MCP server lets AI coding agents check their code",
+        "Findings become tracked cases in AutoSecOps"
+      ]
+    },
+    {
+      "tag": "Accuracy",
+      "h": "Fewer false alarms, measured on your own code",
+      "p": "False alarms teach developers to ignore a scanner. Every Fennec rule is tested in CI against vulnerable code and look-alike safe code. Known false-positive patterns are published, and in the pilot accuracy is measured again on your code, not ours.",
+      "points": [
+        "Each rule must fire on its vulnerable test case",
+        "Look-alike safe code must produce zero findings",
+        "Rules labeled by tier, so teams tune noise",
+        "Baselines split new, recurring and resolved findings",
+        "Batch ignore or baseline, previewed before anything changes"
+      ]
+    },
+    {
+      "tag": "Evidence",
+      "h": "Audit and customer evidence without extra work",
+      "p": "Software companies face customer security reviews and SOC 2 audits. Banks face strict regulators. AI now writes more of the code, and Fennec checks all of it. The same scans produce the standard reports auditors and customers ask for.",
+      "points": [
+        "Standard SARIF reports, including for GitHub code scanning",
+        "JSON output for any tool or pipeline",
+        "Audit reports for SOC 2 and customer reviews",
+        "Crypto inventory for security reviews"
+      ]
+    }
+  ],
+  "shift": {
+    "title": "What changes with Fennec",
+    "rows": [
+      { "k": "Scan time", "before": "Minutes, so developers switch it off", "after": "Seconds, on every commit" },
+      { "k": "Tools", "before": "Separate code, secret and dependency scanners", "after": "One tool, one pass" },
+      { "k": "Leaked keys", "before": "Found after they reach history", "after": "Stopped before the commit" },
+      { "k": "Findings per change", "before": "The whole backlog, every time", "after": "Only what the branch adds" },
+      { "k": "Quantum readiness", "before": "Nobody knows where weak crypto is", "after": "Inventory and readiness score in one run" }
+    ]
+  },
+  "limits": {
+    "title": "What Fennec will not do",
+    "items": [
+      { "h": "Fix every finding for you", "p": "Automatic fixes cover supported issues. Other findings point to the exact line and data flow, and a developer makes the change." },
+      { "h": "Check dependencies fully offline", "p": "Code, secret and crypto scans run fully offline. Dependency checks look up the public OSV vulnerability database." },
+      { "h": "Promise zero false positives", "p": "Some rules are heuristic. Fennec labels every rule by tier, publishes its known false-positive patterns and re-measures accuracy on your code." }
+    ]
+  },
+  "pilot": {
+    "title": "Three repositories, two weeks, a clear report",
+    "steps": [
+      { "h": "Pick three repositories", "p": "Choose three repositories that matter. Read-only access is all we need, and we connect them in an hour." },
+      { "h": "First scan, same day", "p": "The first full scan runs the day you connect. Developers install nothing." },
+      { "h": "Two weeks of scans", "p": "Every pull request is scanned for two weeks, and we tune the rules with your team." },
+      { "h": "Results on the table", "p": "Real findings, live secrets, dependency risk, crypto readiness and scan times, with accuracy measured on your code." }
+    ]
+  },
+  "objections": [
+    {
+      "q": "What is Fennec, in one sentence?",
+      "a": "Fennec is Singularity’s code security scanner: in seconds it checks your code for security bugs, leaked secrets, vulnerable open-source libraries, risky configuration and quantum-weak encryption, on developer laptops, in pull requests and in any CI pipeline."
+    },
+    {
+      "q": "Can Fennec run on-premises or in an air-gapped network?",
+      "a": "Yes. Fennec runs on your own machines, on macOS, Linux and Windows, and your code never leaves them. An air-gapped install is available. Code, secret and crypto scans run fully offline; only dependency checks look up the public OSV vulnerability database."
+    },
+    {
+      "q": "Who decides what blocks a build and what gets ignored?",
+      "a": "Your team does. With Fennec you choose which severity fails a build. Accepting a finding takes an in-code note that reviewers see in the pull request, and bulk changes are previewed before anything is written. Automatic fixes apply only when you run them."
+    },
+    {
+      "q": "Will Fennec slow my developers down?",
+      "a": "No. Fennec scans in seconds, fast enough to run before every commit, and shows only the issues a branch adds rather than the whole backlog. Developers see findings where they already work: the command line, VS Code, pre-commit and pull requests."
+    },
+    {
+      "q": "Won’t it bury my team in false positives?",
+      "a": "Fennec tests every rule against vulnerable code and against look-alike safe code, which must produce zero findings. Each rule is labeled by tier so you can tune noise, and in the pilot Fennec’s accuracy is measured again on your own code."
+    }
+  ],
+  "close": {
+    "h": "Scan three of your repositories in two weeks",
+    "p": "Pick three repositories and a date. You get real findings, leaked secrets and a crypto readiness score from your own code."
+  }
+}

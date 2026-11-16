@@ -1,0 +1,146 @@
+{
+  "slug": "autosecops",
+  "name": "AutoSecOps",
+  "title": "AutoSecOps: your AI security team | Singularity",
+  "description": "AutoSecOps is an AI security team. It investigates every alert, stops real threats with your approval and logs each step. 2,000+ integrations.",
+  "kicker": "AI security operations",
+  "h1": "Every alert investigated. Big decisions stay with you.",
+  "lede": "AutoSecOps is an AI security team that works around the clock. It investigates every alert and stops real threats with your approval, through 2,000+ integrations with the tools you already run.",
+  "stat": {
+    "value": "4,484",
+    "label": "alerts reach the average security team every day. Two-thirds are never reviewed.",
+    "source": "Vectra AI, State of Threat Detection, 2023"
+  },
+  "problem": {
+    "title": "Too many alerts. Too few people.",
+    "items": [
+      {
+        "h": "Most alerts go unread",
+        "p": "Two-thirds of alerts are never reviewed, and 97% of analysts worry about missing a real attack (Vectra AI, 2023)."
+      },
+      {
+        "h": "Night alerts wait until morning",
+        "p": "An alert that arrives at night usually sits in the queue. No one looks unless someone is on call."
+      },
+      {
+        "h": "The trail is scattered",
+        "p": "Who looked, who approved and what was done sit in different tools. Gathering evidence for an auditor can take days."
+      }
+    ]
+  },
+  "steps": {
+    "title": "From alert to closed case",
+    "items": [
+      {
+        "h": "Your tools alert",
+        "p": "Your existing security software stays in place and keeps raising alerts. AutoSecOps works alongside it."
+      },
+      {
+        "h": "AI analysts investigate",
+        "p": "AI analysts review every alert around the clock, gather the evidence and filter out false alarms."
+      },
+      {
+        "h": "Your rules decide",
+        "p": "Small fixes run on their own. Serious steps, such as disabling an account or wiping a laptop, wait for your approval."
+      },
+      {
+        "h": "Done, with proof",
+        "p": "The case records what happened, who decided and what was done. The report is ready for management or an auditor."
+      }
+    ]
+  },
+  "features": {
+    "title": "What your team gets",
+    "items": [
+      {
+        "h": "An analyst for every alert",
+        "p": "AI analysts investigate phishing emails, infected laptops, suspicious logins and risky cloud changes the way your best analyst would."
+      },
+      {
+        "h": "Cases that write themselves",
+        "p": "For each real incident you get a written case: what happened, who was affected and what to do next."
+      },
+      {
+        "h": "Workflows in plain English",
+        "p": "Describe a response in plain English and get a workflow to review. Known threats run the same way every time."
+      },
+      {
+        "h": "Works with your tools",
+        "p": "AutoSecOps reads from the security tools you already own, acts through them and writes the results back."
+      },
+      {
+        "h": "Our own sensors, if needed",
+        "p": "No security tools yet? Singularity’s own endpoint, network and log monitoring (EDR, NDR and SIEM) cover the gap."
+      },
+      {
+        "h": "Automation for every team",
+        "p": "IT, finance, revenue operations, people, legal and engineering teams automate their own work with the same workflows and AI agents."
+      }
+    ]
+  },
+  "fit": {
+    "title": "Who AutoSecOps is for",
+    "who": [
+      "Security operations teams",
+      "CISOs and IT managers",
+      "Banks and fintech",
+      "Defense and government",
+      "Factories and utilities",
+      "IT, finance and people teams"
+    ],
+    "works": [
+      "CrowdStrike",
+      "SentinelOne",
+      "Splunk",
+      "Microsoft Sentinel",
+      "Palo Alto",
+      "Okta",
+      "Microsoft 365",
+      "Slack",
+      "2,000+ more"
+    ]
+  },
+  "control": {
+    "title": "You are always in control",
+    "items": [
+      {
+        "h": "Big moves need a yes",
+        "p": "You choose what runs alone. Disabling an account or wiping a laptop waits for a yes in Slack, Teams or email."
+      },
+      {
+        "h": "Every step on record",
+        "p": "Each step and approval is logged: who decided, when and on what basis. Evidence for an auditor is already there."
+      },
+      {
+        "h": "Your data stays in-house",
+        "p": "Run AutoSecOps in the cloud, on your own servers or fully air-gapped, with no internet link. Company data never has to leave."
+      }
+    ]
+  },
+  "faq": [
+    {
+      "q": "What is AutoSecOps?",
+      "a": "AutoSecOps is an AI security team from Singularity. Its AI analysts investigate every security alert around the clock, filter out false alarms and open a written case for each real threat. They stop the threat through 2,000+ integrations with your existing tools and ask your team before any serious step."
+    },
+    {
+      "q": "Who is AutoSecOps for?",
+      "a": "AutoSecOps is for organizations whose security team gets more alerts than it can review, such as banks, factories, hospitals, defense and government bodies. IT, finance, revenue operations, people, legal and engineering teams can use the same workflows to automate their own work."
+    },
+    {
+      "q": "How is AutoSecOps different from a traditional SOAR?",
+      "a": "A traditional SOAR, a tool that automates security response, runs the scripts you write and stops when reality does not match them. AutoSecOps runs predictable workflows for known threats and AI analysts that reason through new ones. Risky actions always wait for a person."
+    },
+    {
+      "q": "Can AutoSecOps run on-premises or air-gapped?",
+      "a": "Yes. AutoSecOps runs in the cloud, in your own datacenter or fully air-gapped, meaning with no connection to the internet. It can run on the Singularity Foundation Models, on your own hardware, so sensitive data never has to leave."
+    },
+    {
+      "q": "How do people stay in control of AutoSecOps?",
+      "a": "You decide which actions AutoSecOps runs on its own, which need approval and who can approve them. Serious steps, such as disabling an account, wait for a person. Every step is recorded with its evidence, so any decision can be explained later."
+    }
+  ],
+  "cta": {
+    "h": "See AutoSecOps on your own alerts",
+    "p": "Book a demo, or start with a pilot in your environment. We measure before and after together, with your own alerts."
+  }
+}

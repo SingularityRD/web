@@ -1,0 +1,155 @@
+{
+  "slug": "it-ops",
+  "hook": {
+    "kicker": "AI on-call engineer",
+    "h1": "IT failures fixed faster, safely and on the record",
+    "lede": "IT Ops works the night shift. It turns alert noise into one incident, proves the cause, proposes an approved fix and asks for your approval."
+  },
+  "scene": {
+    "title": "3 a.m. A bad release takes down checkout",
+    "setup": "An online store, 3 a.m. Last night's update leaks memory. The checkout service starts throwing errors, and three monitoring tools fire at once.",
+    "without": [
+      { "t": "03:00", "p": "Dozens of alerts hit the on-call engineer's phone. Nobody can tell which service or team owns them." },
+      { "t": "03:15", "p": "The trail runs across five separate screens. An expert colleague gets woken up by a call." },
+      { "t": "04:10", "p": "Someone restarts the system. It helps for now. Nobody writes down what was done." },
+      { "t": "08:30", "p": "Management asks what happened. There is no clear answer and no record." }
+    ],
+    "with": [
+      { "t": "03:00", "p": "IT Ops merges the alerts into one incident and opens a ticket for the owning team." },
+      { "t": "03:15", "p": "One card reaches the on-call phone: cause, evidence, a rollback already dry-run. One tap approves it." },
+      { "t": "04:10", "p": "Error rates and health checks confirm the fix. The ticket closes and the lesson is saved." },
+      { "t": "08:30", "p": "Management opens the record: who approved what, on which evidence, and when. The report is ready." }
+    ],
+    "end": {
+      "without": "Lost sales, a tired team, no answers for audit",
+      "with": "Service restored, verified and on record by morning"
+    }
+  },
+  "chapters": [
+    {
+      "tag": "Detect",
+      "h": "Every alert lands as one incident with an owner",
+      "p": "Each team brought its own monitoring tool, so one problem arrives as five alerts. IT Ops merges them into one incident and takes the service, environment and owner from your service catalog. Your engineer knows at a glance what broke and whose it is.",
+      "points": [
+        "Alerts from Zabbix, Datadog, Grafana, Splunk and more",
+        "Any tool that sends JSON connects through a webhook",
+        "Covers outages, resource exhaustion and bad deployments",
+        "Optional service map and service level charts per incident",
+        "Agents for Linux, Windows and Kubernetes, no code changes"
+      ]
+    },
+    {
+      "tag": "Investigate",
+      "h": "The root cause arrives with its evidence",
+      "p": "Finding the cause often takes longer than fixing it. The IT Ops investigator reads your systems with read-only access and ties every claim to a real data point. It flags what it cannot prove and names the sources it could not reach.",
+      "points": [
+        "Every claim matched to a real tool call",
+        "Unsupported claims marked as hypotheses",
+        "Read-only investigator with no write access at all",
+        "Similar past incidents and the fixes that worked"
+      ]
+    },
+    {
+      "tag": "Act",
+      "h": "Fixes your team already trusts, applied with approval",
+      "p": "Security will not let an AI run free-form commands in production. IT Ops cannot write commands. It picks a fix from a catalog you approved, on systems in your inventory, and shows a dry run, a rehearsal that changes nothing, and the rollback plan before anyone says yes.",
+      "points": [
+        "Restarts, cleanups and rollbacks for Linux, Windows and IIS",
+        "Kubernetes, Docker, Argo CD and Helm release rollbacks",
+        "PostgreSQL and MySQL connection checks and long query stops",
+        "Disk, port, DNS and certificate expiry checks",
+        "Approve or reject in the web, Teams or Slack"
+      ]
+    },
+    {
+      "tag": "Control",
+      "h": "People step in as the risk grows",
+      "p": "Checks that change nothing run on their own. Small, reversible fixes run automatically only where you allow it. High-impact fixes always wait for a person, and the requester can never approve their own request. Policy can raise a risk level, never lower it.",
+      "points": [
+        "Caps on how many systems one action touches",
+        "Approval required during change freeze windows",
+        "Approvals expire and void if the target changes",
+        "Forbidden actions cannot run with any approval",
+        "Sign-in through Entra ID, Okta or Active Directory"
+      ]
+    },
+    {
+      "tag": "Safety",
+      "h": "Safety rules no setting can switch off",
+      "p": "An AI with the keys to production worries every CISO. In IT Ops the core safety rules are built into the code. No setting, license or AI output can relax them. A fix that fails its checks rolls back on its own and goes to a person.",
+      "points": [
+        "Success measured by metrics and health checks, not AI",
+        "Temporary changes revert when their time runs out",
+        "Hidden instructions in logs treated as data, never obeyed",
+        "One emergency stop halts every automated change",
+        "Emergency stop works even after the license expires"
+      ]
+    },
+    {
+      "tag": "Record",
+      "h": "When the auditor asks, the answer is ready",
+      "p": "Who touched production at 3 a.m., and who approved it? IT Ops writes every step to an append-only log that shows any later edit. Records flow to your security monitoring, and management gets a report of incidents, actions and rollbacks.",
+      "points": [
+        "Tamper-evident log checked against an external copy",
+        "Audit records sent to your security monitoring system (SIEM)",
+        "Value report on screen and as PDF",
+        "Only fixes confirmed to work are remembered",
+        "Team ratings show when to expand automation"
+      ]
+    }
+  ],
+  "shift": {
+    "title": "From night chaos to a closed loop",
+    "rows": [
+      { "k": "Alerts", "before": "The same problem arrives as five separate alerts", "after": "One incident with service, environment and owner" },
+      { "k": "Root cause", "before": "Chased across five screens with an expert on call", "after": "Shown with evidence, unproven claims flagged" },
+      { "k": "The fix", "before": "Something gets tried, and nobody takes notes", "after": "Approved catalog fix, dry run first, rollback ready" },
+      { "k": "Did it work", "before": "Someone assumes the restart helped", "after": "Metrics and health checks confirm it" },
+      { "k": "Audit", "before": "Who did what, and why, written down nowhere", "after": "Every step on a tamper-evident record" }
+    ]
+  },
+  "limits": {
+    "title": "What IT Ops will not do",
+    "items": [
+      { "h": "Write its own commands", "p": "IT Ops picks only from the approved catalog. An off-catalog suggestion is rejected, whatever the model says." },
+      { "h": "Touch systems you did not list", "p": "A target outside your inventory cannot be acted on, even when an alert or a log line asks for it." },
+      { "h": "Run high-impact fixes alone", "p": "Broad-impact actions always need a person's approval, and the person who asked cannot approve their own request." },
+      { "h": "Promise numbers up front", "p": "IT Ops comes with no promised gains. We measure them with you on your own incidents, and savings use only figures you enter." }
+    ]
+  },
+  "pilot": {
+    "title": "Watch first. Grant authority later.",
+    "steps": [
+      { "h": "Scope it together", "p": "Pick services, tools and team, and agree on success. You bring one Linux server; we handle setup." },
+      { "h": "Observe and suggest", "p": "For a few weeks IT Ops only finds incidents and suggests fixes. Your team rates them. Nothing is written." },
+      { "h": "Act in test", "p": "Approved fixes run in your test environment only, so the team sees the full loop safely." },
+      { "h": "Act in production", "p": "With your approval, fixes move to production. Only the small fixes you choose run automatically." }
+    ]
+  },
+  "objections": [
+    {
+      "q": "What is Singularity IT Ops, in plain terms?",
+      "a": "Singularity IT Ops is an AI on-call engineer for IT incidents. It merges alerts into one incident, finds the root cause with evidence, proposes a fix from your approved catalog, applies it with approval, verifies it with health checks and records every step."
+    },
+    {
+      "q": "Can it run on our own servers, even air-gapped?",
+      "a": "Yes. IT Ops installs in your environment on one Linux server or Kubernetes, with no vendor-run cloud. It also runs air-gapped, with no internet, from one offline bundle with a local AI model. Passwords, names and addresses are masked before any text reaches the AI."
+    },
+    {
+      "q": "How do we stay in control of what the AI does?",
+      "a": "IT Ops cannot write commands. It picks from your approved catalog, on systems you listed. High-impact fixes wait for a person, and nobody approves their own request. One emergency stop halts every automated change, and it keeps working even after the license expires."
+    },
+    {
+      "q": "Could an instruction hidden in a log line make it run something?",
+      "a": "No. IT Ops passes alert, log and comment text to the model as untrusted data. Whatever the model says, a command outside the catalog is rejected and a target outside your inventory cannot be touched. Risky fixes still wait for a person."
+    },
+    {
+      "q": "Do we have to replace our monitoring and ticketing tools?",
+      "a": "No. IT Ops reads the tools you already run, such as Zabbix, Datadog, Grafana and Splunk, opens tickets in Jira or ServiceNow and sends approvals to Teams or Slack. Your team keeps working in the screens it knows."
+    }
+  ],
+  "close": {
+    "h": "See IT Ops on your own incidents",
+    "p": "We handle the setup. IT Ops starts by only watching and suggesting, and you decide when it may act."
+  }
+}

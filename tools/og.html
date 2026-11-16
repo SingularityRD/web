@@ -1,0 +1,24 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>og cover</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Inter+Tight:wght@600&family=Instrument+Serif:ital@1&display=swap" rel="stylesheet">
+<style>
+  html, body { margin: 0; }
+  body { position: relative; width: 1200px; height: 630px; overflow: hidden; background: #05071a; color: #f2f2f0; font-family: Inter, sans-serif; }
+  canvas { position: absolute; left: 262px; top: -40px; width: 1400px; height: 740px; }
+  .shade { position: absolute; inset: 0; background: linear-gradient(90deg, #05071a 0%, rgba(5, 7, 26, 0.94) 22%, rgba(5, 7, 26, 0.5) 50%, rgba(5, 7, 26, 0) 72%), linear-gradient(0deg, rgba(5, 5, 12, 0.85), rgba(5, 5, 12, 0) 34%); }
+  .logo { position: absolute; left: 64px; top: 56px; height: 40px; }
+  h1 { position: absolute; left: 64px; top: 208px; margin: 0; font: 600 80px/0.98 "Inter Tight", Inter, sans-serif; letter-spacing: -0.045em; }
+  h1 em { display: block; font: italic 400 88px/1 "Instrument Serif", serif; letter-spacing: -0.025em; background: linear-gradient(95deg, #fff 8%, #c9f7de 52%, #6ee7a8 100%); -webkit-background-clip: text; background-clip: text; color: transparent; padding-bottom: 8px; }
+  p { position: absolute; left: 66px; margin: 0; }
+  .sub { top: 412px; font-size: 25px; letter-spacing: -0.01em; color: rgba(242, 242, 240, 0.8); }
+  .foot { bottom: 54px; font: 500 19px Inter, sans-serif; color: rgba(242, 242, 240, 0.62); }
+  .foot b { font-weight: 500; color: #f2f2f0; }
+</style>
+<canvas data-art="model" width="1400" height="740"></canvas>
+<div class="shade"></div>
+<img class="logo" src="http://localhost:4321/assets/logo.svg" alt="">
+<h1>We hack governments.<em>Then we secure them.</em></h1>
+<p class="sub">A frontier AI security lab. Our own model. Seven products.</p>
+<p class="foot"><b>singularityrd.com</b></p>
+<script src="http://localhost:4321/art.js"></script>

@@ -1,0 +1,145 @@
+{
+  "slug": "breakpoint",
+  "name": "Breakpoint",
+  "title": "Breakpoint: AI pentester for apps and APIs | Singularity",
+  "description": "Breakpoint is an AI pentester. It attacks your code, web apps, APIs and AI apps every day, proves each finding by reproducing it and delivers a fix.",
+  "kicker": "AI pentester",
+  "h1": "Find your breaking point before attackers do.",
+  "lede": "Breakpoint is an AI pentester. It attacks your code, web apps, APIs and AI apps every day, like a real attacker. Every finding is proven and comes with a fix.",
+  "stat": {
+    "value": "$4.99M",
+    "label": "Average cost of a single data breach to a company in 2026",
+    "source": "IBM Cost of a Data Breach Report, 2026"
+  },
+  "problem": {
+    "title": "Code changes daily. Testing happens once a year.",
+    "items": [
+      {
+        "h": "A pentest is a snapshot",
+        "p": "A pentest is a test attack on your own systems. Between two of them, only real attackers are testing your new code."
+      },
+      {
+        "h": "Scanners raise too many alarms",
+        "p": "Security scanners produce thousands of alerts. Nobody proves which ones an attacker can actually use, so engineers sort through noise."
+      },
+      {
+        "h": "Attackers use AI too",
+        "p": "Breaches where attackers used AI cost about $1M more than average (IBM Cost of a Data Breach Report, 2026)."
+      }
+    ]
+  },
+  "steps": {
+    "title": "Find. Prove. Fix. Re-test.",
+    "items": [
+      {
+        "h": "Find",
+        "p": "Breakpoint probes your code, web apps, APIs and AI features the way a real attacker would."
+      },
+      {
+        "h": "Prove",
+        "p": "A finding counts only when it has been reproduced, with the evidence attached. No guesswork."
+      },
+      {
+        "h": "Fix",
+        "p": "Each proven finding comes with a fix that is ready for your team to review."
+      },
+      {
+        "h": "Re-test",
+        "p": "The same attack is run again after the fix. The finding is closed only when the attack fails."
+      }
+    ]
+  },
+  "features": {
+    "title": "One platform for everything you ship",
+    "items": [
+      {
+        "h": "Source code",
+        "p": "Reviews your code repositories in depth, the way an expert reviewer reads them."
+      },
+      {
+        "h": "Web apps and APIs",
+        "p": "Tests live applications with logins and API specifications, inside the scope you set."
+      },
+      {
+        "h": "AI apps and agents",
+        "p": "Tests your chatbots and AI agents for prompt injection (text that tricks an AI), data leaks and misuse of tools."
+      },
+      {
+        "h": "Every code change",
+        "p": "Each code change, or pull request, is reviewed for security before it reaches production."
+      },
+      {
+        "h": "Packages and containers",
+        "p": "Checks the npm, PyPI and Cargo packages and container images your software depends on."
+      },
+      {
+        "h": "Evidence for audits",
+        "p": "Reports support your PCI DSS, ISO 27001, SOC 2 and DORA compliance work. They are evidence, not a certification."
+      }
+    ]
+  },
+  "fit": {
+    "title": "Built for teams that can’t afford to guess",
+    "who": [
+      "Banking and fintech",
+      "Insurance and capital markets",
+      "SaaS and software companies",
+      "Telecom, energy and utilities",
+      "Public sector and defense",
+      "E-commerce and retail"
+    ],
+    "works": [
+      "GitHub Actions",
+      "GitHub Issues",
+      "OpenAPI",
+      "Swagger",
+      "npm",
+      "PyPI",
+      "Cargo",
+      "AutoSecOps"
+    ]
+  },
+  "control": {
+    "title": "Powerful by design. Bounded by default.",
+    "items": [
+      {
+        "h": "Only targets you approve",
+        "p": "Breakpoint tests only the targets you approve, inside limits you set, with your written authorization. Every run keeps a record."
+      },
+      {
+        "h": "People decide on fixes",
+        "p": "Fixes are proposed for review. Nothing is merged into your code without your team."
+      },
+      {
+        "h": "Your code stays with you",
+        "p": "Breakpoint runs in your environment with the AI provider you choose, or air-gapped with no outside connection. Your code stays with you."
+      }
+    ]
+  },
+  "faq": [
+    {
+      "q": "What is Singularity Breakpoint?",
+      "a": "Breakpoint is an AI pentester from Singularity. It attacks your code, web apps, APIs and AI apps every day, the way a real attacker would, proves each finding by reproducing it and delivers a fix your team can review."
+    },
+    {
+      "q": "Who is Breakpoint for?",
+      "a": "Breakpoint is for teams that ship software often and must prove it is secure: banks and fintech, insurance and capital markets, SaaS and software companies, telecom, energy and utilities, the public sector and defense, and e-commerce and retail."
+    },
+    {
+      "q": "How is Breakpoint different from scanners and annual pentests?",
+      "a": "A scanner raises suspicions and an annual pentest is a snapshot. Breakpoint attacks every day and counts a finding only when it has been reproduced. Keep the certified annual pentest where regulators require it; Breakpoint covers the time between tests."
+    },
+    {
+      "q": "Can Breakpoint run on-premises or air-gapped?",
+      "a": "Yes. Breakpoint runs in your own environment with the AI provider you choose. It can also run fully air-gapped, meaning offline with no outbound connection. Your code, findings and evidence stay on your machines."
+    },
+    {
+      "q": "How do people stay in control of Breakpoint?",
+      "a": "Breakpoint tests only the targets you approve in writing, inside limits you set. Fixes are proposed for review and nothing is merged without your team. Every test run keeps a record of what it did."
+    }
+  ],
+  "cta": {
+    "h": "See what an attacker would find",
+    "p": "Pick one application. We agree the scope in writing, attack it and show you the proven findings and fixes."
+  }
+}

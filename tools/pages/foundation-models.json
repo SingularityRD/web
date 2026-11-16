@@ -1,0 +1,136 @@
+{
+  "slug": "foundation-models",
+  "name": "Singularity Foundation Models",
+  "title": "Singularity Foundation Models: air-gapped frontier AI",
+  "description": "AI models trained from scratch by Singularity. They run inside your building, fully air-gapped, and lead published frontier models on cyber benchmarks.",
+  "kicker": "Our own AI models",
+  "h1": "Frontier AI that runs inside your walls.",
+  "lede": "The Singularity Foundation Models are trained from scratch by us. They run on your own hardware, fully air-gapped, so sensitive data never leaves and nobody can switch them off from outside.",
+  "stat": {
+    "value": "88.0",
+    "label": "on CyberGym, above every published frontier result.",
+    "source": "Singularity internal measurement, 2026. Other models: results published by their makers."
+  },
+  "problem": {
+    "title": "The best models live in someone else’s cloud",
+    "items": [
+      {
+        "h": "Data can’t leave",
+        "p": "Banks, defense and public bodies often cannot send their data to a foreign cloud."
+      },
+      {
+        "h": "Models can’t come in",
+        "p": "Frontier models are served from their makers’ clouds. They are not installed on a closed network."
+      },
+      {
+        "h": "Attackers already use AI",
+        "p": "Security teams drown in alerts while attackers automate finding and exploiting weaknesses."
+      }
+    ]
+  },
+  "steps": {
+    "title": "From our lab to your building",
+    "items": [
+      {
+        "h": "Choose",
+        "p": "Pick Singularity Cyber for security work, Singularity General for everyday work, or both."
+      },
+      {
+        "h": "Install",
+        "p": "The model is deployed on your own hardware: in your cloud, your datacenter or a fully air-gapped site."
+      },
+      {
+        "h": "Use",
+        "p": "Your teams and our AI products work with it inside your network. Your data stays where it is."
+      }
+    ]
+  },
+  "features": {
+    "title": "Three models, one family",
+    "items": [
+      {
+        "h": "Singularity Cyber",
+        "p": "Finds the weaknesses in your own network first: internal pentests, vulnerability discovery and SOC triage."
+      },
+      {
+        "h": "Singularity General",
+        "p": "An in-house assistant for documents, analysis and software work."
+      },
+      {
+        "h": "Frontier Cyber",
+        "p": "Offense-grade. Sold only to approved government and defense institutions, under contract and full audit."
+      },
+      {
+        "h": "Trained from scratch",
+        "p": "Our own models, not a wrapper around another vendor’s API."
+      },
+      {
+        "h": "Runs air-gapped",
+        "p": "Works with no internet connection, on hardware you own."
+      },
+      {
+        "h": "Strong general intelligence",
+        "p": "We estimate 44 on the Artificial Analysis Index v5 scale, ahead of Claude Sonnet 5.5 (31) at medium effort."
+      }
+    ]
+  },
+  "fit": {
+    "title": "For organizations that keep data in-house",
+    "who": [
+      "Banks and finance",
+      "Government",
+      "Defense",
+      "Critical infrastructure",
+      "Security teams and MSSPs"
+    ],
+    "works": [
+      "AutoSecOps",
+      "AIDR",
+      "IT Ops",
+      "Breakpoint"
+    ]
+  },
+  "control": {
+    "title": "Yours to run, yours to check",
+    "items": [
+      {
+        "h": "Nobody can switch it off",
+        "p": "The model runs in your building. Access does not depend on another company or another government."
+      },
+      {
+        "h": "Data never leaves",
+        "p": "Prompts, documents and results stay on your own network."
+      },
+      {
+        "h": "Frontier Cyber is restricted",
+        "p": "It is sold only to approved institutions, under contract, with a full audit trail."
+      }
+    ]
+  },
+  "faq": [
+    {
+      "q": "What are the Singularity Foundation Models?",
+      "a": "The Singularity Foundation Models are AI models that Singularity trained from scratch, not a wrapper around another vendor’s API. The family has three members: Singularity Cyber, Singularity General and Frontier Cyber."
+    },
+    {
+      "q": "Can the Singularity Foundation Models run air-gapped?",
+      "a": "Yes. The Singularity Foundation Models run on your own hardware, in your cloud, your datacenter or a fully air-gapped site with no internet connection. We size the hardware with you. Requirements are in the technical brief."
+    },
+    {
+      "q": "How do the Singularity Foundation Models compare with other frontier models?",
+      "a": "By Singularity’s internal measurement, our best model scores 88.0 on CyberGym, ahead of the results published for other frontier models. On general intelligence, Singularity estimates 44 on the Artificial Analysis Intelligence Index v5 scale: ahead of Claude Sonnet 5.5 (31) and GPT-6.1 Terra (38) at medium reasoning effort, and behind GPT-6 Astra (52) and Claude Opus 5.5 (48)."
+    },
+    {
+      "q": "Who can buy Frontier Cyber?",
+      "a": "Frontier Cyber is the offense-grade member of the Singularity Foundation Models. Singularity sells it only to approved government and defense institutions, under contract and with a full audit trail."
+    },
+    {
+      "q": "Which Singularity products use the models?",
+      "a": "Singularity’s AI products can run on the Singularity Foundation Models on your own hardware. Those products are AutoSecOps, AIDR, IT Ops and Breakpoint."
+    }
+  ],
+  "cta": {
+    "h": "Run a frontier model on your own hardware",
+    "p": "Tell us where it has to run and what it has to do. We will show it working on your kind of problem."
+  }
+}

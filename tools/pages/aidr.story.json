@@ -1,0 +1,159 @@
+{
+  "slug": "aidr",
+  "hook": {
+    "kicker": "Security for AI",
+    "h1": "Keep the speed of AI without the risk",
+    "lede": "AIDR masks customer data before it reaches ChatGPT and stops AI agents before a harmful action runs. Every decision is made on your machines and logged."
+  },
+  "stake": {
+    "value": "33%",
+    "label": "of enterprise software will include AI agents by 2028, up from under 1% in 2024",
+    "source": "Gartner, 2024"
+  },
+  "scene": {
+    "title": "A refund letter written with ChatGPT",
+    "setup": "A bank’s customer service desk, 10:40 on a Tuesday. An employee has a refund letter to write and opens ChatGPT to save time.",
+    "without": [
+      { "t": "10:40", "p": "The employee pastes the customer’s name, Turkish ID number and IBAN into ChatGPT." },
+      { "t": "10:41", "p": "The data reaches a service abroad. Under KVKK, Turkish data protection law, the bank carries the risk." },
+      { "t": "11:30", "p": "Security bans the AI site. The employee carries on from a personal phone." },
+      { "t": "17:00", "p": "The compliance officer asks what went to AI today. Nobody has a record." }
+    ],
+    "with": [
+      { "t": "10:40", "p": "The employee pastes the same text. AIDR masks the name, ID number and IBAN before sending." },
+      { "t": "10:41", "p": "ChatGPT sees only placeholders. The reply shows the full details, only on the employee’s screen." },
+      { "t": "11:30", "p": "No ban is needed. The employee keeps using ChatGPT at work, and the data stays inside." },
+      { "t": "17:00", "p": "The log shows what was masked, by type, without the values. The report is ready." }
+    ],
+    "end": {
+      "without": "Customer data abroad, and the risk out of sight.",
+      "with": "Letter sent. The customer’s data never left."
+    }
+  },
+  "chapters": [
+    {
+      "tag": "Agent attacks",
+      "h": "A tricked agent never gets to act",
+      "p": "Coding agents read READMEs, emails and web pages. One hidden instruction can turn an agent against you. AIDR checks every command, file write, web request and MCP call (an agent’s link to other systems) before it runs. The harmful step stops; normal work carries on.",
+      "points": [
+        "Hidden instructions in READMEs, documents and emails",
+        "Poisoned tool output hidden before the AI reads it",
+        "MCP servers and tools that turn malicious after approval",
+        "Multi-step attacks judged as one chain",
+        "Key theft, fake packages and disguised destructive commands"
+      ]
+    },
+    {
+      "tag": "Agent mistakes",
+      "h": "Irreversible actions wait for a person",
+      "p": "No attacker is needed for harm. An agent chasing a passing test can delete the checks. One cleaning up can destroy your infrastructure. AIDR holds these actions for a person and pauses runaway sessions. Fixing code and running tests go straight through.",
+      "points": [
+        "Deleting databases or cloud infrastructure needs approval",
+        "Publishing or messaging in your name needs approval",
+        "Deleted tests, disabled CI and force-pushes are held",
+        "Loops, error spikes and blown budgets pause the session",
+        "Agents launching agents with permission prompts off are blocked"
+      ]
+    },
+    {
+      "tag": "Customer data",
+      "h": "Staff keep using AI while customer data stays inside",
+      "p": "Banning AI sites does not work. People carry on from their phones and the risk goes out of sight. AIDR lets them keep working: names, ID numbers, IBANs and keys are masked in the browser, and the reply is restored only on their screen.",
+      "points": [
+        "ChatGPT, Gemini, Claude, Copilot, Perplexity, DeepSeek, Mistral and Grok",
+        "Turkish ID numbers and IBANs checked for validity, not guessed",
+        "Masked copies of Office, PDF, CSV and ZIP files",
+        "Screenshots with personal data are held back (preview)",
+        "Project code names and your own customer records"
+      ]
+    },
+    {
+      "tag": "Control",
+      "h": "A hijacked agent cannot switch off its guard",
+      "p": "An agent hijacked by a hidden instruction will try to disable whatever stops it. With AIDR, approval lives outside the agent: only a person can give it, once, for a limited time. Attempts to turn AIDR off are blocked and logged.",
+      "points": [
+        "Single-use, time-limited approvals, given only by a person",
+        "Attempts to disable or reconfigure AIDR are blocked",
+        "On an internal error, the call is denied",
+        "Every decision shows its rule and reasoning",
+        "Kernel-level check of what agents really run, on Linux (preview)"
+      ]
+    },
+    {
+      "tag": "Visibility",
+      "h": "Know every agent and AI tool in use",
+      "p": "Most teams cannot list which agents run, with which permissions, or which MCP servers they connect to. AIDR finds them, spots shadow AI (tools used without IT’s approval) and checks personal accounts on AI sites, so you govern what is really there.",
+      "points": [
+        "Discovers agents and MCP servers across the company",
+        "Controls personal accounts on AI chat sites",
+        "Scans agent skills and MCP servers for known vulnerabilities",
+        "AI bill of materials (AI-BOM) listing your AI components"
+      ]
+    },
+    {
+      "tag": "Evidence",
+      "h": "Audit answers are ready before the auditor asks",
+      "p": "Turkey’s Law No. 7545, BDDK rules, KVKK, DORA, NIS2 and the EU AI Act all ask for control over AI. AIDR keeps a signed record of every decision and maps your rules to these frameworks clause by clause, with gaps shown.",
+      "points": [
+        "Tamper-proof signed log; sensitive values are never written",
+        "One-click KVKK and GDPR report",
+        "Monthly governance scorecard for management",
+        "Incidents sent to Splunk, Sentinel, Elastic, QRadar or AutoSecOps",
+        "Signed receipt for each agent action, on Linux (preview)"
+      ]
+    }
+  ],
+  "shift": {
+    "title": "What changes with AIDR",
+    "rows": [
+      { "k": "Customer data in AI", "before": "Pasted raw into AI sites abroad", "after": "Masked before it leaves the browser" },
+      { "k": "AI site bans", "before": "Staff carry on from their phones", "after": "Staff keep working, data stays inside" },
+      { "k": "Agent actions", "before": "Run on real systems unchecked", "after": "Allowed, held or blocked before running" },
+      { "k": "Irreversible actions", "before": "One agent mistake deletes a database", "after": "A person has the final say" },
+      { "k": "The auditor’s question", "before": "“What did the agent do?” No record", "after": "A signed record of every decision" }
+    ]
+  },
+  "limits": {
+    "title": "What AIDR will not do",
+    "items": [
+      { "h": "Certify your compliance", "p": "Framework mappings and reports support your audit work. On their own, they are not a certificate or proof of compliance." },
+      { "h": "Check the kernel everywhere", "p": "Comparing what an agent says with what actually runs is a Linux preview today. It is not offered on other systems yet." },
+      { "h": "Overrule a hook you disable", "p": "If a user turns off AIDR’s hook, its link into the agent app, the app decides. Codex lets calls through if the hook crashes." }
+    ]
+  },
+  "pilot": {
+    "title": "A 60-day pilot. We handle the setup.",
+    "steps": [
+      { "h": "Map agents and teams", "p": "Together we list which agents, repositories, MCP servers and AI sites each team uses, and write the success criteria." },
+      { "h": "Measure without blocking", "p": "AIDR watches AI chats in monitor mode, and we run harmless attack simulations on your agents. Nobody slows down." },
+      { "h": "Switch on protection", "p": "We roll out the rules together, team by team, so everyday work keeps moving." },
+      { "h": "Hand over the report", "p": "You get a scorecard and a report ready for management: what was found, what was masked and what was stopped." }
+    ]
+  },
+  "objections": [
+    {
+      "q": "What is AIDR, in plain words?",
+      "a": "AIDR is Singularity’s security product for AI. It masks customer data before employees send it to AI chat sites, and it checks every action of coding agents such as Claude Code, Codex, OpenCode and OpenClaw, plus MCP tools, before it runs. Every decision is logged."
+    },
+    {
+      "q": "Can AIDR run on our own servers or an air-gapped network?",
+      "a": "Yes. AIDR runs on your own servers, management console included, or on air-gapped networks with a signed offline package. Decisions are made on your machines and no data is sent to Singularity. Protection stays on without a network, and even after the license expires."
+    },
+    {
+      "q": "Who has the final say when AIDR holds an action?",
+      "a": "A person does. AIDR lets everyday work through, holds irreversible actions for approval and blocks harmful ones. Approvals are single-use, time-limited and given only by an authorized person, never by the agent. You set the rules, and each decision shows the rule behind it."
+    },
+    {
+      "q": "Will AIDR slow my developers down?",
+      "a": "No. With AIDR, safe calls such as fixing code and running tests go straight through, and decisions are made on the device. Developers only notice AIDR when an action is risky. Cursor and Copilot in VS Code are supported in preview."
+    },
+    {
+      "q": "Why not just ban ChatGPT?",
+      "a": "Bans do not work: blocked employees carry on from their phones, and the risk goes out of sight. AIDR lets staff keep using ChatGPT, Gemini, Claude and Copilot while names, Turkish ID numbers, IBANs and keys are masked before they leave the browser."
+    }
+  ],
+  "close": {
+    "h": "See AIDR stop an attack on your agent",
+    "p": "Book a demo, or start with a 60-day pilot. We measure the risk first, without blocking anything."
+  }
+}

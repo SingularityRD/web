@@ -1,0 +1,145 @@
+{
+  "slug": "fennec",
+  "name": "Fennec",
+  "title": "Fennec: fast code security scanner | Singularity",
+  "description": "Fennec scans your code for vulnerabilities, leaked secrets, risky dependencies and quantum-weak crypto in seconds. Your code never leaves.",
+  "kicker": "Code security scanner",
+  "h1": "Every line of code checked before it ships.",
+  "lede": "Fennec scans your code in seconds for vulnerabilities, leaked passwords, risky open-source libraries and quantum-weak encryption. Problems are caught at the keyboard, and your code never leaves.",
+  "stat": {
+    "value": "39 million",
+    "label": "passwords, API keys and tokens detected in code on GitHub in a single year",
+    "source": "GitHub, March 2025"
+  },
+  "problem": {
+    "title": "Code ships daily. Security checks lag behind.",
+    "items": [
+      {
+        "h": "Slow tools get skipped",
+        "p": "When a scan takes minutes, developers switch it off. The bugs ship with the next release."
+      },
+      {
+        "h": "Nobody knows what’s inside",
+        "p": "Most companies cannot say what is in their code today: which bugs, which leaked keys, which weak algorithms."
+      },
+      {
+        "h": "The quantum deadline",
+        "p": "Encryption that quantum computers could break must be replaced on published timelines (CNSA 2.0). Few teams know where theirs is."
+      }
+    ]
+  },
+  "steps": {
+    "title": "A smoke detector for your code",
+    "items": [
+      {
+        "h": "Listens",
+        "p": "Fennec runs in seconds on every developer laptop and on every pull request (a proposed code change)."
+      },
+      {
+        "h": "Flags",
+        "p": "It points to vulnerabilities, leaked secrets, risky libraries, weak encryption and misconfigurations, right where developers work."
+      },
+      {
+        "h": "Fixes",
+        "p": "It offers automatic fixes for supported issues and shows only the new problems each change adds."
+      },
+      {
+        "h": "Reports",
+        "p": "Standard reports and an inventory of your encryption give auditors and customers the evidence they ask for."
+      }
+    ]
+  },
+  "features": {
+    "title": "What Fennec checks on every change",
+    "items": [
+      {
+        "h": "Code vulnerabilities",
+        "p": "Finds security bugs in your own code, across the major programming languages."
+      },
+      {
+        "h": "Leaked secrets",
+        "p": "Catches passwords, API keys and tokens before they reach your code repository."
+      },
+      {
+        "h": "Risky dependencies",
+        "p": "Flags the open-source libraries you ship that have known vulnerabilities."
+      },
+      {
+        "h": "Quantum readiness",
+        "p": "Finds encryption that quantum computers could break, shows the deadlines and gives a readiness score."
+      },
+      {
+        "h": "Configuration files",
+        "p": "Checks Docker, Terraform, Nginx and other configuration files for risky settings."
+      },
+      {
+        "h": "Only what’s new",
+        "p": "On each change, developers see the problems that change adds, not the whole backlog."
+      }
+    ]
+  },
+  "fit": {
+    "title": "Any team that writes software",
+    "who": [
+      "Software and SaaS companies",
+      "Banks and fintech",
+      "Defense and public sector",
+      "Telecom and e-commerce",
+      "Software agencies",
+      "AI-assisted teams"
+    ],
+    "works": [
+      "Command line",
+      "VS Code",
+      "Pre-commit checks",
+      "Pull requests",
+      "Docker",
+      "Terraform",
+      "Nginx",
+      "AutoSecOps"
+    ]
+  },
+  "control": {
+    "title": "You stay in control",
+    "items": [
+      {
+        "h": "Code never leaves",
+        "p": "Fennec runs on your developers’ laptops and on your pull requests. Your code never leaves."
+      },
+      {
+        "h": "Developers decide",
+        "p": "Automatic fixes cover supported issues only, and a developer applies them. Accepted exceptions stay visible in code review."
+      },
+      {
+        "h": "Air-gapped install",
+        "p": "Fennec can be installed air-gapped, meaning on a network with no internet connection. Code, secret and encryption scans run fully offline."
+      }
+    ]
+  },
+  "faq": [
+    {
+      "q": "What is Fennec?",
+      "a": "Fennec is Singularity’s code security scanner. In seconds, it checks code in the major programming languages for vulnerabilities, leaked secrets, risky dependencies and encryption that quantum computers could break. It is named after the fennec fox: small, fast, with ears that hear what others miss."
+    },
+    {
+      "q": "Who is Fennec for?",
+      "a": "Fennec is for any team that writes software. That includes software and SaaS companies, banks and fintech, defense and public sector, telecom and e-commerce, software agencies, and teams that write code with AI assistants."
+    },
+    {
+      "q": "How is Fennec different from other code scanners?",
+      "a": "When a scan takes minutes, developers switch it off. Fennec finishes in seconds, fast enough to run before every change is committed. It covers code, secrets, dependencies, configuration and quantum readiness in one tool, and shows only the new problems each change adds."
+    },
+    {
+      "q": "Can Fennec run on-premises or air-gapped?",
+      "a": "Yes. Fennec runs on your own machines and your code never leaves. It can be installed air-gapped, on a network with no internet connection. Code, secret and encryption scans run fully offline; dependency checks look up a public database of known vulnerabilities."
+    },
+    {
+      "q": "How do developers stay in control of Fennec?",
+      "a": "Fennec reports what it finds and developers decide. Automatic fixes cover supported issues only, and a developer applies them. A finding can be accepted with a note in the code, which reviewers see in the pull request."
+    }
+  ],
+  "cta": {
+    "h": "Small. Fast. Hears every bug.",
+    "p": "Like the fennec fox, with ears that hear what others miss. Book a demo, or request the technical brief."
+  }
+}

@@ -1,0 +1,157 @@
+{
+  "slug": "breakpoint",
+  "hook": {
+    "kicker": "AI pentester",
+    "h1": "Find your breaking point before attackers do",
+    "lede": "Breakpoint attacks your code, web apps, APIs and AI apps every day, like a real attacker. It reports only what it can prove, and hands you the fix."
+  },
+  "stake": {
+    "value": "$4.99M",
+    "label": "What a single data breach costs a company, on average, in 2026",
+    "source": "IBM Cost of a Data Breach Report, 2026"
+  },
+  "scene": {
+    "title": "One vulnerable change, one afternoon",
+    "setup": "A weekday afternoon. A developer's change adds a search to the orders API, with a SQL injection hole that lets an attacker read the database.",
+    "without": [
+      { "t": "14:00", "p": "The pull request merges without a security review. Nobody has looked at it like an attacker." },
+      { "t": "14:30", "p": "A scanner flags it among thousands of alerts. Nobody proves whether an attacker can use it." },
+      { "t": "15:30", "p": "The change ships to production. No one has attacked it." },
+      { "t": "17:00", "p": "The last pentest report is eleven months old. Until the next one, only attackers test the code." }
+    ],
+    "with": [
+      { "t": "14:00", "p": "Breakpoint reviews the pull request before merge and flags a possible SQL injection as a hypothesis." },
+      { "t": "14:30", "p": "It attacks the staging app inside the written scope and reproduces the injection three times, evidence attached." },
+      { "t": "15:30", "p": "A six-line patch with a plain explanation arrives for review. The developer reads it and merges." },
+      { "t": "17:00", "p": "Breakpoint replays the same exploit against the fix. It fails, and the finding closes on record." }
+    ],
+    "end": {
+      "without": "An open hole that only attackers are testing",
+      "with": "Proven, fixed and re-tested the same afternoon"
+    }
+  },
+  "chapters": [
+    {
+      "tag": "Continuous",
+      "h": "Testing on every release, not once a year",
+      "p": "A pentest, a test attack on your own systems, is a snapshot. Then months of new code ship that no one has attacked. Breakpoint reviews every pull request (a proposed code change) and tests every release, so exposure windows shrink from months to days.",
+      "points": [
+        "Security review of every pull request before merge",
+        "Deep, expert-style review of your source repositories",
+        "Live testing of web apps and APIs, logged in",
+        "GitHub Actions workflow and SARIF output for any CI"
+      ]
+    },
+    {
+      "tag": "Proof",
+      "h": "Only findings an attacker could really use",
+      "p": "Scanners produce thousands of alerts, and nobody proves which are real. Breakpoint counts a finding only after it has been reproduced, with the request, response and proof attached. An AI verdict alone never confirms anything. Your team fixes what is real.",
+      "points": [
+        "Finds with scanners, code reading and live probing",
+        "Unproven candidates stay labeled as hypotheses",
+        "Every finding carries request, response and proof",
+        "Adjustable triage: less noise or every lead kept"
+      ]
+    },
+    {
+      "tag": "Fix",
+      "h": "Every proven hole comes with its fix",
+      "p": "Knowing about a hole does not close it. For each verified finding Breakpoint proposes a minimal patch and a plain explanation. Then it replays the original exploit against the fix and closes the finding only when the attack fails. Teams close issues in the same sprint.",
+      "points": [
+        "Minimal patch proposed for review, never auto-merged",
+        "Same exploit replayed against the fix",
+        "Findings exported to GitHub Issues with evidence",
+        "Works with coding agents such as Claude Code and Cursor"
+      ]
+    },
+    {
+      "tag": "AI apps",
+      "h": "Your chatbot and agents attacked before launch",
+      "p": "An AI feature launched last sprint has often never been tested. Breakpoint attacks chatbots, agents and MCP servers (tool connectors for AI agents) the way an attacker would: tricking them with hidden instructions, pulling out secrets and making agents call tools they should not.",
+      "points": [
+        "Prompt injection, including multi-turn and role-play attacks",
+        "System prompt extraction and data exfiltration attempts",
+        "Jailbreaks through encoding tricks and language switching",
+        "Unauthorized tool calls and multi-step attack chains",
+        "Built-in attack templates, plus your own"
+      ]
+    },
+    {
+      "tag": "Coverage",
+      "h": "One attacker for everything you ship",
+      "p": "Your risk does not stop at your own code. Breakpoint reads the code and attacks the running app together, audits the packages and container images you depend on, and maps Active Directory access paths offline. Software without source can be tested too.",
+      "points": [
+        "White-box testing: code review plus live attack",
+        "npm, PyPI and Cargo packages and container images",
+        "Compiled binaries without source code (preview)",
+        "Active Directory and Entra ID relationship analysis",
+        "OpenAPI and Swagger import to map your endpoints"
+      ]
+    },
+    {
+      "tag": "Audit",
+      "h": "Proof for the auditor, and a shorter pentest",
+      "p": "When an auditor or a customer asks for proof, you show the attack and the fix. Breakpoint keeps a dated record of what was tested, found and closed. Keep the certified annual pentest where regulators require it. Breakpoint makes it shorter and covers the time between.",
+      "points": [
+        "Reports in PDF, HTML, JSON, Markdown and SARIF",
+        "Evidence for PCI DSS, ISO 27001, SOC 2 and DORA",
+        "Findings feed your SIEM, tickets and dashboards",
+        "Verified findings open as cases in AutoSecOps"
+      ]
+    }
+  ],
+  "shift": {
+    "title": "Between pentests, someone attacks on your side",
+    "rows": [
+      { "k": "Testing", "before": "One pentest a year, then months untested", "after": "Every pull request and every release" },
+      { "k": "Scanner alerts", "before": "Thousands of alerts, none of them proven", "after": "Only reproduced findings, with proof attached" },
+      { "k": "Fixes", "before": "Findings in a PDF, the fix left to you", "after": "A proposed patch for every verified finding" },
+      { "k": "Closing", "before": "Nobody checks that the fix closed the hole", "after": "Same exploit replayed, closed only when it fails" },
+      { "k": "AI features", "before": "Launched last sprint, never tested", "after": "Attacked for prompt injection and tool abuse" }
+    ]
+  },
+  "limits": {
+    "title": "What Breakpoint will not do",
+    "items": [
+      { "h": "Test outside your scope", "p": "Breakpoint tests only targets listed in a written scope. Out-of-scope hosts are refused, and live testing needs written authorization." },
+      { "h": "Merge code on its own", "p": "Fixes are proposed for review. Nothing is merged into your code without your team." },
+      { "h": "Confirm findings on AI judgment", "p": "A finding without a reproduction stays a hypothesis. An AI verdict alone never marks anything as confirmed." },
+      { "h": "Replace a certified pentest", "p": "Reports are evidence for PCI DSS, ISO 27001, SOC 2 and DORA work, not a certification. Keep the certified pentest regulators require." }
+    ]
+  },
+  "pilot": {
+    "title": "One application, 30 days, a clear report",
+    "steps": [
+      { "h": "Agree the scope", "p": "Pick one application and agree the scope, rules and success criteria in writing. You bring a staging environment and repository read access." },
+      { "h": "Attack the baseline", "p": "Breakpoint runs a full first assessment of the application and proves what it finds." },
+      { "h": "Test every change", "p": "For the rest of the month it tests every pull request and release." },
+      { "h": "Decide on results", "p": "You get verified findings, fixes, false-positive rate and time-to-fix in a report ready for management." }
+    ]
+  },
+  "objections": [
+    {
+      "q": "What is Breakpoint, in plain terms?",
+      "a": "Singularity Breakpoint is an AI pentester. It attacks your code, web apps, APIs and AI apps every day, the way a real attacker would. It reports a finding only after reproducing it, proposes a fix and re-tests the fix with the same exploit."
+    },
+    {
+      "q": "Can it run on our own servers, even air-gapped?",
+      "a": "Yes. Breakpoint installs on your own Linux or Apple Silicon machines, with the AI provider you choose. It also runs fully air-gapped, offline with a self-hosted model and no outbound connection. Code, findings and evidence stay on your machines, and telemetry can be turned off."
+    },
+    {
+      "q": "Is it safe to point an AI attacker at our systems?",
+      "a": "Breakpoint tests only the targets in your written scope; other hosts are refused. Each run has step and spend limits, tools run isolated in Docker or a VM, and every run keeps a journal. Fixes are proposed for review, and nothing merges without your team."
+    },
+    {
+      "q": "Won't an AI just flood us with false positives?",
+      "a": "No. Breakpoint treats a finding without a reproduction as a hypothesis, not a finding. An AI verdict alone never marks anything as confirmed. What reaches your team carries the request, the response and the proof, so engineers fix real holes instead of sorting noise."
+    },
+    {
+      "q": "Does it replace our annual pentest and compliance audits?",
+      "a": "Keep the certified annual pentest where regulators require it. Breakpoint makes that test shorter and keeps you covered between tests. Its reports are evidence for PCI DSS, ISO 27001, SOC 2 and DORA work, but they are not a certification."
+    }
+  ],
+  "close": {
+    "h": "See what an attacker would find",
+    "p": "Pick one application. We agree the scope in writing, attack it for 30 days and show you the proven findings and fixes."
+  }
+}
